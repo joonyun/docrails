@@ -1,54 +1,54 @@
-h2. Layouts and Rendering in Rails
+h2. 레일스의 레이아웃과 렌더링
 
-This guide covers the basic layout features of Action Controller and Action View. By referring to this guide, you will be able to:
+본 가이드에서는 액션 컨트롤러와 액션 뷰의 기본 레이아웃 기능을 다루게 됩니다. 본 가이드를 참조하여 다음을 구현할 수 있습니다.:
 
-* Use the various rendering methods built into Rails
-* Create layouts with multiple content sections
-* Use partials to DRY up your views
-* Use nested layouts (sub-templates)
+* 레일스에 내장된 다양한 렌더일 메소드 사용하기
+* 다중 컨텐츠 섹션과 함께 레이아웃 구성하기
+* partial 템플릿을 이용하여 뷰 템플릿의 중복 코드 없애기
+* 중첩레이아웃(서브템플릿) 사용하기 
 
 endprologue.
 
-h3. Overview: How the Pieces Fit Together
+h3(#Overview-How-the-Pieces-Fit-Together). 개요 : 컨텐츠 조각들을 합치는 방법
 
-This guide focuses on the interaction between Controller and View in the Model-View-Controller triangle. As you know, the Controller is responsible for orchestrating the whole process of handling a request in Rails, though it normally hands off any heavy code to the Model. But then, when it's time to send a response back to the user, the Controller hands things off to the View. It's that handoff that is the subject of this guide.
+이 가이드는 MVC 삼각구도에서 컨트롤러와 뷰 사이의 상호작용에 촛점을 맞추어 설명합니다. 알다시피, 컨트롤러는, 보통 많은 양의 코드가 모델에 집중되기는 하지만, 레일스에서 요청을 처리하는 전체 과정을 지휘하는 역할을 합니다. 그러나 유저에게 응답을 보낼 때, 컨트롤러는 뷰로 권한을 이양하게 됩니다. 이러한 과정을 본 가이드에서 다루게 됩니다. 
 
-In broad strokes, this involves deciding what should be sent as the response and calling an appropriate method to create that response. If the response is a full-blown view, Rails also does some extra work to wrap the view in a layout and possibly to pull in partial views. You'll see all of those paths later in this guide.
+대략적으로 이러한 과정은 응답으로 무엇을 보낼 것이고 응답을 만들기 위해 어떤 메소드를 호출할 것인가를 결정하게 됩니다. 응답으로 전체 뷰를 만들 경우, 레일스는 어떤 추가적인 작업을 수행하여 하나의 레이아웃으로 뷰를 감싸고 가능하면 @partial@ 를 이용하게 됩니다. 이 모든 것을 본 가이드에게 알게 될 것입니다. 
 
-h3. Creating Responses
+h3(#Creating-Responses). 응답 만들기
 
-From the controller's point of view, there are three ways to create an HTTP response:
+컨트롤러의 입장에서 볼 때 HTTP 응답을 보내는 방법으로 세가지가 있습니다:
 
-* Call +render+ to create a full response to send back to the browser
-* Call +redirect_to+ to send an HTTP redirect status code to the browser
-* Call +head+ to create a response consisting solely of HTTP headers to send back to the browser
+* +render+ 을 호출하여 브라우져로 완전한 응답을 보냅니다.
+* +redirect_to+ 를 호출하여 브라우져로 HTTP 리디렉트 상태코드를 보냅니다.
+* +head+ 를 호출하여 브라우져로 보내게 될 HTTP 헤더만으로 구성된 응답을 만들어 줍니다.
 
-I'll cover each of these methods in turn. But first, a few words about the very easiest thing that the controller can do to create a response: nothing at all.
+차례대로 이 메소드에 대해서 다룰 것이지만 무엇보다도, 컨트롤러가 응답을 만들기 위해서 할 수 있는 가장 손쉬운 것은 아무것도 없다는 것입니다.
 
-h4. Rendering by Default: Convention Over Configuration in Action
+h4(#Rendering-by-Default-Convention-Over-Configuration-in-Action). 디폴트 상태로 렌더링하기 : 액션에서의 규칙
 
-You've heard that Rails promotes "convention over configuration". Default rendering is an excellent example of this. By default, controllers in Rails automatically render views with names that correspond to valid routes. For example, if you have this code in your +BooksController+ class:
+알다시피 레일스는 "convention over configuration"(설정보다는 규칙)을 내세우고 있습니다. 디폴트 렌더링이 대표적인 예가 될 수 있습니다. 디폴트로 레일스의 컨트롤러는 라우트에 해당하는 이름으로 뷰를 렌더링합니다. 예를 들면, +BooksController+ 클래스가 다음과 같을 경우:
 
 <ruby>
 class BooksController < ApplicationController
 end
 </ruby>
 
-And the following in your routes file:
+라우트 파일에서 리소스 라우팅이 다음과 같고:
 
 <ruby>
 resources :books
 </ruby>
 
-And you have a view file +app/views/books/index.html.erb+:
++app/vews/books/index.html.erb+ 뷰 파일이 다음과 같다면:
 
 <ruby>
 <h1>Books are coming soon!</h1>
 </ruby>
 
-Rails will automatically render +app/views/books/index.html.erb+ when you navigate to +/books+ and you will see "Books are coming soon!" on your screen.
++/books+ 로 이동할 경우 레일스는 자동으로 +app/views/books/index.html.erb+ 를 렌더링해서 스크린상에 “Books are coming soon!”이라는 문구를 보여 줄 것입니다.
 
-However a coming soon screen is only minimally useful, so you will soon create your +Book+ model and add the index action to +BooksController+:
+그러나 이 문구가 보이는 스크린은 그렇게 유용한 정보가 없어서 +Book+ 모델을 만들어서 +BooksController+ 에 index 액션을 추가해 보도록 하겠습니다:
 
 <ruby>
 class BooksController < ApplicationController
@@ -58,9 +58,9 @@ class BooksController < ApplicationController
 end
 </ruby>
 
-Note that we don't have explicit render at the end of the index action in accordance with "convention over configuration" principle. The rule is that if you do not explicitly render something at the end of a controller action, Rails will automatically look for the +action_name.html.erb+ template in the controller's view path and render it. So in this case, Rails will render the +app/views/books/index.html.erb+ file.
+여기서 주목할 것은 CoC(설정보다는 규칙)원칙에 따라 @index@ 액션 마지막에 render 메소드가 명시되어 있지 않다는 것 입니다. 즉, 컨트롤러 액션의 마지막에 명시적으로 무언가를 render 하지 않는다면 레일스는 자동으로 컨트롤러의 뷰 경로상의 +action_name.html.erb+ 템플릿을 찾아 렌더링할 것입니다. 따라서 이 경우에, 레일스는 +app/views/books/index.html.erb+ 파일을 렌더링하게 될 것입니다.
 
-If we want to display the properties of all the books in our view, we can do so with an ERB template like this:
+만약 현재의 뷰에서 모든 책의 특징을 디스플레이하고자 한다면, ERB 템플릿을 다음과 같이 작성할 수 있습니다:
 
 <ruby>
 <h1>Listing Books</h1>
@@ -90,23 +90,23 @@ If we want to display the properties of all the books in our view, we can do so 
 <%= link_to "New book", new_book_path %>
 </ruby>
 
-NOTE: The actual rendering is done by subclasses of +ActionView::TemplateHandlers+. This guide does not dig into that process, but it's important to know that the file extension on your view controls the choice of template handler. Beginning with Rails 2, the standard extensions are +.erb+ for ERB (HTML with embedded Ruby), and +.builder+ for Builder (XML generator).
+NOTE: 실제적인 렌더링 작업은 +ActionsView::TemplateHandlers+ 가 하게 됩니다. 본 가이드에서는 이 과정을 깊숙이 다루지 않을 것이지만, 뷰 파일의 확장자에 따라 어떤 템플릿 핸들러가 작업을 하게 되는지를 결정하게 된다는 것을 아는 것이 중요합니다. 레일스 2에서는 ERB(루비코드가 임베디드된 HTML)에 대한 표준 확장자는 +.erb+ 이고 Builder(XML 생성기)에 대한 확장자는 +.builder+ 입니다.
 
-h4. Using +render+
+h4(#Using-render). +render+ 사용하기
 
-In most cases, the +ActionController::Base#render+ method does the heavy lifting of rendering your application's content for use by a browser. There are a variety of ways to customize the behaviour of +render+. You can render the default view for a Rails template, or a specific template, or a file, or inline code, or nothing at all. You can render text, JSON, or XML. You can specify the content type or HTTP status of the rendered response as well.
+대부분의 경우, +ActionController::Base#render+ 메소드는 브라우져에 보여 줄 어플리케이션의 내용물을 렌더링하는 힘든 작업을 하게 됩니다. 이러한 +render+ 메소드의 작업을 변경하는 방법에는 여러가지가 있습니다. 즉, +render+ 메소드는 레일스 템플릿의 디폴트 뷰, 특정 템플릿, 파일, 또는 인라인 코드를 렌더링할 수 있다는 것입니다. 개발자는 이러한 내용물을 텍스트, JSON, 또는 XML 포맷으로 렌더링할 수 있습니다. 또한 렌더링되는 응답내용물의 포맷이나 HTTP 상태를 명시할 수 있습니다.
 
-TIP: If you want to see the exact results of a call to +render+ without needing to inspect it in a browser, you can call +render_to_string+. This method takes exactly the same options as +render+, but it returns a string instead of sending a response back to the browser.
+TIP: +render+ 호출에 대한 정확한 결과물을 브라우져상에서 보지 않기를 원한다면, +render_to_string+ 를 호출할 수 있습니다. 이 메소드는 +render+와 동일한 옵션을 설정할 수 있지만, 응답내용을 브라우져가 아닌 문자열로 반환한다는 것입니다.
 
-h5. Rendering Nothing
+h5(#Rendering-Nothing). 아무것도 렌더링하지 않기
 
-Perhaps the simplest thing you can do with +render+ is to render nothing at all:
+아마도 +render+로 할 수 있는 가장 간단한 것은 아무것도 렌더링하지 않는 것입니다:
 
 <ruby>
 render :nothing => true
 </ruby>
 
-If you look at the response for this using cURL, you will see the following:
+cURL를 이용해서 응답내용을 본다면, 다음과 같을 것입니다:
 
 <shell>
 $ curl -i 127.0.0.1:3000/books
@@ -123,13 +123,13 @@ Cache-Control: no-cache
  $
 </shell>
 
-We see there is an empty response (no data after the +Cache-Control+ line), but the request was successful because Rails has set the response to 200 OK. You can set the +:status+ option on render to change this response. Rendering nothing can be useful for AJAX requests where all you want to send back to the browser is an acknowledgment that the request was completed.
+(+Cache-Control+ 라인 이후에 데이터가 없음) 응답내용이 아무 것도 없다는 것을 알 수 있지만 레일스가 응답코드로 200을 설정했기 때문에 요청이 성공적으로 이루어 진 것입니다. 이 응답을 변경하기 위해서는 렌더링시에 +:status+ 옵션을 설정하면 됩니다. 아무 것도 렌더링하지 않는 것은, 브라우저로 보내고자 하는 것이 그저 요청이 완료되었다는 내용 뿐인 AJAX 요청일 경우에 유용합니다.
 
-TIP: You should probably be using the +head+ method, discussed later in this guide, instead of +render :nothing+. This provides additional flexibility and makes it explicit that you're only generating HTTP headers.
+TIP: +render :nothing+ 대신에, 본 가이드의 나중에 언급될 것이지만, +head+ 메소드를 사용해야 할 것입니다. 이렇게 하면 보다 유연하게 작업을 할 수 있고 단지 HTTP 헤더만을 생성한다는 것을 명시적으로 알 수 있게 됩니다.
 
-h5. Rendering an Action's View
+h5(#Rendering-an-Actions-View). 액션 뷰 렌더링하기
 
-If you want to render the view that corresponds to a different action within the same template, you can use +render+ with the name of the view:
+동일한 템플릿내에서 다른 액션에 해당하는 뷰를 렌더링하고자 한다면, 해당 뷰의 이름으로 +render+ 메소드를 이용할 수 있습니다:
 
 <ruby>
 def update
@@ -142,9 +142,9 @@ def update
 end
 </ruby>
 
-If the call to +update_attributes+ fails, calling the +update+ action in this controller will render the +edit.html.erb+ template belonging to the same controller.
++update_attributes+ 호출이 실패한다면 이 컨트롤러에 있는 +update+ 액션에 대한 호출은 동일한 컨트롤러 내의 +edit.html.erb+ 템플릿을 렌더링하게 될 것입니다.
 
-If you prefer, you can use a symbol instead of a string to specify the action to render:
+개발자의 선호도에 따라, 렌더링할 액션을 명시하기 위해 문자열 대신에 심볼을 사용할 수도 있습니다:
 
 <ruby>
 def update
@@ -157,7 +157,7 @@ def update
 end
 </ruby>
 
-To be explicit, you can use +render+ with the +:action+ option (though this is no longer necessary in Rails 3.0):
+(레일스 3.0 이후부터는 더 이상 필요없게 되었지만,) 명확하게 하기 위해서 +:action+ 옵션을 추가하여 +render 메소드를 이용할 수도 있습니다:
 
 <ruby>
 def update
@@ -170,7 +170,7 @@ def update
 end
 </ruby>
 
-WARNING: Using +render+ with +:action+ is a frequent source of confusion for Rails newcomers. The specified action is used to determine which view to render, but Rails does _not_ run any of the code for that action in the controller. Any instance variables that you require in the view must be set up in the current action before calling +render+.
+WARNING: +:action+ 옵션으로 +render+ 메소드를 사용할 경우 레일스 초보자들에게는 혼선을 빚을 수 있습니다. 여기서의 명시된 액션은 렌더링할 뷰를 결정하기 위한 것으므로 레일스가 컨트롤러의 해당 액션에 대한 어떠한 코드도 실행하지 않는다는 것입니다. 따라서 명시된 액션의 뷰에서 필요로하는 인스턴스 변수들은 +render+ 를 호출하기 전에 현재의 액션에서 설정되어야만 한다는 것입니다.
 
 h5. Rendering an Action's Template from Another Controller
 

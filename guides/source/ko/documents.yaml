@@ -17,9 +17,9 @@
       url: active_record_validations_callbacks.html
       description: This guide covers how you can use Active Record validations and callbacks.
     -
-      name: 액티브레코드 관계
+      name: 액티브레코드 관계 [KO]
       url: association_basics.html
-      description: This guide covers all the associations provided by Active Record. [完]
+      description: This guide covers all the associations provided by Active Record.
     -
       name: 액티브레코드 쿼리인터페이스
       url: active_record_querying.html
@@ -32,18 +32,18 @@
       url: layouts_and_rendering.html
       description: This guide covers the basic layout features of Action Controller and Action View, including rendering and redirecting, using content_for blocks, and working with partials.
     - 
-      name: 액션 뷰 폼 헬퍼메소드
+      name: 액션 뷰 폼 헬퍼메소드 [KO]
       url: form_helpers.html
-      description: Guide to using built-in Form helpers. [完]
+      description: Guide to using built-in Form helpers.
 -
   name: 컨트롤러
   documents:
     - 
-      name: 액션 컨트롤러 개요
+      name: 액션 컨트롤러 개요 [KO]
       url: action_controller_overview.html
-      description: This guide covers how controllers work and how they fit into the request cycle in your application. It includes sessions, filters, and cookies, data streaming, and dealing with exceptions raised by a request, among other topics. [完]
+      description: This guide covers how controllers work and how they fit into the request cycle in your application. It includes sessions, filters, and cookies, data streaming, and dealing with exceptions raised by a request, among other topics.
     - 
-      name: 외부로부터 들어오는 레일스 라우팅
+      name: 외부로부터 들어오는 레일스 라우팅 [KO]
       url: routing.html
       description: This guide covers the user-facing features of Rails routing. If you want to understand how to use routing in your own Rails applications, start here.
 -
