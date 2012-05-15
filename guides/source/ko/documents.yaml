@@ -1,12 +1,12 @@
 - 
-  name: Start Here
+  name: 입문하기
   documents:
     -
       name: Getting Started with Rails
       url: getting_started.html
       description: Everything you need to know to install Rails and create your first application.
 -
-  name: Models
+  name: 모델
   documents:
     -
       name: Rails Database Migrations
@@ -19,35 +19,35 @@
     -
       name: Active Record Associations
       url: association_basics.html
-      description: This guide covers all the associations provided by Active Record.
+      description: This guide covers all the associations provided by Active Record. [完]
     -
       name: Active Record Query Interface
       url: active_record_querying.html
       description: This guide covers the database query interface provided by Active Record.
 -
-  name: Views
+  name: 뷰
   documents:      
     - 
-      name: Layouts and Rendering in Rails
+      name: 레일스 레이아웃과 렌더링
       url: layouts_and_rendering.html
       description: This guide covers the basic layout features of Action Controller and Action View, including rendering and redirecting, using content_for blocks, and working with partials.
     - 
       name: Action View Form Helpers
       url: form_helpers.html
-      description: Guide to using built-in Form helpers.
+      description: Guide to using built-in Form helpers. [完]
 -
-  name: Controllers
+  name: 컨트롤러
   documents:
     - 
-      name: Action Controller Overview
+      name: 액션 컨트롤러 개요
       url: action_controller_overview.html
-      description: This guide covers how controllers work and how they fit into the request cycle in your application. It includes sessions, filters, and cookies, data streaming, and dealing with exceptions raised by a request, among other topics.
+      description: This guide covers how controllers work and how they fit into the request cycle in your application. It includes sessions, filters, and cookies, data streaming, and dealing with exceptions raised by a request, among other topics. [完]
     - 
       name: Rails Routing from the Outside In
       url: routing.html
       description: This guide covers the user-facing features of Rails routing. If you want to understand how to use routing in your own Rails applications, start here.
 -
-  name: Digging Deeper
+  name: 심화학습
   documents:
     - 
       name: Active Support Core Extensions
@@ -97,17 +97,12 @@
       url: asset_pipeline.html
       description: This guide documents the asset pipeline.
     - 
-      name: Getting Started with Engines
-      url: engines.html
-      description: This guide explains how to write a mountable engine.
-      work_in_progress: true
-    - 
       name: The Rails Initialization Process
       work_in_progress: true
       url: initialization.html
       description: This guide explains the internals of the Rails initialization process as of Rails 3.1
 -
-  name: Extending Rails
+  name: 레일스 확장하기
   documents:
     - 
       name: The Basics of Creating Rails Plugins
@@ -138,14 +133,9 @@
       url: ruby_on_rails_guides_guidelines.html
       description: This guide documents the Ruby on Rails guides guidelines.
 -
-  name: Release Notes
+  name: 릴리스 노트
   documents:
     - 
-      name: Upgrading Ruby on Rails
-      url: upgrading_ruby_on_rails.html
-      work_in_progress: true
-      description: This guide helps in upgrading applications to latest Ruby on Rails versions.
-    -
       name: Ruby on Rails 3.2 Release Notes
       url: 3_2_release_notes.html
       description: Release notes for Rails 3.2.

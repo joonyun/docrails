@@ -1,16 +1,16 @@
-h2. A Guide to Active Record Associations
+h2. 액티브 레코드 관계에 대한 가이드
 
-This guide covers the association features of Active Record. By referring to this guide, you will be able to:
+본 가이드는 액티브레코드의 관계설정 기능을 다룰 것입니다. 본 가이드를 참고하면:
 
-* Declare associations between Active Record models
-* Understand the various types of Active Record associations
-* Use the methods added to your models by creating associations
+* 액티브레코드 모델간의 관계설정을 선언할 수 있습니다.
+* 액티브레코드 관계설정의 다양한 형태를 이해할 수 있습니다.
+* 관계설정을 만들게 됨으로써 모델에 추가되는 메소드를 사용할 수 있게 됩니다.
 
 endprologue.
 
-h3. Why Associations?
+h3(#Why_Associations). 왜 관계를 사용해야 하는가?
 
-Why do we need associations between models? Because they make common operations simpler and easier in your code. For example, consider a simple Rails application that includes a model for customers and a model for orders. Each customer can have many orders. Without associations, the model declarations would look like this:
+모델간에 왜 관계설정을 해야 하는가? 관계설정을 함으로써 흔히하는 작업을 코드 상에서 보다 간단하고 쉽게 구현할 수 있기 때문입니다. 예를 들면, 고객을 위한 모델과 주문을 위한 모델로 구성된 간단한 레일스 어플리케이션을 생각해 보겠습니다. 고객은 여러번의 주문을 할 수 있습니다. 모델간의 관계설정이 없다면, 모델 선언부는 다음과 같을 것입니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -20,14 +20,14 @@ class Order < ActiveRecord::Base
 end
 </ruby>
 
-Now, suppose we wanted to add a new order for an existing customer. We'd need to do something like this:
+이제, 기존의 고객으로부터 새로운 주문을 하나 받고 싶을 때 다음과 같은 조치를 취할 것입니다:
 
 <ruby>
 @order = Order.create(:order_date => Time.now,
   :customer_id => @customer.id)
 </ruby>
 
-Or consider deleting a customer, and ensuring that all of its orders get deleted as well:
+또는, 기존 고객을 삭제할 경우를 생각해 보면, 해당 고객의 기존의 주문 데이터도 함께 삭제되어야 할 것입니다:
 
 <ruby>
 @orders = Order.where(:customer_id => @customer.id)
@@ -37,7 +37,7 @@ end
 @customer.destroy
 </ruby>
 
-With Active Record associations, we can streamline these -- and other -- operations by declaratively telling Rails that there is a connection between the two models. Here's the revised code for setting up customers and orders:
+그러나, 액티브레코드 관계설정을 이용하면, 두 모델간에 연결이 있다고 레일스에게 선언적으로 알려주어 이것과 -- 기타 -- 작업을 유연하게 수행할 수 있습니다. 아래에 고객과 주문정보를 관리하는 변경된 코드를 소개합니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -49,23 +49,23 @@ class Order < ActiveRecord::Base
 end
 </ruby>
 
-With this change, creating a new order for a particular customer is easier:
+이와 같이 변경한 후에, 특정 고객에 대한 새로운 주문을 생성하는 것이 더 쉬워집니다:
 
 <ruby>
 @order = @customer.orders.create(:order_date => Time.now)
 </ruby>
 
-Deleting a customer and all of its orders is _much_ easier:
+해당 고객과 주문내역을 모두 삭제하는 것도 훨씬 더 쉬워집니다:
 
 <ruby>
 @customer.destroy
 </ruby>
 
-To learn more about the different types of associations, read the next section of this guide. That's followed by some tips and tricks for working with associations, and then by a complete reference to the methods and options for associations in Rails.
+다른 종류의 관계설정에 대한 더 자세한 내용은 본 가이드의 이어지는 섹션에서 읽어 볼 수 있습니다. 그 다음에 관계설정하에 작업하는 것에 대한 약간의 팁과 트릭이 소개될 것이고 마지막으로 레일스에서 관계설정시 사용가능한 메소드와 옵션들에 대한 완벽한 참조내용이 이어질 것입니다.
 
-h3. The Types of Associations
+h3(#The_Types_of_Associations). 관계설정의 종류
 
-In Rails, an _association_ is a connection between two Active Record models. Associations are implemented using macro-style calls, so that you can declaratively add features to your models. For example, by declaring that one model +belongs_to+ another, you instruct Rails to maintain Primary Key–Foreign Key information between instances of the two models, and you also get a number of utility methods added to your model. Rails supports six types of associations:
+레일스에서 _관계_ 란 두개의 액티브레코드 모델간의 연결을 말합니다. 관계설정은 매크로 형 호출을 통해서 이루어지므로 모델에 선언적으로 이와 관련된 기능추가를 하게 됩니다. 예를 들면, 한 모델이 다른 모델에 대해서 +belongs_to+ 관계를 선언하면 레일스는 두 모델의 인스턴스 간에 primary key 와 foreign key 정보를 관리하게 되고 이와 연관해서 수많은 유틸리티 메소드를 모델에서 사용할 수 있게 해 줍니다. 레일스는 6 종류의 "관계"를 지원합니다:
 
 * +belongs_to+
 * +has_one+
@@ -74,11 +74,11 @@ In Rails, an _association_ is a connection between two Active Record models. Ass
 * +has_one :through+
 * +has_and_belongs_to_many+
 
-In the remainder of this guide, you'll learn how to declare and use the various forms of associations. But first, a quick introduction to the situations where each association type is appropriate.
+본 가이드의 나머지 부분에서, 관계설정을 선언하는 방법과 다양한 형태의 관계설정을 사용하는 방법에 대해서 배우게 될 것입이니다. 그러나 먼저, 각각의 관계설정의 적용상황에 대한 간략한 소개를 하고자 합니다.
 
-h4. The +belongs_to+ Association
+h4(#The_belongs_to_Association). +belongs_to+ 관계
 
-A +belongs_to+ association sets up a one-to-one connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model. For example, if your application includes customers and orders, and each order can be assigned to exactly one customer, you'd declare the order model this way:
++belongs_to+ 관계는 다른 모델과의 일대일 연결을 설정하여 선언하는 모델의 인스턴스가 다른 모델의 인스턴스에 귀속(“belongs_to”)하게 됩니다. 예를 들면, 어플리케이션이 고객과 주문정보를 포함하고 있고 하나의 주문은 정확히 한 고객에게 할당된다면, 다음과 같이 주문 모델을 선언할 수 있습니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -88,9 +88,9 @@ end
 
 !images/belongs_to.png(belongs_to Association Diagram)!
 
-h4. The +has_one+ Association
+h4(#The_has_one_Association). +has_one+ 관계
 
-A +has_one+ association also sets up a one-to-one connection with another model, but with somewhat different semantics (and consequences). This association indicates that each instance of a model contains or possesses one instance of another model. For example, if each supplier in your application has only one account, you'd declare the supplier model like this:
++has_one+ 관계도 또 다른 모델과의 일대일 연결을 설정하지만, 약간 다른 의미와 결과를 보여 줍니다. 이 관계형은 한 모델의 각 인스턴스가 다른 모델의 인스턴스를 _*포함 또는 소유*_ 하게 됩니다. 예를 들면, 어플리케이션에서 공급자 한명이 단 하나의 계정을 가진다면 공급자 모델을 다음과 같이 선언할 수 있습니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -100,9 +100,9 @@ end
 
 !images/has_one.png(has_one Association Diagram)!
 
-h4. The +has_many+ Association
+h4(#The_has_many_Association). +has_many+ 관계
 
-A +has_many+ association indicates a one-to-many connection with another model. You'll often find this association on the "other side" of a +belongs_to+ association. This association indicates that each instance of the model has zero or more instances of another model. For example, in an application containing customers and orders, the customer model could be declared like this:
++has_many+ 관계는 다른 모델과의 일대다 연결을 해 줍니다. 종종 이 관계는 +belongs_to+ 관계의 "반대측" 관계형이라고 알게 될 것입니다. 이 관계형은 한 모델의 인스턴스가 다른 모델의 0개 또는 그 이상의 인스턴스를 가질 수 있게 됩니다. 예를 들면, 고객과 주문 정보를 포함하고 있는 어플리케이션에서, 고객 모델은 다음과 같이 선억할 수 있을 것입니다.:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -110,13 +110,13 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-NOTE: The name of the other model is pluralized when declaring a +has_many+ association.
+NOTE: +has_many+ 관계형을 선언할 때 다른 모델의 이름은 복수형을 사용합니다.
 
 !images/has_many.png(has_many Association Diagram)!
 
-h4. The +has_many :through+ Association
+h4(#The_has_many_through_Association). +has_many :through+ 관계
 
-A +has_many :through+ association is often used to set up a many-to-many connection with another model. This association indicates that the declaring model can be matched with zero or more instances of another model by proceeding _through_ a third model. For example, consider a medical practice where patients make appointments to see physicians. The relevant association declarations could look like this:
++has_many :through+ 관계는 또 다른 모델과의 다대다 연결을 설정하기 위해서 종종 사용됩니다. 이 관계형은, 관계를 선언하는 모델이 _제3의 모델를 통해서_ 0개 및 그 이상의 다른 모델의 인스턴스와 매칭되도록 해 줍니다. 예를 들면, 환자가 진료를 받기 위해 진료예약을 잡는 한 의원을 생각해 봅시다. 이와 연관된 관계 선언은 다음과 같을 수 있습니다:
 
 <ruby>
 class Physician < ActiveRecord::Base
@@ -137,17 +137,17 @@ end
 
 !images/has_many_through.png(has_many :through Association Diagram)!
 
-The collection of join models can be managed via the API. For example, if you assign
+join 모델 컬렉션은 API 를 이용해서 변경될 수 있습니다. 예를 들면, 다음과 같이 할당한다면,
 
 <ruby>
 physician.patients = patients
 </ruby>
 
-new join models are created for newly associated objects, and if some are gone their rows are deleted.
+새로 관계설정된 객체들에 대해서 새로운 join 모델들이 생성되고 이 중 몇개가 사라진다면 해당하는 레코드들고 삭제됩니다.
 
-WARNING: Automatic deletion of join models is direct, no destroy callbacks are triggered.
+WARNING: +join+ 모델의 자동 삭제기능은 직접적으로 일어나기 때문에, +destroy+ 콜백이 발생하지 않습니다.
 
-The +has_many :through+ association is also useful for setting up "shortcuts" through nested +has_many+ associations. For example, if a document has many sections, and a section has many paragraphs, you may sometimes want to get a simple collection of all paragraphs in the document. You could set that up this way:
++has_many :through+ 관계는+ 중첩된 +has_many+ 관계를 통해서 "쉬운 접근로"를 설정하는데도 유용하게 사용됩니다. 예를 하나의 문서에는 여러개의 섹션이 있고, 하나의 섹션은 여러개의 문장이 있다고 가정하면, 때때로는 문서내의 모든 문장을 한꺼번에 얻고자 할 경우가 있을 것입니다. 다음과 같은 방법으로 이런 상황을 설정할 수 있습니다:
 
 <ruby>
 class Document < ActiveRecord::Base
@@ -165,15 +165,15 @@ class Paragraph < ActiveRecord::Base
 end
 </ruby>
 
-With +:through => :sections+ specified, Rails will now understand:
++:through => :sections+ 를 명시하므로써, 레일스는 다음과 같은 코드를 이해하게 됩니다:
 
 <ruby>
 @document.paragraphs
 </ruby>
 
-h4. The +has_one :through+ Association
+h4(#The_has_one_through_Association). +has_one :through+ 관계
 
-A +has_one :through+ association sets up a one-to-one connection with another model. This association indicates that the declaring model can be matched with one instance of another model by proceeding _through_ a third model. For example, if each supplier has one account, and each account is associated with one account history, then the customer model could look like this:
++has_one :through+ 관계는 다음 모델과의 일대일 연결을 설정합니다. 이 관계형에서는, 관계선언을 하는 모델이 _제3의 모델을 통해서_ 다른 모델의 단일 인스턴스와 매칭될 수 있습니다. 예를 들면, 공급자 각자는 하나의 계정을 가지고 있고 각 계정은 단일 계정 내역과 연결된다면, 고객모델은 다음과 같이 보일 것입니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -193,9 +193,9 @@ end
 
 !images/has_one_through.png(has_one :through Association Diagram)!
 
-h4. The +has_and_belongs_to_many+ Association
+h4(#The_has_and_belongs_to_manyAssociation). +has_and_belongs_to_many+ 관계
 
-A +has_and_belongs_to_many+ association creates a direct many-to-many connection with another model, with no intervening model. For example, if your application includes assemblies and parts, with each assembly having many parts and each part appearing in many assemblies, you could declare the models this way:
++has_and_belongs_to_many+ 관계는 _제3의 모델을 경유하지 않은 상태에서_ 직접 다른 모델과 다대다 연결을 만들어 줍니다. 예를 들면, 어플리케이션에 조립품과 부품 모델이 있고 각 조립품은 다수의 부품을 가지며, 부품은 다수의 조립품을 가진다면, 다음과 같은 모델을 선언할 수 있습니다:
 
 <ruby>
 class Assembly < ActiveRecord::Base
@@ -209,11 +209,11 @@ end
 
 !images/habtm.png(has_and_belongs_to_many Association Diagram)!
 
-h4. Choosing Between +belongs_to+ and +has_one+
+h4(#Choosing_Between_belongs_to_and_has_one). +belongs_to+ 와 +has_one+ 중에서 어떤 것을 선택해야 하나!
 
-If you want to set up a one-to-one relationship between two models, you'll need to add +belongs_to+ to one, and +has_one+ to the other. How do you know which is which?
+두 모델사이에서 일대일 관계를 설정하고자 할 때, 한 모델에는 +belongs_to+ 를 추가하고 다른 모델에는 +has_one+ 을 추가할 필요가 있습니다. 그렇다면 어떤 것이 어떤 것인지 어떻게 알 수 있을까요.
 
-The distinction is in where you place the foreign key (it goes on the table for the class declaring the +belongs_to+ association), but you should give some thought to the actual meaning of the data as well. The +has_one+ relationship says that one of something is yours - that is, that something points back to you. For example, it makes more sense to say that a supplier owns an account than that an account owns a supplier. This suggests that the correct relationships are like this:
+차이는 +foreign key+ 를 어느 모델에 두느냐에 달려 있습니다. 즉, +belongs_to+ 관계를 선언하는 클래스가 연결되는 테이블에 foreign key 를 두는 것이지만, 또한 그 데이터의 실질적인 의미를 생각해야 합니다. +has_one+ 관계는 내가 무언가를 소유한다는 것을 의미합니다. 즉, 무언가가 나를 꺼꾸로 가리킨다는 것입니다. 예를 들면, 하나의 계정이 한사람의 공급자를 소유한다는 것보다는 한사람의 공급자가 하나의 계정을 소유한다고 말하는 것이 더 자연스러울 것입니다. 이것은 다음과 같은 정확한 관계설정을 제시해 줍니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -225,7 +225,7 @@ class Account < ActiveRecord::Base
 end
 </ruby>
 
-The corresponding migration might look like this:
+이에 해당하는 마이그레이션 코딩은 다음과 같이 보일 것입니다:
 
 <ruby>
 class CreateSuppliers < ActiveRecord::Migration
@@ -244,11 +244,11 @@ class CreateSuppliers < ActiveRecord::Migration
 end
 </ruby>
 
-NOTE: Using +t.integer :supplier_id+ makes the foreign key naming obvious and explicit. In current versions of Rails, you can abstract away this implementation detail by using +t.references :supplier+ instead.
+NOTE: +t.integer :supplier_id+ 를 사용하게 되면 foreign key 명명을 분명하고도 명확하게 해 주게 됩니다. 레일스의 현재 버전에서는 대신에 +t.references :supplier+ 를 사용하여 이와 같이 구체적으로 기술한 부분을 간략하게 줄여서 작성할 수 있습니다.
 
-h4. Choosing Between +has_many :through+ and +has_and_belongs_to_many+
+h4(#Choosing_Between_has_many_through_and_has_and_belongs_to_many). +has_many :through+ 와 +has_and_belongs_to_many+ 중 어느 것을 선택해야 하나!
 
-Rails offers two different ways to declare a many-to-many relationship between models. The simpler way is to use +has_and_belongs_to_many+, which allows you to make the association directly:
+레일스는 모델간의 다대다 관계설정법으로 2가지를 제공해 줍니다. 보다 간단한 방법은 +has_and_belongs_to_many+ 를 사용하는 것인데, 이 때는 제3의 모델을 통하지 않고 직접 관계설정을 할 수 있게 해 줍니다:
 
 <ruby>
 class Assembly < ActiveRecord::Base
@@ -260,7 +260,7 @@ class Part < ActiveRecord::Base
 end
 </ruby>
 
-The second way to declare a many-to-many relationship is to use +has_many :through+. This makes the association indirectly, through a join model:
+다대다 관계를 선언하는 두번째 방법은 +has_many :through+ 를 사용하는 것입니다. 이것은 +join+ 모델을 통해서 간적접으로 관계설정을 하도록 해줍니다:
 
 <ruby>
 class Assembly < ActiveRecord::Base
@@ -279,13 +279,13 @@ class Part < ActiveRecord::Base
 end
 </ruby>
 
-The simplest rule of thumb is that you should set up a +has_many :through+ relationship if you need to work with the relationship model as an independent entity. If you don't need to do anything with the relationship model, it may be simpler to set up a +has_and_belongs_to_many+ relationship (though you'll need to remember to create the joining table in the database).
+가장 간단한 법칙은, 하나의 독립된 실체로서 관계 모델을 가지고 작업을 하고자 한다면 +has_many :through+ 관계를 설정한다는 것입니다. 그 관계 모델로 아무런 일을 할 필요가 없을 경우라면, 실제 데이터베이스에서 연결 테이블을 만들어 주어야 하지만, +has_and_belongs_to_many+ 관계를 설정하는 것이 더 간단할 수 있습니다.
 
-You should use +has_many :through+ if you need validations, callbacks, or extra attributes on the join model.
++join+ 모델에 대해서 유효성 검증, 콜백, 또는 추가 속성을 필요로 한다면 +has_many :through+ 를 사용해야 합니다.
 
-h4. Polymorphic Associations
+h4(#Polymorphic_Associations). 다형성(polymorphic) 관계
 
-A slightly more advanced twist on associations is the _polymorphic association_. With polymorphic associations, a model can belong to more than one other model, on a single association. For example, you might have a picture model that belongs to either an employee model or a product model. Here's how this could be declared:
+관계형 중에서 조금 더 발전된 형태는 _다형성(polymorphic)_ 관계형입니다. 이 다형성 관계형에서는, 하나의 모델이 하나의 관계설정하에 하나 이상의 모델에 속할 수 있다는 것입니다. 예를 들면, 직원 모델과 상품 모델에 속할 수 있는 사진 모델을 생각해 볼 수 있습니다. 다음에서 어떻게 선언될 수 있는지를 볼 수 있습니다:
 
 <ruby>
 class Picture < ActiveRecord::Base
@@ -301,11 +301,11 @@ class Product < ActiveRecord::Base
 end
 </ruby>
 
-You can think of a polymorphic +belongs_to+ declaration as setting up an interface that any other model can use. From an instance of the +Employee+ model, you can retrieve a collection of pictures: +@employee.pictures+.
+다형성 +belongs_to+ 를, 다른 모델이 사용할 수 있는 인터페이스를 설정하는 것으로 생각하면 쉽게 이해가 가리라 생각됩니다. 직원 모델의 한 인스턴스로부터 사진들(+@employee.pictures+)을 얻어낼 수 있습니다.
 
-Similarly, you can retrieve +@product.pictures+.
+이와 같이, +@product.pictures+ 로 제품의 사진들을 얻어낼 수 있게 됩니다.
 
-If you have an instance of the +Picture+ model, you can get to its parent via +@picture.imageable+. To make this work, you need to declare both a foreign key column and a type column in the model that declares the polymorphic interface:
+사진 모델에서 인스턴스 하나를 만들면, +@picture.imageable+ 로 사진의 모 객체에 접근할 수 잇습니다. 이렇게 하려면, 다형성 인턴페이스를 선언하는 모델에서 +foreign key+ 컬럼과 +type+ 컬럼을 선언할 필요가 있습니다:
 
 <ruby>
 class CreatePictures < ActiveRecord::Migration
@@ -320,7 +320,7 @@ class CreatePictures < ActiveRecord::Migration
 end
 </ruby>
 
-This migration can be simplified by using the +t.references+ form:
+이 마이그레이션 코드는 +t.references+ 형태를 이용해서 간단하게 코딩할 수 있습니다:
 
 <ruby>
 class CreatePictures < ActiveRecord::Migration
@@ -336,33 +336,32 @@ end
 
 !images/polymorphic.png(Polymorphic Association Diagram)!
 
-h4. Self Joins
+h4(#Self_Joins). Self Joins
 
-In designing a data model, you will sometimes find a model that should have a relation to itself. For example, you may want to store all employees in a single database model, but be able to trace relationships such as between manager and subordinates. This situation can be modeled with self-joining associations:
+데이터 모델을 디자인할 때, 종종, 자기 자신에 대한 관계설정을 선언해야 하는 경우가 있습니다. 예를 들면, 단일 데이터베이스에 모든 직원을 저장하고 매니저(manager)와 부하직원(subordinate)사이와 같은 관계를 추적하고자 할 수 있습니다. 이러한 상황은 +self-join+ 관계로 모델을 작성할 수 있습니다:
 
 <ruby>
 class Employee < ActiveRecord::Base
-  has_many :subordinates, :class_name => "Employee",
+  has_many :subordinates, :class_name => "Employee"
+  belongs_to :manager, :class_name => "Employee",
     :foreign_key => "manager_id"
-  belongs_to :manager, :class_name => "Employee"
 end
 </ruby>
 
-With this setup, you can retrieve +@employee.subordinates+ and +@employee.manager+.
+이렇게 설정하므로써, +@employee.subordinates+ 와 +@employee.manager+ 와 같이 데이터 접근을 할 수 있게 됩니다.
 
-h3. Tips, Tricks, and Warnings
+h3(#Tips_Tricks_and_Warnings). 팁, 트릭, 경고
 
-Here are a few things you should know to make efficient use of Active Record associations in your Rails applications:
+레일스 어플리케이션에서 액티브레코드 관계형을 효과적으로 사용하기 위해서는 아래의 몇가지 사항을 알아두어야 합니다:
 
-* Controlling caching
-* Avoiding name collisions
-* Updating the schema
-* Controlling association scope
-* Bi-directional associations
+* 캐싱 제어하기
+* 이름 충돌 피하기
+* 스키마 업데이트하기
+* 관계설정 영역 제어하기
 
-h4. Controlling Caching
+h4(#Controlling_Caching). 캐싱 제어하기
 
-All of the association methods are built around caching, which keeps the result of the most recent query available for further operations. The cache is even shared across methods. For example:
+모든 관계형 메소드는, 가장 최근의 쿼리 결과를 추가 동작에서 이용할 수 있게 유지는 캐싱을 통해서 만들어져 있습니다. 이러한 캐시는 메소드간에 공유되기도 합니다. 예를 들면:
 
 <ruby>
 customer.orders                 # retrieves orders from the database
@@ -370,7 +369,7 @@ customer.orders.size            # uses the cached copy of orders
 customer.orders.empty?          # uses the cached copy of orders
 </ruby>
 
-But what if you want to reload the cache, because data might have been changed by some other part of the application? Just pass +true+ to the association call:
+그러나 어플리케이션의 다른 부분에서 데이터를 변경했기 때문에 캐시를 다시 로드하고자 한다면 어떻게 해야 할까요. 관계형 메소드에 +true+ 값을 넘겨 주기만 하면 됩니다:
 
 <ruby>
 customer.orders                 # retrieves orders from the database
@@ -379,17 +378,17 @@ customer.orders(true).empty?    # discards the cached copy of orders
                                 # and goes back to the database
 </ruby>
 
-h4. Avoiding Name Collisions
+h4(#Avoiding_Name_Collisions). 이름 충돌 피하기
 
-You are not free to use just any name for your associations. Because creating an association adds a method with that name to the model, it is a bad idea to give an association a name that is already used for an instance method of +ActiveRecord::Base+. The association method would override the base method and break things. For instance, +attributes+ or +connection+ are bad names for associations.
+관계설정을 위한 이름으로 아무거나 사용할 수 없습니다. 특정 이름으로 관계를 설정하면 그 이름를 가진 메소드를 해당 모델에 추가하므로 +ActiveRecord::Base+ 의 인스턴스 메소드로 이미 사용되고 있는 이름으로 관계를 설정하는 것은 좋은 생각이 되지 못합니다. 이 경우, 관계 메소드는 기본 메소드를 변경하여 본래의 기능을 못하게 합니다. 예를 들면, +attributes+ 나 +connection+ 같은 이름은 관계형 이름으로 좋지 못합니다.
 
-h4. Updating the Schema
+h4(#Updating_the_Schema). 스키마 업데이트하기
 
-Associations are extremely useful, but they are not magic. You are responsible for maintaining your database schema to match your associations. In practice, this means two things, depending on what sort of associations you are creating. For +belongs_to+ associations you need to create foreign keys, and for +has_and_belongs_to_many+ associations you need to create the appropriate join table.
+관계설정은 매우 유용하지만 그렇다고 마술같은 것은 아닙니다. 관계설정을 실제로 테이블과 연결시키기 위해서는 데이터베이스 스키마를 직접 관리해야 합니다. 실제로, 이것은 관계형에 따라 두가지를 의미합니다. +belongs_to+ 관계형의 경우에는 +foregin key+ 를 생성해 주어야 하고 +has_and_belongs_to_many+ 관계인 경우에는 알맞은 +join+ 테이블을 생성해 주어야 합니다.
 
-h5. Creating Foreign Keys for +belongs_to+ Associations
+h5(#Creating_Foreign_Keys_for_belongs_to_Associations). +belongs_to+ 관계를 위한 +foreign key+ 생성하기
 
-When you declare a +belongs_to+ association, you need to create foreign keys as appropriate. For example, consider this model:
++belongs_to+ 관계를 선언할 때, 알맞은 +foregin key+ 를 생성할 필요가 있습니다. 예를 들면, 다음의 모델을 살펴보기 바랍니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -397,7 +396,7 @@ class Order < ActiveRecord::Base
 end
 </ruby>
 
-This declaration needs to be backed up by the proper foreign key declaration on the orders table:
+이 선언은 실제로 주문 테이블에 알맞은 foreign key 를 선언해 주어야 합니다:
 
 <ruby>
 class CreateOrders < ActiveRecord::Migration
@@ -411,15 +410,15 @@ class CreateOrders < ActiveRecord::Migration
 end
 </ruby>
 
-If you create an association some time after you build the underlying model, you need to remember to create an +add_column+ migration to provide the necessary foreign key.
+하위 모델을 만든 후 언젠가 관계설정을 만들고자 한다면 필요한 +foreign key+ 를 제공하기 위해서 +add_column+ 마이그레이션을 만들어 주는 것을 기억해야만 합니다.
 
-h5. Creating Join Tables for +has_and_belongs_to_many+ Associations
+h5(#Creating_Join_Tables_for_has_and_belongs_to_many_Associations). has_and_belongs_to_many 관계형을 위한 +Join+ 테이블 만들기
 
-If you create a +has_and_belongs_to_many+ association, you need to explicitly create the joining table. Unless the name of the join table is explicitly specified by using the +:join_table+ option, Active Record creates the name by using the lexical order of the class names. So a join between customer and order models will give the default join table name of "customers_orders" because "c" outranks "o" in lexical ordering.
++has_and_belongs_to_many+ 관계를+ 만들 때 반드시 명시적으로 +join+ 테이블을 만들어 주어야 합니다. +:join_table+ 옵션으로 +join+ 테이블명을 명시하지 않으면, 액티브레코드는 모델 클래스명의 사전 순에 따라 이름을 만들게 됩니다. 그래서 +customer+ 와 +order+ 모델사이의 +join+ 은 “c” 가 “o” 보다 먼저 오기 때문에 디폴트 join 테이블명을 "customers_orders" 라고 작명하게 되는 것입니다.
 
-WARNING: The precedence between model names is calculated using the +&lt;+ operator for +String+. This means that if the strings are of different lengths, and the strings are equal when compared up to the shortest length, then the longer string is considered of higher lexical precedence than the shorter one. For example, one would expect the tables "paper_boxes" and "papers" to generate a join table name of "papers_paper_boxes" because of the length of the name "paper_boxes", but it in fact generates a join table name of "paper_boxes_papers" (because the underscore '_' is lexicographically _less_ than 's' in common encodings).
+WARNING: 모델명간의 우선 순위는 +String+ 에 대한 +&lt;+ 연산자를 이용하여 정하게 됩니다. 문자열이 길이가 다르고 최단길이에서 동일하다면 길이가 더 긴 문자열이 짧은 문자열보다 사전전 우선 순위가 더 높은 것으로 고려된다는 것입니다. 예를 들어 “paper_boxes” 와 “papers” 테이블이 있을 때 두개의 +join+ 테이블명은 “paper_boxes” 테이블명이 더 길기 때문에 “papers_paper_boxes” 로 만들어 지게 됩니다. 그러나 실제로는, 밑줄문자 '_' 가 일반적인 인코딩상에서 사전적으로 's' 보다 우선하기 때문에 “paper_boxes_papers” 라는 +join+ 테이블명이 만들어지게 됩니다.
 
-Whatever the name, you must manually generate the join table with an appropriate migration. For example, consider these associations:
+이름이야 어찌됐던간에, 직접 알맞은 마이그레이션으로 +join+ 테이블을 만들어 주어야 합니다. 예를 들어, 다음의 관계선언을 보기 바랍니다:
 
 <ruby>
 class Assembly < ActiveRecord::Base
@@ -431,7 +430,7 @@ class Part < ActiveRecord::Base
 end
 </ruby>
 
-These need to be backed up by a migration to create the +assemblies_parts+ table. This table should be created without a primary key:
+이것은 +assembles_parts+ 테이블을 만들기 위해 마이그레이션을 만들어 주어야 합니다. 이 테이블은 +primary key+ 가 없는 상태로 만들어져야 함을 잊지 말기 바랍니다:
 
 <ruby>
 class CreateAssemblyPartJoinTable < ActiveRecord::Migration
@@ -444,11 +443,11 @@ class CreateAssemblyPartJoinTable < ActiveRecord::Migration
 end
 </ruby>
 
-We pass +:id => false+ to +create_table+ because that table does not represent a model. That's required for the association to work properly. If you observe any strange behavior in a +has_and_belongs_to_many+ association like mangled models IDs, or exceptions about conflicting IDs chances are you forgot that bit.
+여기서 테이블이 하나의 모델을 나타내지 않기 때문에 +create_table+ 메소드에 +:id => false+ 를 넘겨 줍니다. 이것은 +has_and_belongs_to_many+ 관계가 제대로 동작하는 데 필수적입니다. 만약 모델 +IDs+ 가 엉망이 되어 충돌하는 예외상황이 발생하는 것과 같이 +has_and_belong_to_many+ 관계를 구현할 때 이상증상을 보이게 되면 바로 이러한 부분을 제대로 설정하지 못했기 때문입니다.
 
-h4. Controlling Association Scope
+h4(#Controlling_Association_Scope). 관계 영역 제어하기
 
-By default, associations look for objects only within the current module's scope. This can be important when you declare Active Record models within a module. For example:
+디폴트로, 관계설정시 현재 모듈 역역에서만 객체들을 찾아보게 됩니다. 이러한 사실은 한 모듈내에서 액티브레코드 모델을 선언할 때 중요할 수 있습니다. 예를 들면:
 
 <ruby>
 module MyApplication
@@ -464,7 +463,7 @@ module MyApplication
 end
 </ruby>
 
-This will work fine, because both the +Supplier+ and the +Account+ class are defined within the same scope. But the following will _not_ work, because +Supplier+ and +Account+ are defined in different scopes:
++Supplier+ 와 +Account+ 클래스가 동일한 영역에 정의되어 있기 때문에 위의 코드는 잘 동작할 것입니다. 그러나, 다음의 코드는 +Supplier+ 와 +Account+ 클래스가 각각 다른 영역에서 정의되기 때문에 _동작하지 않을 것입니다_:
 
 <ruby>
 module MyApplication
@@ -482,7 +481,7 @@ module MyApplication
 end
 </ruby>
 
-To associate a model with a model in a different namespace, you must specify the complete class name in your association declaration:
+각기 다른 네임스페이스에 있는 모델을 연관짓기 위해서는 관계설정시 완전한 클래스 경로를 명시해 주어야 합니다:
 
 <ruby>
 module MyApplication
@@ -502,77 +501,24 @@ module MyApplication
 end
 </ruby>
 
-h4. Bi-directional Associations
+h3(#Detailed_Association_Reference). 상세한 관계 레퍼런스
 
-It's normal for associations to work in two directions, requiring declaration on two different models:
+다음은 관계선언시 추가하게 되는 메소드나 옵션을 포함해서 관계형 각각에 대한 상세한 내용을 다룰 것입니다.
 
-<ruby>
-class Customer < ActiveRecord::Base
-  has_many :orders
-end
+h4(#belongs_to_Association_Reference). +belongs_to+ 관계 레퍼런스
 
-class Order < ActiveRecord::Base
-  belongs_to :customer
-end
-</ruby>
++belongs_to+ 관계는 다른 모델과 일대일 연결을 만들어 줍니다. 데이터베이스 용어로는, 해당 클래스가 +foreign key+ 를 가지게 된다고 말합니다. 다른 클래스가 +foreign key+ 를 가지게 되면, +has_one+ 관계 대신를 사용해야 합니다..
 
-By default, Active Record doesn't know about the connection between these associations. This can lead to two copies of an object getting out of sync:
+h5(Methods_Added_by_belongs_to). +belongs_to+ 가 추가하는 메소드
 
-<ruby>
-c = Customer.first
-o = c.orders.first
-c.first_name == o.customer.first_name # => true
-c.first_name = 'Manny'
-c.first_name == o.customer.first_name # => false
-</ruby>
-
-This happens because c and o.customer are two different in-memory representations of the same data, and neither one is automatically refreshed from changes to the other. Active Record provides the +:inverse_of+ option so that you can inform it of these relations:
-
-<ruby>
-class Customer < ActiveRecord::Base
-  has_many :orders, :inverse_of => :customer
-end
-
-class Order < ActiveRecord::Base
-  belongs_to :customer, :inverse_of => :orders
-end
-</ruby>
-
-With these changes, Active Record will only load one copy of the customer object, preventing inconsistencies and making your application more efficient:
-
-<ruby>
-c = Customer.first
-o = c.orders.first
-c.first_name == o.customer.first_name # => true
-c.first_name = 'Manny'
-c.first_name == o.customer.first_name # => true
-</ruby>
-
-There are a few limitations to +inverse_of+ support:
-
-* They do not work with <tt>:through</tt> associations.
-* They do not work with <tt>:polymorphic</tt> associations.
-* They do not work with <tt>:as</tt> associations.
-* For +belongs_to+ associations, +has_many+ inverse associations are ignored.
-
-h3. Detailed Association Reference
-
-The following sections give the details of each type of association, including the methods that they add and the options that you can use when declaring an association.
-
-h4. +belongs_to+ Association Reference
-
-The +belongs_to+ association creates a one-to-one match with another model. In database terms, this association says that this class contains the foreign key. If the other class contains the foreign key, then you should use +has_one+ instead.
-
-h5. Methods Added by +belongs_to+
-
-When you declare a +belongs_to+ association, the declaring class automatically gains four methods related to the association:
++belongs_to+ 관계를 맺으면, 선언하는 클래스는 자동으로 다음의 4가지 메소드를 사용할 수 있게 됩니다:
 
 * <tt><em>association</em>(force_reload = false)</tt>
 * <tt><em>association</em>=(associate)</tt>
 * <tt>build_<em>association</em>(attributes = {})</tt>
 * <tt>create_<em>association</em>(attributes = {})</tt>
 
-In all of these methods, <tt><em>association</em></tt> is replaced with the symbol passed as the first argument to +belongs_to+. For example, given the declaration:
+위의 모든 메소드에서 <tt><em>association</em></tt> 을 +belongs_to+ 의 첫번째 인수로 받은 심볼로 바꾸면 됩니다. 예를 들어, 다음과 같이 선언하면:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -580,7 +526,7 @@ class Order < ActiveRecord::Base
 end
 </ruby>
 
-Each instance of the order model will have these methods:
++Order+ 모델의 각 인스턴스는 다음과 같은 메소드를 가지게 될 것입니다:
 
 <ruby>
 customer
@@ -589,21 +535,21 @@ build_customer
 create_customer
 </ruby>
 
-NOTE: When initializing a new +has_one+ or +belongs_to+ association you must use the +build_+ prefix to build the association, rather than the +association.build+ method that would be used for +has_many+ or +has_and_belongs_to_many+ associations. To create one, use the +create_+ prefix.
+NOTE: +has_one+ 또는 +belongs_to+ 관계를 새로 생성해서 초기화할 때는, +has_many+ 또는 +has_and_belongs_to_many+ 관계에 대해서 사용되는 +association.build+ 메소드보다는, 관계형을 만들 때 선언시 넘겨주는 첫번째 인수에 +build_+ 를 붙여서 사용해야 합니다. 초기화가 아니라 생성할 때는 +create_+ 를 붙여서 사용해야 합니다.
 
 h6(#belongs_to-association). <tt><em>association</em>(force_reload = false)</tt>
 
-The <tt><em>association</em></tt> method returns the associated object, if any. If no associated object is found, it returns +nil+.
+<tt><em>association</em></tt> 메소드는 연결된 객체가 있을 경우 그것을 반환합니다. 연결된 객체가 없는 경우에는, +nil+ 값을 반환하게 됩니다.
 
 <ruby>
 @customer = @order.customer
 </ruby>
 
-If the associated object has already been retrieved from the database for this object, the cached version will be returned. To override this behavior (and force a database read), pass +true+ as the +force_reload+ argument.
+연관된 객체가 이미 이 객체에 대해서 데이터베이스로부터 데이터를 가져온 상태라면 캐시된 버전이 반환될 것입니다. 이 때 강제로 데이터베이스로부터 데이터를 다시 불러오고자 할 경우에는, +force_reload+ 값으로 +true+ 값을 넘겨주어야 합니다.
 
 h6(#belongs_to-association_equal). <tt>_association_=(associate)</tt>
 
-The <tt><em>association</em>=</tt> method assigns an associated object to this object. Behind the scenes, this means extracting the primary key from the associate object and setting this object's foreign key to the same value.
+<tt><em>association</em>=</tt> 메소드는 이 객체에 연관된 객체를 할당합니다. 백그라운드에서는 연관된 객체(여기서는 associate)로부터 +primary key+ 값을 가져와서 이 객체(+Order+)의 +foreign key+ 로 할당하게 되는 것입니다.
 
 <ruby>
 @order.customer = @customer
@@ -611,7 +557,7 @@ The <tt><em>association</em>=</tt> method assigns an associated object to this o
 
 h6(#belongs_to-build_association). <tt>build_<em>association</em>(attributes = {})</tt>
 
-The <tt>build_<em>association</em></tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, and the link through this object's foreign key will be set, but the associated object will _not_ yet be saved.
+<tt>build_<em>association</em></tt> 메소드는 해당 관계형의 새로운 객체를 반환해 줍니다. 그리고, 이 객체는 매개변수로 넘어온 속성값으로 초기화되며, 이 객체의 foreign key 값으로의 연결이 설정될 것이지만, 연관된 객체는 _아직 저장되지 않을 것입니다_.
 
 <ruby>
 @customer = @order.build_customer(:customer_number => 123,
@@ -620,7 +566,7 @@ The <tt>build_<em>association</em></tt> method returns a new object of the assoc
 
 h6(#belongs_to-create_association). <tt>create_<em>association</em>(attributes = {})</tt>
 
-The <tt>create_<em>association</em></tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, the link through this object's foreign key will be set, and, once it passes all of the validations specified on the associated model, the associated object _will_ be saved.
+<tt>create_<em>association</em></tt> 메소드는 해당 관계형의 새로운 객체를 반환해 줍니다. 이 객체는 넘어온 속성으로 초기화되며, 이 객체의 +foreign key+ 값으로의 연결이 설정됩니다. 또한, 연관된 객체는 유효성 검증을 통과한 것으로 간주하고 _저장될 것입니다_.
 
 <ruby>
 @customer = @order.create_customer(:customer_number => 123,
@@ -628,9 +574,9 @@ The <tt>create_<em>association</em></tt> method returns a new object of the asso
 </ruby>
 
 
-h5. Options for +belongs_to+
+h5(#Options_for_belongs_to). +belongs_to+ 메소드의 옵션
 
-While Rails uses intelligent defaults that will work well in most situations, there may be times when you want to customize the behavior of the +belongs_to+ association reference. Such customizations can easily be accomplished by passing options when you create the association. For example, this assocation uses two such options:
+대부분의 경우, 특별히 사용자화 과정이 필요없이 +belongs_to+ 메소드의 디폴트 기능을 그대로 사용합니다. 그러나 레일스의 _*설정보다는 규칙(CoC)*_ 케치프레이즈에도 불구하고, 다양한 방법으로 기능을 변경해서 사용할 수 있습니다. 여기서는 +belongs_to+ 관계를 만들 때 설정할 수 있는 옵션에 대해서 설명합니다. 예를 들어, 몇가지 옵션을 가지는 관계설정은 다음과 같습니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -639,7 +585,7 @@ class Order < ActiveRecord::Base
 end
 </ruby>
 
-The +belongs_to+ association supports these options:
++belongs_to+ 메소드는 다음과 같은 옵션을 사용할 수 있습니다:
 
 * +:autosave+
 * +:class_name+
@@ -648,7 +594,6 @@ The +belongs_to+ association supports these options:
 * +:dependent+
 * +:foreign_key+
 * +:include+
-* +:inverse_of+
 * +:polymorphic+
 * +:readonly+
 * +:select+
@@ -657,11 +602,11 @@ The +belongs_to+ association supports these options:
 
 h6(#belongs_to-autosave). +:autosave+
 
-If you set the +:autosave+ option to +true+, Rails will save any loaded members and destroy members that are marked for destruction whenever you save the parent object.
++:autosave+ 옵션이 +true+ 값으로 설정되면, 레일스는 모객체가 저장될 때마다 모든 로딩된 멤버를 저장하고 삭제표시된 멤버를 삭제할 것입니다.
 
 h6(#belongs_to-class_name). +:class_name+
 
-If the name of the other model cannot be derived from the association name, you can use the +:class_name+ option to supply the model name. For example, if an order belongs to a customer, but the actual name of the model containing customers is +Patron+, you'd set things up this way:
+다른 모델의 이름을 관계선언으로부터 알 수 없을 경우에는 +:class_name+ 옵션을 이용해서 모델명을 명시할 수 있습니다. 예를 들면, +Order+ 가 +Customer+ 모델에 속하지만, +customers+ 를 포함하는 모델의 실제 이름이 +Patron+ 이라면 다음과 같이 설정해야 합니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -671,7 +616,7 @@ end
 
 h6(#belongs_to-conditions). +:conditions+
 
-The +:conditions+ option lets you specify the conditions that the associated object must meet (in the syntax used by an SQL +WHERE+ clause).
++:conditions+ 옵션은 연관된 객체가 충족해야할 조건을 SQL +WHERE+ 절의 문장으로 명시해 줍니다.
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -681,7 +626,7 @@ end
 
 h6(#belongs_to-counter_cache). +:counter_cache+
 
-The +:counter_cache+ option can be used to make finding the number of belonging objects more efficient. Consider these models:
++:counter_cache+ 옵션은 속하는 객체의 숫자를 계산하는 일을 보다 효율적으로 하도록 해 줍니다. 다음 모델을 살펴 보겠습니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -692,7 +637,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-With these declarations, asking for the value of +@customer.orders.size+ requires making a call to the database to perform a +COUNT(*)+ query. To avoid this call, you can add a counter cache to the _belonging_ model:
+이렇게 선언하면 +@customer.orders.size+ 값을 요청할 때 데이터베이스에서 +COUNT(*)+ 쿼리문을 호출하게 됩니다. 이러한 호출을 방지하기 위해서 _귀속되는_ 모델에 +counter_cache+ 옵션을 추가할 수 있습니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -703,9 +648,9 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-With this declaration, Rails will keep the cache value up to date, and then return that value in response to the +size+ method.
+이렇게 선언해 주면, 레일스가 캐시값을 최신값으로 유지하게 되고 +size+ 메소드를 호출할 때 그 값을 반환하게 되는 것입니다.
 
-Although the +:counter_cache+ option is specified on the model that includes the +belongs_to+ declaration, the actual column must be added to the _associated_ model. In the case above, you would need to add a column named +orders_count+ to the +Customer+ model. You can override the default column name if you need to:
+비록 +:counter_cache+ 옵션을 +belongs_to+ 선언을 가지고 있는 모델에 명시해 두더라도 실제 컬럼을 연관된 모델에 추가해 주어야 합니다. 위의 예에서, +Customer+ 모델에 +orders_count+ 컬럼을 추가해 주어야 합니다. 필요하다면 디폴트 컬럼명을 변경할 수 있습니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -716,17 +661,17 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-Counter cache columns are added to the containing model's list of read-only attributes through +attr_readonly+.
++Counter cache+ 컴럼은 +attr_readonly+ 옵션을 이용해서 해당 모델의 읽기전용 컬럼 목록에 추가됩니다.
 
 h6(#belongs_to-dependent). +:dependent+
 
-If you set the +:dependent+ option to +:destroy+, then deleting this object will call the +destroy+ method on the associated object to delete that object. If you set the +:dependent+ option to +:delete+, then deleting this object will delete the associated object _without_ calling its +destroy+ method.
++:dependent+ 옵션을 +:destroy+ 값으로 설정하면 이 객체를 삭제할 때 이와 연관된 객체도 삭제하기 위해 +destroy+ 메소드를 호출할 것입니다. +:dependent+ 옵션을 +:delete+ 로 설정한다면, +destroy+ 메소드를 호출하지 않고 연관된 객체를 삭제할 것입니다.
 
-WARNING: You should not specify this option on a +belongs_to+ association that is connected with a +has_many+ association on the other class. Doing so can lead to orphaned records in your database.
+WARNING: 상대 클래스에 has_many 관계형을 선언한 상태에서 +belongs_to+ 관계로 연결되는 모델에 이 옵션을 사용해서는 안됩니다(?). 명시할 경우 데이터베이스에 모 객체가 없이 자 객체만 남게됩니다. 사실 모(+parent+)객체가 없는 자(+child+)객체는 의미없는 객체가 되는 것입니다.
 
 h6(#belongs_to-foreign_key). +:foreign_key+
 
-By convention, Rails assumes that the column used to hold the foreign key on this model is the name of the association with the suffix +_id+ added. The +:foreign_key+ option lets you set the name of the foreign key directly:
+규칙상, 레일스는 이 모델의 +foreign key+ 를 가지는 컬럼명을 (+belongs_to+ 다음에 오는) 모델 심볼명에 +_id+ 를 덧불인 이름으로 간주합니다. 이 때 +:foreign_key+ 옵션을 이용하여 직접 +foreign key+ 의 이름을 설정할 수 있게 해 줍니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -735,11 +680,11 @@ class Order < ActiveRecord::Base
 end
 </ruby>
 
-TIP: In any case, Rails will not create foreign key columns for you. You need to explicitly define them as part of your migrations.
+TIP: 어떠한 경우에라도, 레일스가 개발자를 대신해서 +foreign key+ 를 만들어 주지 않습니다. 마이그레이션 파일에 명시적으로 직접 정의해 주어야 합니다.
 
 h6(#belongs_to-includes). +:include+
 
-You can use the +:include+ option to specify second-order associations that should be eager-loaded when this association is used. For example, consider these models:
++:include+ 옵션을 사용하여 이 관계가 사용될 때 로드되기를 바라는 2차 관계를 명시할 수 있습니다. 예를 들어 다음과 같은 모델 관계이 있다고 가정해 보겠습니다:
 
 <ruby>
 class LineItem < ActiveRecord::Base
@@ -756,7 +701,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-If you frequently retrieve customers directly from line items (+@line_item.order.customer+), then you can make your code somewhat more efficient by including customers in the association from line items to orders:
++line items+ 으로부터 직접 +customers+ 정보(+@line_item.order.customer+)를 얻고자하는 경우가 종종 있다면, +line items+ 으로부터 +orders+ 로 관계 설정을 할 때 +customers+ 를 +include+ 하므로써 보다 효율적으로 코딩을 할 수 있습니다:
 
 <ruby>
 class LineItem < ActiveRecord::Base
@@ -773,39 +718,25 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-NOTE: There's no need to use +:include+ for immediate associations - that is, if you have +Order belongs_to :customer+, then the customer is eager-loaded automatically when it's needed.
-
-h6(#belongs_to-inverse_of). +:inverse_of+
-
-The +:inverse_of+ option specifies the name of the +has_many+ or +has_one+ association that is the inverse of this association. Does not work in combination with the +:polymorphic+ options.
-
-<ruby>
-class Customer < ActiveRecord::Base
-  has_many :orders, :inverse_of => :customer
-end
-
-class Order < ActiveRecord::Base
-  belongs_to :customer, :inverse_of => :orders
-end
-</ruby>
+NOTE: 일차 관계에 대해서는 +:include+ 옵션을 사용할 필요가 없습니다. 즉, +Order belongs_to :customer+ 관계설정을 할 경우에는, 필요시 자동으로 +customer+ 가 로드되기 때문입니다.
 
 h6(#belongs_to-polymorphic). +:polymorphic+
 
-Passing +true+ to the +:polymorphic+ option indicates that this is a polymorphic association. Polymorphic associations were discussed in detail <a href="#polymorphic-associations">earlier in this guide</a>.
++:polymorphic+ 옵션에 +true+ 값을 할당하면, 이 관계는 다형성 관계형을 가지게 됩니다. 이에 대해서는 이미 <a href="#polymorphic-associations">본 가이드의 앞에서</a> 설명한 바 있습니다.
 
 h6(#belongs_to-readonly). +:readonly+
 
-If you set the +:readonly+ option to +true+, then the associated object will be read-only when retrieved via the association.
++:readonly+ 옵션을 +true+ 값으로 할당하면, 연관된 객체는 관계를 통해 검색될 때 읽기전용으로 설정됩니다.
 
 h6(#belongs_to-select). +:select+
 
-The +:select+ option lets you override the SQL +SELECT+ clause that is used to retrieve data about the associated object. By default, Rails retrieves all columns.
++:select+ 옵션을 설정하면, 연관된 객체에 대해서 데이터를 검색할 때 사용되는 +SQL SELECT+ 쿼리문을 재지정할 수 있게 해 줍니다. 디폴트로 레일스는 모든 컬럼에 대한 쿼리를 실행하게 됩니다.
 
-TIP: If you set the +:select+ option on a +belongs_to+ association, you should also set the +foreign_key+ option to guarantee the correct results.
+TIP: +belongs_to+ 관계에 +:select+ 옵션을 사용할 때는, 정확한 결과를 보장하기 위해 +foreign_key+ 옵션을 추가로 설정해 주어야 합니다.
 
 h6(#belongs_to-touch). +:touch+
 
-If you set the +:touch+ option to +:true+, then the +updated_at+ or +updated_on+ timestamp on the associated object will be set to the current time whenever this object is saved or destroyed:
++:touch+ 옵션을 +true+ 로 설정하면 연관된 객체가 저장되거나 삭제될 때 그 객체의 +updated_at+ 또는 +updated_on+ 타임스탬프 컬럼이 현재의 시간으로 설정됩니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -817,7 +748,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-In this case, saving or destroying an order will update the timestamp on the associated customer. You can also specify a particular timestamp attribute to update:
+이 경우에, 특정 +order+ 를 저장하거나 삭제할 때 이와 연관된 +customer+ 객체의 타임스탬프가 현재의 시간으로 업데이트될 것입니다. 이 때, 물론 업데이트할 타임스탬프를 명시해 줄 수 있습니다:
 
 <ruby>
 class Order < ActiveRecord::Base
@@ -827,11 +758,11 @@ end
 
 h6(#belongs_to-validate). +:validate+
 
-If you set the +:validate+ option to +true+, then associated objects will be validated whenever you save this object. By default, this is +false+: associated objects will not be validated when this object is saved.
++:validate+ 옵션을 +true+ 값으로 설정하면, 이 객체를 정할 때 마다 연관된 객체의 유효성 검증과정이 수행될 것입니다. 디폴트로, 이 값은 +false+ 로 지정되어 있어서, 이 객체가 저장될 때 연관된 객체의 유효성 검증이 수행되지 않을 것입니다.
 
-h5(#belongs_to-do_any_associated_objects_exist). Do Any Associated Objects Exist?
+h5(#belongs_to-do_any_associated_objects_exist). 연관된 객체의 존재유무를 알 수 있는 방법
 
-You can see if any associated objects exist by using the <tt><em>association</em>.nil?</tt> method:
+연관된 객체가 존재하는지 알기 위해서는 <tt><em>association</em>.nil?</tt> 으로 확인하면 됩니다:
 
 <ruby>
 if @order.customer.nil?
@@ -839,24 +770,24 @@ if @order.customer.nil?
 end
 </ruby>
 
-h5(#belongs_to-when_are_objects_saved). When are Objects Saved?
+h5(#belongs_to-when_are_objects_saved). 객체는 언제 저장되는가?
 
-Assigning an object to a +belongs_to+ association does _not_ automatically save the object. It does not save the associated object either.
+특정 객체를 +belongs_to+ 관계로 지정한다고 해서 자동으로 그 객체를 저장하지 _않습니다_. 또한, 연관된 객체도 저장하지 않습니다.
 
-h4. +has_one+ Association Reference
+h4(#has_one_Association_Reference). +has_one+ 관계 레퍼런스
 
-The +has_one+ association creates a one-to-one match with another model. In database terms, this association says that the other class contains the foreign key. If this class contains the foreign key, then you should use +belongs_to+ instead.
++has_one+ 관계는 다른 모델과의 일대일 연결을 만들어 줍니다. 데이터베이스 용어상, 이러한 연관성은 상대방 클래스가 +foreign key+ 를 가지고 있다고 말할 수 있습니다. 이 클래스가 +foreign key+ 를 가지고 있다면 +has_one+ 대신 +belongs_to+ 관계를 사용해야 합니다.
 
-h5. Methods Added by +has_one+
+h5(#Methods_Added_by_has_one). +has_one+ 관계에 의해 사용가능한 메소드
 
-When you declare a +has_one+ association, the declaring class automatically gains four methods related to the association:
++has_one+ 관계를 선언하면 선언하는 클래스는 자동으로 이와 관련된 4가지 메소드를 덤으로 사용할 수 있게 됩니다:
 
 * <tt><em>association</em>(force_reload = false)</tt>
 * <tt><em>association</em>=(associate)</tt>
 * <tt>build_<em>association</em>(attributes = {})</tt>
 * <tt>create_<em>association</em>(attributes = {})</tt>
 
-In all of these methods, <tt><em>association</em></tt> is replaced with the symbol passed as the first argument to +has_one+. For example, given the declaration:
+이 모든 메소드에서 <tt><em>association</em></tt> 이란 단어는 +has_one+ 의 첫번째 인수로 넘어오는 심볼명으로 대치됩니다. 예를 들어, 다음과 같이 선언하게 되면:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -864,7 +795,7 @@ class Supplier < ActiveRecord::Base
 end
 </ruby>
 
-Each instance of the +Supplier+ model will have these methods:
++Supplier+ 모델의 각 인스턴스는 다음과 같은 메소드를 가지게 될 것입니다:
 
 <ruby>
 account
@@ -873,21 +804,21 @@ build_account
 create_account
 </ruby>
 
-NOTE: When initializing a new +has_one+ or +belongs_to+ association you must use the +build_+ prefix to build the association, rather than the +association.build+ method that would be used for +has_many+ or +has_and_belongs_to_many+ associations. To create one, use the +create_+ prefix.
+NOTE: +has_one+ 이나 +belongs_to+ 관계를 새로 초기화할 때, 관계를 만들기 위해 심볼명 앞에 +build_+ 를 붙여서 사용해야 합니다. 이에 반하여 +has_many+ 나 +has_and_belongs_to_many+ 관계에 대해서는 +association.build+ 메소드를 사용해야 합니다. 초기화가 아니라 새롭게 생성하기 위해서는 +create_+ 를 심볼명 앞에 붙여야 합니다.
 
 h6(#has_one-association). <tt><em>association</em>(force_reload = false)</tt>
 
-The <tt><em>association</em></tt> method returns the associated object, if any. If no associated object is found, it returns +nil+.
+<tt><em>association</em></tt> 메소드는 연관된 객체가 있을 경우 그것을 반환합니다. 연관된 객체가 없다면 +nil+ 값을 반환합니다.
 
 <ruby>
 @account = @supplier.account
 </ruby>
 
-If the associated object has already been retrieved from the database for this object, the cached version will be returned. To override this behavior (and force a database read), pass +true+ as the +force_reload+ argument.
+연관된 객체가 이미 이 객체에 대해서 데이터베이스로부터 데이터를 가져온 상태라면, 캐시된 버전의 데이터가 반환될 것입니다. 이러한 동작을 재설정(강제로 데이터베이스로부터 읽어 오도록 하는)하기 위해서는 +force_reload+ 옵션에 +true+ 값을 넘겨주면 됩니다.
 
 h6(#has_one-association_equal). <tt><em>association</em>=(associate)</tt>
 
-The <tt><em>association</em>=</tt> method assigns an associated object to this object. Behind the scenes, this means extracting the primary key from this object and setting the associate object's foreign key to the same value.
+<tt><em>association</em>=</tt> 메소드는 연관된 객체를 이 객체로 할당해 줍니다. 백그라운드에서는 이 객체로부터 +primary key+ 값을 가져다가 연관된 객체의 +foreign key+ 값으로 할당해 주게 됩니다.
 
 <ruby>
 @supplier.account = @account
@@ -895,7 +826,7 @@ The <tt><em>association</em>=</tt> method assigns an associated object to this o
 
 h6(#has_one-build_association). <tt>build_<em>association</em>(attributes = {})</tt>
 
-The <tt>build_<em>association</em></tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, and the link through its foreign key will be set, but the associated object will _not_ yet be saved.
+<tt>build_<em>association</em></tt> 메소드는 해당 관계의 새로운 객체를 반환해 줍니다. 이 객체는 넘어온 속성으로 초기화되며 +foreign key+ 통해서 연결되지만, 연관된 객체는 _아직 저장되지 않은_ 상태가 될 것입니다.
 
 <ruby>
 @account = @supplier.build_account(:terms => "Net 30")
@@ -903,15 +834,15 @@ The <tt>build_<em>association</em></tt> method returns a new object of the assoc
 
 h6(#has_one-create_association). <tt>create_<em>association</em>(attributes = {})</tt>
 
-The <tt>create_<em>association</em></tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, the link through its foreign key will be set, and, once it passes all of the validations specified on the associated model, the associated object _will_ be saved.
+<tt>create_<em>association</em></tt> 메소드는 해당 관계의 새로운 객체를 반환해 줍니다. 이 객체는 넘어 온 속성으로 초기화되어 +foreign key+ 로 연결됩니다. 추가적으로, 연관된 객체는 유효성 검증을 통과한 것으로 간주하고 저장될 것입니다.
 
 <ruby>
 @account = @supplier.create_account(:terms => "Net 30")
 </ruby>
 
-h5. Options for +has_one+
+h5(#Options_for_has_one). +has_one+ 메소드의 옵션들
 
-While Rails uses intelligent defaults that will work well in most situations, there may be times when you want to customize the behavior of the +has_one+ association reference. Such customizations can easily be accomplished by passing options when you create the association. For example, this assocation uses two such options:
+대부분의 경우에서, 추가 옵션없이 +has_one+ 메소드의 디폴트 동작만으로도 해결할 수 있습니다. 그러나, 레일스가 COC(설정보다는 규칙) 캐치프레이즈를 강조하지만 여러가지 방법으로 동작을 변경할 수 있습니다. 이 섹션에서는 +has_one+ 관계를 선언할 때 인수로 넘길 수 있는 옵션들에 대해서 설명할 것입니다. 예를 들면, 두 개의 옵션을 가진 관계는 다음과 같이 보일 것입니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -919,7 +850,7 @@ class Supplier < ActiveRecord::Base
 end
 </ruby>
 
-The +has_one+ association supports these options:
++has_one+ 관계는 다음과 같은 옵션을 지정할 수 있습니다:
 
 * +:as+
 * +:autosave+
@@ -928,7 +859,6 @@ The +has_one+ association supports these options:
 * +:dependent+
 * +:foreign_key+
 * +:include+
-* +:inverse_of+
 * +:order+
 * +:primary_key+
 * +:readonly+
@@ -940,15 +870,15 @@ The +has_one+ association supports these options:
 
 h6(#has_one-as). +:as+
 
-Setting the +:as+ option indicates that this is a polymorphic association. Polymorphic associations were discussed in detail <a href="#polymorphic-associations">earlier in this guide</a>.
++:as+ 옵션이 있다면 다형성 관계가 있다는 것을 의미합니다. 다형성 관계는 <a href="#polymorphic-associations">본 가이드의 앞에서</a> 자세히 언급한 바 있습니다.
 
 h6(#has_one-autosave). +:autosave+
 
-If you set the +:autosave+ option to +true+, Rails will save any loaded members and destroy members that are marked for destruction whenever you save the parent object.
++:autosave+ 옵션을 +true+ 로 설정하면 모(parent)객체를 저장할 때마다 레일스는 로드된 멤버를 저장하고 삭제표시된 멤버를 삭제할 것입니다.
 
 h6(#has_one-class_name). +:class_name+
 
-If the name of the other model cannot be derived from the association name, you can use the +:class_name+ option to supply the model name. For example, if a supplier has an account, but the actual name of the model containing accounts is +Billing+, you'd set things up this way:
+관계선언시 상대방 모델의 이름을 연관된 객체로부터 알아내지 못한다면, +:class_name+ 옵션을 사용해서 모델명을 제공해 줄 수 있습니다. 예를 들어, 한 +supplier+ 가 하나의 +account+ 를 가지고 있지만 그 +account+ 를 포함하고 있는 모델의 실제이름이 +Billing+ 이라고 한다면 다음과 같이 설정할 수 있습니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -958,7 +888,7 @@ end
 
 h6(#has_one-conditions). +:conditions+
 
-The +:conditions+ option lets you specify the conditions that the associated object must meet (in the syntax used by an SQL +WHERE+ clause).
++:conditions+ 옵션은, SQL +WHERE+ 절에서 사용하는 문장을 지정하여 연관된 객체가 만족해야 할 조건을 명시할 때 사용할 수 있습니다.
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -968,14 +898,11 @@ end
 
 h6(#has_one-dependent). +:dependent+
 
-If you set the +:dependent+ option to +:destroy+, then deleting this object will call the +destroy+ method on the associated object to delete that object. If you set the +:dependent+ option to +:delete+, then deleting this object will delete the associated object _without_ calling its +destroy+ method. If you set the +:dependent+ option to +:nullify+, then deleting this object will set the foreign key in the association object to +NULL+.
-If you set the +:dependent+ option to +:restrict+, then the deletion of the object is restricted if a dependent associated object exist and a +DeleteRestrictionError+ exception is raised.
-
-NOTE: The default behavior for +:dependent => :restrict+ is to raise a +DeleteRestrictionError+ when associated objects exist. Since Rails 4.0 this behavior is being deprecated in favor of adding an error to the base model. To silence the warning in Rails 4.0, you should fix your code to not expect this Exception and add +config.active_record.dependent_restrict_raises = false+ to your application config.
++:dependent+ 옵션에 +:destroy+ 심볼을 할당하면, 이 객체를 삭제할 때 그와 연관된 객체에 대해서 +destroy+ 메소드를 호출하여 해당 객체를 삭제하게 될 것입니다. 이 옵션에 대해서 +:delete+ 심볼을 할당한다면, +destroy+ 메소드를 호출하지 않고 해당 객체를 삭제할 할 것입니다. 또한, 이 옵션에 +:nullify+ 심볼을 할당한다면, 이 객체를 삭제할 때 연관된 객체의 +foreign key+ 값을 +NULL+ 값으로 할당하게 될 것입니다.
 
 h6(#has_one-foreign_key). +:foreign_key+
 
-By convention, Rails assumes that the column used to hold the foreign key on the other model is the name of this model with the suffix +_id+ added. The +:foreign_key+ option lets you set the name of the foreign key directly:
+규칙상, 레일스는 +foreign key+ 를 가지는 상대방 모델의 컬럼명을 해당 모델명 끝에 +_id+ 를 붙여서 인식하게 되어 있습니다. 이 때 +:foreign_key+ 옵션을 지정하여 직접 +foreign key+ 의 이름을 변경할 수 있습니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -983,11 +910,11 @@ class Supplier < ActiveRecord::Base
 end
 </ruby>
 
-TIP: In any case, Rails will not create foreign key columns for you. You need to explicitly define them as part of your migrations.
+TIP: 어떤 경우에라도, 레일스가 대신해서 +foreign key+ 를 만들어 주지 않습니다. 직접 명시적으로 마이그레이션 파일에 +foreign key+ 를 명시해 주어야 합니다.
 
 h6(#has_one-include). +:include+
 
-You can use the +:include+ option to specify second-order associations that should be eager-loaded when this association is used. For example, consider these models:
++:include+ 옵션을 사용하면, +has_one+ 관계를 사용시 _eager_load_ 해야 하는 2차 관계를 명시할 수 있습니다. 예를 들면, 다음의 모델을 생각해 보겠습니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -1004,7 +931,7 @@ class Representative < ActiveRecord::Base
 end
 </ruby>
 
-If you frequently retrieve representatives directly from suppliers (+@supplier.account.representative+), then you can make your code somewhat more efficient by including representatives in the association from suppliers to accounts:
+자주 +suppliers+ 로부터 직접 +representatives+ 를 얻고자 한다면(+@supplier.account.representative+), +suppliers+ 로부터 +accounts+ 로 관계선언시에 +representatives+ 를 포함하여 코드를 더 효율적으로 만들 수 있습니다:
 
 <ruby>
 class Supplier < ActiveRecord::Base
@@ -1021,55 +948,43 @@ class Representative < ActiveRecord::Base
 end
 </ruby>
 
-h6(#has_one-inverse_of). +:inverse_of+
-
-The +:inverse_of+ option specifies the name of the +belongs_to+ association that is the inverse of this association. Does not work in combination with the +:through+ or +:as+ options.
-
-<ruby>
-class Supplier < ActiveRecord::Base
-  has_one :account, :inverse_of => :supplier
-end
-
-class Account < ActiveRecord::Base
-  belongs_to :supplier, :inverse_of => :account
-end
-</ruby>
-
 h6(#has_one-order). +:order+
 
 The +:order+ option dictates the order in which associated objects will be received (in the syntax used by an SQL +ORDER BY+ clause). Because a +has_one+ association will only retrieve a single associated object, this option should not be needed.
 
++:order+ 옵션은 (SQL +ORDER BY+ 문에서 사용하는 문법으로) 연관된 객체가 취하는 목록순서를 결정합니다. 그러나 +has_one+ 관계는 단 하나의 연관된 객체만을 취하기 때문에 사실 이 옵션은 불필요합니다.
+
 h6(#has_one-primary_key). +:primary_key+
 
-By convention, Rails assumes that the column used to hold the primary key of this model is +id+. You can override this and explicitly specify the primary key with the +:primary_key+ option.
+규칙상, 레일스는 이 모델의 +primary key+ 로 지정된 컬럼을 +id+ 라고 가정합니다. 경우에 따라서는 이러한 규칙을 무시하고 +:primary_key+ 옵션을 사용해서 명시적으로 +primary key+ 를 지정할 수 있습니다.
 
 h6(#has_one-readonly). +:readonly+
 
-If you set the +:readonly+ option to +true+, then the associated object will be read-only when retrieved via the association.
++:readonlny+ 옵션을 +true+ 값으로 지정하면, 연관된 객체는 관계를 이용하여 접근할 때 읽기전용으로 지정될 것입니다.
 
 h6(#has_one-select). +:select+
 
-The +:select+ option lets you override the SQL +SELECT+ clause that is used to retrieve data about the associated object. By default, Rails retrieves all columns.
++:select+ 옵션은 연관된 객체로부터 자료를 가져올 때 사용하는 SQL +SELECT+ 문을 대신하도록 해 줍니다. 디폴트로 레일스는 모든 컬럼을 가져옵니다.
 
 h6(#has_one-source). +:source+
 
-The +:source+ option specifies the source association name for a +has_one :through+ association.
++:source+ 옵션은 +has_one :through+ 관계선언시 소스 관계명을 명시할 수 있게 해 줍니다.
 
 h6(#has_one-source_type). +:source_type+
 
-The +:source_type+ option specifies the source association type for a +has_one :through+ association that proceeds through a polymorphic association.
++:source+ 옵션은 +has_one :through+ 관계선언시 다형성에 사용할 소스 관계형을 명시할 수 있게 해 줍니다.
 
 h6(#has_one-through). +:through+
 
-The +:through+ option specifies a join model through which to perform the query. +has_one :through+ associations were discussed in detail <a href="#the-has_one-through-association">earlier in this guide</a>.
++:through+ 옵션을 지정하면 쿼리를 수행하게 될 조인 모델을 명시할 수 있습니다. +has_one :through+ 관계는  <a href="#the-has_one-through-association">본 가이드의 앞에서</a> 자세히 설명한 바 있습니다.
 
 h6(#has_one-validate). +:validate+
 
-If you set the +:validate+ option to +true+, then associated objects will be validated whenever you save this object. By default, this is +false+: associated objects will not be validated when this object is saved.
++:validate+ 옵션을 +true+ 값으로 설정하면, 이 객체를 저장할 때마다 연관된 객체의 유효성 검증이 발생하게 될 것입니다. 디폴트로, 이 값은 +false+ 로 설정되어 있어 이 객체가 저장될 때 유효성 검증과정이 일어나지 않습니다.
 
-h5(#has_one-do_any_associated_objects_exist). Do Any Associated Objects Exist?
+h5(#has_one-do_any_associated_objects_exist). 연관된 객체의 유무를 알아내는 방법
 
-You can see if any associated objects exist by using the <tt><em>association</em>.nil?</tt> method:
+연관된 객체가 존재하는지를 알기 위해서는 <tt><em>association</em>.nil?</tt> 메소드를 사용하면 됩니다.
 
 <ruby>
 if @supplier.account.nil?
@@ -1077,23 +992,23 @@ if @supplier.account.nil?
 end
 </ruby>
 
-h5(#has_one-when_are_objects_saved). When are Objects Saved?
+h5(#has_one-when_are_objects_saved). 객체가 저장되는 시점
 
-When you assign an object to a +has_one+ association, that object is automatically saved (in order to update its foreign key). In addition, any object being replaced is also automatically saved, because its foreign key will change too.
+한 객체를 +has_one+ 관계형으로 지정하면 그 객체는 자동으로 저장되어 자신의 +foreign key+ 를 업데이트하게 됩니다. 더우기, 자신의 +foreign key+ 값이 변경되면 해당 객체 또한 자동으로 저장될 것입니다.
 
-If either of these saves fails due to validation errors, then the assignment statement returns +false+ and the assignment itself is cancelled.
+이 두가지 경우에서 유효성 검증에 실패하게 되면, 할당문은 +false+ 값을 반환하게 되고 결국 취소됩니다.
 
-If the parent object (the one declaring the +has_one+ association) is unsaved (that is, +new_record?+ returns +true+) then the child objects are not saved. They will automatically when the parent object is saved.
++has_one+ 관계형을 선언하는 객체, 즉, 모(parent)객체가 저장되지 않은 상태(+new_record?+ 값이 +true+ 인 경우)에서는, 자(child)객체도 저장되지 않게 됩니다. 모(parent)객체가 저장될 때만 자식 객체들도 자동으로 저장될 것입니다.
 
-If you want to assign an object to a +has_one+ association without saving the object, use the <tt><em>association</em>.build</tt> method.
+객체를 저장하지 않고 +has_one+ 관계로 연결하고자 한다면, <tt><em>association</em>.build</tt> 메소드를 이용하기 바랍니다.
 
-h4. +has_many+ Association Reference
+h4(#has_many_Association_Reference). +has_many+ 관계 레퍼런스
 
-The +has_many+ association creates a one-to-many relationship with another model. In database terms, this association says that the other class will have a foreign key that refers to instances of this class.
++has_many+ 관계형은 다른 모델과의 일대다로 연결됩니다. 데이터베이스 관련해서는, 연결되는 모델에는 이 클래스의 인스턴스를 참조하는 +foreign key+ 를 가지게 됩니다.
 
-h5. Methods Added by +has_many+
+h5(#Methods_Added_by_has_many). +has_many+ 관계형으로 추가되는 메소드
 
-When you declare a +has_many+ association, the declaring class automatically gains 13 methods related to the association:
++has_many+ 관계로 선언하게 되면 해당 클래스는 덤으로 관계에 연관된 13개의 메소드 사용할 수 있게 됩니다:
 
 * <tt><em>collection</em>(force_reload = false)</tt>
 * <tt><em>collection</em><<(object, ...)</tt>
@@ -1110,7 +1025,7 @@ When you declare a +has_many+ association, the declaring class automatically gai
 * <tt><em>collection</em>.build(attributes = {}, ...)</tt>
 * <tt><em>collection</em>.create(attributes = {})</tt>
 
-In all of these methods, <tt><em>collection</em></tt> is replaced with the symbol passed as the first argument to +has_many+, and <tt><em>collection_singular</em></tt> is replaced with the singularized version of that symbol.. For example, given the declaration:
+위의 모든 메소드에서, <tt><em>collection</em></tt> 은 +has_many+ 에 첫번째 인수로 넘겨지는 심볼로 대치됩니다. 그리고 <tt><em>collection_singular</em></tt> 는 심볼의 단수형으로 대치됩니다. 예를 들어 다음과 같이 선언한다면,:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1118,7 +1033,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-Each instance of the customer model will have these methods:
++customer+ 모델의 각 인스턴스는 다음과 같은 메소드를 가지게 될 것입니다:
 
 <ruby>
 orders(force_reload = false)
@@ -1147,7 +1062,7 @@ The <tt><em>collection</em></tt> method returns an array of all of the associate
 
 h6(#has_many-collection-lt_lt). <tt><em>collection</em><<(object, ...)</tt>
 
-The <tt><em>collection</em><<</tt> method adds one or more objects to the collection by setting their foreign keys to the primary key of the calling model.
+<tt><em>collection</em><<</tt> 메소드는 모든 연관된 객체를 담고 있는 배열을 리턴해 줍니다. 연관된 객체가 없다면 비어있는 배열을 리턴해 줍니다.
 
 <ruby>
 @customer.orders << @order1
@@ -1155,22 +1070,23 @@ The <tt><em>collection</em><<</tt> method adds one or more objects to the collec
 
 h6(#has_many-collection-delete). <tt><em>collection</em>.delete(object, ...)</tt>
 
-The <tt><em>collection</em>.delete</tt> method removes one or more objects from the collection by setting their foreign keys to +NULL+.
+<tt><em>collection</em>.delete</tt> 메소드는 해당 객체의 +foreign key+ 값을 +NULL+ 값으로 할당하므로써 +collection+ 으로부터 하나 또는 그 이상의 객체를 제거해 줍니다. 이것은 바로 위의 <tt><em>collection</em><<</tt> 메소드의 반대 기능이기도 합니다.
 
 <ruby>
 @customer.orders.delete(@order1)
 </ruby>
 
-WARNING: Additionally, objects will be destroyed if they're associated with +:dependent => :destroy+, and deleted if they're associated with +:dependent => :delete_all+.
+WARNING: 추가할 사항은, 이 객체들이 +:dependent => :destroy+ 옵션으로 연결된다면 모객체가 삭제될 때 +destroy+ 되며, +:dependent => :delete_all+ 옵션으로 연결된다면 +delete+ 될 것입니다.
 
+NOTE: [역자주] +delete+ 메소드는 데이터베이스로부터 실제 하나의 레코드 또는 레코드 배열을 삭제해 줍니다. 한편, +destroy+ 메소드는 여기에 몇가지 추가적인 옵션을 더 제공해 줍니다. 첫째, +before_delete+ 와 같은 콜백이나 모델에서 명시한 각종 종속적인 업무를 함께 점검한다는 것입니다. 둘째, 방금 삭제한 객체를 메모리 상에 유지한다는 것입니다. 그래서 “Order #{order.id} has been deleted.” 와 같은 메시지를 남길 수 있게 해 줍니다. 셋째, 해당 객체와 연관된 자(child)객체들도 함께 삭제한다는 것입니다.
 
 h6(#has_many-collection-equal). <tt><em>collection</em>=objects</tt>
 
-The <tt><em>collection</em>=</tt> method makes the collection contain only the supplied objects, by adding and deleting as appropriate.
+<tt><em>collection</em>=</tt> 메소드는 적절하게 추가/삭제한 후에 원하는 객체들만 포함하도록 해 줍니다.
 
 h6(#has_many-collection_singular). <tt><em>collection_singular</em>_ids</tt>
 
-The <tt><em>collection_singular</em>_ids</tt> method returns an array of the ids of the objects in the collection.
+<tt><em>collection_singular</em>_ids</tt> 메소드는 컬렉션내 객체들의 +id+ 값들로 이루어진 배열을 리턴해 줍니다.
 
 <ruby>
 @order_ids = @customer.order_ids
@@ -1178,15 +1094,15 @@ The <tt><em>collection_singular</em>_ids</tt> method returns an array of the ids
 
 h6(#has_many-collection_singular_ids_ids). <tt><em>collection_singular</em>_ids=ids</tt>
 
-The <tt><em>collection_singular</em>_ids=</tt> method makes the collection contain only the objects identified by the supplied primary key values, by adding and deleting as appropriate.
+<tt><em>collection_singular</em>_ids=</tt> 메소드는 적절하게 추가/삭제한 후 컬렉션에 +primary key+ 값으로 확인할 수 있는 객체들로 이루어진 배열을 할당해 줍니다.
 
 h6(#has_many-collection-clear). <tt><em>collection</em>.clear</tt>
 
-The <tt><em>collection</em>.clear</tt> method removes every object from the collection. This destroys the associated objects if they are associated with +:dependent => :destroy+, deletes them directly from the database if +:dependent => :delete_all+, and otherwise sets their foreign keys to +NULL+.
+<tt><em>collection</em>.clear</tt> 메소드는 해당 컬렉션의 모든 객체를 제거해 줍니다. 결과적으로 +:dependent => :destroy+ 옵션으로 연결된 경우에는 연관된 객체들이 +destroy+ 될 것이고, +:dependent => :delete_all+ 로 연결된 경우에는 +delete+ 될 것이지만 그렇지 않은 경우에는 제거되지 않고 연관된 객체들의 +foreign key+ 값들이 +NULL+ 로 설정될 것입니다.
 
 h6(#has_many-collection-empty). <tt><em>collection</em>.empty?</tt>
 
-The <tt><em>collection</em>.empty?</tt> method returns +true+ if the collection does not contain any associated objects.
+<tt><em>collection</em>.empty?</tt> 메소드는 컬렉션이 어떤 연관된 객체도 포함하지 않을 경우 +true+ 값을 리턴해 줍니다.
 
 <ruby>
 <% if @customer.orders.empty? %>
@@ -1196,7 +1112,7 @@ The <tt><em>collection</em>.empty?</tt> method returns +true+ if the collection 
 
 h6(#has_many-collection-size). <tt><em>collection</em>.size</tt>
 
-The <tt><em>collection</em>.size</tt> method returns the number of objects in the collection.
+<tt><em>collection</em>.size</tt> 메소드는 컬렌션내 객체의 갯수를 리턴해 줍니다.
 
 <ruby>
 @order_count = @customer.orders.size
@@ -1204,7 +1120,7 @@ The <tt><em>collection</em>.size</tt> method returns the number of objects in th
 
 h6(#has_many-collection-find). <tt><em>collection</em>.find(...)</tt>
 
-The <tt><em>collection</em>.find</tt> method finds objects within the collection. It uses the same syntax and options as +ActiveRecord::Base.find+.
+<tt><em>collection</em>.find</tt> 메소드는 컬렉션내에서 특정 객체들을 찾아 줍니다. 이 메소드는 +ActiveRecord::Base.find+ 와 같은 문법과 옵션을 사용합니다.
 
 <ruby>
 @open_orders = @customer.orders.find(1)
@@ -1212,7 +1128,7 @@ The <tt><em>collection</em>.find</tt> method finds objects within the collection
 
 h6(#has_many-collection-where). <tt><em>collection</em>.where(...)</tt>
 
-The <tt><em>collection</em>.where</tt> method finds objects within the collection based on the conditions supplied but the objects are loaded lazily meaning that the database is queried only when the object(s) are accessed.
+<tt><em>collection</em>.where</tt> 메소드는 컬렉션내의 객체 중에서 제공된 조건에 맞는 것들만 찾아주지만 해당 객체에 대한 로드는 필요할 때 발생한다는 것입니다. 이것은 해당 객체들을 접근할 때만 데이터베이스 쿼리가 발생한다는 것을 의미합니다.
 
 <ruby>
 @open_orders = @customer.orders.where(:open => true) # No query yet
@@ -1221,11 +1137,11 @@ The <tt><em>collection</em>.where</tt> method finds objects within the collectio
 
 h6(#has_many-collection-exists). <tt><em>collection</em>.exists?(...)</tt>
 
-The <tt><em>collection</em>.exists?</tt> method checks whether an object meeting the supplied conditions exists in the collection. It uses the same syntax and options as +ActiveRecord::Base.exists?+.
+<tt><em>collection</em>.exists?</tt> 메소드는 제공되는 조건을 만족하는 객체가 컬렉션내에 존재하는지 여부를 점검해 줍니다. 이 때 +ActiveRecord::Base.exist?+ 와 같은 문법과 옵션을 사용하게 됩니다.
 
 h6(#has_many-collection-build). <tt><em>collection</em>.build(attributes = {}, ...)</tt>
 
-The <tt><em>collection</em>.build</tt> method returns one or more new objects of the associated type. These objects will be instantiated from the passed attributes, and the link through their foreign key will be created, but the associated objects will _not_ yet be saved.
+<tt><em>collection</em>.build</tt> 메소드는 연결된 모델형의 하나 또는 그 이상의 새로운 객체를 리턴해 줍니다. 이 객체(들)은 넘겨온 속성들로 구성되며 이들의 +foreign key+ 값이 호출한 객체의 +primary key+ 값으로 설정됩니다. 그러나 이들 연관된 객체들은 아직 저장이 되지 않은 상태입니다.
 
 <ruby>
 @order = @customer.orders.build(:order_date => Time.now,
@@ -1234,16 +1150,16 @@ The <tt><em>collection</em>.build</tt> method returns one or more new objects of
 
 h6(#has_many-collection-create). <tt><em>collection</em>.create(attributes = {})</tt>
 
-The <tt><em>collection</em>.create</tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, the link through its foreign key will be created, and, once it passes all of the validations specified on the associated model, the associated object _will_ be saved.
+<tt><em>collection</em>.create</tt> 메소드는 연관된 모델형의 새로운 객체를 리턴해 줍니다. 이 객체는 넘어 온 속성들으로부터 만들어지며, 자신의 +foreign key+ 값이 설정되므로써 호출한 객체와 연결됩니다. 이 때는 유효성 검증을 통과한 경우, 생성된 객체가 저장될 것입니다.
 
 <ruby>
 @order = @customer.orders.create(:order_date => Time.now,
   :order_number => "A12345")
 </ruby>
 
-h5. Options for +has_many+
+h5(#Options_for_has_many). +has_many+ 메소드 옵션들
 
-While Rails uses intelligent defaults that will work well in most situations, there may be times when you want to customize the behavior of the +has_many+ association reference. Such customizations can easily be accomplished by passing options when you create the association. For example, this assocation uses two such options:
+대부분의 경우에는 특별한 옵션의 추가 없이 has_many 의 기본기능만 사용하게 됩니다. 그러나 여러가지 방법으로 이라한 기능을 변경할 수 있습니다. 이 섹션에서는 +has_many+ 옵션을 사용할 때 사용할 수 있는 옵션들에 대해서 다루게 될 것입니다. 예를 들면, 여러 개의 옵션을 가진 모델간의 관계를 다음과 같이 연결할 수 있습니다.:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1251,7 +1167,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-The +has_many+ association supports these options:
++has_many+ 는 다음과 같은 옵션을 제공해 줍니다:
 
 * +:as+
 * +:autosave+
@@ -1264,7 +1180,6 @@ The +has_many+ association supports these options:
 * +:foreign_key+
 * +:group+
 * +:include+
-* +:inverse_of+
 * +:limit+
 * +:offset+
 * +:order+
@@ -1279,15 +1194,15 @@ The +has_many+ association supports these options:
 
 h6(#has_many-as). +:as+
 
-Setting the +:as+ option indicates that this is a polymorphic association, as discussed <a href="#polymorphic-associations">earlier in this guide</a>.
++:as+ 옵션을 사용하게 되면, <a href="#polymorphic-associations">본 가이드의 앞에서</a> 언급한 바와 같이, +polymorphic+ 관계를 가진다는 것을 의미합니다. 
 
 h6(#has_many-autosave). +:autosave+
 
-If you set the +:autosave+ option to +true+, Rails will save any loaded members and destroy members that are marked for destruction whenever you save the parent object.
++:autosave+ 옵션을 지정하게 되면 레일스는 모(parent)객체를 저장할 때마다 로드된 자(child)객체는 저장하고 삭제표시된 것들은 삭제하게 될 것입니다.
 
 h6(#has_many-class_name). +:class_name+
 
-If the name of the other model cannot be derived from the association name, you can use the +:class_name+ option to supply the model name. For example, if a customer has many orders, but the actual name of the model containing orders is +Transaction+, you'd set things up this way:
+모델명을 관계형 이름으로 유추해 낼 수 없는 상황에서는 이 옵션을 이용해서 모델명을 지정해 줄 수 있습니다. 예를 들면, 한 +customer+ 가 복수개의 +order+ 를 가질 경우, +order+ 를 포함하는 모델의 실제 이름이 +Transaction+ 이라고 한다면, 다음과 같이 설정할 수 있습니다.
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1297,7 +1212,7 @@ end
 
 h6(#has_many-conditions). +:conditions+
 
-The +:conditions+ option lets you specify the conditions that the associated object must meet (in the syntax used by an SQL +WHERE+ clause).
++:conditions+ 옵션은 연관된 객체들이 만족해야할 SQL +WHERE+ 조건절 형태의 조건을 명시할 수 있게 해 줍니다.
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1306,7 +1221,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-You can also set conditions via a hash:
+해쉬를 사용하여 조건을 명시할 수도 있습니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1315,43 +1230,40 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-If you use a hash-style +:conditions+ option, then record creation via this association will be automatically scoped using the hash. In this case, using +@customer.confirmed_orders.create+ or +@customer.confirmed_orders.build+ will create orders where the confirmed column has the value +true+.
+이와 같이 해쉬형태의 +:conditions+ 옵션을 사용한다면, 이 관계형을 통해 레코드를 생성할 경우 자동으로 해쉬값에 따라 조건절에 명시된 필드값이 설정될 것입니다. 위의 경우에는, +@customer.confirmed_orders.create+ 나 +@customer.confirmed_orders.build+ 메소드를 사용할 경우 +confirmed+ 필드값이 +true+ 로 설정된 +order+ 를 생성할 것입니다.
 
-If you need to evaluate conditions dynamically at runtime, use a proc:
+실시간으로 조건이 변경될 경우에는 +proc+ 객체를 사용할 수 있습니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
   has_many :latest_orders, :class_name => "Order",
-    :conditions => proc { ["orders.created_at > ?", 10.hours.ago] }
+    :conditions => proc { ["orders.created_at > ?, 10.hours.ago] }
 end
 </ruby>
 
 h6(#has_many-counter_sql). +:counter_sql+
 
-Normally Rails automatically generates the proper SQL to count the association members. With the +:counter_sql+ option, you can specify a complete SQL statement to count them yourself.
+정상적으로 레일스는 연결될 객체 멤버들을 카운트하기 위해 적절한 +SQL+ 문을 자동으로 생성합니다. 그러나 +:counter_sql+ 옵션을 지정해주면, 자신만의 카운팅 SQL문을 작성할 수 있게 되는 것입니다.
 
-NOTE: If you specify +:finder_sql+ but not +:counter_sql+, then the counter SQL will be generated by substituting the +SELECT ... FROM+ clause of your +:finder_sql+ statement by +SELECT COUNT(*) FROM+.
+NOTE: 이 때 +:counter_sql+ 대신에 +:finder_sql+ 옵션을 사용할 경우, +counter+ SQL문은 +SELECT COUNT(*) FROM+ 이 아닌, +:finder_sql+ 문에 명시한 +SELECT ... FROM+ 문으로 대신하여 만들어지게 될 것입니다.
 
 h6(#has_many-dependent). +:dependent+
 
-If you set the +:dependent+ option to +:destroy+, then deleting this object will call the +destroy+ method on the associated objects to delete those objects. If you set the +:dependent+ option to +:delete_all+, then deleting this object will delete the associated objects _without_ calling their +destroy+ method. If you set the +:dependent+ option to +:nullify+, then deleting this object will set the foreign key in the associated objects to +NULL+.
-If you set the +:dependent+ option to +:restrict+, then the deletion of the object is restricted if a dependent associated object exist and a +DeleteRestrictionError+ exception is raised.
++:dependent+ 옵션으로 +:destroy+ 를 지정하게 되면, 이 객체(parent객체)를 삭제할 경우 자(child)객체를 삭제하기 위해 연관된 객체에 대해서 +destroy+ 메소드를 호출하게 됩니다. 만약 +:dependent+ 옵션에 +:delete_all+ 을 지정하게 되면, +destroy+ 메소드를 호출하지 않고 연관된 객체들을 삭제하게 될 것입니다. +:dependent+ 옵션으로 +:nullify+ 로 지정하게 되면, 연관된 객체들을 삭제하지 않고 +foreign key+ 를 +NULL+ 값으로 설정하기만 할 것입니다.
 
-NOTE: The default behavior for +:dependent => :restrict+ is to raise a +DeleteRestrictionError+ when associated objects exist. Since Rails 4.0 this behavior is being deprecated in favor of adding an error to the base model. To silence the warning in Rails 4.0, you should fix your code to not expect this Exception and add +config.active_record.dependent_restrict_raises = false+ to your application config.
-
-NOTE: This option is ignored when you use the +:through+ option on the association.
+NOTE: 이 옵션은 관계설정시 +:through+ 옵션을 사용할 때 무시될 것입니다.
 
 h6(#has_many-extend). +:extend+
 
-The +:extend+ option specifies a named module to extend the association proxy. Association extensions are discussed in detail <a href="#association-extensions">later in this guide</a>.
++:extend+ 옵션은 +association proxy+ 를 확장하기 위한 모듈이름을 명시하도록 해 줍니다. 이에 대해서는 <a href="#association-extensions">본 가이드의 뒤에서</a> 상세히 다룰 것입니다.
 
 h6(#has_many-finder_sql). +:finder_sql+
 
-Normally Rails automatically generates the proper SQL to fetch the association members. With the +:finder_sql+ option, you can specify a complete SQL statement to fetch them yourself. If fetching objects requires complex multi-table SQL, this may be necessary.
+레일스는 보통 연관객체 멤버를 가져오기 위해 적당한 SQL문을 알아서 만들어 줍니다. 이 때 +:finder_sql+ 옵션을 이용하면, 직접 완전한 SQL문을 작성할 수 있게 해 주는데, 대개 여러개의 테이블을 엮어서 복잡한 SQL문을 작성해야 할 때 유용할 것입니다.
 
 h6(#has_many-foreign_key). +:foreign_key+
 
-By convention, Rails assumes that the column used to hold the foreign key on the other model is the name of this model with the suffix +_id+ added. The +:foreign_key+ option lets you set the name of the foreign key directly:
+규칙상 레일스는 하위 모델의 +foreign key+ 를 상위모델의 이름에 +_id+ 를 붙여서 사용하도록 되어 있습니다. 따라서 +:foreign_key+ 옵션을 사용할 경우 직접 +foreign key+ 의 이름을 지정할 수 있도록 해 줍니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1359,11 +1271,11 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-TIP: In any case, Rails will not create foreign key columns for you. You need to explicitly define them as part of your migrations.
+TIP: 어떤 경우에라도, 레일스는 개발자를 대신해서 +foreign key+ 를 만들어 주지 않습니다. 따라서 마이그레이션 작업시 명확하게 정의해 주어야 할 필요가 있습니다. 당연한 이야기지만…
 
 h6(#has_many-group). +:group+
 
-The +:group+ option supplies an attribute name to group the result set by, using a +GROUP BY+ clause in the finder SQL.
++:group+ 옵션을 이용해서 속성명을 명시하면 +finder+ SQL문에 +GROUP BY+ 문을 사용하여 결과셋을 그룹화할 수 있습니다.
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1373,7 +1285,7 @@ end
 
 h6(#has_many-include). +:include+
 
-You can use the +:include+ option to specify second-order associations that should be eager-loaded when this association is used. For example, consider these models:
++:include+ 옵션을 이용하여 관계를 설정하면, +eager-loading+ 해야할 이차 관계를 명시할 수 있습니다. 예를 들면 아래의 모델 구성을 보기 바랍니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1390,7 +1302,7 @@ class LineItem < ActiveRecord::Base
 end
 </ruby>
 
-If you frequently retrieve line items directly from customers (+@customer.orders.line_items+), then you can make your code somewhat more efficient by including line items in the association from customers to orders:
++@customer.orders.line_itmes+ 와 같이 자주 +customers+ 객체로부터 직접 +line items+ 객체를 불러와야 할 경우라면, 관계설정시 +line items+ 을 포함하여 좀 더 효율적으로 코딩을 할 수 있습니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1407,23 +1319,9 @@ class LineItem < ActiveRecord::Base
 end
 </ruby>
 
-h6(#has_many-inverse_of). +:inverse_of+
-
-The +:inverse_of+ option specifies the name of the +belongs_to+ association that is the inverse of this association. Does not work in combination with the +:through+ or +:as+ options.
-
-<ruby>
-class Customer < ActiveRecord::Base
-  has_many :orders, :inverse_of => :customer
-end
-
-class Order < ActiveRecord::Base
-  belongs_to :customer, :inverse_of => :orders
-end
-</ruby>
-
 h6(#has_many-limit). +:limit+
 
-The +:limit+ option lets you restrict the total number of objects that will be fetched through an association.
++:limit+ 옵션을 이용하면 관계를 통해서 불러올 객체의 총 갯수를 제한할 수 있습니다.
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1434,11 +1332,11 @@ end
 
 h6(#has_many-offset). +:offset+
 
-The +:offset+ option lets you specify the starting offset for fetching objects via an association. For example, if you set +:offset => 11+, it will skip the first 11 records.
++:offset+ 옵션을 이용하면 관계를 통해 객체를 불러 올 때 시작점을 명시할 수 있습니다. 예를 들어, +:offset => 11+ 이라고 설정하면 처음 11개의 객체는 건너띄고 불러오게 되는 것입니다.
 
 h6(#has_many-order). +:order+
 
-The +:order+ option dictates the order in which associated objects will be received (in the syntax used by an SQL +ORDER BY+ clause).
++:order+ 옵션을 이용하여 연관 객체를 가져올 때 (SQL +ORDER BY+ 문에서 사용하는 것 처럼) 배열순서를 지정할 수 있습니다.
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1448,33 +1346,33 @@ end
 
 h6(#has_many-primary_key). +:primary_key+
 
-By convention, Rails assumes that the column used to hold the primary key of the association is +id+. You can override this and explicitly specify the primary key with the +:primary_key+ option.
+레일스의 규칙상 관계설정시 사용하는 +primary key+ 컬럼은 +id+ 로 가정합니다. 그러나 +:primary_key+ 옵션을 사용하면 +primary key+ 컬럼을 명시적으로 변경할 수 있습니다.
 
 h6(#has_many-readonly). +:readonly+
 
-If you set the +:readonly+ option to +true+, then the associated objects will be read-only when retrieved via the association.
++:readonly+ 옵션을 +true+ 값으로 설정하면 연관 객체들을 불러올 때 읽기전용 상태가 됩니다.
 
 h6(#has_many-select). +:select+
 
-The +:select+ option lets you override the SQL +SELECT+ clause that is used to retrieve data about the associated objects. By default, Rails retrieves all columns.
++:select+ 옵션을 이용하면 연관 객체를 불러올 때 이용되는 SQL +SELECT+ 문을 변경할 수 있게 해 줍니다. 디폴트로 레일스는 모든 컬럼을 불러옵니다.
 
-WARNING: If you specify your own +:select+, be sure to include the primary key and foreign key columns of the associated model. If you do not, Rails will throw an error.
+WARNING: +:select+ 옵션을 사용할 때는 연관 모델의 +primary key+ 와 +foreign key+ 컬럼을 반드시 포함시켜야 합니다. 그렇지 않으면 레일스로부터 에러가 발생하게 될 것입니다.
 
 h6(#has_many-source). +:source+
 
-The +:source+ option specifies the source association name for a +has_many :through+ association. You only need to use this option if the name of the source association cannot be automatically inferred from the association name.
++:source+ 옵션을 이용하면 +has_many :through+ 관계에 대한 소스 관계명을 명시할 수 있게 해줍니다. 이 옵션은 소스 관계명을 관계명으로부터 자동으로 유출할 수 없을 경우에 이용할 수 있습니다.
 
 h6(#has_many-source_type). +:source_type+
 
-The +:source_type+ option specifies the source association type for a +has_many :through+ association that proceeds through a polymorphic association.
++:source_type+ 옵션을 이용하면 +polymorphic+ 관계로 +has_many :through+ 관계설정시 소스 관계형을 명시할 수 있게 해줍니다.
 
 h6(#has_many-through). +:through+
 
-The +:through+ option specifies a join model through which to perform the query. +has_many :through+ associations provide a way to implement many-to-many relationships, as discussed <a href="#the-has_many-through-association">earlier in this guide</a>.
++:through+ 옵션은 +join+ 모델을 명시하여 쿼리를 수행할 수 있게 해 줍니다. +has_many :through+ 관계는 <a href="#the-has_many-through-association">본 가이드의 앞에서</a> 설명한 바와 같이 다대다 관계를 사용할 수 있게 해 줍니다.
 
 h6(#has_many-uniq). +:uniq+
 
-Set the +:uniq+ option to true to keep the collection free of duplicates. This is mostly useful together with the +:through+ option.
++:uniq+ 옵션을 +true+ 값으로 설정하면 컬렉션내에 유일한 값만 존재할도록 해 줍니다. 이 옵션은 대개 +:through+ 옵션과 함께 사용하게 됩니다.
 
 <ruby>
 class Person < ActiveRecord::Base
@@ -1490,9 +1388,9 @@ person.posts.inspect # => [#<Post id: 5, name: "a1">, #<Post id: 5, name: "a1">]
 Reading.all.inspect  # => [#<Reading id: 12, person_id: 5, post_id: 5>, #<Reading id: 13, person_id: 5, post_id: 5>]
 </ruby>
 
-In the above case there are two readings and +person.posts+ brings out both of them even though these records are pointing to the same post.
+위의 예에서는 두번의 readings 객체가 생성되었고, +person.posts+ 내의 두개의 객체는 동일한 +post+ 객체를 참조하지만 두개 모두 가져오게 됩니다.
 
-Now let's set +:uniq+ to true:
+이제 +:uniq+ 옵션을 +true+ 값으로 설정하게 된다면:
 
 <ruby>
 class Person
@@ -1508,29 +1406,29 @@ person.posts.inspect # => [#<Post id: 7, name: "a1">]
 Reading.all.inspect  # => [#<Reading id: 16, person_id: 7, post_id: 7>, #<Reading id: 17, person_id: 7, post_id: 7>]
 </ruby>
 
-In the above case there are still two readings. However +person.posts+ shows only one post because the collection loads only unique records.
+이 예에서는 두번의 +readings+ 객체가 생성되었지만, +person.posts+ 는 컬렉션이 유일한 레코드만 로드하기 때문에 한개의 +post+ 객체만을 보여주게 됩니다.
 
 h6(#has_many-validate). +:validate+
 
-If you set the +:validate+ option to +false+, then associated objects will not be validated whenever you save this object. By default, this is +true+: associated objects will be validated when this object is saved.
++:validate+ 옵션을 +false+ 값으로 설정한 경우, 이 객체를 저장할 때마다 연관된 객체들에 대한 유효성 검증이 발생하기 않게 될 것입니다. 디폴트로는 이 옵션 값이 +true+ 이어서 저장시마다 이 객체들에 대한 검증작업이 발생하게 되어 있습니다.
 
 h5(#has_many-when_are_objects_saved). When are Objects Saved?
 
-When you assign an object to a +has_many+ association, that object is automatically saved (in order to update its foreign key). If you assign multiple objects in one statement, then they are all saved.
+하나의 객체를 +has_many+ 관계에 할당하게 되면 해당 객체는 자신의 +foreign key+ 값이 모(parent)객체의 +id+ 값으로 갱신되어 자동으로 저장됩니다. 한 문장에서 복수개의 객체를 할당한다면 한꺼번에 저장될 것입니다.
 
-If any of these saves fails due to validation errors, then the assignment statement returns +false+ and the assignment itself is cancelled.
+만약 이 객체 중에 하나라도 유효성 검증에서 실패하여 저장되지 못한다면 그 할당문은 +false+ 값을 반환하여 할당이 취소될 것입니다.
 
-If the parent object (the one declaring the +has_many+ association) is unsaved (that is, +new_record?+ returns +true+) then the child objects are not saved when they are added. All unsaved members of the association will automatically be saved when the parent is saved.
++has_many+ 관계를 선언하는 모(parent)객체가 +new_record?+ 호출시 +true+ 값을 반환하는 상황에서와 같이 저장되지 않는 경우에, 자(child)객체들이 추가될 때 역시 저장되지 않게 됩니다. 해당 관계에서의 모든 저장되지 않은 상태의 멤버들은 모객체가 저장될 대 자동으로 저장될 것입니다.
 
-If you want to assign an object to a +has_many+ association without saving the object, use the <tt><em>collection</em>.build</tt> method.
+하나의 객체를 저장되지 않은 상태에서 +has_many+ 관계로 할당하고자 한다면 <tt><em>collection</em>.build</tt>+ 메소드를 사용할 수 있습니다.
 
-h4. +has_and_belongs_to_many+ Association Reference
+h4(#has_and_belongs_to_many_Association_Reference). +has_and_belongs_to_many+ 관계 레퍼런스
 
-The +has_and_belongs_to_many+ association creates a many-to-many relationship with another model. In database terms, this associates two classes via an intermediate join table that includes foreign keys referring to each of the classes.
++has_and_belongs_to_many+ 관계는 제3의 모델과 함께 다대다 관계를 생성해 줍니다. 데이터베이스와 관련해서 볼 때, 이것은 상대방의 클래스를 참조하기 위해 각각의 +foreign key+ 들을 포함하는 중간 조인 테이블을 경유해서 두개의 클래스를 연결하게 됩니다.
 
-h5. Methods Added by +has_and_belongs_to_many+
+h5(#Methods_Added_by_has_and_belongs_to_many). +has_and_belongs_to_many+ 관계설정을 통해서 사용가능한 메소드
 
-When you declare a +has_and_belongs_to_many+ association, the declaring class automatically gains 13 methods related to the association:
++has_and_belongs_to_many+ 관계를 선언할 때 선언하는 클래스는 자동으로 관계와 연관된 13개의 메소드를 사용할 수 있게 됩니다:
 
 * <tt><em>collection</em>(force_reload = false)</tt>
 * <tt><em>collection</em><<(object, ...)</tt>
@@ -1547,7 +1445,7 @@ When you declare a +has_and_belongs_to_many+ association, the declaring class au
 * <tt><em>collection</em>.build(attributes = {})</tt>
 * <tt><em>collection</em>.create(attributes = {})</tt>
 
-In all of these methods, <tt><em>collection</em></tt> is replaced with the symbol passed as the first argument to +has_and_belongs_to_many+, and <tt><em>collection_singular</em></tt> is replaced with the singularized version of that symbol. For example, given the declaration:
+위의 모든 메소드에서의 <tt><em>collection</em></tt> 은 +has_and_belongs_to_many+ 의 첫번째 인수로서 넘겨지는 심볼명으로 대체되고 <tt><em>collection_singular</em></tt> 는 해당 심볼의 단수형으로 대체됩니다. 예를 들면 다음과 같은 선언에서:
 
 <ruby>
 class Part < ActiveRecord::Base
@@ -1555,7 +1453,7 @@ class Part < ActiveRecord::Base
 end
 </ruby>
 
-Each instance of the part model will have these methods:
+part 모델의 각 인스턴스는 다음의 메소를 가지게 될 것입니다:
 
 <ruby>
 assemblies(force_reload = false)
@@ -1574,16 +1472,15 @@ assemblies.build(attributes = {}, ...)
 assemblies.create(attributes = {})
 </ruby>
 
-h6. Additional Column Methods
+h6(#Additional_Column_Methods). 추가되는 컬럼 메소드
 
-If the join table for a +has_and_belongs_to_many+ association has additional columns beyond the two foreign keys, these columns will be added as attributes to records retrieved via that association. Records returned with additional attributes will always be read-only, because Rails cannot save changes to those attributes.
++has_and_belongs_to_many+ 관계설정시 조인 테이블이 두개의 +foreign key+ 외에 별도의 컬럼을 추가로 가지게 될 경우, 관계를 통해서 레코드를 가져올 때 속성으로서 추가될 것입니다. 그러나 레일스는 이러한 속성에 대한 변경내용에 대해서는 저장을 하지 않기 때문에 추가 속성과 함께 반환되는 레코드는 항상 읽기전용 상태가 될 것입니다.
 
-WARNING: The use of extra attributes on the join table in a +has_and_belongs_to_many+ association is deprecated. If you require this sort of complex behavior on the table that joins two models in a many-to-many relationship, you should use a +has_many :through+ association instead of +has_and_belongs_to_many+.
-
+WARNING: 따라서 +has_and_belongs_to_many+ 관계설정시 +join+ 테이블에 별도의 속성을 추가하는 것은 의미 없는 일이 될 것입니다. 만약에 이러한 경우가 필요한 경우에는 대신에 +has_many :through+ 관계를 사용해야 함을 잊어서는 안 됩니다.
 
 h6(#has_and_belongs_to_many-collection). <tt><em>collection</em>(force_reload = false)</tt>
 
-The <tt><em>collection</em></tt> method returns an array of all of the associated objects. If there are no associated objects, it returns an empty array.
+<tt><em>collection</em></tt> 메소드는 모든 연관 객체들의 배열을 반환해 줍니다. 연관된 객체가 없을 경우에는 빈 배열을 반환해 줍니다.
 
 <ruby>
 @assemblies = @part.assemblies
@@ -1591,17 +1488,17 @@ The <tt><em>collection</em></tt> method returns an array of all of the associate
 
 h6(#has_and_belongs_to_many-collection-lt_lt). <tt><em>collection</em><<(object, ...)</tt>
 
-The <tt><em>collection</em><<</tt> method adds one or more objects to the collection by creating records in the join table.
+<tt><em>collection</em><<</tt> 메소드는 조인 테이블에 레코드를 생성하여 컬렉션에 하나 또는 하나 이상의 객체를 추가해 줍니다.
 
 <ruby>
 @part.assemblies << @assembly1
 </ruby>
 
-NOTE: This method is aliased as <tt><em>collection</em>.concat</tt> and <tt><em>collection</em>.push</tt>.
+NOTE: 이 메소드의 별칭으로는 <tt><em>collection</em>.concat</tt> 와 <tt><em>collection</em>.push</tt> 메소드가 있습니다.
 
 h6(#has_and_belongs_to_many-collection-delete). <tt><em>collection</em>.delete(object, ...)</tt>
 
-The <tt><em>collection</em>.delete</tt> method removes one or more objects from the collection by deleting records in the join table. This does not destroy the objects.
+<tt><em>collection</em>.delete</tt> 메소드는 조인 테이블에서 레코드를 삭제하여 컬렉션으로부터 하나 또는 하나 이상의 객체들을 제거합니다. 그러나 객체들은 삭제되지 않습니다.
 
 <ruby>
 @part.assemblies.delete(@assembly1)
@@ -1609,11 +1506,11 @@ The <tt><em>collection</em>.delete</tt> method removes one or more objects from 
 
 h6(#has_and_belongs_to_many-collection-equal). <tt><em>collection</em>=objects</tt>
 
-The <tt><em>collection</em>=</tt> method makes the collection contain only the supplied objects, by adding and deleting as appropriate.
+<tt><em>collection</em>=</tt> 메소드는 상황에 따라 컬렉션에서 객체를 추가/삭제하므로써 해당 컬렉션이 할당한 객체만을 포함하도록 해 줍니다.
 
 h6(#has_and_belongs_to_many-collection_singular). <tt><em>collection_singular</em>_ids</tt>
 
-The <tt><em>collection_singular</em>_ids</tt> method returns an array of the ids of the objects in the collection.
+<tt><em>collection_singular</em>_ids</tt> 메소드는 컬렉선내의 객체들의 +id+ 값들을 배열형태로 반환해 줍니다.
 
 <ruby>
 @assembly_ids = @part.assembly_ids
@@ -1621,15 +1518,15 @@ The <tt><em>collection_singular</em>_ids</tt> method returns an array of the ids
 
 h6(#has_and_belongs_to_many-collection_singular_ids_ids). <tt><em>collection_singular</em>_ids=ids</tt>
 
-The <tt><em>collection_singular</em>_ids=</tt> method makes the collection contain only the objects identified by the supplied primary key values, by adding and deleting as appropriate.
+<tt><em>collection_singular</em>_ids=</tt> 메소드는 상황에 따라 객체들을 추가/삭제하므로써 할당하는 +primary key+ 값들로 확인되는 객체들만 컬렉션에 포함하도록 해 줍니다.
 
 h6(#has_and_belongs_to_many-collection-clear). <tt><em>collection</em>.clear</tt>
 
-The <tt><em>collection</em>.clear</tt> method removes every object from the collection by deleting the rows from the joining table. This does not destroy the associated objects.
+<tt><em>collection</em>.clear</tt> 메소드는 +join+ 테이블에서 모든 레코드를 삭제하므로써 컬렉션으로부터 모든 객체를 제거해 줍니다. 그러나 해당 모델의 연관된 객체들은 삭제되지 않습니다.
 
 h6(#has_and_belongs_to_many-collection-empty). <tt><em>collection</em>.empty?</tt>
 
-The <tt><em>collection</em>.empty?</tt> method returns +true+ if the collection does not contain any associated objects.
+<tt><em>collection</em>.empty?</tt> 메소드는 컬렉션이 연관된 객체를 포함하고 있지 않을 경우 +true+ 값을 반환해 줍니다.
 
 <ruby>
 <% if @part.assemblies.empty? %>
@@ -1639,7 +1536,7 @@ The <tt><em>collection</em>.empty?</tt> method returns +true+ if the collection 
 
 h6(#has_and_belongs_to_many-collection-size). <tt><em>collection</em>.size</tt>
 
-The <tt><em>collection</em>.size</tt> method returns the number of objects in the collection.
+<tt><em>collection</em>.size</tt> 메소드는 컬렉션내의 객체의 갯수를 반환해 줍니다.
 
 <ruby>
 @assembly_count = @part.assemblies.size
@@ -1647,7 +1544,7 @@ The <tt><em>collection</em>.size</tt> method returns the number of objects in th
 
 h6(#has_and_belongs_to_many-collection-find). <tt><em>collection</em>.find(...)</tt>
 
-The <tt><em>collection</em>.find</tt> method finds objects within the collection. It uses the same syntax and options as +ActiveRecord::Base.find+. It also adds the additional condition that the object must be in the collection.
+<tt><em>collection</em>.find</tt> 메소드는 컬렉션내에서 객체들을 불러 옵니다. 이것은 +ActiveRecord::Base.find+ 메소드와 같은 문법과 옵션을 가집니다. 또한 추가적인 조건을 명시하여 컬렉션에서 해당 객체들만 불러 올 수 있습니다.
 
 <ruby>
 @assembly = @part.assemblies.find(1)
@@ -1655,7 +1552,7 @@ The <tt><em>collection</em>.find</tt> method finds objects within the collection
 
 h6(#has_and_belongs_to_many-collection-where). <tt><em>collection</em>.where(...)</tt>
 
-The <tt><em>collection</em>.where</tt> method finds objects within the collection based on the conditions supplied but the objects are loaded lazily meaning that the database is queried only when the object(s) are accessed. It also adds the additional condition that the object must be in the collection.
+<tt><em>collection</em>.where</tt> 메소드는 설정한 조건을 근거해서 컬렉션에서 객체들을 불러오지만 해당 객체는 실제로 접근될 때에 비로소 데이터베이스에서 쿼리가 됩니다(이것을 +lazy loading+ 이라고 한다).
 
 <ruby>
 @new_assemblies = @part.assemblies.where("created_at > ?", 2.days.ago)
@@ -1663,11 +1560,11 @@ The <tt><em>collection</em>.where</tt> method finds objects within the collectio
 
 h6(#has_and_belongs_to_many-collection-exists). <tt><em>collection</em>.exists?(...)</tt>
 
-The <tt><em>collection</em>.exists?</tt> method checks whether an object meeting the supplied conditions exists in the collection. It uses the same syntax and options as +ActiveRecord::Base.exists?+.
+<tt><em>collection</em>.exists?</tt> 메소드는 넘겨준 조건에 맞는 객체가 컬렉션 중에 존재하는지 여부를 확인해 줍니다. 이 메소드는 +ActiveRecord::Base.exists?+ 메소드와 동일한 문법과 옵션을 사용합니다.
 
 h6(#has_and_belongs_to_many-collection-build). <tt><em>collection</em>.build(attributes = {})</tt>
 
-The <tt><em>collection</em>.build</tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, and the link through the join table will be created, but the associated object will _not_ yet be saved.
+<tt><em>collection</em>.build</tt> 메소드는 해당 관계의 새로운 객체를 반환해 줍니다. 이 객체는 넘겨진 속성값으로 초기화되며 +join+ 테이블을 통해 연결이 자동으로 만들어지지만 해당 객체는 _저장되지 않을 상태로_ 남게 됩니다.
 
 <ruby>
 @assembly = @part.assemblies.build(
@@ -1676,16 +1573,16 @@ The <tt><em>collection</em>.build</tt> method returns a new object of the associ
 
 h6(#has_and_belongs_to_many-create-attributes). <tt><em>collection</em>.create(attributes = {})</tt>
 
-The <tt><em>collection</em>.create</tt> method returns a new object of the associated type. This object will be instantiated from the passed attributes, the link through the join table will be created, and, once it passes all of the validations specified on the associated model, the associated object _will_ be saved.
+<tt><em>collection</em>.create</tt> 메소드는 해당 관계형의 새로운 객체를 반환해 줍니다. 이 객체는 넘겨진 속성값로 초기화되며 +join+ 테이블을 통해 연결도 자동으로 만들어지고, 연관된 모델에 명시된 유효성 검증 규칙을 모든 통과한 경우에만 해당 객체가 _저장될 것입니다_.
 
 <ruby>
 @assembly = @part.assemblies.create(
   {:assembly_name => "Transmission housing"})
 </ruby>
 
-h5. Options for +has_and_belongs_to_many+
+h5)#Options_for_has_and_belongs_to_many). +has_and_belongs_to_many+ 메소드 옵션들
 
-While Rails uses intelligent defaults that will work well in most situations, there may be times when you want to customize the behavior of the +has_and_belongs_to_many+ association reference. Such customizations can easily be accomplished by passing options when you create the association. For example, this assocation uses two such options:
+레일스는 대부분의 경우에 상황에 잘 맞는 디폴트값을 사용하지만, 경우에 따라 이러한 디폴트 동작을 변경하고 싶을 때가 있습니다. 이것은 관계형을 설정할 때 옵션을 지정해 줌으로써 쉽게 변경할 수 있습니다. 예를 들어 아래의 예에서는 두개의 옵션을 사용합니다:
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1694,7 +1591,7 @@ class Parts < ActiveRecord::Base
 end
 </ruby>
 
-The +has_and_belongs_to_many+ association supports these options:
++has_and_belongs_to_many+ 관계가 지원하는 옵션은 다음과 같습니다:
 
 * +:association_foreign_key+
 * +:autosave+
@@ -1719,9 +1616,9 @@ The +has_and_belongs_to_many+ association supports these options:
 
 h6(#has_and_belongs_to_many-association_foreign_key). +:association_foreign_key+
 
-By convention, Rails assumes that the column in the join table used to hold the foreign key pointing to the other model is the name of that model with the suffix +_id+ added. The +:association_foreign_key+ option lets you set the name of the foreign key directly:
+레일스는 규칙상, 다른 모델을 가리키는 foreign key에 해당하는 +join+ 테이블의 컬럼명을 모델 이름에 +_id+ 를 추가해서 사용합니다. +:association_foreign_key+ 옵션을 사용하면 직접 +foreign key+ 의 이름을 설정할 수 있게 해 줍니다:
 
-TIP: The +:foreign_key+ and +:association_foreign_key+ options are useful when setting up a many-to-many self-join. For example:
+TIP: +:foreign_key+ 와 +:association_foreign_key+ 옵션은 다대다 +self join+ 을 설정할 때 유용합니다. 예를 들면, 다음과 같습니다:
 
 <ruby>
 class User < ActiveRecord::Base
@@ -1733,11 +1630,11 @@ end
 
 h6(#has_and_belongs_to_many-autosave). +:autosave+
 
-If you set the +:autosave+ option to +true+, Rails will save any loaded members and destroy members that are marked for destruction whenever you save the parent object.
++:autosave+ 옵션을 +true+ 값으로 설정하면 레일스는 모(parent)객체를 저장할 때마다 로드된 멤버는 저장하고 삭제표시된 멤버는 실제로 삭제할 것입니다.
 
 h6(#has_and_belongs_to_many-class_name). +:class_name+
 
-If the name of the other model cannot be derived from the association name, you can use the +:class_name+ option to supply the model name. For example, if a part has many assemblies, but the actual name of the model containing assemblies is +Gadget+, you'd set things up this way:
+상대방 모델명을 관계설정시 유추할 수 없다면 +:class_name+ 옵션으로 모델명을 지정해 줄 수 있습니다. 예를 들어, 하나의 +part+ 가 다수의 +assemblies+ 를 가질 경우, 그러나 +assemblies+ 를 포함하는 실제 모델명이 +Gadget+ 이라고 한다면, 다음과 같이 설정할 수 있습니다:
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1747,7 +1644,7 @@ end
 
 h6(#has_and_belongs_to_many-conditions). +:conditions+
 
-The +:conditions+ option lets you specify the conditions that the associated object must meet (in the syntax used by an SQL +WHERE+ clause).
++:conditions+ 옵션을 사용할 경우, SQL +WHERE+ 절에서 사용하는 문법으로 연관된 객체가 만족해야하는 조건을 지정할 수 있습니다.
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1756,7 +1653,7 @@ class Parts < ActiveRecord::Base
 end
 </ruby>
 
-You can also set conditions via a hash:
+또한 다음과 같이 해쉬 형태로 조건을 지정할 수도 있습니다:
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1765,29 +1662,29 @@ class Parts < ActiveRecord::Base
 end
 </ruby>
 
-If you use a hash-style +:conditions+ option, then record creation via this association will be automatically scoped using the hash. In this case, using +@parts.assemblies.create+ or +@parts.assemblies.build+ will create orders where the +factory+ column has the value "Seattle".
+해쉬형태의 +:condition+ 옵션을 사용할 경우, 이 관계를 통해서 레코드를 생성하게 될 경우 해쉬를 이용해서 자동으로 범주를 설정하게 될 것입니다. 즉, 위의 경우에, +part.assembles.create+ 나 +part.assembles.build+ 메소드를 사용하면 +factory+ 컬럼이 “Seattle” 값으로 할당되는 +order+ 를 가지게 될 것입니다.
 
 h6(#has_and_belongs_to_many-counter_sql). +:counter_sql+
 
-Normally Rails automatically generates the proper SQL to count the association members. With the +:counter_sql+ option, you can specify a complete SQL statement to count them yourself.
+보통 레일스는 자동으로 연관 멤버의 갯수를 세기 위해서 적절한 SQL문을 만들어 냅니다. +:counter_sql+ 옵션을 이용하면, 직접 갯수를 세기 위한 SQL문장을 지정할 수 있습니다.
 
-NOTE: If you specify +:finder_sql+ but not +:counter_sql+, then the counter SQL will be generated by substituting the +SELECT ... FROM+ clause of your +:finder_sql+ statement by +SELECT COUNT(*) FROM+.
+NOTE: +:counter_sql+ 대신에 +:finder_sql+ 옵션을 사용할 경우에는, +SELECT COUNT(*) FROM+ 대신에 +:finder_sql+ 문의 +SELECT … FROM+ 절을 사용해서 +counter+ SQL문이 만들어질 것입니다.
 
 h6(#has_and_belongs_to_many-delete_sql). +:delete_sql+
 
-Normally Rails automatically generates the proper SQL to remove links between the associated classes. With the +:delete_sql+ option, you can specify a complete SQL statement to delete them yourself.
+보통 레일스는 연관 클래스사이의 연결을 끊기 위해 적절한 SQL문을 자동으로 만들어 냅니다. +:delete_sql+ 옵션을 이용하면, 연결을 제거하기 위해 직접 SQL문을 작성할 수 있습니다.
 
 h6(#has_and_belongs_to_many-extend). +:extend+
 
-The +:extend+ option specifies a named module to extend the association proxy. Association extensions are discussed in detail <a href="#association-extensions">later in this guide</a>.
++:extend+ 옵션으로 +association proxy+ 를 확장하기 위한 모듈명을 지정할 수 있습니다. 이것에 대해서는 <a href="#association-extensions">본 가이드의 뒤에서</a> 다룰 것입니다.
 
 h6(#has_and_belongs_to_many-finder_sql). +:finder_sql+
 
-Normally Rails automatically generates the proper SQL to fetch the association members. With the +:finder_sql+ option, you can specify a complete SQL statement to fetch them yourself. If fetching objects requires complex multi-table SQL, this may be necessary.
+보통 레일스는 자동으로 연관 멤버를 가져오기 위해서 적절한 SQL문을 생성합니다. +:finder_sql+ 옵션을 이용하면, 본인이 직접 SQL문을 작성할 수 있습니다. 객체를 가져오기 위해서는 다중 테이블로부터의 복잡한 SQL이 필요한 경우에 유용하게 사용할 수 있습니다.
 
 h6(#has_and_belongs_to_many-foreign_key). +:foreign_key+
 
-By convention, Rails assumes that the column in the join table used to hold the foreign key pointing to this model is the name of this model with the suffix +_id+ added. The +:foreign_key+ option lets you set the name of the foreign key directly:
+레일스는 규칙상 이 모델에 대한 +foreign key+ 를 가지는 조인 테이블상의 컬럼명을 이 모델명의 끝에 +_id+ 를 붙여서 사용하게 됩니다. +:foreign_key+ 옵션을 사용하면 직접 +foreign key+ 명을 설정할 수 있습니다:
 
 <ruby>
 class User < ActiveRecord::Base
@@ -1799,7 +1696,7 @@ end
 
 h6(#has_and_belongs_to_many-group). +:group+
 
-The +:group+ option supplies an attribute name to group the result set by, using a +GROUP BY+ clause in the finder SQL.
++:group+ 옵션은 +finder+ SQL에서 +GROUP BY+ 문을 사용하여 결과셋을 그룹화할 때 속성명을 지정할 수 있게 해 줍니다.
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1809,19 +1706,19 @@ end
 
 h6(#has_and_belongs_to_many-include). +:include+
 
-You can use the +:include+ option to specify second-order associations that should be eager-loaded when this association is used.
++:include+ 옵션을 이용하면 이 관계를 이용할 때 반드시 +eager-loading+ 되어야 하는 이차 관계를 명시할 수 있습니다.
 
 h6(#has_and_belongs_to_many-insert_sql). +:insert_sql+
 
-Normally Rails automatically generates the proper SQL to create links between the associated classes. With the +:insert_sql+ option, you can specify a complete SQL statement to insert them yourself.
+보통 레일스는 연관된 클래스 사이의 연결을 만들기 위해 적절한 SQL문을 자동으로 생성해 줍니다. +:insert_sql+ 옵션을 이용하면, 이 SQL문을 직접 작성해 줄 수 있습니다.
 
 h6(#has_and_belongs_to_many-join_table). +:join_table+
 
-If the default name of the join table, based on lexical ordering, is not what you want, you can use the +:join_table+ option to override the default.
+사전의 알파벳순으로 만들어지는 조인 테이블의 디폴트 이름이 개발자가 원하는 것이 아니라면 +:joint_table+ 옵션을 이용해서 디폴트 이름을 변경할 수 있습니다.
 
 h6(#has_and_belongs_to_many-limit). +:limit+
 
-The +:limit+ option lets you restrict the total number of objects that will be fetched through an association.
++:limit+ 옵션을 지정하면 관계를 통해서 가져오는 객체의 총수를 정할 수 있습니다.
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1832,11 +1729,11 @@ end
 
 h6(#has_and_belongs_to_many-offset). +:offset+
 
-The +:offset+ option lets you specify the starting offset for fetching objects via an association. For example, if you set +:offset => 11+, it will skip the first 11 records.
++:offset+ 옵션을 이용하면 관계를 통해 객체를 불러 올 때 시작점을 명시할 수 있습니다. 예를 들어, +:offset => 11+ 이라고 설정하면 처음 11개의 객체는 건너띄고 불러오게 되는 것입니다.
 
 h6(#has_and_belongs_to_many-order). +:order+
 
-The +:order+ option dictates the order in which associated objects will be received (in the syntax used by an SQL +ORDER BY+ clause).
++:order+ 옵션을 이용하여 연관 객체를 가져올 때 (SQL +ORDER BY+ 문에서 사용하는 문법으로) 배열순서를 지정할 수 있습니다.
 
 <ruby>
 class Parts < ActiveRecord::Base
@@ -1846,42 +1743,42 @@ end
 
 h6(#has_and_belongs_to_many-readonly). +:readonly+
 
-If you set the +:readonly+ option to +true+, then the associated objects will be read-only when retrieved via the association.
++:readonly+ 옵션을 +true+ 값으로 설정하면 연관 객체들을 불러올 때 읽기전용 상태가 됩니다.
 
 h6(#has_and_belongs_to_many-select). +:select+
 
-The +:select+ option lets you override the SQL +SELECT+ clause that is used to retrieve data about the associated objects. By default, Rails retrieves all columns.
++:select+ 옵션을 이용하면 연관 객체를 불러올 때 이용되는 SQL +SELECT+ 문을 변경할 수 있게 해 줍니다. 디폴트로 레일스는 모든 컬럼을 불러옵니다.
 
 h6(#has_and_belongs_to_many-uniq). +:uniq+
 
-Specify the +:uniq => true+ option to remove duplicates from the collection.
++:uniq+ 옵션을 +true+ 값으로 설정하면 컬렉션내에 중복된 객체를 제거해 줍니다.
 
 h6(#has_and_belongs_to_many-validate). +:validate+
 
-If you set the +:validate+ option to +false+, then associated objects will not be validated whenever you save this object. By default, this is +true+: associated objects will be validated when this object is saved.
++:validate+ 옵션을 +false+ 값으로 설정한 경우, 이 객체를 저장할 때마다 연관된 객체들에 대한 유효성 검증이 발생하기 않게 될 것입니다. 디폴트로는 이 옵션 값이 +true+ 이어서 저장시 마다 이 객체들에 대한 검증작업이 발생하게 되어 있습니다.
 
-h5(#has_and_belongs_to_many-when_are_objects_saved). When are Objects Saved?
+h5(#has_and_belongs_to_many-when_are_objects_saved). 객체들은 언제 저장되는가?
 
-When you assign an object to a +has_and_belongs_to_many+ association, that object is automatically saved (in order to update the join table). If you assign multiple objects in one statement, then they are all saved.
+하나의 객체를 +has_and_belongs_to_many+ 관계에 할당하게 되면 해당 객체는 자동으로 저장되어 +join+ 테이블을 갱신합니다. 한 문장에서 복수개의 객체를 할당한다면 한꺼번에 저장될 것입니다.
 
-If any of these saves fails due to validation errors, then the assignment statement returns +false+ and the assignment itself is cancelled.
+만약 이 객체 중에 하나라도 유효성 검증에서 실패하여 저장되지 못한다면 그 할당문은 +false+ 값을 반환하여 할당이 취소될 것입니다.
 
-If the parent object (the one declaring the +has_and_belongs_to_many+ association) is unsaved (that is, +new_record?+ returns +true+) then the child objects are not saved when they are added. All unsaved members of the association will automatically be saved when the parent is saved.
++has_and_belongs_to_many+ 관계를 선언하는 모(parent)객체가 +new_record?+ 호출시 +true+ 값을 반환하는 상황에서와 같이 저장되지 않는 경우에, 자(child)객체들이 추가될 때 역시 저장되지 않게 됩니다. 해당 관계에서의 모든 저장되지 않은 상태의 멤버들은 모객체가 저장될 대 자동으로 저장될 것입니다.
 
-If you want to assign an object to a +has_and_belongs_to_many+ association without saving the object, use the <tt><em>collection</em>.build</tt> method.
+하나의 객체를 저장되지 않은 상태에서 +has_and_belongs_to_many+ 관계로 할당하고자 한다면 <tt><em>collection</em>.build</tt> 메소드를 사용할 수 있습니다.
 
-h4. Association Callbacks
+h4. 관계콜백
 
-Normal callbacks hook into the life cycle of Active Record objects, allowing you to work with those objects at various points. For example, you can use a +:before_save+ callback to cause something to happen just before an object is saved.
+일반적인 콜백 메소드는 액티브레코드 객체들의 생명주기에 연결되어 어떤 시점에서도 이들 객체에 대해서 기능을 부여할 수 있습니다. 예를 들면, +:before_save+ 콜백을 사용해서 객체가 저장되기 직전에 작업을 할 수 있도록 할 수 있습니다.
 
-Association callbacks are similar to normal callbacks, but they are triggered by events in the life cycle of a collection. There are four available association callbacks:
+관계콜백도 일반적인 콜백과 비슷하지만 컬렉션의 생명주기상에서 발생하는 이벤트에 따라 유발된다는 것입니다. 이 콜백에는 4가지가 있습니다:
 
 * +before_add+
 * +after_add+
 * +before_remove+
 * +after_remove+
 
-You define association callbacks by adding options to the association declaration. For example:
+관계 선언시에 옵션을 추가하여 관계콜백을 정의합니다. 예를 들면 다음과 같습니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1893,9 +1790,9 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-Rails passes the object being added or removed to the callback.
+레일스는 추가되거나 삭제될 객체를 콜백으로 넘겨 주게 됩니다.
 
-You can stack callbacks on a single event by passing them as an array:
+관계콜백을 배열형태로 넘겨 주어 단일 이벤트 발생시에 콜백을 메모리상에 누적시킬 수 있습니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1912,11 +1809,11 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-If a +before_add+ callback throws an exception, the object does not get added to the collection. Similarly, if a +before_remove+ callback throws an exception, the object does not get removed from the collection.
++before_add+ 콜백이 예외를 발생시키면 해당 객체는 컬렉션에 추가되지 않게 됩니다. 이와 같이 +before_remove+ 콜백도 예외를 발생시킬 경우 해당객체가 컬렉션에서 제거되지 못하게 됩니다.
 
-h4. Association Extensions
+h4. 관계확장
 
-You're not limited to the functionality that Rails automatically builds into association proxy objects. You can also extend these objects through anonymous modules, adding new finders, creators, or other methods. For example:
+레일스가 자동으로 +association proxy+ 객체(모객체나 자객체)에 내장하는 기능외에 새로운 finders, creators, 기타 다른 메소드를 추가하여 익명의 모듈을 통해서 이러한 객체들의 기능을 확장할 수 있습니다. 예를 들면:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1928,7 +1825,7 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-If you have an extension that should be shared by many associations, you can use a named extension module. For example:
+다수의 관계설정시에 이러한 관계를 공유하고자 할 경우에는 확장모듈에 이름을 붙여 사용할 수 있습니다. 예를 들면:
 
 <ruby>
 module FindRecentExtension
@@ -1946,7 +1843,7 @@ class Supplier < ActiveRecord::Base
 end
 </ruby>
 
-To include more than one extension module in a single association, specify an array of modules:
+하나의 관계설정시에 하나 이상의 확장 모듈을 포함하고자 한다면 모듈의 배열을 명시하면 됩니다:
 
 <ruby>
 class Customer < ActiveRecord::Base
@@ -1955,8 +1852,13 @@ class Customer < ActiveRecord::Base
 end
 </ruby>
 
-Extensions can refer to the internals of the association proxy using these three attributes of the +proxy_association+ accessor:
+확장모듈에서는 +proxy_association+ 접근자의 3가지 속성을 이용하여 +association proxy+ 의 내부를 참조할 수 있습니다:
 
-* +proxy_association.owner+ returns the object that the association is a part of.
-* +proxy_association.reflection+ returns the reflection object that describes the association.
-* +proxy_association.target+ returns the associated object for +belongs_to+ or +has_one+, or the collection of associated objects for +has_many+ or +has_and_belongs_to_many+.
+* +proxy_association.owner+ 는 관계설정시에 컬렉션을 소유하는 객체를 반환합니다.
+* +proxy_association.reflection+ 은 관계를 기술하는 메타데이터를 포함는 객체를 반환합니다.
+* +proxy_association.target+ 은 +belongs_to+ 또는 +has_one+ 에 대한 연관객체들, 또는 +has_many+ 또는 +has_and_belongs_to_many+ 에 대한 연관객체들의 컬렉션을 반환합니다.
+
+NOTE: *초벌번역* - 2012년 2월 1일 최효성(hschoidr@gmail.com)<br />
+*1차수정* - 2012년 2월 18일  최효성(hschoidr@gmail.com)
+
+WARNING: 번역상의 오류가 있는 경우 _*로그인하신 후*_ "이곳":http://lab.wordstory.net/categories/3/posts/107 에 댓글을 남겨 주시기 바랍니다. 

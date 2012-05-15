@@ -5,44 +5,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title><%= yield(:page_title) || 'Ruby on Rails Guides' %></title>
+<title><%= yield(:page_title) || '루비온레일스 가이드' %></title>
 
-<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css" /> 
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
 <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
 
 <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
-
-<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body class="guide">
   <% if @edge %>
   <div>
     <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div>
+  </div> 
   <% end %>
   <div id="topNav">
     <div class="wrapper">
-      <strong>More at <a href="http://rubyonrails.org/">rubyonrails.org:</a> </strong>
-      <a href="http://rubyonrails.org/">Overview</a> |
-      <a href="http://rubyonrails.org/download">Download</a> |
-      <a href="http://rubyonrails.org/deploy">Deploy</a> |
-      <a href="https://github.com/rails/rails">Code</a> |
-      <a href="http://rubyonrails.org/screencasts">Screencasts</a> |
-      <a href="http://rubyonrails.org/documentation">Documentation</a> |
-      <a href="http://rubyonrails.org/ecosystem">Ecosystem</a> |
-      <a href="http://rubyonrails.org/community">Community</a> |
-      <a href="http://weblog.rubyonrails.org/">Blog</a>
+      <strong><a href="http://rubyonrails.org/">rubyonrails.org</a>로 가기 </strong>
+      <strong><a href="http://rorlab.org/">rorlab.org</a>로 가기 </strong>
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
       <h1><a href="index.html" title="Return to home page">Guides.rubyonrails.org</a></h1>
       <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">Guides Index</a>
+        <li><a href="index.html">홈</a></li>
+        <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">가이드 인덱스</a>
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
             <% ['L', 'R'].each do |position| %>
@@ -57,8 +47,8 @@
             <% end %>
           </div>
         </li>
-        <li><a href="contributing_to_ruby_on_rails.html">Contribute</a></li>
-        <li><a href="credits.html">Credits</a></li>
+        <li><a href="contributing_to_ruby_on_rails.html">기부하기</a></li>
+        <li><a href="credits.html">크레딧</a></li>
       </ul>
     </div>
   </div>

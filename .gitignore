@@ -23,3 +23,8 @@ debug.log
 /railties/tmp
 /guides/output
 /RDOC_MAIN.rdoc
+
+guides/pkg/
+guides/.rvmrc
+guides/code/getting_started/Gemfile.lock
+guides/Rakefile
