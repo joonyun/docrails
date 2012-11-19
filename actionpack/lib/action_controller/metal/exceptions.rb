@@ -2,6 +2,18 @@ module ActionController
   class ActionControllerError < StandardError #:nodoc:
   end
 
+  class BadRequest < ActionControllerError #:nodoc:
+    attr_reader :original_exception
+
+    def initialize(type = nil, e = nil)
+      return super() unless type && e
+
+      super("Invalid #{type} parameters: #{e.message}")
+      @original_exception = e
+      set_backtrace e.backtrace
+    end
+  end
+
   class RenderError < ActionControllerError #:nodoc:
   end
 
@@ -11,6 +23,9 @@ module ActionController
       super(message)
       @failures = failures
     end
+  end
+
+  class ActionController::UrlGenerationError < RoutingError #:nodoc:
   end
 
   class MethodNotAllowed < ActionControllerError #:nodoc:
@@ -38,7 +53,7 @@ module ActionController
 
   class UnknownHttpMethod < ActionControllerError #:nodoc:
   end
-  
+
   class UnknownFormat < ActionControllerError #:nodoc:
   end
 end

@@ -25,6 +25,7 @@ require 'securerandom'
 require "active_support/dependencies/autoload"
 require "active_support/version"
 require "active_support/logger"
+require "active_support/lazy_load_hooks"
 
 module ActiveSupport
   extend ActiveSupport::Autoload
@@ -36,7 +37,6 @@ module ActiveSupport
   autoload :LogSubscriber
   autoload :Notifications
 
-  # TODO: Narrow this list down
   eager_autoload do
     autoload :BacktraceCleaner
     autoload :BasicObject
@@ -48,18 +48,19 @@ module ActiveSupport
     autoload :Gzip
     autoload :Inflector
     autoload :JSON
+    autoload :KeyGenerator
     autoload :MessageEncryptor
     autoload :MessageVerifier
     autoload :Multibyte
     autoload :OptionMerger
     autoload :OrderedHash
     autoload :OrderedOptions
-    autoload :Rescuable
     autoload :StringInquirer
     autoload :TaggedLogging
     autoload :XmlMini
   end
 
+  autoload :Rescuable
   autoload :SafeBuffer, "active_support/core_ext/string/output_safety"
   autoload :TestCase
 end

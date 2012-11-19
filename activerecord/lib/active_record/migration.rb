@@ -1,7 +1,4 @@
-require "active_support/core_ext/module/delegation"
 require "active_support/core_ext/class/attribute_accessors"
-require 'active_support/deprecation'
-require 'active_record/schema_migration'
 require 'set'
 
 module ActiveRecord
@@ -33,6 +30,12 @@ module ActiveRecord
     end
   end
 
+  class PendingMigrationError < ActiveRecordError#:nodoc:
+    def initialize
+      super("Migrations are pending; run 'rake db:migrate RAILS_ENV=#{ENV['RAILS_ENV']}' to resolve this issue.")
+    end
+  end
+
   # = Active Record Migrations
   #
   # Migrations can manage the evolution of a schema used by several physical
@@ -47,7 +50,7 @@ module ActiveRecord
   #
   #   class AddSsl < ActiveRecord::Migration
   #     def up
-  #       add_column :accounts, :ssl_enabled, :boolean, :default => 1
+  #       add_column :accounts, :ssl_enabled, :boolean, default: true
   #     end
   #
   #     def down
@@ -59,7 +62,7 @@ module ActiveRecord
   # if you're backing out of the migration. It shows how all migrations have
   # two methods +up+ and +down+ that describes the transformations
   # required to implement or remove the migration. These methods can consist
-  # of both the migration specific methods like add_column and remove_column,
+  # of both the migration specific methods like +add_column+ and +remove_column+,
   # but may also contain regular Ruby code for generating data needed for the
   # transformations.
   #
@@ -75,9 +78,9 @@ module ActiveRecord
   #         t.integer :position
   #       end
   #
-  #       SystemSetting.create  :name => "notice",
-  #                             :label => "Use notice?",
-  #                             :value => 1
+  #       SystemSetting.create  name:  'notice',
+  #                             label: 'Use notice?',
+  #                             value: 1
   #     end
   #
   #     def down
@@ -85,19 +88,22 @@ module ActiveRecord
   #     end
   #   end
   #
-  # This migration first adds the system_settings table, then creates the very
+  # This migration first adds the +system_settings+ table, then creates the very
   # first row in it using the Active Record model that relies on the table. It
-  # also uses the more advanced create_table syntax where you can specify a
+  # also uses the more advanced +create_table+ syntax where you can specify a
   # complete table schema in one block call.
   #
   # == Available transformations
   #
-  # * <tt>create_table(name, options)</tt> Creates a table called +name+ and
+  # * <tt>create_table(name, options)</tt>: Creates a table called +name+ and
   #   makes the table object available to a block that can then add columns to it,
-  #   following the same format as add_column. See example above. The options hash
+  #   following the same format as +add_column+. See example above. The options hash
   #   is for fragments like "DEFAULT CHARSET=UTF-8" that are appended to the create
   #   table definition.
   # * <tt>drop_table(name)</tt>: Drops the table called +name+.
+  # * <tt>change_table(name, options)</tt>: Allows to make column alterations to
+  #   the table called +name+. It makes the table object availabe to a block that
+  #   can then add/remove columns, indexes or foreign keys to it.
   # * <tt>rename_table(old_name, new_name)</tt>: Renames the table called +old_name+
   #   to +new_name+.
   # * <tt>add_column(table_name, column_name, type, options)</tt>: Adds a new column
@@ -106,9 +112,9 @@ module ActiveRecord
   #   <tt>:string</tt>, <tt>:text</tt>, <tt>:integer</tt>, <tt>:float</tt>,
   #   <tt>:decimal</tt>, <tt>:datetime</tt>, <tt>:timestamp</tt>, <tt>:time</tt>,
   #   <tt>:date</tt>, <tt>:binary</tt>, <tt>:boolean</tt>. A default value can be
-  #   specified by passing an +options+ hash like <tt>{ :default => 11 }</tt>.
+  #   specified by passing an +options+ hash like <tt>{ default: 11 }</tt>.
   #   Other options include <tt>:limit</tt> and <tt>:null</tt> (e.g.
-  #   <tt>{ :limit => 50, :null => false }</tt>) -- see
+  #   <tt>{ limit: 50, null: false }</tt>) -- see
   #   ActiveRecord::ConnectionAdapters::TableDefinition#column for details.
   # * <tt>rename_column(table_name, column_name, new_column_name)</tt>: Renames
   #   a column but keeps the type and content.
@@ -119,11 +125,11 @@ module ActiveRecord
   # * <tt>add_index(table_name, column_names, options)</tt>: Adds a new index
   #   with the name of the column. Other options include
   #   <tt>:name</tt>, <tt>:unique</tt> (e.g.
-  #   <tt>{ :name => "users_name_index", :unique => true }</tt>) and <tt>:order</tt>
-  #   (e.g. { :order => {:name => :desc} }</tt>).
-  # * <tt>remove_index(table_name, :column => column_name)</tt>: Removes the index
+  #   <tt>{ name: 'users_name_index', unique: true }</tt>) and <tt>:order</tt>
+  #   (e.g. <tt>{ order: { name: :desc } }</tt>).
+  # * <tt>remove_index(table_name, column: column_name)</tt>: Removes the index
   #   specified by +column_name+.
-  # * <tt>remove_index(table_name, :name => index_name)</tt>: Removes the index
+  # * <tt>remove_index(table_name, name: index_name)</tt>: Removes the index
   #   specified by +index_name+.
   #
   # == Irreversible transformations
@@ -327,8 +333,28 @@ module ActiveRecord
   class Migration
     autoload :CommandRecorder, 'active_record/migration/command_recorder'
 
+
+    # This class is used to verify that all migrations have been run before
+    # loading a web page if config.active_record.migration_error is set to :page_load
+    class CheckPending
+      def initialize(app)
+        @app = app
+      end
+
+      def call(env)
+        ActiveRecord::Base.logger.quietly do
+          ActiveRecord::Migration.check_pending!
+        end
+        @app.call(env)
+      end
+    end
+
     class << self
       attr_accessor :delegate # :nodoc:
+    end
+
+    def self.check_pending!
+      raise ActiveRecord::PendingMigrationError if ActiveRecord::Migrator.needs_migration?
     end
 
     def self.method_missing(name, *args, &block) # :nodoc:
@@ -606,9 +632,21 @@ module ActiveRecord
         end
       end
 
+      def needs_migration?
+        current_version < last_version
+      end
+
+      def last_version
+        migrations(migrations_paths).last.try(:version)||0
+      end
+
       def proper_table_name(name)
         # Use the Active Record objects own table_name, or pre/suffix from ActiveRecord::Base if name is a symbol/string
-        name.table_name rescue "#{ActiveRecord::Base.table_name_prefix}#{name}#{ActiveRecord::Base.table_name_suffix}"
+        if name.respond_to? :table_name
+          name.table_name
+        else
+          "#{ActiveRecord::Base.table_name_prefix}#{name}#{ActiveRecord::Base.table_name_suffix}"
+        end
       end
 
       def migrations_paths
@@ -698,9 +736,8 @@ module ActiveRecord
       running = runnable
 
       if block_given?
-        ActiveSupport::Deprecation.warn(<<-eomsg)
-block argument to migrate is deprecated, please filter migrations before constructing the migrator
-        eomsg
+        message = "block argument to migrate is deprecated, please filter migrations before constructing the migrator"
+        ActiveSupport::Deprecation.warn message
         running.select! { |m| yield m }
       end
 

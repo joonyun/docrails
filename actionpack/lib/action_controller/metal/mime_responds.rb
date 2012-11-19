@@ -1,6 +1,4 @@
 require 'abstract_controller/collector'
-require 'active_support/core_ext/class/attribute'
-require 'active_support/core_ext/object/inclusion'
 
 module ActionController #:nodoc:
   module MimeResponds
@@ -16,8 +14,6 @@ module ActionController #:nodoc:
       # Defines mime types that are rendered by default when invoking
       # <tt>respond_with</tt>.
       #
-      # Examples:
-      #
       #   respond_to :html, :xml, :json
       #
       # Specifies that all actions in the controller respond to requests
@@ -27,13 +23,13 @@ module ActionController #:nodoc:
       # <tt>:except</tt> with an array of actions or a single action:
       #
       #   respond_to :html
-      #   respond_to :xml, :json, :except => [ :edit ]
+      #   respond_to :xml, :json, except: [ :edit ]
       #
       # This specifies that all actions respond to <tt>:html</tt>
       # and all actions except <tt>:edit</tt> respond to <tt>:xml</tt> and
       # <tt>:json</tt>.
       #
-      #   respond_to :json, :only => :create
+      #   respond_to :json, only: :create
       #
       # This specifies that the <tt>:create</tt> action and no other responds
       # to <tt>:json</tt>.
@@ -74,7 +70,7 @@ module ActionController #:nodoc:
     #
     #     respond_to do |format|
     #       format.html
-    #       format.xml { render :xml => @people }
+    #       format.xml { render xml: @people }
     #     end
     #   end
     #
@@ -102,7 +98,7 @@ module ActionController #:nodoc:
     #     respond_to do |format|
     #       format.html { redirect_to(person_list_url) }
     #       format.js
-    #       format.xml  { render :xml => @person.to_xml(:include => @company) }
+    #       format.xml  { render xml: @person.to_xml(include: @company) }
     #     end
     #   end
     #
@@ -166,11 +162,11 @@ module ActionController #:nodoc:
     #
     # In the example above, if the format is xml, it will render:
     #
-    #   render :xml => @people
+    #   render xml: @people
     #
     # Or if the format is json:
     #
-    #   render :json => @people
+    #   render json: @people
     #
     # Since this is a common pattern, you can use the class method respond_to
     # with the respond_with method to have the same results:
@@ -184,8 +180,8 @@ module ActionController #:nodoc:
     #     end
     #   end
     #
-    # Be sure to check respond_with and respond_to documentation for more examples.
-    #
+    # Be sure to check the documentation of +respond_with+ and
+    # <tt>ActionController::MimeResponds.respond_to</tt> for more examples.
     def respond_to(*mimes, &block)
       raise ArgumentError, "respond_to takes either types or a block, never both" if mimes.any? && block_given?
 
@@ -250,10 +246,10 @@ module ActionController #:nodoc:
     #         if @user.save
     #           flash[:notice] = 'User was successfully created.'
     #           format.html { redirect_to(@user) }
-    #           format.xml { render :xml => @user }
+    #           format.xml { render xml: @user }
     #         else
-    #           format.html { render :action => "new" }
-    #           format.xml { render :xml => @user }
+    #           format.html { render action: "new" }
+    #           format.xml { render xml: @user }
     #         end
     #       end
     #     end
@@ -264,7 +260,7 @@ module ActionController #:nodoc:
     #   the resource passed to +respond_with+ responds to <code>to_<format></code>,
     #   the method attempts to render the resource in the requested format
     #   directly, e.g. for an xml request, the response is equivalent to calling 
-    #   <code>render :xml => resource</code>.
+    #   <code>render xml: resource</code>.
     #
     # === Nested resources
     #
@@ -313,7 +309,7 @@ module ActionController #:nodoc:
     # Also, a hash passed to +respond_with+ immediately after the specified
     # resource(s) is interpreted as a set of options relevant to all
     # formats. Any option accepted by +render+ can be used, e.g.
-    #   respond_with @people, :status => 200
+    #   respond_with @people, status: 200
     # However, note that these options are ignored after an unsuccessful attempt
     # to save a resource, e.g. when automatically rendering <tt>:new</tt>
     # after a post request.
@@ -323,7 +319,6 @@ module ActionController #:nodoc:
     #    a successful html +post+ request.
     # 2. <tt>:action</tt> - overwrites the default render action used after an
     #    unsuccessful html +post+ request.
-    #
     def respond_with(*resources, &block)
       raise "In order to use respond_with, first you need to declare the formats your " <<
             "controller responds to in the class level" if self.class.mimes_for_respond_to.empty?
@@ -339,7 +334,6 @@ module ActionController #:nodoc:
 
     # Collect mimes declared in the class method respond_to valid for the
     # current action.
-    #
     def collect_mimes_from_class_level #:nodoc:
       action = action_name.to_s
 
@@ -347,9 +341,9 @@ module ActionController #:nodoc:
         config = self.class.mimes_for_respond_to[mime]
 
         if config[:except]
-          !action.in?(config[:except])
+          !config[:except].include?(action)
         elsif config[:only]
-          action.in?(config[:only])
+          config[:only].include?(action)
         else
           true
         end
@@ -362,7 +356,6 @@ module ActionController #:nodoc:
     #
     # Sends :not_acceptable to the client and returns nil if no suitable format
     # is available.
-    #
     def retrieve_collector_from_mimes(mimes=nil, &block) #:nodoc:
       mimes ||= collect_mimes_from_class_level
       collector = Collector.new(mimes)
@@ -388,7 +381,7 @@ module ActionController #:nodoc:
     #
     #   respond_to do |format|
     #     format.html
-    #     format.xml { render :xml => @people }
+    #     format.xml { render xml: @people }
     #   end
     #
     # In this usage, the argument passed to the block (+format+ above) is an
@@ -401,7 +394,6 @@ module ActionController #:nodoc:
     # A subsequent call to #negotiate_format(request) will enable the Collector
     # to determine which specific mime-type it should respond with for the current
     # request, with this response then being accessible by calling #response.
-    #
     class Collector
       include AbstractController::Collector
       attr_accessor :order, :format

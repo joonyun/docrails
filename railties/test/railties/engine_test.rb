@@ -285,8 +285,8 @@ module RailtiesTest
 
       @plugin.write "config/routes.rb", <<-RUBY
         Rails.application.routes.draw do
-          get 'foo', :to => 'bar#index'
-          get 'bar', :to => 'bar#index'
+          get 'foo', to: 'bar#index'
+          get 'bar', to: 'bar#index'
         end
       RUBY
 
@@ -366,7 +366,7 @@ YAML
         Rails.application.routes.draw do
           namespace :admin do
             namespace :foo do
-              get "bar", :to => "bar#index"
+              get "bar", to: "bar#index"
             end
           end
         end
@@ -375,7 +375,7 @@ YAML
       @plugin.write "app/controllers/admin/foo/bar_controller.rb", <<-RUBY
         class Admin::Foo::BarController < ApplicationController
           def index
-            render :text => "Rendered from namespace"
+            render text: "Rendered from namespace"
           end
         end
       RUBY
@@ -487,14 +487,14 @@ YAML
       controller "foo", <<-RUBY
         class FooController < ActionController::Base
           def index
-            render :text => params[:username]
+            render text: params[:username]
           end
         end
       RUBY
 
       @plugin.write "config/routes.rb", <<-RUBY
         Bukkits::Engine.routes.draw do
-          root :to => "foo#index"
+          root to: "foo#index"
         end
       RUBY
 
@@ -537,10 +537,11 @@ YAML
       assert_equal "foo", last_response.body
     end
 
-    test "it loads its environment file" do
+    test "it loads its environments file" do
       @plugin.write "lib/bukkits.rb", <<-RUBY
         module Bukkits
           class Engine < ::Rails::Engine
+            config.paths["config/environments"].push "config/environments/additional.rb"
           end
         end
       RUBY
@@ -551,9 +552,16 @@ YAML
         end
       RUBY
 
+      @plugin.write "config/environments/additional.rb", <<-RUBY
+        Bukkits::Engine.configure do
+          config.additional_environment_loaded = true
+        end
+      RUBY
+
       boot_rails
 
       assert Bukkits::Engine.config.environment_loaded
+      assert Bukkits::Engine.config.additional_environment_loaded
     end
 
     test "it passes router in env" do
@@ -600,14 +608,14 @@ YAML
 
       app_file "config/routes.rb", <<-RUBY
         AppTemplate::Application.routes.draw do
-          get "/bar" => "bar#index", :as => "bar"
-          mount Bukkits::Engine => "/bukkits", :as => "bukkits"
+          get "/bar" => "bar#index", as: "bar"
+          mount Bukkits::Engine => "/bukkits", as: "bukkits"
         end
       RUBY
 
       @plugin.write "config/routes.rb", <<-RUBY
         Bukkits::Engine.routes.draw do
-          get "/foo" => "foo#index", :as => "foo"
+          get "/foo" => "foo#index", as: "foo"
           get "/foo/show" => "foo#show"
           get "/from_app" => "foo#from_app"
           get "/routes_helpers_in_view" => "foo#routes_helpers_in_view"
@@ -635,23 +643,23 @@ YAML
       @plugin.write "app/controllers/bukkits/foo_controller.rb", <<-RUBY
         class Bukkits::FooController < ActionController::Base
           def index
-            render :inline => "<%= help_the_engine %>"
+            render inline: "<%= help_the_engine %>"
           end
 
           def show
-            render :text => foo_path
+            render text: foo_path
           end
 
           def from_app
-            render :inline => "<%= (self.respond_to?(:bar_path) || self.respond_to?(:something)) %>"
+            render inline: "<%= (self.respond_to?(:bar_path) || self.respond_to?(:something)) %>"
           end
 
           def routes_helpers_in_view
-            render :inline => "<%= foo_path %>, <%= main_app.bar_path %>"
+            render inline: "<%= foo_path %>, <%= main_app.bar_path %>"
           end
 
           def polymorphic_path_without_namespace
-            render :text => polymorphic_path(Post.new)
+            render text: polymorphic_path(Post.new)
           end
         end
       RUBY
@@ -718,7 +726,7 @@ YAML
 
       app_file "config/routes.rb", <<-RUBY
         AppTemplate::Application.routes.draw do
-          mount Bukkits::Engine => "/bukkits", :as => "bukkits"
+          mount Bukkits::Engine => "/bukkits", as: "bukkits"
         end
       RUBY
 
@@ -874,7 +882,7 @@ YAML
         module Bukkits
           class Engine < ::Rails::Engine
             config.generators do |g|
-              g.orm             :datamapper
+              g.orm             :data_mapper
               g.template_engine :haml
               g.test_framework  :rspec
             end
@@ -902,7 +910,7 @@ YAML
       assert_equal :test_unit, app_generators[:test_framework]
 
       generators = Bukkits::Engine.config.generators.options[:rails]
-      assert_equal :datamapper, generators[:orm]
+      assert_equal :data_mapper, generators[:orm]
       assert_equal :haml      , generators[:template_engine]
       assert_equal :rspec     , generators[:test_framework]
     end
@@ -1001,9 +1009,7 @@ YAML
 
       boot_rails
 
-      methods = Bukkits::Engine.helpers.public_instance_methods.collect(&:to_s).sort
-      expected = ["bar", "baz"]
-      assert_equal expected, methods
+      assert_equal [:bar, :baz], Bukkits::Engine.helpers.public_instance_methods.sort
     end
 
     test "setting priority for engines with config.railties_order" do
@@ -1027,11 +1033,11 @@ YAML
       controller "main", <<-RUBY
         class MainController < ActionController::Base
           def foo
-            render :inline => '<%= render :partial => "shared/foo" %>'
+            render inline: '<%= render :partial => "shared/foo" %>'
           end
 
           def bar
-            render :inline => '<%= render :partial => "shared/bar" %>'
+            render inline: '<%= render :partial => "shared/bar" %>'
           end
         end
       RUBY
@@ -1090,6 +1096,10 @@ YAML
 
       get("/assets/bar.js")
       assert_equal "// App's bar js\n;", last_response.body.strip
+
+      # ensure that railties are not added twice
+      railties = Rails.application.send(:ordered_railties).map(&:class)
+      assert_equal railties, railties.uniq
     end
 
     test "railties_order adds :all with lowest priority if not given" do
@@ -1103,7 +1113,7 @@ YAML
       controller "main", <<-RUBY
         class MainController < ActionController::Base
           def foo
-            render :inline => '<%= render :partial => "shared/foo" %>'
+            render inline: '<%= render :partial => "shared/foo" %>'
           end
         end
       RUBY
@@ -1157,7 +1167,7 @@ YAML
                 fullpath: \#{request.fullpath}
                 path: \#{request.path}
               TEXT
-              render :text => text
+              render text: text
             end
           end
         end
@@ -1181,6 +1191,54 @@ YAML
       get("/")
       assert_equal expected.split("\n").map(&:strip),
                    last_response.body.split("\n").map(&:strip)
+    end
+
+    test "paths are properly generated when application is mounted at sub-path" do
+      @plugin.write "lib/bukkits.rb", <<-RUBY
+        module Bukkits
+          class Engine < ::Rails::Engine
+            isolate_namespace Bukkits
+          end
+        end
+      RUBY
+
+      app_file "app/controllers/bar_controller.rb", <<-RUBY
+        class BarController < ApplicationController
+          def index
+            render text: bukkits.bukkit_path
+          end
+        end
+      RUBY
+
+      app_file "config/routes.rb", <<-RUBY
+        AppTemplate::Application.routes.draw do
+          get '/bar' => 'bar#index', :as => 'bar'
+          mount Bukkits::Engine => "/bukkits", :as => "bukkits"
+        end
+      RUBY
+
+      @plugin.write "config/routes.rb", <<-RUBY
+        Bukkits::Engine.routes.draw do
+          get '/bukkit' => 'bukkit#index'
+        end
+      RUBY
+
+
+      @plugin.write "app/controllers/bukkits/bukkit_controller.rb", <<-RUBY
+        class Bukkits::BukkitController < ActionController::Base
+          def index
+            render text: main_app.bar_path
+          end
+        end
+      RUBY
+
+      boot_rails
+
+      get("/bukkits/bukkit", {}, {'SCRIPT_NAME' => '/foo'})
+      assert_equal '/foo/bar', last_response.body
+
+      get("/bar", {}, {'SCRIPT_NAME' => '/foo'})
+      assert_equal '/foo/bukkits/bukkit', last_response.body
     end
 
   private

@@ -1,9 +1,9 @@
 require 'stringio'
 require 'uri'
 require 'active_support/core_ext/kernel/singleton_class'
-require 'active_support/core_ext/object/inclusion'
 require 'active_support/core_ext/object/try'
 require 'rack/test'
+require 'minitest/unit'
 
 module ActionDispatch
   module Integration #:nodoc:
@@ -17,10 +17,10 @@ module ActionDispatch
       #   a Hash, or a String that is appropriately encoded
       #   (<tt>application/x-www-form-urlencoded</tt> or
       #   <tt>multipart/form-data</tt>).
-      # - +headers+: Additional HTTP headers to pass, as a Hash. The keys will
-      #   automatically be upcased, with the prefix 'HTTP_' added if needed.
+      # - +headers+: Additional headers to pass, as a Hash. The headers will be
+      #   merged into the Rack env hash.
       #
-      # This method returns an Response object, which one can use to
+      # This method returns a Response object, which one can use to
       # inspect the details of the response. Furthermore, if this method was
       # called from an ActionDispatch::IntegrationTest object, then that
       # object's <tt>@response</tt> instance variable will point to the same
@@ -73,8 +73,7 @@ module ActionDispatch
       #
       # The request_method is +:get+, +:post+, +:patch+, +:put+, +:delete+ or
       # +:head+; the parameters are +nil+, a hash, or a url-encoded or multipart
-      # string; the headers are a hash.  Keys are automatically upcased and
-      # prefixed with 'HTTP_' if not already.
+      # string; the headers are a hash.
       def xml_http_request(request_method, path, parameters = nil, headers = nil)
         headers ||= {}
         headers['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
@@ -194,8 +193,11 @@ module ActionDispatch
 
         # If the app is a Rails app, make url_helpers available on the session
         # This makes app.url_for and app.foo_path available in the console
-        if app.respond_to?(:routes) && app.routes.respond_to?(:url_helpers)
-          singleton_class.class_eval { include app.routes.url_helpers }
+        if app.respond_to?(:routes)
+          singleton_class.class_eval do
+            include app.routes.url_helpers if app.routes.respond_to?(:url_helpers)
+            include app.routes.mounted_helpers if app.routes.respond_to?(:mounted_helpers)
+          end
         end
 
         reset!
@@ -344,7 +346,7 @@ module ActionDispatch
         define_method(method) do |*args|
           reset! unless integration_session
           # reset the html_document variable, but only for new get/post calls
-          @html_document = nil unless method.in?(["cookies", "assigns"])
+          @html_document = nil unless method == 'cookies' || method == 'assigns'
           integration_session.__send__(method, *args).tap do
             copy_session_variables!
           end
@@ -428,8 +430,8 @@ module ActionDispatch
   #       assert_equal 200, status
   #
   #       # post the login and follow through to the home page
-  #       post "/login", :username => people(:jamis).username,
-  #         :password => people(:jamis).password
+  #       post "/login", username: people(:jamis).username,
+  #         password: people(:jamis).password
   #       follow_redirect!
   #       assert_equal 200, status
   #       assert_equal "/home", path
@@ -462,13 +464,13 @@ module ActionDispatch
   #       module CustomAssertions
   #         def enter(room)
   #           # reference a named route, for maximum internal consistency!
-  #           get(room_url(:id => room.id))
+  #           get(room_url(id: room.id))
   #           assert(...)
   #           ...
   #         end
   #
   #         def speak(room, message)
-  #           xml_http_request "/say/#{room.id}", :message => message
+  #           xml_http_request "/say/#{room.id}", message: message
   #           assert(...)
   #           ...
   #         end
@@ -478,8 +480,8 @@ module ActionDispatch
   #         open_session do |sess|
   #           sess.extend(CustomAssertions)
   #           who = people(who)
-  #           sess.post "/login", :username => who.username,
-  #             :password => who.password
+  #           sess.post "/login", username: who.username,
+  #             password: who.password
   #           assert(...)
   #         end
   #       end
@@ -489,12 +491,14 @@ module ActionDispatch
     include ActionController::TemplateAssertions
     include ActionDispatch::Routing::UrlFor
 
+    # Use AD::IntegrationTest for acceptance tests
+    register_spec_type(/(Acceptance|Integration) ?Test\z/i, self)
+
     @@app = nil
 
     def self.app
       if !@@app && !ActionDispatch.test_app
-        ActiveSupport::Deprecation.warn "Rails application fallback is deprecated " \
-          "and no longer works, please set ActionDispatch.test_app", caller
+        ActiveSupport::Deprecation.warn "Rails application fallback is deprecated and no longer works, please set ActionDispatch.test_app"
       end
 
       @@app || ActionDispatch.test_app

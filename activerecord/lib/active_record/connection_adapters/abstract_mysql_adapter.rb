@@ -1,21 +1,22 @@
-require 'active_support/core_ext/object/blank'
 require 'arel/visitors/bind_visitor'
 
 module ActiveRecord
   module ConnectionAdapters
     class AbstractMysqlAdapter < AbstractAdapter
       class Column < ConnectionAdapters::Column # :nodoc:
-        attr_reader :collation
+        attr_reader :collation, :strict
 
-        def initialize(name, default, sql_type = nil, null = true, collation = nil)
-          super(name, default, sql_type, null)
+        def initialize(name, default, sql_type = nil, null = true, collation = nil, strict = false)
+          @strict    = strict
           @collation = collation
+
+          super(name, default, sql_type, null)
         end
 
         def extract_default(default)
           if sql_type =~ /blob/i || type == :text
             if default.blank?
-              return null ? nil : ''
+              null || strict ? nil : ''
             else
               raise ArgumentError, "#{type} columns cannot have a default value: #{default.inspect}"
             end
@@ -72,6 +73,8 @@ module ActiveRecord
           when /^mediumint/i; 3
           when /^smallint/i;  2
           when /^tinyint/i;   1
+          when /^enum\((.+)\)/i
+            $1.split(',').map{|enum| enum.strip.length - 2}.max
           else
             super
           end
@@ -168,6 +171,14 @@ module ActiveRecord
         true
       end
 
+      # MySQL 4 technically support transaction isolation, but it is affected by a bug
+      # where the transaction level gets persisted for the whole session:
+      #
+      # http://bugs.mysql.com/bug.php?id=39170
+      def supports_transaction_isolation?
+        version[0] >= 5
+      end
+
       def native_database_types
         NATIVE_DATABASE_TYPES
       end
@@ -251,7 +262,7 @@ module ActiveRecord
       end
 
       # MysqlAdapter has to free a result after using it, so we use this method to write
-      # stuff in a abstract way without concerning ourselves about whether it needs to be
+      # stuff in an abstract way without concerning ourselves about whether it needs to be
       # explicitly freed or not.
       def execute_and_free(sql, name = nil) #:nodoc:
         yield execute(sql, name)
@@ -264,19 +275,26 @@ module ActiveRecord
 
       def begin_db_transaction
         execute "BEGIN"
-      rescue Exception
+      rescue
+        # Transactions aren't supported
+      end
+
+      def begin_isolated_db_transaction(isolation)
+        execute "SET TRANSACTION ISOLATION LEVEL #{transaction_isolation_levels.fetch(isolation)}"
+        begin_db_transaction
+      rescue
         # Transactions aren't supported
       end
 
       def commit_db_transaction #:nodoc:
         execute "COMMIT"
-      rescue Exception
+      rescue
         # Transactions aren't supported
       end
 
       def rollback_db_transaction #:nodoc:
         execute "ROLLBACK"
-      rescue Exception
+      rescue
         # Transactions aren't supported
       end
 
@@ -304,6 +322,10 @@ module ActiveRecord
         end
       end
 
+      def empty_insert_statement_value
+        "VALUES ()"
+      end
+
       # SCHEMA STATEMENTS ========================================
 
       def structure_dump #:nodoc:
@@ -313,10 +335,10 @@ module ActiveRecord
           sql = "SHOW TABLES"
         end
 
-        select_all(sql).map { |table|
+        select_all(sql, 'SCHEMA').map { |table|
           table.delete('Table_type')
           sql = "SHOW CREATE TABLE #{quote_table_name(table.to_a.first.last)}"
-          exec_without_stmt(sql).first['Create Table'] + ";\n\n"
+          exec_query(sql, 'SCHEMA').first['Create Table'] + ";\n\n"
         }.join
       end
 
@@ -331,9 +353,9 @@ module ActiveRecord
       # Charset defaults to utf8.
       #
       # Example:
-      #   create_database 'charset_test', :charset => 'latin1', :collation => 'latin1_bin'
+      #   create_database 'charset_test', charset: 'latin1', collation: 'latin1_bin'
       #   create_database 'matt_development'
-      #   create_database 'matt_development', :charset => :big5
+      #   create_database 'matt_development', charset: :big5
       def create_database(name, options = {})
         if options[:collation]
           execute "CREATE DATABASE `#{name}` DEFAULT CHARACTER SET `#{options[:charset] || 'utf8'}` COLLATE `#{options[:collation]}`"
@@ -476,6 +498,13 @@ module ActiveRecord
       # Maps logical Rails types to MySQL-specific data types.
       def type_to_sql(type, limit = nil, precision = nil, scale = nil)
         case type.to_s
+        when 'binary'
+          case limit
+          when 0..0xfff;           "varbinary(#{limit})"
+          when nil;                "blob"
+          when 0x1000..0xffffffff; "blob(#{limit})"
+          else raise(ActiveRecordError, "No binary type has character length #{limit}")
+          end
         when 'integer'
           case limit
           when 1; 'tinyint'
@@ -508,7 +537,7 @@ module ActiveRecord
 
       # SHOW VARIABLES LIKE 'name'
       def show_variable(name)
-        variables = select_all("SHOW VARIABLES LIKE '#{name}'")
+        variables = select_all("SHOW VARIABLES LIKE '#{name}'", 'SCHEMA')
         variables.first['Value'] unless variables.empty?
       end
 
@@ -545,6 +574,10 @@ module ActiveRecord
 
       def limited_update_conditions(where_sql, quoted_table_name, quoted_primary_key)
         where_sql
+      end
+
+      def strict_mode?
+        @config.fetch(:strict, true)
       end
 
       protected
@@ -630,7 +663,7 @@ module ActiveRecord
           raise ActiveRecordError, "No such column: #{table_name}.#{column_name}"
         end
 
-        current_type = select_one("SHOW COLUMNS FROM #{quote_table_name(table_name)} LIKE '#{column_name}'")["Type"]
+        current_type = select_one("SHOW COLUMNS FROM #{quote_table_name(table_name)} LIKE '#{column_name}'", 'SCHEMA')["Type"]
         rename_column_sql = "CHANGE #{quote_column_name(column_name)} #{quote_column_name(new_column_name)} #{current_type}"
         add_column_options!(rename_column_sql, options)
         rename_column_sql

@@ -1,11 +1,9 @@
-require 'active_support/core_ext/class/attribute'
+require 'active_support/lazy_load_hooks'
 
 module ActiveRecord
   module Explain
     def self.extended(base)
-      # If a query takes longer than these many seconds we log its query plan
-      # automatically. nil disables this feature.
-      base.config_attribute :auto_explain_threshold_in_seconds, :global => true
+      base.mattr_accessor :auto_explain_threshold_in_seconds, instance_accessor: false
     end
 
     # If auto explain is enabled, this method triggers EXPLAIN logging for the
@@ -52,7 +50,7 @@ module ActiveRecord
     # Makes the adapter execute EXPLAIN for the tuples of queries and bindings.
     # Returns a formatted string ready to be logged.
     def exec_explain(queries) # :nodoc:
-      queries && queries.map do |sql, bind|
+      str = queries && queries.map do |sql, bind|
         [].tap do |msg|
           msg << "EXPLAIN for: #{sql}"
           unless bind.empty?
@@ -62,6 +60,12 @@ module ActiveRecord
           msg << connection.explain(sql, bind)
         end.join("\n")
       end.join("\n")
+
+      # Overriding inspect to be more human readable, specially in the console.
+      def str.inspect
+        self
+      end
+      str
     end
 
     # Silences automatic EXPLAIN logging for the duration of the block.

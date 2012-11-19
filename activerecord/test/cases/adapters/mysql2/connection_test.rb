@@ -3,7 +3,14 @@ require "cases/helper"
 class MysqlConnectionTest < ActiveRecord::TestCase
   def setup
     super
-    @connection = ActiveRecord::Model.connection
+    @connection = ActiveRecord::Base.connection
+    @connection.extend(LogIntercepter)
+    @connection.intercepted = true
+  end
+
+  def teardown
+    @connection.intercepted = false
+    @connection.logged = []
   end
 
   def test_no_automatic_reconnection_after_timeout
@@ -37,22 +44,43 @@ class MysqlConnectionTest < ActiveRecord::TestCase
     assert_equal [["STRICT_ALL_TABLES"]], result.rows
   end
 
-  def test_mysql_strict_mode_disabled
+  def test_mysql_strict_mode_disabled_dont_override_global_sql_mode
     run_without_connection do |orig_connection|
-      ActiveRecord::Model.establish_connection(orig_connection.merge({:strict => false}))
-      result = ActiveRecord::Model.connection.exec_query "SELECT @@SESSION.sql_mode"
-      assert_equal [['']], result.rows
+      ActiveRecord::Base.establish_connection(orig_connection.merge({:strict => false}))
+      global_sql_mode = ActiveRecord::Base.connection.exec_query "SELECT @@GLOBAL.sql_mode"
+      session_sql_mode = ActiveRecord::Base.connection.exec_query "SELECT @@SESSION.sql_mode"
+      assert_equal global_sql_mode.rows, session_sql_mode.rows
     end
+  end
+
+  def test_logs_name_structure_dump
+    @connection.structure_dump
+    assert_equal "SCHEMA", @connection.logged[0][1]
+    assert_equal "SCHEMA", @connection.logged[2][1]
+  end
+
+  def test_logs_name_show_variable
+    @connection.show_variable 'foo'
+    assert_equal "SCHEMA", @connection.logged[0][1]
+  end
+
+  def test_logs_name_rename_column_sql
+    @connection.execute "CREATE TABLE `bar_baz` (`foo` varchar(255))"
+    @connection.logged = []
+    @connection.send(:rename_column_sql, 'bar_baz', 'foo', 'foo2')
+    assert_equal "SCHEMA", @connection.logged[0][1]
+  ensure
+    @connection.execute "DROP TABLE `bar_baz`"
   end
 
   private
 
   def run_without_connection
-    original_connection = ActiveRecord::Model.remove_connection
+    original_connection = ActiveRecord::Base.remove_connection
     begin
       yield original_connection
     ensure
-      ActiveRecord::Model.establish_connection(original_connection)
+      ActiveRecord::Base.establish_connection(original_connection)
     end
   end
 end

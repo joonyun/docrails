@@ -17,7 +17,7 @@ module ActionView
     module TranslationHelper
       # Delegates to <tt>I18n#translate</tt> but also performs three additional functions.
       #
-      # First, it'll pass the <tt>:rescue_format => :html</tt> option to I18n so that any
+      # First, it'll pass the <tt>rescue_format: :html</tt> option to I18n so that any
       # thrown +MissingTranslation+ messages will be turned into inline spans that
       #
       #   * have a "translation-missing" class set,
@@ -64,7 +64,7 @@ module ActionView
 
       # Delegates to <tt>I18n.localize</tt> with no additional functionality.
       #
-      # See http://rubydoc.info/github/svenfuchs/i18n/master/I18n/Backend/Base:localize 
+      # See http://rubydoc.info/github/svenfuchs/i18n/master/I18n/Backend/Base:localize
       # for more information.
       def localize(*args)
         I18n.localize(*args)
@@ -96,7 +96,7 @@ module ActionView
               new_defaults << lambda { |_, options| translate key, options.merge(:default => defaults) }
               break
             else
-              new_defautls << key
+              new_defaults << key
             end
           end
 

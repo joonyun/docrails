@@ -1,3 +1,5 @@
+require 'action_controller/model_naming'
+
 module ActionDispatch
   module Routing
     # Polymorphic URL helpers are methods for smart resolution to a named route call when
@@ -32,7 +34,7 @@ module ActionDispatch
     # == Prefixed polymorphic helpers
     #
     # In addition to <tt>polymorphic_url</tt> and <tt>polymorphic_path</tt> methods, a
-    # number of prefixed helpers are available as a shorthand to <tt>:action => "..."</tt>
+    # number of prefixed helpers are available as a shorthand to <tt>action: "..."</tt>
     # in options. Those are:
     #
     # * <tt>edit_polymorphic_url</tt>, <tt>edit_polymorphic_path</tt>
@@ -41,7 +43,7 @@ module ActionDispatch
     # Example usage:
     #
     #   edit_polymorphic_path(@post)              # => "/posts/1/edit"
-    #   polymorphic_path(@post, :format => :pdf)  # => "/posts/1.pdf"
+    #   polymorphic_path(@post, format: :pdf)  # => "/posts/1.pdf"
     #
     # == Usage with mounted engines
     #
@@ -53,6 +55,8 @@ module ActionDispatch
     #   form_for([blog, @post])         # => "/blog/posts/1"
     #
     module PolymorphicRoutes
+      include ActionController::ModelNaming
+
       # Constructs a call to a named RESTful route for the given record and returns the
       # resulting URL string. For example:
       #
@@ -95,7 +99,7 @@ module ActionDispatch
         end
 
         record = extract_record(record_or_hash_or_array)
-        record = record.to_model if record.respond_to?(:to_model)
+        record = convert_to_model(record)
 
         args = Array === record_or_hash_or_array ?
           record_or_hash_or_array.dup :
@@ -122,11 +126,13 @@ module ActionDispatch
           args.last.kind_of?(Hash) ? args.last.merge!(url_options) : args << url_options
         end
 
+        args.collect! { |a| convert_to_model(a) }
+
         (proxy || self).send(named_route, *args)
       end
 
       # Returns the path component of a URL for the given record. It uses
-      # <tt>polymorphic_url</tt> with <tt>:routing_type => :path</tt>.
+      # <tt>polymorphic_url</tt> with <tt>routing_type: :path</tt>.
       def polymorphic_path(record_or_hash_or_array, options = {})
         polymorphic_url(record_or_hash_or_array, options.merge(:routing_type => :path))
       end
@@ -163,7 +169,7 @@ module ActionDispatch
               if parent.is_a?(Symbol) || parent.is_a?(String)
                 parent
               else
-                ActiveModel::Naming.singular_route_key(parent)
+                model_name_from_record_or_class(parent).singular_route_key
               end
             end
           else
@@ -175,9 +181,9 @@ module ActionDispatch
             route << record
           elsif record
             if inflection == :singular
-              route << ActiveModel::Naming.singular_route_key(record)
+              route << model_name_from_record_or_class(record).singular_route_key
             else
-              route << ActiveModel::Naming.route_key(record)
+              route << model_name_from_record_or_class(record).route_key
             end
           else
             raise ArgumentError, "Nil location provided. Can't build URI."

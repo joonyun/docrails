@@ -1,4 +1,3 @@
-require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/hash/except'
 require 'active_support/core_ext/hash/slice'
 require 'active_record/relation/merger'
@@ -16,13 +15,20 @@ module ActiveRecord
     #
     # ==== Examples
     #
-    #   Post.where(:published => true).joins(:comments).merge( Comment.where(:spam => false) )
+    #   Post.where(published: true).joins(:comments).merge( Comment.where(spam: false) )
     #   # Performs a single join query with both where conditions.
     #
     #   recent_posts = Post.order('created_at DESC').first(5)
-    #   Post.where(:published => true).merge(recent_posts)
+    #   Post.where(published: true).merge(recent_posts)
     #   # Returns the intersection of all published posts with the 5 most recently created posts.
     #   # (This is just an example. You'd probably want to do this with a single query!)
+    #
+    # Procs will be evaluated by merge:
+    #
+    #   Post.where(published: true).merge(-> { joins(:comments) })
+    #   # => Post.where(published: true).joins(:comments)
+    #
+    # This is mainly intended for sharing common conditions between multiple associations.
     #
     def merge(other)
       if other.is_a?(Array)
@@ -34,9 +40,14 @@ module ActiveRecord
       end
     end
 
+    # Like #merge, but applies changes in place.
     def merge!(other)
-      klass = other.is_a?(Hash) ? Relation::HashMerger : Relation::Merger
-      klass.new(self, other).merge
+      if !other.is_a?(Relation) && other.respond_to?(:to_proc)
+        instance_exec(&other)
+      else
+        klass = other.is_a?(Hash) ? Relation::HashMerger : Relation::Merger
+        klass.new(self, other).merge
+      end
     end
 
     # Removes from the query the condition(s) specified in +skips+.

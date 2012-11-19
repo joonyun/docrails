@@ -39,6 +39,19 @@ class DependenciesTest < ActiveSupport::TestCase
     with_loading 'autoloading_fixtures', &block
   end
 
+  def test_depend_on_path
+    skip "LoadError#path does not exist" if RUBY_VERSION < '2.0.0'
+
+    expected = assert_raises(LoadError) do
+      Kernel.require 'omgwtfbbq'
+    end
+
+    e = assert_raises(LoadError) do
+      ActiveSupport::Dependencies.depend_on 'omgwtfbbq'
+    end
+    assert_equal expected.path, e.path
+  end
+
   def test_tracking_loaded_files
     require_dependency 'dependencies/service_one'
     require_dependency 'dependencies/service_two'
@@ -58,10 +71,6 @@ class DependenciesTest < ActiveSupport::TestCase
 
   def test_missing_dependency_raises_missing_source_file
     assert_raise(MissingSourceFile) { require_dependency("missing_service") }
-  end
-
-  def test_missing_association_raises_nothing
-    assert_nothing_raised { require_association("missing_model") }
   end
 
   def test_dependency_which_raises_exception_isnt_added_to_loaded_set
@@ -133,6 +142,13 @@ class DependenciesTest < ActiveSupport::TestCase
       $mutual_dependencies_count = 0
       assert_nothing_raised { require_dependency 'mutual_two' }
       assert_equal 2, $mutual_dependencies_count
+    end
+  end
+
+  def test_circular_autoloading_detection
+    with_autoloading_fixtures do
+      e = assert_raise(RuntimeError) { Circular1 }
+      assert_equal "Circular dependency detected while autoloading constant Circular1", e.message
     end
   end
 
@@ -670,6 +686,8 @@ class DependenciesTest < ActiveSupport::TestCase
       assert_equal true, M.unloadable
       assert_equal false, M.unloadable
     end
+  ensure
+    Object.class_eval { remove_const :M }
   end
 
   def test_unloadable_constants_should_receive_callback
@@ -908,6 +926,16 @@ class DependenciesTest < ActiveSupport::TestCase
     assert defined?(DeleteMe)
     ActiveSupport::Dependencies.remove_constant "::DeleteMe"
     assert ! defined?(DeleteMe)
+  end
+
+  def test_remove_constant_does_not_trigger_loading_autoloads
+    constant = 'ShouldNotBeAutoloaded'
+    Object.class_eval do
+      autoload constant, File.expand_path('../autoloading_fixtures/should_not_be_required', __FILE__)
+    end
+
+    assert_nil ActiveSupport::Dependencies.remove_constant(constant), "Kernel#autoload has been triggered by remove_constant"
+    assert !defined?(ShouldNotBeAutoloaded)
   end
 
   def test_load_once_constants_should_not_be_unloaded

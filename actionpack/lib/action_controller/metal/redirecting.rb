@@ -24,8 +24,7 @@ module ActionController
     # * <tt>:back</tt> - Back to the page that issued the request. Useful for forms that are triggered from multiple places.
     #   Short-hand for <tt>redirect_to(request.env["HTTP_REFERER"])</tt>
     #
-    # Examples:
-    #   redirect_to :action => "show", :id => 5
+    #   redirect_to action: "show", id: 5
     #   redirect_to post
     #   redirect_to "http://www.rubyonrails.org"
     #   redirect_to "/images/screenshot.jpg"
@@ -35,11 +34,10 @@ module ActionController
     #
     # The redirection happens as a "302 Moved" header unless otherwise specified.
     #
-    # Examples:
-    #   redirect_to post_url(@post), :status => :found
-    #   redirect_to :action=>'atom', :status => :moved_permanently
-    #   redirect_to post_url(@post), :status => 301
-    #   redirect_to :action=>'atom', :status => 302
+    #   redirect_to post_url(@post), status: :found
+    #   redirect_to action: 'atom', status: :moved_permanently
+    #   redirect_to post_url(@post), status: 301
+    #   redirect_to action: 'atom', status: 302
     #
     # The status code can either be a standard {HTTP Status code}[http://www.iana.org/assignments/http-status-codes] as an
     # integer, or a symbol representing the downcased, underscored and symbolized description.
@@ -51,24 +49,23 @@ module ActionController
     # around this  you can return a <tt>303 See Other</tt> status code which will be
     # followed using a GET request.
     #
-    # Examples:
-    #   redirect_to posts_url, :status => :see_other
-    #   redirect_to :action => 'index', :status => 303
+    #   redirect_to posts_url, status: :see_other
+    #   redirect_to action: 'index', status: 303
     #
     # It is also possible to assign a flash message as part of the redirection. There are two special accessors for the commonly used flash names
     # +alert+ and +notice+ as well as a general purpose +flash+ bucket.
     #
-    # Examples:
-    #   redirect_to post_url(@post), :alert => "Watch it, mister!"
-    #   redirect_to post_url(@post), :status=> :found, :notice => "Pay attention to the road"
-    #   redirect_to post_url(@post), :status => 301, :flash => { :updated_post_id => @post.id }
-    #   redirect_to { :action=>'atom' }, :alert => "Something serious happened"
+    #   redirect_to post_url(@post), alert: "Watch it, mister!"
+    #   redirect_to post_url(@post), status: :found, notice: "Pay attention to the road"
+    #   redirect_to post_url(@post), status: 301, flash: { updated_post_id: @post.id }
+    #   redirect_to { action: 'atom' }, alert: "Something serious happened"
     #
     # When using <tt>redirect_to :back</tt>, if there is no referrer, ActionController::RedirectBackError will be raised. You may specify some fallback
     # behavior for this case by rescuing ActionController::RedirectBackError.
     def redirect_to(options = {}, response_status = {}) #:doc:
       raise ActionControllerError.new("Cannot redirect to nil!") unless options
       raise AbstractController::DoubleRenderError if response_body
+      logger.debug { "Redirected by #{caller(1).first rescue "unknown"}" } if logger
 
       self.status        = _extract_redirect_to_status(options, response_status)
       self.location      = _compute_redirect_to_location(options)

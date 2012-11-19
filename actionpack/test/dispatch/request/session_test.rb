@@ -36,6 +36,31 @@ module ActionDispatch
         assert_equal s, Session.find(env)
       end
 
+      def test_keys
+        env = {}
+        s = Session.create(store, env, {})
+        s['rails'] = 'ftw'
+        s['adequate'] = 'awesome'
+        assert_equal %w[rails adequate], s.keys
+      end
+
+      def test_values
+        env = {}
+        s = Session.create(store, env, {})
+        s['rails'] = 'ftw'
+        s['adequate'] = 'awesome'
+        assert_equal %w[ftw awesome], s.values
+      end
+
+      def test_clear
+        env = {}
+        s = Session.create(store, env, {})
+        s['rails'] = 'ftw'
+        s['adequate'] = 'awesome'
+        s.clear
+        assert_equal([], s.values)
+      end
+
       private
       def store
         Class.new {

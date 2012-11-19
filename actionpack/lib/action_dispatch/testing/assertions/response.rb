@@ -1,4 +1,3 @@
-require 'active_support/core_ext/object/inclusion'
 
 module ActionDispatch
   module Assertions
@@ -15,14 +14,11 @@ module ActionDispatch
       # or its symbolic equivalent <tt>assert_response(:not_implemented)</tt>.
       # See Rack::Utils::SYMBOL_TO_STATUS_CODE for a full list.
       #
-      # ==== Examples
-      #
       #   # assert that the response was a redirection
       #   assert_response :redirect
       #
       #   # assert that the response code was status code 401 (unauthorized)
       #   assert_response 401
-      #
       def assert_response(type, message = nil)
         message ||= "Expected response to be a <#{type}>, but was <#{@response.response_code}>"
 
@@ -31,7 +27,7 @@ module ActionDispatch
             assert @response.send("#{type}?"), message
           else
             code = Rack::Utils::SYMBOL_TO_STATUS_CODE[type]
-            assert_equal @response.response_code, code, message
+            assert_equal code, @response.response_code, message
           end
         else
           assert_equal type, @response.response_code, message
@@ -39,13 +35,11 @@ module ActionDispatch
       end
 
       # Assert that the redirection options passed in match those of the redirect called in the latest action.
-      # This match can be partial, such that <tt>assert_redirected_to(:controller => "weblog")</tt> will also
-      # match the redirection of <tt>redirect_to(:controller => "weblog", :action => "show")</tt> and so on.
-      #
-      # ==== Examples
+      # This match can be partial, such that <tt>assert_redirected_to(controller: "weblog")</tt> will also
+      # match the redirection of <tt>redirect_to(controller: "weblog", action: "show")</tt> and so on.
       #
       #   # assert that the redirection was to the "index" action on the WeblogController
-      #   assert_redirected_to :controller => "weblog", :action => "index"
+      #   assert_redirected_to controller: "weblog", action: "index"
       #
       #   # assert that the redirection was to the named route login_url
       #   assert_redirected_to login_url
@@ -55,7 +49,6 @@ module ActionDispatch
       #
       #   # asserts that the redirection matches the regular expression
       #   assert_redirected_to %r(\Ahttp://example.org)
-      #
       def assert_redirected_to(options = {}, message=nil)
         assert_response(:redirect, message)
         return true if options === @response.location
