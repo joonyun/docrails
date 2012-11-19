@@ -157,7 +157,7 @@ def update
 end
 </ruby>
 
-(레일스 3.0 이후부터는 더 이상 필요없게 되었지만,) 명확하게 하기 위해서 +:action+ 옵션을 추가하여 +render 메소드를 이용할 수도 있습니다:
+(레일스 3.0 이후부터는 더 이상 필요없게 되었지만,) 명확하게 하기 위해서 +:action+ 옵션을 추가하여 +render+ 메소드를 이용할 수도 있습니다:
 
 <ruby>
 def update
@@ -172,46 +172,46 @@ end
 
 WARNING: +:action+ 옵션으로 +render+ 메소드를 사용할 경우 레일스 초보자들에게는 혼선을 빚을 수 있습니다. 여기서의 명시된 액션은 렌더링할 뷰를 결정하기 위한 것으므로 레일스가 컨트롤러의 해당 액션에 대한 어떠한 코드도 실행하지 않는다는 것입니다. 따라서 명시된 액션의 뷰에서 필요로하는 인스턴스 변수들은 +render+ 를 호출하기 전에 현재의 액션에서 설정되어야만 한다는 것입니다.
 
-h5. Rendering an Action's Template from Another Controller
+h5(#Rendering-an-Action-s-Template-from-Another-Controller). 다른 컨트롤러에 있는 액션 템플릿을 렌더링하기
 
-What if you want to render a template from an entirely different controller from the one that contains the action code? You can also do that with +render+, which accepts the full path (relative to +app/views+) of the template to render. For example, if you're running code in an +AdminProductsController+ that lives in +app/controllers/admin+, you can render the results of an action to a template in +app/views/products+ this way:
+액션코드가 있는 컨트롤러와는 완전 다른 컨트롤러에 있는 템플릿을 렌더링하고자 한다면 어떻게 될까요? 이 때는 렌더링할 템플릿의 +app/views+ 디렉토리의 상대경로을 지정해 주고 +render+ 메소드를 호출하면 됩니다. 예를 들면, +app/controllers/admin+ 폴더에 있는 +AdminProductsController+ 에서 코드를 실행하고자 하면 해당 액션의 결과는 다음과 같이 +app/views/products+ 폴더에 있는 템플릿으로 렌더링할 수 있습니다:
 
 <ruby>
 render "products/show"
 </ruby>
 
-Rails knows that this view belongs to a different controller because of the embedded slash character in the string. If you want to be explicit, you can use the +:template+ option (which was required on Rails 2.2 and earlier):
+문자열 중 슬래시 문자 때문에 렌더링할 템플릿이 다른 컨트롤러에 속한다는 레일스가 알게 됩니다. 좀 더 명확하기 위해서 +:template+ 이라는 옵션을 추가할 수 있는데, 이것은 레일스 2.2와 이전 버전에서는 반드시 명시해야만 했었습니다:
 
 <ruby>
 render :template => "products/show"
 </ruby>
 
-h5. Rendering an Arbitrary File
+h5(#Rendering-an-ArbitraryFile). 임의의 파일을 렌더링하기
 
-The +render+ method can also use a view that's entirely outside of your application (perhaps you're sharing views between two Rails applications):
+(두개의 레일스 어플리케이션에서 특정 뷰 파일을 공유할 경우,) +render+ 메소드를 이용해서 현재의 어플리케이션의 외부에 있는 뷰 파일을 이용할 수 있습니다:
 
 <ruby>
 render "/u/apps/warehouse_app/current/app/views/products/show"
 </ruby>
 
-Rails determines that this is a file render because of the leading slash character. To be explicit, you can use the +:file+ option (which was required on Rails 2.2 and earlier):
+문자열의 맨 앞에 있는 슬래시 문자로 레일스는 이것이 파일을 렌더링하는 것이라고 인식하게 됩니다. 보다 확실히 하기 위해, (레일스 2.2와 이전 버젼에서는 반드시 명시해야 했던) +:file+ 옵션을 추가할 수도 있습니다:
 
 <ruby>
 render :file =>
   "/u/apps/warehouse_app/current/app/views/products/show"
 </ruby>
 
-The +:file+ option takes an absolute file-system path. Of course, you need to have rights to the view that you're using to render the content.
+여기서 +:file+ 옵션은 파일시스템의 절대경로를 이용해서 명시해야합니다. 물론 내용물을 렌더링하게 될 뷰 파일에 대한 접근 권한이 있어야 합니다.
 
-NOTE: By default, the file is rendered without using the current layout. If you want Rails to put the file into the current layout, you need to add the +:layout => true+ option.
+NOTE: 디폴트로, 해당 파일은 현재의 레이아웃을 적용하지 않은 상태로 렌더링됩니다. 만약 현재의 레이아웃으로 파일을 불러들이고자 한다면, +:layout => true+ 옵션을 추가해 주어야 합니다.
 
-TIP: If you're running Rails on Microsoft Windows, you should use the +:file+ option to render a file, because Windows filenames do not have the same format as Unix filenames.
+TIP: 마이크로소프트 윈도우즈에서 레일스를 실행한다면, 위도우즈 파일명은 유닉스 파일명과는 다른 포맷을 사용하기 때문에 특정 파일을 렌더링하고자 한다면 +:file+ 옵션을 반드시 추가해 주어야 합니다.
 
-h5. Wrapping it up
+h5(#Wrapping-it-up). 정리하기
 
-The above three ways of rendering (rendering another template within the controller, rendering a template within another controller and rendering an arbitrary file on the file system) are actually variants of the same action.
+지금까지 소개한 렌더링에 관한 3가지 방법(컨트롤러내의 다른 액션의 템플릿 렌더링하기, 다른 컨트롤러내의 템플릿을 렌더링하기, 파일시스템 내의 임의의 파일 렌더링하기)은 사실 동일한 작업에 대한 변형들입니다.
 
-In fact, in the BooksController class, inside of the update action where we want to render the edit template if the book does not update successfully, all of the following render calls would all render the +edit.html.erb+ template in the +views/books+ directory:
+사실, 특정 book에 대한 업데이트가 실패할 경우 update 액션에서 edit 템플릿을 렌더링하고자 할 경우, 아래의 모든 렌더링 호출은 +views/books+ 디렉토리에 있는 동일한 +edit.html.erb+ 템플릿을 렌더링하게 될 것입니다:
 
 <ruby>
 render :edit
@@ -230,127 +230,127 @@ render :file => "/path/to/rails/app/views/books/edit"
 render :file => "/path/to/rails/app/views/books/edit.html.erb"
 </ruby>
 
-Which one you use is really a matter of style and convention, but the rule of thumb is to use the simplest one that makes sense for the code you are writing.
+어떤 것을 사용할 것인가는 사실 본인의 스타일과 규칙에 관한 것이지만, 원칙은 가장 간단한 것을 사용한 것입니다.
 
-h5. Using +render+ with +:inline+
+h5(#Using-render-with-inline). +:inline+ 으로 +render+ 하기
 
-The +render+ method can do without a view completely, if you're willing to use the +:inline+ option to supply ERB as part of the method call. This is perfectly valid:
+ERB를 제공해 주기 위해서 메소드 호출의 일부로 +:inline+ 옵션을 이용하면 뷰 템플릿 없이도 +render+ 메소드가 작업을 할 수 있습니다. 다음과 같은 렌더링 코드에서도 +render+ 메소드가 완벽하게 동작합니다:
 
 <ruby>
 render :inline =>
   "<% products.each do |p| %><p><%= p.name %></p><% end %>"
 </ruby>
 
-WARNING: There is seldom any good reason to use this option. Mixing ERB into your controllers defeats the MVC orientation of Rails and will make it harder for other developers to follow the logic of your project. Use a separate erb view instead.
+WARNING: 사실 이 옵션을 사용할 이유는 거의 없다고 보면 됩니다. ERB를 컨트롤러에 섞어 버리면 레일스의 MVC 구현 정책에 위배 되는 것이고 다른 개발자들이 해당 프로젝트의 로직을 이해하기가 힘들어 질 것입니다. 따라서 대신에 별도의 erb 뷰 파일을 사용하기 바랍니다.
 
-By default, inline rendering uses ERB. You can force it to use Builder instead with the +:type+ option:
+기본적으로, inline 렌더링은 ERB를 사용합니다. 그러나 +:type+ 옵션을 사용하면 대신에 Builder를 사용하도록 할 수 있습니다:
 
 <ruby>
 render :inline =>
   "xml.p {'Horrid coding practice!'}", :type => :builder
 </ruby>
 
-h5. Rendering Text
+h5(#Rendering-Text). 텍스트 렌더링하기
 
-You can send plain text - with no markup at all - back to the browser by using the +:text+ option to +render+:
++render+ 메소드에 :+text+ 옵션을 이용하면 전혀 HTML 태그들을 사용하지 않고 브라우저로 단순한 텍스트만 보낼 수 있습니다:
 
 <ruby>
 render :text => "OK"
 </ruby>
 
-TIP: Rendering pure text is most useful when you're responding to AJAX or web service requests that are expecting something other than proper HTML.
+TIP: 순수한 텍스트로만으로 이루어진 응답을 렌더링하는 것은 HTML외에 다른 무언가를 기대하는 AJAX나 웹서비스 요청에 대한 응답을 보낼 때 가장 유용합니다. 
 
-NOTE: By default, if you use the +:text+ option, the text is rendered without using the current layout. If you want Rails to put the text into the current layout, you need to add the +:layout => true+ option.
+NOTE: 기본적으로, +:text+ 옵션을 이용하면 현재의 레이아웃을 사용하지 않은 채 텍스트를 렌더링하게 됩니다. 레이아웃를 적용해서 텍스트를 렌더링하고자 한다면 +:layout => true+ 옵션을 추가하기 바랍니다.
 
-h5. Rendering JSON
+h5(#Rendering-JSON). JSON 렌더링하기
 
-JSON is a JavaScript data format used by many AJAX libraries. Rails has built-in support for converting objects to JSON and rendering that JSON back to the browser:
+JSON은 다수의 AJAX 라이브러리에서 사용하는 자바스크립트 데이터 포맷을 말합니다. 레일스는 객체를 JSON으로 변환하고 JSON을 브라우저로 렌더링하는 것을 지원합니다.:
 
 <ruby>
 render :json => @product
 </ruby>
 
-TIP: You don't need to call +to_json+ on the object that you want to render. If you use the +:json+ option, +render+ will automatically call +to_json+ for you.
+TIP: 렌더링하고 하는 객체에 대해서 +to_json+ 을 호출할 필요가 없습니다. +:json+ 옵션을 사용하면 렌더링시 자동으로 +to_json+ 을 호출하게 됩니다.
 
-h5. Rendering XML
+h5(#Rendering-XML). XML 렌더일하기
 
-Rails also has built-in support for converting objects to XML and rendering that XML back to the caller:
+레일스는 또한 객체를 XML로 변환하고 호출자에게 XML을 렌더링해서 보내도록 지원합니다:
 
 <ruby>
 render :xml => @product
 </ruby>
 
-TIP: You don't need to call +to_xml+ on the object that you want to render. If you use the +:xml+ option, +render+ will automatically call +to_xml+ for you.
+TIP: 렌더링하고자 하는 객체에 대해서 +to_xml+ 을 호출할 필요가 없습니다. +:xml+ 옵션을 사용하면 +render+ 메소드가 자동으로 +to_xml+ 호출하게 됩니다.
 
-h5. Rendering Vanilla JavaScript
+h5(#Rendering-Vanilla-JavaScript). 기본 자바스크립트를 렌더링하기
 
-Rails can render vanilla JavaScript:
+레일스는 순수 자바스트립트를 렌더링할 수 있습니다:
 
 <ruby>
 render :js => "alert('Hello Rails');"
 </ruby>
 
-This will send the supplied string to the browser with a MIME type of +text/javascript+.
+이것은 +text/javascript+ MIME 형태의 해당 문자열을 브라우저로 전송하게 될 것입니다.
 
-h5. Options for +render+
+h5(#Options-for-render). +render+ 메소드 옵션
 
-Calls to the +render+ method generally accept four options:
+일반적으로 +render+ 메소드를 호출시에 4가지 옵션을 지정할 수 있습니다:
 
 * +:content_type+
 * +:layout+
 * +:status+
 * +:location+
 
-h6. The +:content_type+ Option
+h6(#The-content-type-Option). +:content_type+ 옵션
 
-By default, Rails will serve the results of a rendering operation with the MIME content-type of +text/html+ (or +application/json+ if you use the +:json+ option, or +application/xml+ for the +:xml+ option.). There are times when you might like to change this, and you can do so by setting the +:content_type+ option:
+기본적으로, 레일스는 렌더링 작업의 결과를 +text/html+ MIME형(또는 +:json+ 옵션을 사용할 경우에는 +application/json+, +:xml+ 옵션을 사용할 경우에는 +application/xml+ 형으로 제공하게 됩니다.)으로 제공하게 됩니다. 이와 같이 MIME 형을 변경하고자 할 경우에, +:content_type+ 옵션을 설정하면 가능하게 됩니다:
 
 <ruby>
 render :file => filename, :content_type => "application/rss"
 </ruby>
 
-h6. The +:layout+ Option
+h6(#The-layout-Option). +:layout+ 옵션
 
-With most of the options to +render+, the rendered content is displayed as part of the current layout. You'll learn more about layouts and how to use them later in this guide.
++render+ 메소드 대부분의 옵션은 그 결과물을 현재의 레이아웃의 일부분으로 보이게 합니다. 본 가이드의 뒷부분에서 레이아웃과 그 사용법에 대해서 배우게 될 것입니다.
 
-You can use the +:layout+ option to tell Rails to use a specific file as the layout for the current action:
++:layout+ 옵션을 사용하면 레일스가 현재 액션에 대한 레이아웃으로 특정 파일을 사용하도록 알려줍니다:
 
 <ruby>
 render :layout => "special_layout"
 </ruby>
 
-You can also tell Rails to render with no layout at all:
+또한 레일스에게 레이아웃을 전혀 사용하지 않도록 지시할 수도 있습니다:
 
 <ruby>
 render :layout => false
 </ruby>
 
-h6. The +:status+ Option
+h6(#The-status-Option). The +:status+ Option
 
-Rails will automatically generate a response with the correct HTTP status code (in most cases, this is +200 OK+). You can use the +:status+ option to change this:
+레일스는 자동으로 정확한 HTTP 상태코드(대부분의 경우 응답시 +200 OK+ 를 보내게 됩니다)와 함께 응답을 생성하게 됩니다.  +:status+ 옵션을 사용하면 이 값을 변경할 수 있습니다:
 
 <ruby>
 render :status => 500
 render :status => :forbidden
 </ruby>
 
-Rails understands both numeric and symbolic status codes.
+레일스는 상태코드로 숫자와 심볼 모두 인식합니다.
 
-h6. The +:location+ Option
+h6(#The-location-Option). +:location+ 옵션
 
-You can use the +:location+ option to set the HTTP +Location+ header:
++:location+ 옵션을 사용하면 HTTP +Location+ 헤더를 설정할 수 있습니다:
 
 <ruby>
 render :xml => photo, :location => photo_url(photo)
 </ruby>
 
-h5. Finding Layouts
+h5(#Finding-Layouts). 레이아웃 파일의 위치찾기
 
-To find the current layout, Rails first looks for a file in +app/views/layouts+ with the same base name as the controller. For example, rendering actions from the +PhotosController+ class will use +app/views/layouts/photos.html.erb+ (or +app/views/layouts/photos.builder+). If there is no such controller-specific layout, Rails will use +app/views/layouts/application.html.erb+ or +app/views/layouts/application.builder+. If there is no +.erb+ layout, Rails will use a +.builder+ layout if one exists. Rails also provides several ways to more precisely assign specific layouts to individual controllers and actions.
+현재의 레이아웃 파일의 위치를 찾기 위해, 레일스는 +app/views/layouts+ 디렉토리에서 해당 컨트롤러와 같은 이름을 가진 파일을 찾아보게 됩니다. 예를 들면, +PhotosController+ 클래스의 액션을 렌더링할 때 +app/views/layouts/photos.html.erb+ 또는 +app/views/layouts/photos.builder+ 를 사용하게 됩니다. 만약 해당 컨트롤러 전용 레이아웃이 없을 경우에는, 레일스는 +app/views/layouts/application.html.erb+ 또는 +app/views/layouts/application.builder+ 를 이용하게 됩니다. +.erb+ 레이아웃이 없을 경우에는 +.builder+ 레이아웃이 있을 경우 그것을 사용할 것입니다. 레일스는 또한 각각의 컨트롤러와 액션에 대해서 좀 더 세밀한 전용 레이아웃을 제공하는 다양한 방법을 제공해 줍니다.
 
-h6. Specifying Layouts for Controllers
+h6(#Specifying-Layouts-for-Controllers). 컨트롤러 전용 레이아웃 지정하기
 
-You can override the default layout conventions in your controllers by using the +layout+ declaration. For example:
+컨트롤러에서 +layout+ 선언을 해 줌으로써 컨트롤러에서의 자동 레이아웃 규칙을 변경할 수 있습니다. 예를 들면:
 
 <ruby>
 class ProductsController < ApplicationController
@@ -359,9 +359,9 @@ class ProductsController < ApplicationController
 end
 </ruby>
 
-With this declaration, all of the views rendered by the products controller will use +app/views/layouts/inventory.html.erb+ as their layout.
+이렇게 선언해 줌으로써, +ProductsController+ 에 있는 모든 액션들은 자신의 레이아웃으로 +app/views/layouts/inventory.html.erb+ 를 사용하게 될 것입니다.
 
-To assign a specific layout for the entire application, use a +layout+ declaration in your +ApplicationController+ class:
+전체 어플리케이션에 대한 별도의 레이아웃을 할당하고자 할 때는, +ApplicationController+ 클래스에 레이아웃 선언을 추가해 주면 됩니다:
 
 <ruby>
 class ApplicationController < ActionController::Base
@@ -370,11 +370,11 @@ class ApplicationController < ActionController::Base
 end
 </ruby>
 
-With this declaration, all of the views in the entire application will use +app/views/layouts/main.html.erb+ for their layout.
+이렇게 선언해 주면, 어플리케이션 내의 모든 뷰는 자신의 레이아웃으로 +app/views/layouts/main.html.erb+ 를 사용하게 될 것입니다.
 
-h6. Choosing Layouts at Runtime
+h6(#Choosing-Layouts-at-Runtime). 런타임시 레이아웃 선택하기
 
-You can use a symbol to defer the choice of layout until a request is processed:
+심볼을 이용하면 요청이 처리될 때까지 레이아웃 선택을 연기할 수 있습니다:
 
 <ruby>
 class ProductsController < ApplicationController
@@ -392,9 +392,9 @@ class ProductsController < ApplicationController
 end
 </ruby>
 
-Now, if the current user is a special user, they'll get a special layout when viewing a product.
+이제, 현재 사용자가 special한 경우, 하나의 제품 정보를 볼 때 special 레이아웃이 적용될 될 것입니다.
 
-You can even use an inline method, such as a Proc, to determine the layout. For example, if you pass a Proc object, the block you give the Proc will be given the +controller+ instance, so the layout can be determined based on the current request:
+또한 Proc와 같은 인라인 메소드를 이용해서 레이아웃을 결정할 수도 있습니다. 예를 들면, Proc 객체를 넘겨 줄 경우에는, +controller+ 인스턴스를 블록변수로 넘겨 현재 요청된 상황에 따라 레이아웃을 결정할 수 있습니다. 예를 들면:
 
 <ruby>
 class ProductsController < ApplicationController
@@ -402,9 +402,11 @@ class ProductsController < ApplicationController
 end
 </ruby>
 
-h6. Conditional Layouts
+여기서 +controller.request.xhr?+ 은 해당 컨트롤러가 ajax 요청을 받았는지를 알아보기 위해 사용합니다.
 
-Layouts specified at the controller level support the +:only+ and +:except+ options. These options take either a method name, or an array of method names, corresponding to method names within the controller:
+h6(#Conditional-Layouts). 조건 레이아웃
+
+컨트롤러 레벨의 레이아웃에 +:only+ 와 +:except+ 옵션을 이용할 수 있으며, 컨트롤러 내의 메소드명에 해당하는 하나의 메소드나 하나이상의 메소드로 구성된 배열을 지정할 수 있습니다:
 
 <ruby>
 class ProductsController < ApplicationController
@@ -412,11 +414,11 @@ class ProductsController < ApplicationController
 end
 </ruby>
 
-With this declaration, the +product+ layout would be used for everything but the +rss+ and +index+ methods.
+이렇게 선언하면, +rss+ 와 +index+ 를 제외한 모든 메소드에 대해서 +product+ 레이아웃이 적용될 것입니다. 
 
-h6. Layout Inheritance
+h6(#Layout-Inheritance). 레이아웃의 상속
 
-Layout declarations cascade downward in the hierarchy, and more specific layout declarations always override more general ones. For example:
+레이아웃은 계층구조에서 하향 공유되기 때문에 전용 레이아웃은 범용 레이아웃에 우선하게 됩니다. 예를 들면:
 
 * +application_controller.rb+
 
@@ -459,19 +461,19 @@ class OldPostsController < SpecialPostsController
 end
 </ruby>
 
-In this application:
+이 어플리케이션에서:
 
-* In general, views will be rendered in the +main+ layout
-* +PostsController#index+ will use the +main+ layout
-* +SpecialPostsController#index+ will use the +special+ layout
-* +OldPostsController#show+ will use no layout at all
-* +OldPostsController#index+ will use the +old+ layout
+* 보통은 뷰가 +main+ 레이아웃에서 렌더링될 것입니다.
+* +PostsController#index+ 는 +main+ 레이아웃을 사용할 것입니다.
+* +SpecialPostsController#index+ 는 +special+ 레이아웃을 사용할 것입니다.
+* +OldPostsController#show+ 는 레이아웃을 전혀 사용하지 않을 것입니다.
+* +OldPostsController#index+ 는 +old+ 레이아웃를 사용할 것입니다.
 
-h5. Avoiding Double Render Errors
+h5(#Avoiding-Double-Render-Errors). 이중 렌더링 에러 방지하기
 
-Sooner or later, most Rails developers will see the error message "Can only render or redirect once per action". While this is annoying, it's relatively easy to fix. Usually it happens because of a fundamental misunderstanding of the way that +render+ works.
+조만간, 대부분의 레일스 개발자들은 "액션당 한번의 렌더링 또는 리디렉션을 할 수 있습니다(Can only render or redirect once per action)"라는 에러 메시지를 접하게 될 것입니다. 성가신 일이긴 하지만, 비교적 쉽게 에러를 잡을 수 있습니다. 이것은 대개가 +render+ 가 작업하는 방식을 잘 못 이해하기 때문에 일어나는 일입니다. 
 
-For example, here's some code that will trigger this error:
+예를 들어, 이러한 에러를 유발하는 코드를 아래에 소개합니다:
 
 <ruby>
 def show
@@ -483,7 +485,7 @@ def show
 end
 </ruby>
 
-If +@book.special?+ evaluates to +true+, Rails will start the rendering process to dump the +@book+ variable into the +special_show+ view. But this will _not_ stop the rest of the code in the +show+ action from running, and when Rails hits the end of the action, it will start to render the +regular_show+ view - and throw an error. The solution is simple: make sure that you have only one call to +render+ or +redirect+ in a single code path. One thing that can help is +and return+. Here's a patched version of the method:
++@book.special?+ 이 +true+ 일 경우, 레일스는 +@book+ 변수를 +special_show+ 뷰로 보내어 렌더링 작업을 시작할 것입니다. 그러나 +show+ 액션의 나머지 코드가 실행되어 액션의 마지막까지 도달하게 되어 +regular_show+ 뷰를 렌더링하기 시작할 것이고 이 때 에러를 발생시킬 것입니다. 해결책은 간단합니다. 즉, 단일 코드 경로에서 +render+ 나 +redirect+ 를 한번만 호출하도록 하는 것입니다. 도움이 될 수 있는 코드는 +and return+ 입니다. 아래에 +show+ 메소드의 패치 버전을 볼 수 있습니다:
 
 <ruby>
 def show
@@ -495,9 +497,9 @@ def show
 end
 </ruby>
 
-Make sure to use +and return+ instead of +&amp;&amp; return+ because +&amp;&amp; return+ will not work due to the operator precedence in the Ruby Language.
+여기서 +&amp;&amp; return+ 이 아니라 +and return+ 을 사용해야 하는데, 후자의 경우는 작동하지만, 전자의 경우는 루비 언어의 연사자 우선법칙 때문에 동작을 하지 않기 때문입니다.
 
-Note that the implicit render done by ActionController detects if +render+ has been called, so the following will work without errors:
+주의할 것은 +ActionController+ 가 묵시적으로 행하는 렌더링이 +render+ 가 호출되었는지를 확인한다는 것입니다. 그래서 이러한 에러를 피할 수 있는 것입니다. 그러므로, 아래의 코드는 에러없이 작동할 것입니다:
 
 <ruby>
 def show
@@ -508,37 +510,37 @@ def show
 end
 </ruby>
 
-This will render a book with +special?+ set with the +special_show+ template, while other books will render with the default +show+ template.
+이것은 +special?+ book을 +special_show+ 템플릿을 이용하여 렌더링하지만, 다른 book들은 디폴트 +show+ 템플릿을 이용하여 렌더링할 것입니다.
 
-h4. Using +redirect_to+
+h4(#Using-redirect-to). +redirect_to+ 사용하기
 
-Another way to handle returning responses to an HTTP request is with +redirect_to+. As you've seen, +render+ tells Rails which view (or other asset) to use in constructing a response. The +redirect_to+ method does something completely different: it tells the browser to send a new request for a different URL. For example, you could redirect from wherever you are in your code to the index of photos in your application with this call:
+HTTP 요청에 대한 응답을 처리하는 또 다른 방법으로는 +redirect_to+ 가 있습니다. 보아왔듯이, +render+ 는 레일스에게 응답을 생성할 때 어떤 뷰나 기타 다른 자원을 사용할 지를 알려주게 됩니다. 그러나, +redirect_to+ 메소드는 완전히 다른 방식으로 동작합니다. 즉, 브라우저에게 다른 URL로 요청을 다시 할 것을 알려 줍니다. 예를 들면, 아래와 같이 호출할 경우, 코드 상의 현재의 위치에서 어플리케이션 내의 photo 인덱스로 리디렉트 할 수 있습니다:
 
 <ruby>
 redirect_to photos_url
 </ruby>
 
-You can use +redirect_to+ with any arguments that you could use with +link_to+ or +url_for+. There's also a special redirect that sends the user back to the page they just came from:
++link_to+ 또는 +url_for+ 메소드에서 사용하는 인수를 +redirect_to+ 메소드에서도 사용할 수 있습니다. 또한, 특수한 리디렉트가 있어서 사용자를 이전 페이지로 돌아가게 할 수 있습니다:
 
 <ruby>
 redirect_to :back
 </ruby>
 
-h5. Getting a Different Redirect Status Code
+h5(#Getting-a-Different-Redirect-Status-Code). 다른 리디렉트 상태코드 구하기
 
-Rails uses HTTP status code 302, a temporary redirect, when you call +redirect_to+. If you'd like to use a different status code, perhaps 301, a permanent redirect, you can use the +:status+ option:
++redirect_to+ 메소드를 호출하면 레일스는 HTTP 상태코드값으로  302(temporary redirect)를 보내게 됩니다. 만약 permanent redirect를 의미하는 다른 상태코드값 301을 사용하고자 한다면, +:status+ 옵션을 사용하면 됩니다:
 
 <ruby>
 redirect_to photos_path, :status => 301
 </ruby>
 
-Just like the +:status+ option for +render+, +:status+ for +redirect_to+ accepts both numeric and symbolic header designations.
++render+ 의 +:status+ 옵션과 같이, +redirect_to+ 에 대한 +:status+ 옵션도 헤더 표시를 위해 숫자와 심볼을 모두 사용할 수 있습니다. 
 
-h5. The Difference Between +render+ and +redirect_to+
+h5(#The-Difference-Between-render-and-redirect_to). +render+ 와 +redirect_to+ 의 차이점
 
-Sometimes inexperienced developers think of +redirect_to+ as a sort of +goto+ command, moving execution from one place to another in your Rails code. This is _not_ correct. Your code stops running and waits for a new request for the browser. It just happens that you've told the browser what request it should make next, by sending back an HTTP 302 status code.
+가끔 경험이 없는 개발자들은 +redirect_to+ 메소드를 +goto+ 명령처럼 생각해서 레일스 코드상의 한 위치에서 다른 위치로 실행위치를 옮기는 것으로 생각합니다. 이것은 옳지 않습니다. +redirect_to+ 메소드는 실행을 멈추고 브라우저로부터의 새로운 요청을 기다리게 됩니다. 브라우저에게 HTTP 302 상태코드값을 보내어 다음에 요청해야할 것을 알려주게 됩니다.
 
-Consider these actions to see the difference:
+두 메소드 간의 차이를 알아 보기 위해 다음 액션을 보기 바랍니다:
 
 <ruby>
 def index
@@ -553,7 +555,7 @@ def show
 end
 </ruby>
 
-With the code in this form, there will likely be a problem if the +@book+ variable is +nil+. Remember, a +render :action+ doesn't run any code in the target action, so nothing will set up the +@books+ variable that the +index+ view will probably require. One way to fix this is to redirect instead of rendering:
+이러한 형태의 코드에서는, +@book+ 변수값이 +nil+ 일 경우 문제가 발생합니다. +render :action+ 은 대상 액션의 코드를 전형 실행하지 않고 뷰 템플릿만 렌더링한다는 것을 기억한다면 +index+ 뷰에서 사용할 +@books+ 변수가 어떠한 값도 할당되지 않음을 이해할 수 있을 것입니다. 이러한 문제를 교정하는 한가지 방법은 렌더링 대신에 리디렉트를 사용한 것입니다:
 
 <ruby>
 def index
@@ -568,11 +570,11 @@ def show
 end
 </ruby>
 
-With this code, the browser will make a fresh request for the index page, the code in the +index+ method will run, and all will be well.
+이 코드에서는, 브라우저가 인덱스 페이지에 대한 새로운 요청을 하고, +index+ 메소드에 있는 코드가 실행되면 결국 전체적으로 문제없이 작동하게 될 것입니다. 
 
-The only downside to this code is that it requires a round trip to the browser: the browser requested the show action with +/books/1+ and the controller finds that there are no books, so the controller sends out a 302 redirect response to the browser telling it to go to +/books/+, the browser complies and sends a new request back to the controller asking now for the +index+ action, the controller then gets all the books in the database and renders the index template, sending it back down to the browser which then shows it on your screen.
+이 코드상의 유일한 단점은 브라우저로 되돌아 간다는 것입니다. 즉, 브라우저가 +/books/1+ 과 함께 +show+ 액션을 요청하고, 컨트롤러는 해당하는 book이 없다는 것을 알게 되어 컨트롤러는 요청한 브라우저에게 +/books/+ 로 가라는 302 리디렉트를 보내게 됩니다. 이 때 브라우저는 컨트롤러에게 +index+ 액션을 수행하도록 새로운 요청을 보내게 되며, 컨트롤러는 데이터베이스에 있는 모든 books를 불러와 +index+ 템플릿으로 렌더링한 후 사용자의 스크린상에 보여주게 될 응답내용을 브라우저로 보내게 됩니다. 
 
-While in a small application, this added latency might not be a problem, it is something to think about if response time is a concern. We can demonstrate one way to handle this with a contrived example:
+작은 어플리케이션에서는 이러한 시간 지체가 문제가 되지 않겠지만, 응답속도가 필수적인 상황에서는 이러한 처리방법을 재고해야할 것입니다. 아래의 예를 보면 이러한 이중 요청을 방지하는 조치를 알게 될 것입니다:
 
 <ruby>
 def index
@@ -588,17 +590,17 @@ def show
 end
 </ruby>
 
-This would detect that there are no books with the specified ID, populate the +@books+ instance variable with all the books in the model, and then directly render the +index.html.erb+ template, returning it to the browser with a flash alert message to tell the user what happened.
+이것은 해당 book이 없을 경우 데이터베이스에서 모든 books를 가져와 +@books+ 인스턴스 변수에 할당하게 되고, 사용자에게 현재 상황을 알려주는 경고 메시지와 함께, 바로 +index.html.erb+ 템플릿을 렌더링하여 브라우저로 보내게 됩니다. 
 
-h4. Using +head+ To Build Header-Only Responses
+h4(#Using-head-To-Build-Header-Only-Responses). +head+ 를 이용하여 헤더만을 응답으로 보내기
 
-The +head+ method can be used to send responses with only headers to the browser. It provides a more obvious alternative to calling +render :nothing+. The +head+ method takes one parameter, which is interpreted as a hash of header names and values. For example, you can return only an error header:
++head+ 메소드는 브라우저로 헤더값만 응답내용으로 보내고자 할 때 사용할 수 있습니다. 이것은 +render :nothing+ 를 호출하는 것보다는 더 확실하게 대안을 제공해 줍니다. +head+ 메소드는 헤더명과 값을 가지는 하나의 해쉬형태로 하나의 파라미터를 취하게 됩니다. 예를 들면, 다음과 같이 에러 헤더값만 응답으로 보낼 수 있습니다:
 
 <ruby>
 head :bad_request
 </ruby>
 
-This would produce the following header:
+이것은 다음과 같은 헤더를 만들어 낼 것입니다:
 
 <shell>
 HTTP/1.1 400 Bad Request
@@ -611,13 +613,13 @@ Set-Cookie: _blog_session=...snip...; path=/; HttpOnly
 Cache-Control: no-cache
 </shell>
 
-Or you can use other HTTP headers to convey other information:
+또는 다른 HTTP 헤더를 사용해서 추가 정보를 보낼 수도 있습니다:
 
 <ruby>
 head :created, :location => photo_path(@photo)
 </ruby>
 
-Which would produce:
+이것은 다음과 같은 결과를 보여 줄 것니다:
 
 <shell>
 HTTP/1.1 201 Created
@@ -631,17 +633,17 @@ Set-Cookie: _blog_session=...snip...; path=/; HttpOnly
 Cache-Control: no-cache
 </shell>
 
-h3. Structuring Layouts
+h3(#Structuring-Layouts). 레이아웃 구조화하기
 
-When Rails renders a view as a response, it does so by combining the view with the current layout, using the rules for finding the current layout that were covered earlier in this guide. Within a layout, you have access to three tools for combining different bits of output to form the overall response:
+레일스는 요청에 대한 응답으로 뷰를 렌더링할 때, 뷰 템플릿과 레이아웃을 합성해서 만들어 냅니다. 레이아웃 안에서는 여러 개의 결과물을 합성해서 전체 응답을 만들기 위해 세가지 툴을 사용할 수 있습니다:
 
 * Asset tags
 * +yield+ and +content_for+
 * Partials
 
-h4. Asset Tag Helpers
+h4(#Asset-Tag-Helpers). Asset 태그 헬퍼메소드
 
-Asset tag helpers provide methods for generating HTML that link views to feeds, JavaScript, stylesheets, images, videos and audios. There are six asset tag helpers available in Rails:
+asset 태그는 피드, 자바스크립트, 스타일시트, 이미지, 비디오, 또는 오디오를 뷰와 연결하는 HTML 코드를 생성하는 메소드를 제공합니다:
 
 * +auto_discovery_link_tag+
 * +javascript_include_tag+
@@ -650,236 +652,236 @@ Asset tag helpers provide methods for generating HTML that link views to feeds, 
 * +video_tag+
 * +audio_tag+
 
-You can use these tags in layouts or other views, although the +auto_discovery_link_tag+, +javascript_include_tag+, and +stylesheet_link_tag+, are most commonly used in the +&lt;head&gt;+ section of a layout.
++auto_discovery_link_tag+, +javascript_include_tag+, +stylesheet_link_tag+ 는 대부분 레이아웃 파일의 +&lt;head&gt;+ 섹션 내에서 사용되긴 하지만, 이러한 태그들은 레이아웃 파일이나 뷰 템플릿에서 사용할 수 있습니다. 
 
-WARNING: The asset tag helpers do _not_ verify the existence of the assets at the specified locations; they simply assume that you know what you're doing and generate the link.
+WARNING: asset 태그 헬퍼메소드는 지정된 위치에 asset이 존재하는지에 대한 _확인을 하지 않습니다._ 즉 단순히 개발자가 무엇을 할 것인지를 알고 있다고 가정하고 링크를 생성합니다.
 
-h5. Linking to Feeds with the +auto_discovery_link_tag+
+h5(#Linking-to-Feeds-with-the-auto_discovery_link_tag). +auto_discovery_link_tag+ 를 피드로 연결하기
 
-The +auto_discovery_link_tag+ helper builds HTML that most browsers and newsreaders can use to detect the presence of RSS or Atom feeds. It takes the type of the link (+:rss+ or +:atom+), a hash of options that are passed through to url_for, and a hash of options for the tag:
++auto_discovery_link_tag+ 헬퍼는 대부분의 브라우저와 뉴스리더가 RSS 또는 ATOM 피드 서비스를 검출하는데 사용하는 HTML을 만들어 줍니다. 이것은 링크형태(+:rss+ 나 +:atom+), url_for로 넘겨주게 되는 해쉬형태의 옵션, 그리고 태그를 위한 옵션해쉬 값을 인수로 취합니다:
 
 <erb>
 <%= auto_discovery_link_tag(:rss, {:action => "feed"},
   {:title => "RSS Feed"}) %>
 </erb>
 
-There are three tag options available for the +auto_discovery_link_tag+:
++auto_discovery_link_tag+ 의 태그 옵션에는 3가지가 있습니다:
 
-* +:rel+ specifies the +rel+ value in the link. The default value is "alternate".
-* +:type+ specifies an explicit MIME type. Rails will generate an appropriate MIME type automatically.
-* +:title+ specifies the title of the link. The default value is the uppercased +:type+ value, for example, "ATOM" or "RSS".
+* +:rel+ 은 링크에서 +rel+ 값을 지정합니다. 기본 값은 "alternate"입니다.
+* +:type+ 은 MIME 형을 지정합니다. 레일스는 적정한 MIME형을 자동으로 만들어 줍니다.
+* +:title+ 은 링크의 title 속성값을 지정합니다. 기본값은 대문자 +:type+ 값이며 예를 들면, "ATOM" 또는 "RSS" 등입니다.
 
-h5. Linking to JavaScript Files with the +javascript_include_tag+
+h5(#Linking-to-JavaScript-Files-with-the-javascript_include_tag). +javascript_include_tag+ 로 자바스크립트 파일 연결하기
 
-The +javascript_include_tag+ helper returns an HTML +script+ tag for each source provided.
++javascript_include_tag+ 헬퍼는 각 소스에 대한 HTML +script+ 태그를 반환해 줍니다. 
 
-If you are using Rails with the "Asset Pipeline":asset_pipeline.html enabled, this helper will generate a link to +/assets/javascripts/+ rather than +public/javascripts+ which was used in earlier versions of Rails. This link is then served by the Sprockets gem, which was introduced in Rails 3.1.
+"Asset Pipeline":asset_pipleline.html 이 작동하는 상태에서 레일스를 사용한다면, 이 헬퍼메소드는 이전 레일스 버전에서 사용되었던 +public/javascripts+ 폴더가 아니라 +/assets/javascripts/+ 로의 링크를 만들어 줄 것입니다. 이 링크는 레일스 3.1에서 도입된 Sprockets 젬에 의해서 서비스됩니다. 
 
-A JavaScript file within a Rails application or Rails engine goes in one of three locations: +app/assets+, +lib/assets+ or +vendor/assets+. These locations are explained in detail in the "Asset Organization section in the Asset Pipeline Guide":asset_pipeline.html#asset-organization
+레일스 어플리케이션이나 레일스 엔진내에서 자바스크립트 파일은 3군데 중의 하나에 위치하게 됩니다. 즉, +app/assets+, +lib/assets+, +vender/assets+ 입니다. 이들 위치에 대해서는 "Asset Organization section in the Asset Pipeline Guide":asset_pipeline.html#asset-organization 에서 자세하게 설명할 것입니다.
 
-You can specify a full path relative to the document root, or a URL, if you prefer. For example, to link to a JavaScript file that is inside a directory called +javascripts+ inside of one of +app/assets+, +lib/assets+ or +vendor/assets+, you would do this:
+도큐먼트 루트에 대한 상대경로 또는 기호에 따라 URL을 지정할 수도 있습니다. 예를 들면, +app/assets+, +lib/assets+, +vender/assets+ 디렉토리 중의 하나에 +javascripts+ 라는 이름을 가진 디렉토리에 존재하는 특정 자바스크립트 파일로 링크를 만들기 위해서는 다음과 같이 할 수 있습니다:
 
 <erb>
 <%= javascript_include_tag "main" %>
 </erb>
 
-Rails will then output a +script+ tag such as this:
+그러면, 레일스가 다음과 같이 +script+ 태그를 작성해 줄 것입니다:
 
 <html>
 <script src='/assets/main.js'></script>
 </html>
 
-The request to this asset is then served by the Sprockets gem.
+이 assets에 대한 요청이 들어오게 되면 이제 Sprockets 젬이 알아서 처리하게 됩니다. 
 
-To include multiple files such as +app/assets/javascripts/main.js+ and +app/assets/javascripts/columns.js+ at the same time:
+동시에 +app/assets/javascripts/main.js+ 와 +app/assets/javascripts/columns.js+ 와 같이 여러 개의 파일을 포함하고자 한다면 다음과 같이 지정할 수 있습니다:
 
 <erb>
 <%= javascript_include_tag "main", "columns" %>
 </erb>
 
-To include +app/assets/javascripts/main.js+ and +app/assets/javascripts/photos/columns.js+:
++app/assets/javascripts/main.js+ 와 +app/assets/javascripts/photos/columns.js+ 파일을 포함하기 위해서는:
 
 <erb>
 <%= javascript_include_tag "main", "/photos/columns" %>
 </erb>
 
-To include +http://example.com/main.js+:
++http://example.com/main.js+ 와 같이 URL을 포함하기 위해서는:
 
 <erb>
 <%= javascript_include_tag "http://example.com/main.js" %>
 </erb>
 
-If the application does not use the asset pipeline, the +:defaults+ option loads jQuery by default:
+어플리케이션이 asset pipeline을 사용하지 않는다면, +:defaults+ 옵션을 사용해서 기본적으로 jQuery를 로드할 수 있습니다:
 
 <erb>
 <%= javascript_include_tag :defaults %>
 </erb>
 
-Outputting +script+ tags such as this:
+그러면, 다음과 같이 +script+ 태그가 만들어집니다:
 
 <html>
 <script src="/javascripts/jquery.js"></script>
 <script src="/javascripts/jquery_ujs.js"></script>
 </html>
 
-These two files for jQuery, +jquery.js+ and +jquery_ujs.js+ must be placed inside +public/javascripts+ if the application doesn't use the asset pipeline. These files can be downloaded from the "jquery-rails repository on GitHub":https://github.com/indirect/jquery-rails/tree/master/vendor/assets/javascripts
+어플리케이션이 asset pipeline을 사용하지 않을 경우, jQuery를 사용하기 위한 두개의 파일, +jquery.js+ 와 +jquery_ujs.js+ 가 +public/javascript+ 디렉토리에 위치해야 합니다. 이 파일들은 "jquery-rails repository on GitHub":https://github.com/indirect/jquery-rails/tree/master/vendor/assets/javascripts 에서 다운로드 받을 수 있습니다. 
 
-WARNING: If you are using the asset pipeline, this tag will render a +script+ tag for an asset called +defaults.js+, which would not exist in your application unless you've explicitly created it.
+WARNING: 그러나, 만약, asset pipeline을 사용할 경우라면, 이 태그는 +defaults.js+ 라는 asset에 대해서 +script+ 를 만들게 되지만, 명시적으로 그 파일을 만들어 놓지 않은 상태라면 실제로는 어플리케이션에 존재하지 않게 됩니다. 
 
-And you can in any case override the +:defaults+ expansion in <tt>config/application.rb</tt>:
+그리고, 어떤 경우라도 <tt>config/application.rb</tt> 파일에서 +:defaults+ 확장을 변경할 수 있습니다:
 
 <ruby>
 config.action_view.javascript_expansions[:defaults] = %w(foo.js bar.js)
 </ruby>
 
-You can also define new defaults:
+물론, 새로운 defaults 이름을 정의할 수도 있습니다:
 
 <ruby>
 config.action_view.javascript_expansions[:projects] = %w(projects.js tickets.js)
 </ruby>
 
-And use them by referencing them exactly like +:defaults+:
+그리고 +:defaults+ 와 똑같이 그것을 참조하여 사용하면 됩니다:
 
 <erb>
 <%= javascript_include_tag :projects %>
 </erb>
 
-When using <tt>:defaults</tt>, if an <tt>application.js</tt> file exists in <tt>public/javascripts</tt> it will be included as well at the end.
+<tt>:defaults</tt>를 사용할 때, <tt>public/javascripts</tt> 디렉토리에 <tt>application.js</tt> 파일이 존재한다면, 그 파일도 마찬가지로 마지막에 포함될 것입니다.
 
-Also, if the asset pipeline is disabled, the +:all+ expansion loads every JavaScript file in +public/javascripts+:
+또한, asset pipeline을 사용하지 않는 경우라면, +:all+ 확장으로 +public/javascripts+ 디렉토리에 있는 모든 자바스크립트 파일을 로드하게 됩니다:
 
 <erb>
 <%= javascript_include_tag :all %>
 </erb>
 
-Note that your defaults of choice will be included first, so they will be available to all subsequently included files.
+주목할 것은, 선택된 defaults가 최우선으로 포함되므로, 차후에 포함되는 모든 파일에서 사용가능하게 된다는 것입니다.
 
-You can supply the +:recursive+ option to load files in subfolders of +public/javascripts+ as well:
++:recursive+ 옵션을 추가하면 +public/javascript+ 의 하위 폴더에 있는 파일들도 로드할 수 있게 됩니다:
 
 <erb>
 <%= javascript_include_tag :all, :recursive => true %>
 </erb>
 
-If you're loading multiple JavaScript files, you can create a better user experience by combining multiple files into a single download. To make this happen in production, specify +:cache => true+ in your +javascript_include_tag+:
+여러 개의 자바스크립트 파일을 로딩할 것이라면, 여러 개의 파일들을 하나의 파일로 합쳐서 다운로드할 수 있게 하여 사용자 경험을 더 좋게 할 수 있습니다. 운영서버 환경에서 이렇게 하기 위해서는 +javascript_include_tag+ 에 +:cache => true+ 옵션을 지정해 주면 됩니다:
 
 <erb>
 <%= javascript_include_tag "main", "columns", :cache => true %>
 </erb>
 
-By default, the combined file will be delivered as +javascripts/all.js+. You can specify a location for the cached asset file instead:
+기본적으로, 합쳐진 파일은 javascripts/all.js 파일로 전달될 것입니다. +:cache+ 옵션에 +true+ 값 대신에, 캐시될 asset 파일의 위치를 지정할 수도 있습니다:
 
 <erb>
 <%= javascript_include_tag "main", "columns",
   :cache => "cache/main/display" %>
 </erb>
 
-You can even use dynamic paths such as +cache/#{current_site}/main/display+.
+이 때 +cache/#{current_site}/main/display+ 와 같이 동적경로를 지정할 수 있습니다.
 
-h5. Linking to CSS Files with the +stylesheet_link_tag+
+h5(#Linking-to-CSS-Files-with-the-stylesheet_link_tag). +stylesheet_link_tag+ 로 CSS 파일 연결하기
 
-The +stylesheet_link_tag+ helper returns an HTML +&lt;link&gt;+ tag for each source provided.
++stylesheet_link_tag+ 헬퍼는 각 소스파일에 대해서 HTML +&lt;link&gt;+ 태그를 리턴해 줍니다.
 
-If you are using Rails with the "Asset Pipeline" enabled, this helper will generate a link to +/assets/stylesheets/+. This link is then processed by the Sprockets gem. A stylesheet file can be stored in one of three locations: +app/assets+, +lib/assets+ or +vendor/assets+.
+"Asset Pipeline"을 이용하여 레일스를 사용한다면, 이 헬퍼메소드는 +/assets/stylesheets/+ 디렉토리로의 링크를 만들어 줄 것입니다. 이후에 이 링크는 Sprockets 젬이 알아서 처리하게 됩니다. 하나의 스타일시트 파일은 +app/assets+, +lib/assets+, +vender/assets+ 세개의 디렉토리 중의 하나에 저장될 수 있습니다.
 
-You can specify a full path relative to the document root, or a URL. For example, to link to a stylesheet file that is inside a directory called +stylesheets+ inside of one of +app/assets+, +lib/assets+ or +vendor/assets+, you would do this:
+도큐먼트 루트에 대한 전체 상대경로, 즉 URL을 명시할 수 있다. 예를 들면, +app/assets+, +lib/assets+ 또는 +vendor/assets+ 디렉토리 중의 하나에 있는 +stylesheets+ 디렉토리 내부에 위치하는 스타일시트 파일로 연결하기 하기 위해서 다음과 같이 할 수 있습니다:
 
 <erb>
 <%= stylesheet_link_tag "main" %>
 </erb>
 
-To include +app/assets/stylesheets/main.css+ and +app/assets/stylesheets/columns.css+:
++app/assets/stylesheets/main.css+ 과 +app/assets/stylesheets/columns.css+ 파일을 포함하기 위해서는 아래와 같이 해주면 됩니다:
 
 <erb>
 <%= stylesheet_link_tag "main", "columns" %>
 </erb>
 
-To include +app/assets/stylesheets/main.css+ and +app/assets/stylesheets/photos/columns.css+:
++app/assets/stylesheets/main.css+ 과 +app/assets/stylesheets/photos/columns.css+ 파일을 포함하기 위해서는 다음과 같이 하면 됩니다:
 
 <erb>
 <%= stylesheet_link_tag "main", "/photos/columns" %>
 </erb>
 
-To include +http://example.com/main.css+:
+또한 +http://example.com/main.css+ 을 포함하기 위해서는 다음과 같이 합니다:
 
 <erb>
 <%= stylesheet_link_tag "http://example.com/main.css" %>
 </erb>
 
-By default, the +stylesheet_link_tag+ creates links with +media="screen" rel="stylesheet"+. You can override any of these defaults by specifying an appropriate option (+:media+, +:rel+):
+디폴트로 +stylesheet_link_tag+ 는 +media=”screen” rel=”stylesheet”+ 옵션으로 링크를 만들어 줍니다. 그러나 +:media+, +:rel+ 옵션을 추가로 지정하여 디폴트 설정을 변경할 수 있습니다:
 
 <erb>
 <%= stylesheet_link_tag "main_print", :media => "print" %>
 </erb>
 
-If the asset pipeline is disabled, the +all+ option links every CSS file in +public/stylesheets+:
+asset pipeline을 사용하지 않는 경우, +:all+ 옵션은 +public/stylesheets+ 폴더내에 있는 모든 CSS 파일을 링크합니다:
 
 <erb>
 <%= stylesheet_link_tag :all %>
 </erb>
 
-You can supply the +:recursive+ option to link files in subfolders of +public/stylesheets+ as well:
++:recursive+ 옵션을 사용해서 +public/stylesheets+ 하부폴더에 있는 파일들도 링크할 수 있습니다:
 
 <erb>
 <%= stylesheet_link_tag :all, :recursive => true %>
 </erb>
 
-If you're loading multiple CSS files, you can create a better user experience by combining multiple files into a single download. To make this happen in production, specify +:cache => true+ in your +stylesheet_link_tag+:
+여러 개의 CSS 파일을 링크할 경우, 이들을 합쳐 하나의 파일로 다운로드할 수 있도록 하여 사용자 경험을 더 좋게 만들 수 있습니다. 운영서버에서 +stylesheet_link_tag+ 에 +:cache => true+ 옵션을 명시하면 가능해 집니다:
 
 <erb>
 <%= stylesheet_link_tag "main", "columns", :cache => true %>
 </erb>
 
-By default, the combined file will be delivered as +stylesheets/all.css+. You can specify a location for the cached asset file instead:
+디폴트로 합쳐진 파일은 +stylesheets/all.css+ 파일로 전달됩니다. 대신에 캐쉬 asset 파일의 위치를 지정할 수도 있습니다:
 
 <erb>
 <%= stylesheet_link_tag "main", "columns",
   :cache => "cache/main/display" %>
 </erb>
 
-You can even use dynamic paths such as +cache/#{current_site}/main/display+.
+또한, +cache/#{current_site}/main/display+ 와 같이 동적인 경로지정도 할 수 있습니다.
 
-h5. Linking to Images with the +image_tag+
+h5(#Linking-to-Images-with-the-image_tag). +image_tag+ 로 이미지로 연결하기
 
-The +image_tag+ helper builds an HTML +&lt;img /&gt;+ tag to the specified file. By default, files are loaded from +public/images+.
++image_tag+ 헬퍼는 명시된 파일로 HTML +&lt;img /&gt;+ 태그를 만들어 줍니다. 디폴트로 파일은 +public/images+ 폴더로부터 로드됩니다.
 
-WARNING: Note that you must specify the extension of the image. Previous versions of Rails would allow you to just use the image name and would append +.png+ if no extension was given but Rails 3.0 does not.
+WARNING: 이미지의 확장자를 명시해 주어야 합니다. 레일스의 이전 버전에서는 이미지 이름만 사용해도 확장자가 없는 경우 +.png+ 를 자동으로 붙여 주었지만, 레일스 3.0 부터는 그렇지 않게 되었습니다.
 
 <erb>
 <%= image_tag "header.png" %>
 </erb>
 
-You can supply a path to the image if you like:
+원할 경우 다음과 같이 이미지 경로를 지정할 수도 있습니다:
 
 <erb>
 <%= image_tag "icons/delete.gif" %>
 </erb>
 
-You can supply a hash of additional HTML options:
+HTML 옵션을 해쉬형태로 지정하여 추할 수도 있습니다:
 
 <erb>
 <%= image_tag "icons/delete.gif", {:height => 45} %>
 </erb>
 
-You can also supply an alternate image to show on mouseover:
+또한, mouseover시 보여질 이미지를 지정할 수 있습니다:
 
 <erb>
 <%= image_tag "home.gif", :onmouseover => "menu/home_highlight.gif" %>
 </erb>
 
-You can supply alternate text for the image which will be used if the user has images turned off in their browser. If you do not specify an alt text explicitly, it defaults to the file name of the file, capitalized and with no extension. For example, these two image tags would return the same code:
+사용자가 브라우저의 이미지 옵션을 해지했을 때 이미지 대신 보여질 텍스트를 제공할 수 있습니다. alt 텍스트 속성값을 지정하지 않을 경우에는, 해당 파일의 파일명을 확장자 없이 보여주게 됩니다. 예를 들어, 다음의 두개의 이미지 태그는 같은 코드를 리턴해 줍니다:
 
 <erb>
 <%= image_tag "home.gif" %>
 <%= image_tag "home.gif", :alt => "Home" %>
 </erb>
 
-You can also specify a special size tag, in the format "{width}x{height}":
+이미지의 크기를 "{넓이}x{높이}" 형태로 지정할 수 있습니다:
 
 <erb>
 <%= image_tag "home.gif", :size => "50x20" %>
 </erb>
 
-In addition to the above special tags, you can supply a final hash of standard HTML options, such as +:class+, +:id+ or +:name+:
+이미 언급했던 태그 외에도 +:class+, +:id+, 또는 +:name+ 과 같은 표준 HTML 옵션을 추가할 수 있습니다:
 
 <erb>
 <%= image_tag "home.gif", :alt => "Go Home",
@@ -887,67 +889,67 @@ In addition to the above special tags, you can supply a final hash of standard H
                           :class => "nav_bar" %>
 </erb>
 
-h5. Linking to Videos with the +video_tag+
+h5(#Linking-to-Videos-with-the-video_tag). +video_tag+ 로 비디오 파일 연결하기
 
-The +video_tag+ helper builds an HTML 5 +&lt;video&gt;+ tag to the specified file. By default, files are loaded from +public/videos+.
++video_tag+ 헬퍼는 지정 비디오 파일을 연결하는 HTML 5 의 +&lt;video&gt;+ 태그를 생성합니다. 디폴트로 비디오 파일은 +public/videos+ 폴더로부터 로드됩니다.
 
 <erb>
 <%= video_tag "movie.ogg" %>
 </erb>
 
-Produces
+이것은 다음과 같이 렌더링됩니다.
 
 <erb>
 <video src="/videos/movie.ogg" />
 </erb>
 
-Like an +image_tag+ you can supply a path, either absolute, or relative to the +public/videos+ directory. Additionally you can specify the +:size => "#{width}x#{height}"+ option just like an +image_tag+. Video tags can also have any of the HTML options specified at the end (+id+, +class+ et al).
++image_tag+ 와 같이 소스에 대한 경로를 +public/videos+ 디렉토리에 대한 절대 또는 상대경로로 지정할 수 있습니다. 또한, image_tag 와 같이 +:size => "#{넓이}x#{높이}"+ 옵션을 지정할 수 있습니다. 비디오 태그는 마지막에 id, class 등 HTML 옵션을 지정할 수도 있습니다.
 
-The video tag also supports all of the +&lt;video&gt;+ HTML options through the HTML options hash, including:
+또한 비디오 태그는 다음과 같은 HTML 옵션 해시를 이용하여 모든 +&lt;video&gt;+ HTML 옵션을 지원합니다:
 
-* +:poster => "image_name.png"+, provides an image to put in place of the video before it starts playing.
-* +:autoplay => true+, starts playing the video on page load.
-* +:loop => true+, loops the video once it gets to the end.
-* +:controls => true+, provides browser supplied controls for the user to interact with the video.
-* +:autobuffer => true+, the video will pre load the file for the user on page load.
+* +:poster => "image_name.png"+ 는 비디오가 시작되기 전에 비디오 대신 보여주는 이미지를 제공합니다.
+* +:autoplay => true+ 는 페이지가 로드될 때 자동으로 비디오가 시작되도록 합니다.
+* +:loop => true+ 는 비디오가 반복해서 플레이되도록 합니다.
+* +:controls => true+ 는 사용자가 비디오와 상호작용을 할 수 있도록 브라우져 상에 컨트롤을 제공합니다.
+* +:autobuffer => true+ 는 페이지가 로드될 때 사용자를 위해 비디오를 미리 로드합니다.
 
-You can also specify multiple videos to play by passing an array of videos to the +video_tag+:
++video_tag+ 에 한개 이상의 비디오 파일을 배열로 넘겨 주어 여러 개의 비디오를 볼 수 있도록 합니다:
 
 <erb>
 <%= video_tag ["trailer.ogg", "movie.ogg"] %>
 </erb>
 
-This will produce:
+이것은 다음과 같이 렌더링됩니다:
 
 <erb>
 <video><source src="trailer.ogg" /><source src="movie.ogg" /></video>
 </erb>
 
-h5. Linking to Audio Files with the +audio_tag+
+h5(#Linking-to-Audio-Files-with-the-audio_tag). +audio_tag+ 로 오디오 파일 연결하기
 
-The +audio_tag+ helper builds an HTML 5 +&lt;audio&gt;+ tag to the specified file. By default, files are loaded from +public/audios+.
++audio_tag+ 헬퍼는 지정된 오디오 파일을 HTML 5 의 +&lt;audio&gt;+ 태그로 연결합니다. 디폴트로 이 오디오 파일들은 +public/audios+ 폴더에서 로드됩니다.
 
 <erb>
 <%= audio_tag "music.mp3" %>
 </erb>
 
-You can supply a path to the audio file if you like:
+다음과 같이 오디오 파일에 대한 경로를 지정할 수도 있습니다:
 
 <erb>
 <%= audio_tag "music/first_song.mp3" %>
 </erb>
 
-You can also supply a hash of additional options, such as +:id+, +:class+ etc.
++:id+, +:class+ 등 추가 옵션을 해쉬형태로 지정할 수도 있습니다.
 
 Like the +video_tag+, the +audio_tag+ has special options:
 
-* +:autoplay => true+, starts playing the audio on page load
-* +:controls => true+, provides browser supplied controls for the user to interact with the audio.
-* +:autobuffer => true+, the audio will pre load the file for the user on page load.
+* +:autoplay => true+ 는 페이지 로도시에 오디오 파일이 자동으로 시작되도록 합니다.
+* +:controls => true+ 는 사용자가 오디오와 상호작용하기 위한 컨트롤을 브라우져 상에 보이게 해 줍니다.
+* +:autobuffer => true+ 는 페이지가 로드될 때 사용자들을 위해 오디오 파일을 미리 로드되도록 합니다.
 
-h4. Understanding +yield+
+h4(#Understanding-yield). +yield+ 이해하기
 
-Within the context of a layout, +yield+ identifies a section where content from the view should be inserted. The simplest way to use this is to have a single +yield+, into which the entire contents of the view currently being rendered is inserted:
+레이아웃 상에서, +yield+ 는 뷰로부터 만들어지는 내용을 삽입할 장소를 지정합니다. 가장 간단한 방법은, 렌더링되는 뷰의 전체 내용물을 삽입할 곳에 한개의 +yield+ 를 두도록 하는 것입니다:
 
 <erb>
 <html>
@@ -959,7 +961,7 @@ Within the context of a layout, +yield+ identifies a section where content from 
 </html>
 </erb>
 
-You can also create a layout with multiple yielding regions:
+한개 이상의 +yield+ 영역을 지정할 수도 있습니다:
 
 <erb>
 <html>
@@ -972,11 +974,11 @@ You can also create a layout with multiple yielding regions:
 </html>
 </erb>
 
-The main body of the view will always render into the unnamed +yield+. To render content into a named +yield+, you use the +content_for+ method.
+뷰 템플릿의 주내용은 반드시 무명(無名)의 +yield+ 위치로 렌더링될 것입니다. 그러나 한개 이상의 +yield+ 를 지정할 때 추가 지정되는 +yield+ 위치에는 이름을 붙여야 하는데 이 때 해당 이름에 대한 내용물을 만들기 위해 +content_for+ 메소드를 이용합니다.
 
-h4. Using the +content_for+ Method
+h4(#Using-the-content_for-Method). +content_for+ 메소드 이용하기
 
-The +content_for+ method allows you to insert content into a named +yield+ block in your layout. For example, this view would work with the layout that you just saw:
++content_for+ 메소드는 레아이웃 상의 특정 이름을 가진 +yield+ 블록으로 내용물을 삽입할 수 있도록 해줍니다. 예를 들어, 아래의 뷰는 방금 전에 보여 주었던 레이아웃과 함께 동작할 것입니다:
 
 <erb>
 <% content_for :head do %>
@@ -986,7 +988,7 @@ The +content_for+ method allows you to insert content into a named +yield+ block
 <p>Hello, Rails!</p>
 </erb>
 
-The result of rendering this page into the supplied layout would be this HTML:
+이 페이지를 렌더링하여 레이아웃에 제공하게 될 HTML은 다음과 같은 것입니다:
 
 <erb>
 <html>
@@ -999,31 +1001,31 @@ The result of rendering this page into the supplied layout would be this HTML:
 </html>
 </erb>
 
-The +content_for+ method is very helpful when your layout contains distinct regions such as sidebars and footers that should get their own blocks of content inserted. It's also useful for inserting tags that load page-specific JavaScript or css files into the header of an otherwise generic layout.
+이러한 content_for 메소드는 레이아웃이, 자체 컨텐츠 블록을 삽입하는 sidebar 또는 footer 와 같은 특정 영역을 가질 때 매우 도움이 됩니다. 또한 일반 레이아웃의 헤더에 특정 페이지에만 적용되는 자바스크립트나 스타일시트 파일을 로드하는 태그를 삽입할 때도 유용합니다.
 
-h4. Using Partials
+h4(#Using-Partials). Partial 이용하기
 
-Partial templates - usually just called "partials" - are another device for breaking the rendering process into more manageable chunks. With a partial, you can move the code for rendering a particular piece of a response to its own file.
+줄여서 "partial" 이라고 부르는 partial 템플릿은 렌더링 과정을 더 다루기 쉽도록 작은 조각으로 나누는 또 다른 도구입니다. partial 을 이용하면 요청에 대한 응답 중 특정 부분을 렌더링하는 코드를 파일로 옮길 수 있습니다.
 
-h5. Naming Partials
+h5(#Naming-Partials). Partial 명명하기
 
-To render a partial as part of a view, you use the +render+ method within the view:
+partial 을 뷰의 일부분으로 렌더링하기 위해서는 뷰 내에서 +render+ 메소드를 사용하면 됩니다:
 
 <ruby>
 <%= render "menu" %>
 </ruby>
 
-This will render a file named +_menu.html.erb+ at that point within the view being rendered. Note the leading underscore character: partials are named with a leading underscore to distinguish them from regular views, even though they are referred to without the underscore. This holds true even when you're pulling in a partial from another folder:
+이것은 해당 뷰가 렌더링될 때 +_menu.html.erb+ 파일이 렌더링되도록 합니다. 여기서 주목할 것은 파일 이름 앞에 있는 밑줄 문자입니다. 레일스에서는 partial 이 밑줄 문자 없이 참조된다고 하더라도 규칙상 partial 파일을 일반 뷰 파일명과 구분하기 위해 밑줄 문자를 사용한다는 것입니다.  이것은 다른 폴더에 있는 partial 을 불러올 때도 동일한 규칙이 적용됩니다.:
 
 <ruby>
 <%= render "shared/menu" %>
 </ruby>
 
-That code will pull in the partial from +app/views/shared/_menu.html.erb+.
+이 코드는 +app/views/shared/_menu.html.erb+ 파일을 partial 로 불러 오도록 합니다.
 
-h5. Using Partials to Simplify Views
+h5(#Using-Partials-to-Simplify-Views). Partial 을 이용해서 뷰를 간소화하기
 
-One way to use partials is to treat them as the equivalent of subroutines: as a way to move details out of a view so that you can grasp what's going on more easily. For example, you might have a view that looked like this:
+partial을 이용하는 한가지 방법은 전체적인 상황을 더 쉽게 이해할 수 있도록 특정 뷰로부터 자세한 부분을 다른 곳으로 이동시키는 것처럼, partial을 마치 서브루틴처럼 생각하는 것입니다. 예를 들어, 다음과 같은 뷰 파일이 있다고 가정해 봅시다:
 
 <erb>
 <%= render "shared/ad_banner" %>
@@ -1036,25 +1038,25 @@ One way to use partials is to treat them as the equivalent of subroutines: as a 
 <%= render "shared/footer" %>
 </erb>
 
-Here, the +_ad_banner.html.erb+ and +_footer.html.erb+ partials could contain content that is shared among many pages in your application. You don't need to see the details of these sections when you're concentrating on a particular page.
+여기서 +_ad_banner.html.erb+ 와 +_footer.html.erb+ partial 은 어플리케이션의 페이지들이 공유하는 내용을 담을 수 있습니다. 특정 페이지에 집중해서 작업을 할 때 이 부분의 자세한 내용을 볼 필요는 없다는 것입니다.
 
-TIP: For content that is shared among all pages in your application, you can use partials directly from layouts.
+TIP: 어플리케이션의 모든 페이지에서 공유하는 내용에 대해서는 레이아웃에서 직접 partial 을 불러와 사용할 수 있습니다.
 
-h5. Partial Layouts
+h5(#Partial-Layouts). Partial 용 레이아웃
 
-A partial can use its own layout file, just as a view can use a layout. For example, you might call a partial like this:
+뷰가 레이아웃을 이용할 수 있는 것처럼, partial 도 자신만의 레이아웃을 사용할 수 있습니다. 예를 들어, partial 을 다음과 같이 호출할 수 있습니다:
 
 <erb>
 <%= render :partial => "link_area", :layout => "graybar" %>
 </erb>
 
-This would look for a partial named +_link_area.html.erb+ and render it using the layout +_graybar.html.erb+. Note that layouts for partials follow the same leading-underscore naming as regular partials, and are placed in the same folder with the partial that they belong to (not in the master +layouts+ folder).
+이것은 +_link_area.html.erb+ partial 을  +_graybar.html.erb+ 레이아웃을 이용해서 렌더링하도록 합니다. 여기서 주목할 것은 partial 에 대한 레이아웃도 일반적인 partial 처럼  파일이름 앞에 밑줄 문자를 붙여 사용한다는 것입니다. 따라서 partial 레이아웃은 주 레이아웃이 있는 폴더가 아니라 해당 레이아웃이 속하는 partial 이 있는 동일한 폴더에 있어야 합니다.
 
-Also note that explicitly specifying +:partial+ is required when passing additional options such as +:layout+.
+또한 주의할 사항은 이와 같이  +:layout+ 옵션을 추가로 사용할 때는 +:partial+ 을 명시해 주어야 한다는 것입니다.
 
-h5. Passing Local Variables
+h5(#Passing-Local-Variables). Partial 에 지역변수를 넘겨주기
 
-You can also pass local variables into partials, making them even more powerful and flexible. For example, you can use this technique to reduce duplication between new and edit pages, while still keeping a bit of distinct content:
+partial 에 지역변수를 넘겨 줄 수 있어 partial 을 더욱 강력하고 유연하게 만들어 줍니다. 예를 들어, 이를 이용하면 new 와 edit 페이지 간에 각각의 차별요소를 가지면서 중복을 줄일 수 있게 됩니다:
 
 * +new.html.erb+
 
@@ -1086,29 +1088,29 @@ You can also pass local variables into partials, making them even more powerful 
 <% end %>
 </erb>
 
-Although the same partial will be rendered into both views, Action View's submit helper will return "Create Zone" for the new action and "Update Zone" for the edit action.
+비록 동일한 partial 이 두개의 뷰로 렌더링되지만, Action View 의 submit 헬퍼는 new 액션에 대해서는 "Create Zone"을, edit 액션에 대해서는 "Update Zone"을 리턴하게 됩니다.
 
-Every partial also has a local variable with the same name as the partial (minus the underscore). You can pass an object in to this local variable via the +:object+ option:
+모든 partial 은 기본적으로 밑줄문자를 뺀 partial 이름을 로컬변수명으로 사용할 수 있습니다. +:object+ 옵션을 이용하면 이 로컬변수에 하나의 객체를 넘겨 줄 수 있게 됩니다:
 
 <erb>
 <%= render :partial => "customer", :object => @new_customer %>
 </erb>
 
-Within the +customer+ partial, the +customer+ variable will refer to +@new_customer+ from the parent view.
++customer+ partial 내에서 +customer+ 변수는 상위 뷰의 +@new_customer+ 를 참조하게 됩니다.
 
-WARNING: In previous versions of Rails, the default local variable would look for an instance variable with the same name as the partial in the parent. This behavior was deprecated in 2.3 and has been removed in Rails 3.0.
+WARNING: 레일스의 이전 버전에서는, 상위 뷰의 partial과 동일한 이름의 인스턴스 변수를 partial 의 디폴트 지역변수로 찾도록 되어 있었지만, 2.3버전에서 사용되지 않았다가 3.0버전에서는 더 이상 지원하지 않게 되었습니다.
 
-If you have an instance of a model to render into a partial, you can use a shorthand syntax:
+특정 모델의 인스턴스를 partial 로 렌더링할 경우에는 다음과 같이 단축 문법을 사용할 수 있습니다.:
 
 <erb>
 <%= render @customer %>
 </erb>
 
-Assuming that the +@customer+ instance variable contains an instance of the +Customer+ model, this will use +_customer.html.erb+ to render it and will pass the local variable +customer+ into the partial which will refer to the +@customer+ instance variable in the parent view.
++@customer+ 인스턴스 변수가 +Customer+ 모델의 인스턴스를 가지고 있다고 가정한다면, 위의 코드는 +_customer.html.erb+ partial 이용해서 렌더링할 것이고 이 때 상위 뷰에서 접근가능한  +@customer+ 인스턴스 변수를 참조하기 위해 +customer+ 지역변수를 partial 로 넘겨 줄 수 있을 것입니다.
 
-h5. Rendering Collections
+h5(#Rendering-Collections). 컬렉션 렌더링하기
 
-Partials are very useful in rendering collections. When you pass a collection to a partial via the +:collection+ option, the partial will be inserted once for each member in the collection:
+partial 은 컬렉션을 렌더링할 때 매우 유용합니다. +:collection+ 옵션을 이용해서 partial 에 컬렉션을 넘겨 줄 때 컬렉션의 각 멤버에 대해서 partial 이 삽입될 것입니다.:
 
 * +index.html.erb+
 
@@ -1123,16 +1125,16 @@ Partials are very useful in rendering collections. When you pass a collection to
 <p>Product Name: <%= product.name %></p>
 </erb>
 
-When a partial is called with a pluralized collection, then the individual instances of the partial have access to the member of the collection being rendered via a variable named after the partial. In this case, the partial is +_product+, and within the +_product+ partial, you can refer to +product+ to get the instance that is being rendered.
+컬렉션으로 partial 을 호출하게 되면 partial 은 매번 컬렉션 멤버에 접근하여 partial 이름의 지역변수를 경유하여 렌더링됩니다. 이 경우에 partial 은 +_product+ 이 되고 +_product+ partial 내에서 +product+ 변수를 참조하여 렌더링됩니다.
 
-In Rails 3.0, there is also a shorthand for this. Assuming +@products+ is a collection of +product+ instances, you can simply write this in the +index.html.erb+ to produce the same result:
+레일스 3.0에서는 이것에 대한 손쉬운 방법을 제공해 줍니다. +@products+ 가 +product+ 인스턴스의 컬렉션이라고 가정하면 동일한 결과물을 얻기 위해 +index.html.erb+ 에 다음과 같이 코딩할 수 있습니다:
 
 <erb>
 <h1>Products</h1>
 <%= render @products %>
 </erb>
 
-Rails determines the name of the partial to use by looking at the model name in the collection. In fact, you can even create a heterogeneous collection and render it this way, and Rails will choose the proper partial for each member of the collection:
+이 때 레일스는 컬렉션에 있는 모델 이름을 찾아보고 partial 이름을 결정하게 됩니다. 사실, 다양한 종류의 모델로부터 만들어진 인스턴스로 구성된 컬렉션을 만들어 동일한 방법으로 렌더링할 수 있는데, 레일스는 컬렉션 각 멤버에 대한 적절한 partial 을 선택하게 될 것입니다:
 
 * +index.html.erb+
 
@@ -1153,18 +1155,18 @@ Rails determines the name of the partial to use by looking at the model name in 
 <p>Employee: <%= employee.name %></p>
 </erb>
 
-In this case, Rails will use the customer or employee partials as appropriate for each member of the collection.
+이 경우에, 레일스는 컬렉션의 각 멤버에 따라 해당하는 모델의 partial 로서 customer 또는 employee partial을 사용하게 될 것입니다.
 
-In the event that the collection is empty, +render+ will return nil, so it should be fairly simple to provide alternative content.
+컬렉션이 비어있을 때, +render+ 헬퍼는 nil 값을 반환할 것입니다. 따라서 이런 경우에 매우 간단하게 대신해서 제공할 컨텐츠를 작성할 수 있어야 합니다. 
 
 <erb>
 <h1>Products</h1>
 <%= render(@products) || "There are no products available." %>
 </erb>
 
-h5. Local Variables
+h5(#Local-Variables). 지역변수
 
-To use a custom local variable name within the partial, specify the +:as+ option in the call to the partial:
+partial 내에서 지역변수 이름을 변경하고자 할 대는 partial 호출시에 +:as+ 옵션을 명시해 주면 됩니다:
 
 <erb>
 <%= render :partial => "product", :collection => @products, :as => :item %>
@@ -1172,42 +1174,42 @@ To use a custom local variable name within the partial, specify the +:as+ option
 
 With this change, you can access an instance of the +@products+ collection as the +item+ local variable within the partial.
 
-You can also pass in arbitrary local variables to any partial you are rendering with the +:locals => {}+ option:
+또한 +:locals => { }+ 옵션을 추가하여 렌더링하면 partial 로 임의의 지역변수를 넘겨 줄 수 있게 됩니다:
 
 <erb>
 <%= render :partial => "products", :collection => @products,
            :as => :item, :locals => {:title => "Products Page"} %>
 </erb>
 
-Would render a partial +_products.html.erb+ once for each instance of +product+ in the +@products+ instance variable passing the instance to the partial as a local variable called +item+ and to each partial, make the local variable +title+ available with the value +Products Page+.
+이것은 로컬변수 +item+ 으로 partial 로 넘어가는 +@products+ 인스턴스 변수의 +product+ 각각에 대해서 +_product.html.erb+ partial 을 렌더링하게 될 것입니다. 이 때 partial로 +title+ 이란 로컬변수에 +Product Page+ 값을 넘겨 주게 됩니다.
 
-TIP: Rails also makes a counter variable available within a partial called by the collection, named after the member of the collection followed by +_counter+. For example, if you're rendering +@products+, within the partial you can refer to +product_counter+ to tell you how many times the partial has been rendered. This does not work in conjunction with the +:as => :value+ option.
+TIP: 레일스는 컬렉션이 partial 을 호출할 때 counter 변수를 사용할 수 있게 해 줍니다. 이 변수는 컬렉션 멤버의 이름 뒤에 +_counter+ 를 붙인 형태의 이름을 가지게 됩니다. 예를 들면, +@products+ 를 렌더링할 경우, partial 내에서 +product_counter+ 를 참조하면 partial이 렌더링된 횟수를 알 수 있습니다. 그러나 +:as => :value+ 옵션을 사용해서 partial 을 호출할 경우에는 작동하지 않는다는 것에 주의하기 바랍니다.
 
-You can also specify a second partial to be rendered between instances of the main partial by using the +:spacer_template+ option:
++:spacer_template+ 옵션을 이용하면 메인 partial 사이 사이에 렌더링되어 삽입되는 두번째 partial 을 지정할 수 있습니다:
 
-h5. Spacer Templates
+h5(#Spacer-Templates). 구분자(Spacer) 템플릿
 
 <erb>
 <%= render :partial => @products, :spacer_template => "product_ruler" %>
 </erb>
 
-Rails will render the +_product_ruler+ partial (with no data passed in to it) between each pair of +_product+ partials.
+레일스는 +_product_ruler+ partial 을 +_product+ partial 사이 사이에 어떤 데이터도 넘겨주지 않은 채 렌더링하게 될 것입니다.
 
-h5. Partial Layouts
+h5(#Partial-Layouts). Partial용 레이아웃 이용하기
 
-When rendering collections it is also possible to use the +:layout+ option:
+컬렉션을 렌더링할 때도 +:layout+ 옵션을 이용할 수 있습니다:
 
 <erb>
 <%= render :partial => "product", :collection => @products, :layout => "special_layout" %>
 </erb>
 
-The layout will be rendered together with the partial for each item in the collection. The current object and object_counter variables will be available in the layout as well, the same way they do within the partial.
+partial 레이아웃은 컬렉션에 있는 각 항목에 대해서 partial과 함께 렌더링될 것입니다. 현재의 object와 object_counter 변수도 물론 partial에서와 같이 parital 레이아웃에서도 사용할 수 있습니다.
 
-h4. Using Nested Layouts
+h4(#Using-Nested-Layouts). 중첩 레이아웃 사용하기
 
-You may find that your application requires a layout that differs slightly from your regular application layout to support one particular controller. Rather than repeating the main layout and editing it, you can accomplish this by using nested layouts (sometimes called sub-templates). Here's an example:
+경우에 따라 일반 레이아웃과는 다른, 특정 컨트롤러를 지원하는 레이아웃이 필요한 경우가 있을 것입니다. 메인 레이아웃을 복사해서 수정후 사용하기 보다는 (경우에 따라 `sub-template`라고도 불리는) 중첩 레이아웃를 이용할 수 있습니다. 아래에 그 예를 보여줍니다.
 
-Suppose you have the following +ApplicationController+ layout:
++ApplicationController+ 레이아웃이 있다고 가정하면:
 
 * +app/views/layouts/application.html.erb+
 
@@ -1226,7 +1228,7 @@ Suppose you have the following +ApplicationController+ layout:
 </html>
 </erb>
 
-On pages generated by +NewsController+, you want to hide the top menu and add a right menu:
++NewsController+ 에서 만들어지는 페이지상에서 상단 메뉴를 감추고 오른쪽 메뉴를 보여주고 싶다면:
 
 * +app/views/layouts/news.html.erb+
 
@@ -1242,6 +1244,6 @@ On pages generated by +NewsController+, you want to hide the top menu and add a 
 <%= render :template => "layouts/application" %>
 </erb>
 
-That's it. The News views will use the new layout, hiding the top menu and adding a new right menu inside the "content" div.
+이렇게 구현하면 됩니다. News 뷰는 "content" div 안에 있는 상단 메뉴가 사라지고 우측 메뉴가 새로 추가된 새 레이아웃을 사용할 것입니다.
 
-There are several ways of getting similar results with different sub-templating schemes using this technique. Note that there is no limit in nesting levels. One can use the +ActionView::render+ method via +render :template => 'layouts/news'+ to base a new layout on the News layout. If you are sure you will not subtemplate the +News+ layout, you can replace the +content_for?(:news_content) ? yield(:news_content) : yield+ with simply +yield+.
+이러한 기법을 이용하면 다양한 서브템플릿으로 같은 결과를 보여줄 수 있는 방법이 많아지게 됩니다. 사실 중첩 레벨에는 제한이 없습니다. +render :template => ''layouts/news'+ 으로 +ActionView::render+ 메소드를 이용하여 +News+ 레아아웃 상에 새로운 레이아웃을 만들 수 있습니다. 만약에 +News+ 레이아웃을 서브템플릿으로 사용하지 않을 경우에는 +content_for?(:news_content) ? yield(:news_content) : yield+ 를 +yield+ 로 대치하기만 하면 됩니다.
