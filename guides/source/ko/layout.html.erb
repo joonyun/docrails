@@ -4,35 +4,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title><%= yield(:page_title) || '루비온레일스 가이드' %></title>
-
-<link rel="stylesheet" type="text/css" href="stylesheets/style.css" /> 
+<title><%= yield(:page_title) || 'Ruby on Rails Guides' %></title>
+<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
 <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shCore.css" />
 <link rel="stylesheet" type="text/css" href="stylesheets/syntaxhighlighter/shThemeRailsGuides.css" />
 
 <link rel="stylesheet" type="text/css" href="stylesheets/fixes.css" />
+
+<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body class="guide">
   <% if @edge %>
   <div>
     <img src="images/edge_badge.png" alt="edge-badge" id="edge-badge" />
-  </div> 
+  </div>
   <% end %>
   <div id="topNav">
     <div class="wrapper">
-      <strong><a href="http://rubyonrails.org/">rubyonrails.org</a>로 가기 </strong>
-      <strong><a href="http://rorlab.org/">rorlab.org</a>로 가기 </strong>
+      <strong class="more-info-label">More at <a href="http://rubyonrails.org/">rubyonrails.org:</a> </strong>
+      <span class="red-button more-info-button">
+        More Ruby on Rails
+      </span>
+      <ul class="more-info-links s-hidden">
+        <li class="more-info"><a href="http://rubyonrails.org/">개요</a></li>
+        <li class="more-info"><a href="http://rubyonrails.org/download">다운로드</a></li>
+        <li class="more-info"><a href="http://rubyonrails.org/deploy">배포</a></li>
+        <li class="more-info"><a href="https://github.com/rails/rails">코드</a></li>
+        <li class="more-info"><a href="http://rubyonrails.org/screencasts">스크린캐스트</a></li>
+        <li class="more-info"><a href="http://rubyonrails.org/documentation">도큐먼트</a></li>
+        <li class="more-info"><a href="http://rubyonrails.org/ecosystem">생태계</a></li>
+        <li class="more-info"><a href="http://rubyonrails.org/community">커뮤니티</a></li>
+        <li class="more-info"><a href="http://weblog.rubyonrails.org/">블로그</a></li>
+      </ul>
     </div>
   </div>
   <div id="header">
     <div class="wrapper clearfix">
       <h1><a href="index.html" title="Return to home page">Guides.rubyonrails.org</a></h1>
       <ul class="nav">
-        <li><a href="index.html">홈</a></li>
-        <li class="index"><a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu">가이드 인덱스</a>
+        <li><a class="nav-item" href="index.html">홈</a></li>
+        <li class="guides-index guides-index-large">
+          <a href="index.html" onclick="guideMenu(); return false;" id="guidesMenu" class="guides-index-item nav-item">가이드 인덱스</a>
           <div id="guides" class="clearfix" style="display: none;">
             <hr />
             <% ['L', 'R'].each do |position| %>
@@ -47,9 +63,22 @@
             <% end %>
           </div>
         </li>
-        <li><a href="contributing_to_ruby_on_rails.html">기부하기</a></li>
-        <li><a href="credits.html">크레딧</a></li>
+        <li><a class="nav-item" href="contributing_to_ruby_on_rails.html">기여하기</a></li>
+        <li><a class="nav-item" href="credits.html">크레딧</a></li>
+        <li class="guides-index guides-index-small">
+          <select class="guides-index-item nav-item">
+            <option value="index.html">가이드 인덱스</option>
+            <% docs_for_menu.each do |section| %>
+              <optgroup label="<%= section['name'] %>">
+                <% finished_documents(section['documents']).each do |document| %>
+                  <option value="<%= document['url'] %>"><%= document['name'] %></option>
+                <% end %>
+              </optgroup>
+            <% end %>
+          </select>
+        </li>
       </ul>
+      </div>
     </div>
   </div>
   <hr class="hide" />
@@ -67,7 +96,7 @@
       <div id="mainCol">
         <%= yield.html_safe %>
 
-        <h3>Feedback</h3>
+        <h3>피드백</h3>
         <p>
           You're encouraged to help improve the quality of this guide.
         </p>
@@ -103,6 +132,8 @@
     </div>
   </div>
 
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/responsive-tables.js"></script>
   <script type="text/javascript" src="javascripts/guides.js"></script>
   <script type="text/javascript" src="javascripts/syntaxhighlighter/shCore.js"></script>
   <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushRuby.js"></script>
@@ -111,6 +142,7 @@
   <script type="text/javascript" src="javascripts/syntaxhighlighter/shBrushPlain.js"></script>
   <script type="text/javascript">
     SyntaxHighlighter.all()
+    $(guidesIndex.bind);
   </script>
 </body>
 </html>

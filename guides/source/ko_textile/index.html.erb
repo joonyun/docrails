@@ -1,0 +1,29 @@
+<% content_for :page_title do %>
+루비온레일스 가이드 
+<% end %>
+
+<% content_for :header_section do %>
+<%= render 'welcome' %>
+<% end %>
+
+<% content_for :index_section do %>
+<div id="subCol">
+  <dl>
+    <dd class="kindle">레일스 가이드는 <%= link_to 'Kindle', 'https://kindle.amazon.com' %>에서도 이용가능하며 <%= link_to 'Free Kindle Reading Apps', 'http://www.amazon.com/gp/kindle/kcp' %>, 아아패드, 아이폰, 맥, 안드로이드용 앱은 <%= link_to '여기', @mobi %>에서 다운로드 받으시길 바랍니다.
+    </dd>
+    <dd class="work-in-progress">이 아이콘이 표신된 가이드는 현재 작업 중임을 나타냅니다. 그럼에도 도움이 된다고 생각하면 해당 가이드 내용이 완벽하지 못하고 심지어 에러가 있을 수 있다는 것을 염두에 두시기 바랍니다. 이 내용을 검토하고 댓글을 달고 저자에게 수정내용을 알려주시면 도움이 될 수 있습니다.  
+    </dd>
+  </dl>
+</div>
+<% end %>
+
+<% documents_by_section.each do |section| %>
+  <h3><%= section['name'] %></h3>
+  <dl>
+    <% section['documents'].each do |document| %>
+      <%= guide(document['name'], document['url'], :work_in_progress => document['work_in_progress']) do %>
+        <p><%= document['description'] %></p>
+      <% end %>
+    <% end %>
+  </dl>
+<% end %>

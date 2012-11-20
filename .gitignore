@@ -28,3 +28,5 @@ guides/pkg/
 guides/.rvmrc
 guides/code/getting_started/Gemfile.lock
 guides/Rakefile
+/.rvmrc.11.20.2012-08:55:36
+/Rakefile.bak
