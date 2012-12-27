@@ -23,7 +23,7 @@ application. By referring to this guide, you will be able to:
 테스트 소개 / Introduction to Testing
 -----------------------
 
-테스트를 위한 지원은 레일스가 만들어질 때부터 레일스에 잘 통합되어 있습니다. 다시 말해서, 레일스가 만들어진 후에 새로 추가된 것이 아니라는 것입니다. 모든 레일스 어프릴케이션은 많은 부분에서 데이터베이스와 상호작용을 하기 때문에, 테스트 역시 데이터베이스와의 상호작용이 필요하게 될 것입니다. 효과적인 테스트를 작성하기 위해서는 테스트용 데이터베이스를 셋업하고, 샘플 데이터를 데이터베이스에 올리는 방법에 대해서 알아 둘 필요가 있습니다. / Testing support was woven into the Rails fabric from the beginning. It wasn't an "oh! let's bolt on support for running tests because they're new and cool" epiphany. Just about every Rails application interacts heavily with a database and, as a result, your tests will need a database to interact with as well. To write efficient tests, you'll need to understand how to set up this database and populate it with sample data.    
+테스트를 위한 지원은 레일스가 만들어질 때부터 레일스에 잘 integration되어 있습니다. 다시 말해서, 레일스가 만들어진 후에 새로 추가된 것이 아니라는 것입니다. 모든 레일스 어프릴케이션은 많은 부분에서 데이터베이스와 상호작용을 하기 때문에, 테스트 역시 데이터베이스와의 상호작용이 필요하게 될 것입니다. 효과적인 테스트를 작성하기 위해서는 테스트용 데이터베이스를 셋업하고, 샘플 데이터를 데이터베이스에 올리는 방법에 대해서 알아 둘 필요가 있습니다. / Testing support was woven into the Rails fabric from the beginning. It wasn't an "oh! let's bolt on support for running tests because they're new and cool" epiphany. Just about every Rails application interacts heavily with a database and, as a result, your tests will need a database to interact with as well. To write efficient tests, you'll need to understand how to set up this database and populate it with sample data.    
 
 ### 테스트 환경 / The Test Environment
 
@@ -622,12 +622,12 @@ assert_select_email do
 end
 ```
 
-통합 테스트하기 / Integration Testing
+integration 테스트하기 / Integration Testing
 -------------------
 
-통합 테스트는 여러개의 컨트롤러 사이의 상호작용을 테스트하기 위해 사용합니다. 일반적으로 통합 테스트는 어플리케이션내에서 중요한 작업 흐름을 테스트하기 위해서 사용합니다. / Integration tests are used to test the interaction among any number of controllers. They are generally used to test important work flows within your application.
+integration 테스트는 여러개의 컨트롤러 사이의 상호작용을 테스트하기 위해 사용합니다. 일반적으로 integration 테스트는 어플리케이션내에서 중요한 작업 흐름을 테스트하기 위해서 사용합니다. / Integration tests are used to test the interaction among any number of controllers. They are generally used to test important work flows within your application.
 
-unit 테스트와 functional 테스트와는 달리 통합 테스트는 어플리케이션내의 `test/integration` 폴더 아래에 명시적으로 생성해 주어야 합니다. 따라서 레일스는 개발자를 대신해서 통합 테스트를 위한 골격을 생성하기 위한 제너레이터를 제공해 줍니다. / Unlike Unit and Functional tests, integration tests have to be explicitly created under the 'test/integration' folder within your application. Rails provides a generator to create an integration test skeleton for you.
+unit 테스트와 functional 테스트와는 달리 integration 테스트는 어플리케이션내의 `test/integration` 폴더 아래에 명시적으로 생성해 주어야 합니다. 따라서 레일스는 개발자를 대신해서 integration 테스트를 위한 골격을 생성하기 위한 제너레이터를 제공해 줍니다. / Unlike Unit and Functional tests, integration tests have to be explicitly created under the 'test/integration' folder within your application. Rails provides a generator to create an integration test skeleton for you.
 
 ```bash
 $ rails generate integration_test user_flows
@@ -635,7 +635,7 @@ $ rails generate integration_test user_flows
       create  test/integration/user_flows_test.rb
 ```
 
-아래에는 방금 전에 생성된 통합 테스트를 보여 줍니다. / Here's what a freshly-generated integration test looks like:
+아래에는 방금 전에 생성된 integration 테스트를 보여 줍니다. / Here's what a freshly-generated integration test looks like:
 
 ```ruby
 require 'test_helper'
@@ -650,11 +650,11 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
 end
 ```
 
-통합 테스트는 `ActionDispatch::IntegrationTest`로부터 상속을 받습니다. 따라서 몇가지 헬퍼 메소드들을 통합 테스트에서 추가로 사용할 수 있게 됩니다. 또한, 통합 테스트에서 사용할 수 있도록, 명시적으로 fixtures(테스트 데이터)를 포함시켜 줄 필요가 있습니다. / Integration tests inherit from `ActionDispatch::IntegrationTest`. This makes available some additional helpers to use in your integration tests. Also you need to explicitly include the fixtures to be made available to the test.
+integration 테스트는 `ActionDispatch::IntegrationTest`로부터 상속을 받습니다. 따라서 몇가지 헬퍼 메소드들을 integration 테스트에서 추가로 사용할 수 있게 됩니다. 또한, integration 테스트에서 사용할 수 있도록, 명시적으로 fixtures(테스트 데이터)를 포함시켜 줄 필요가 있습니다. / Integration tests inherit from `ActionDispatch::IntegrationTest`. This makes available some additional helpers to use in your integration tests. Also you need to explicitly include the fixtures to be made available to the test.
 
-### 통합 테스트에 사용할 수 있는 헬퍼 메소드 / Helpers Available for Integration Tests
+### integration 테스트에 사용할 수 있는 헬퍼 메소드 / Helpers Available for Integration Tests
 
-표준 테스트 헬퍼메소드 외에도, 통합 테스트에서 사용할 수 있는 헬퍼메소드들이 더 있습니다. / In addition to the standard testing helpers, there are some additional helpers available to integration tests:
+표준 테스트 헬퍼메소드 외에도, integration 테스트에서 사용할 수 있는 헬퍼메소드들이 더 있습니다. / In addition to the standard testing helpers, there are some additional helpers available to integration tests:
 
 | Helper                                                             | Purpose |
 | ------------------------------------------------------------------ | ------- |
@@ -671,9 +671,9 @@ end
 | `delete_via_redirect(path, [parameters], [headers])`               | Allows you to make an HTTP DELETE request and follow any subsequent redirects.|
 | `open_session`                                                     | Opens a new session instance.|
 
-### 통합 테스트 예 / Integration Testing Examples
+### integration 테스트 예 / Integration Testing Examples
 
-여러개의 컨트롤러를 함께 테스트하는 간단한 통합 테스트 예가 아래에 있습니다. / A simple integration test that exercises multiple controllers:
+여러개의 컨트롤러를 함께 테스트하는 간단한 integration 테스트 예가 아래에 있습니다. / A simple integration test that exercises multiple controllers:
 
 ```ruby
 require 'test_helper'
@@ -699,9 +699,9 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
 end
 ```
 
-보시다시피, 통합 테스트는 여러개의 컨트롤러가 관련되고 데이터베이스로부터 dispatcher에 이르는 전체 스택을 점검하게 됩니다. 게다가, 하나의 테스트 상내에서 동시에 여러개의 세션을 만들 수 있고, 가정 메소드를 이용하여 이 세션들을 확장하면 해당 어플케이션에서만 사용할 수 있는 강력한 테스트용 DSL(domain-specific language)를 만들 수도 있습니다. / As you can see the integration test involves multiple controllers and exercises the entire stack from database to dispatcher. In addition you can have multiple session instances open simultaneously in a test and extend those instances with assertion methods to create a very powerful testing DSL (domain-specific language) just for your application.
+보시다시피, integration 테스트는 여러개의 컨트롤러가 관련되고 데이터베이스로부터 dispatcher에 이르는 전체 스택을 점검하게 됩니다. 게다가, 하나의 테스트 상내에서 동시에 여러개의 세션을 만들 수 있고, 가정 메소드를 이용하여 이 세션들을 확장하면 해당 어플케이션에서만 사용할 수 있는 강력한 테스트용 DSL(domain-specific language)를 만들 수도 있습니다. / As you can see the integration test involves multiple controllers and exercises the entire stack from database to dispatcher. In addition you can have multiple session instances open simultaneously in a test and extend those instances with assertion methods to create a very powerful testing DSL (domain-specific language) just for your application.
 
-아래에 하나의 통합 테스트내에서 다중 세션과 전용 DSL을 만드는 예가 있습니다. / Here's an example of multiple sessions and custom DSL in an integration test
+아래에 하나의 integration 테스트내에서 다중 세션과 전용 DSL을 만드는 예가 있습니다. / Here's an example of multiple sessions and custom DSL in an integration test
 
 ```ruby
 require 'test_helper'
