@@ -1,7 +1,7 @@
-A Guide to Testing Rails Applications
+레일스 어플리케이션 테스트 가이드 / A Guide to Testing Rails Applications
 =====================================
 
-본 가이드는 레일스에게 제공하는 내장 메카니즘을 이용해서 어플리케이션을 테스트하는 방법에 대해서 다룹니다. / This guide covers built-in mechanisms offered by Rails to test your
+본 가이드는 레일스에서 제공하는 내장 메카니즘을 이용해서 어플리케이션을 테스트하는 방법에 대해서 다룹니다. 본 가이드를 참고하면 아래의 사항을 할 수 있게 됩니다. / This guide covers built-in mechanisms offered by Rails to test your
 application. By referring to this guide, you will be able to:
 
 
@@ -14,26 +14,26 @@ application. By referring to this guide, you will be able to:
 레일스 어플리케이션을 위한 테스트를 작성해야 하는 이유는? / Why Write Tests for your Rails Applications? 
 --------------------------------------------
 
-레일스에서는 테스트 작성이 너무 쉽다. 모델과 컨트롤러를 생성할 때 테스트 코드 템플릿이 자동으로 생성되어 테스트를 시작할 수 있게 해 준다. Rails makes it super easy to write your tests. It starts by producing skeleton test code while you are creating your models and controllers. 
+레일스에서는 매우 쉽게 테스트를 작성할 수 있습니다. 모델과 컨트롤러를 생성할 때 테스트 코드 템플릿이 자동으로 생성되어 테스트를 시작할 수 있게 해 줍니다. / Rails makes it super easy to write your tests. It starts by producing skeleton test code while you are creating your models and controllers. 
 
-단지 레일스 테스트를 실행하기만 하면 많은 양의 코드 리팩토링을 한 후에도 원하는 기능을 잘 유지하는 지를 확인할 수 있게 된다. / By simply running your Rails tests you can ensure your code adheres to the desired functionality even after some major code refactoring.
+단지 레일스 테스트를 실행하기만 하면, 많은 양의 코드 리팩토링을 한 후에도, 원하는 기능을 잘 유지하는 지를 확인할 수 있게 됩니다. / By simply running your Rails tests you can ensure your code adheres to the desired functionality even after some major code refactoring.
 
-레일스 테스트는 브라우저로부터의 request를 시뮬레이션할 수 있어서 실제 브라우저를 통해서 테스트해 보지 않아도 어플리케이션의 response를 테스트해 볼 수 있다. / Rails tests can also simulate browser requests and thus you can test your application's response without having to test it through your browser.  
+레일스 테스트는 브라우저로부터의 요청을 시뮬레이션할 수 있어서, 실제 브라우저를 통해서 테스트해 보지 않아도 어플리케이션의 응답을 테스트해 볼 수 있습니다. / Rails tests can also simulate browser requests and thus you can test your application's response without having to test it through your browser.  
 
 테스트 소개 / Introduction to Testing
 -----------------------
 
-테스트를 위한 지원은 레일스가 만들어질 때부터 레일스에 잘 통합되어 있었다. 레일스가 만들어진 후에 새로 추가된 것이 아니었다. 모든 레일스 어프릴케이션은 많은 부분에서 데이터베이스와 상호작용을 하기 때문에 테스트 역시 데이터베이스와의 상호작용이 필요하게 될 것이다. 효과적인 테스트를 작성하기 위해서는 테스트용 데이터베이스를 셋업하고 샘플 데이터를 데이터베이스에 올리는 방법에 대해서 알아 둘 필요가 있습니다. / Testing support was woven into the Rails fabric from the beginning. It wasn't an "oh! let's bolt on support for running tests because they're new and cool" epiphany. Just about every Rails application interacts heavily with a database and, as a result, your tests will need a database to interact with as well. To write efficient tests, you'll need to understand how to set up this database and populate it with sample data.    
+테스트를 위한 지원은 레일스가 만들어질 때부터 레일스에 잘 통합되어 있습니다. 다시 말해서, 레일스가 만들어진 후에 새로 추가된 것이 아니라는 것입니다. 모든 레일스 어프릴케이션은 많은 부분에서 데이터베이스와 상호작용을 하기 때문에, 테스트 역시 데이터베이스와의 상호작용이 필요하게 될 것입니다. 효과적인 테스트를 작성하기 위해서는 테스트용 데이터베이스를 셋업하고, 샘플 데이터를 데이터베이스에 올리는 방법에 대해서 알아 둘 필요가 있습니다. / Testing support was woven into the Rails fabric from the beginning. It wasn't an "oh! let's bolt on support for running tests because they're new and cool" epiphany. Just about every Rails application interacts heavily with a database and, as a result, your tests will need a database to interact with as well. To write efficient tests, you'll need to understand how to set up this database and populate it with sample data.    
 
 ### 테스트 환경 / The Test Environment
 
 디폴트 상태에서, 모든 레일스 어플리케이션은 3개의 환경(development, test, 그리고 production)을 가지게 됩니다. 각각에 대한 데이터베이스가 `config/database.yml` 파일에 정의되어 있습니다. / By default, every Rails application has three environments: development, test, and production. The database for each one of them is configured in `config/database.yml`.   
 
-테스트 전용 데이터베이스는 테스트 데이터를 별도로 셋업해서 작업을 할 수 있게 해 줍니다. 따라서 테스트는 확실하게 테스트용 데이터만 가지고 작업을 하기 때문에 development나 production용 데이터베이스에 있는 데이터를 손을 데지 않게 될 것입니다. / A dedicated test database allows you to set up and interact with test data in isolation. Tests can mangle test data with confidence, that won't touch the data in the development or production databases. 
+테스트 전용 데이터베이스는 테스트 데이터를 별도로 셋업해서 작업을 할 수 있게 해 줍니다. 따라서 테스트는 확실하게 테스트용 데이터만 가지고 작업을 하기 때문에, development나 production용 데이터베이스에 있는 데이터에 대해서는 접근을 하지 않게 될 것입니다. / A dedicated test database allows you to set up and interact with test data in isolation. Tests can mangle test data with confidence, that won't touch the data in the development or production databases. 
 
 ### 레일스는 처음부터 테스트환경을 셋업한다 / Rails Sets up for Testing from the Word Go 
 
-레일스는 `rails new` _application_name_ 명령으로 레일스 프로젝트를 생성하자마자 `test` 폴더를 생성합니다. 이 폴더의 내용을 보면 다음과 같이 보일 것입니다. / Rails creates a `test` folder for you as soon as you create a Rails project using `rails new` _application_name_. If you list the contents of this folder then you shall see:
+레일스는 `rails new` _application_name_ 명령으로 레일스 프로젝트를 생성하자마자 `test` 폴더를 생성합니다. 이 폴더의 내용을 보면 다음과 같습니다. / Rails creates a `test` folder for you as soon as you create a Rails project using `rails new` _application_name_. If you list the contents of this folder then you shall see:
 
 ```bash
 $ ls -F test
@@ -49,11 +49,11 @@ Fixtures라는 것은 테스트 데이터을 구조화하는 방법을 말합니
 
 ### Fixtures에 대한 내막 / The Low-Down on Fixtures
 
-훌륭한 테스트가 되기 위해서는, 테스트 데이터를 셋업하는데 신중할 필요가 있습니다. 레일스에서는 fixtures를 정의하고 변경할 수 있어 이러한 일이 가능하게 됩니다. / For good tests, you'll need to give some thought to setting up test data. In Rails, you can handle this by defining and customizing fixtures.
+훌륭한 테스트가 되기 위해서는, 테스트 데이터를 셋업하는데 신중할 필요가 있습니다. 레일스에서는 fixtures를 정의하고 변경할 수 있기 때문에, 이러한 일이 가능하게 됩니다. / For good tests, you'll need to give some thought to setting up test data. In Rails, you can handle this by defining and customizing fixtures.
 
 #### Fixtures란 무엇인가? / What Are Fixtures?
 
-_Fixtures_ 란 샘플 데이터에 대한 매혹적인 단어입니다. Fixtures를 이용하면 테스트 전에 미리 정의된 데이터를 테스트용 데이터베이스에 올려 놓을 수 있게 합니다. Fixtures는 YAML로 작성되기 때문에 데이터베이스에 독립적입니다. 모델당 하나의 fixture 파일만이 존재하게 됩니다. / _Fixtures_ is a fancy word for sample data. Fixtures allow you to populate your testing database with predefined data before your tests run. Fixtures are database independent written in YAML. There is one file per model.
+_Fixtures_ 란 샘플 데이터에 대한 매혹적인 단어입니다. Fixtures를 이용하면, 테스트 전에 미리 정의된 데이터를 테스트용 데이터베이스에 올려 놓을 수 있습니다. Fixtures는 YAML로 작성되기 때문에 데이터베이스에 독립적입니다. 모델당 하나의 fixture 파일만이 존재하게 됩니다. / _Fixtures_ is a fancy word for sample data. Fixtures allow you to populate your testing database with predefined data before your tests run. Fixtures are database independent written in YAML. There is one file per model.
 
 `test/fixtures` 디렉토리에 fixture 파일들이 위치하게 됩니다. 새 모델을 생성하기 위해서 `rails generate model` 명령을 실행하면 fixture 파일들이 이 디렉토리에 자동으로 생성되어 위치하게 될 것입니다. / You'll find fixtures under your `test/fixtures` directory. When you run `rails generate model` to create a new model fixture stubs will be automatically created and placed in this directory.
 
@@ -564,23 +564,23 @@ end
 
 ### 뷰 테스트하기 / Testing Views
 
-주요 HTML 엘리먼트와 그 내용의 유무를 가정하므로써 요청에 대한 응답을 테스트하는 것은 어플리케이션의 뷰들을 테스트하기 위한 유용한 방법입니다. / Testing the response to your request by asserting the presence of key HTML elements and their content is a useful way to test the views of your application. The `assert_select` assertion allows you to do this by using a simple yet powerful syntax.
+주요 HTML 엘리먼트와 그 내용이 존재함을 가정하므로써 요청에 대한 응답을 테스트하는 것은 어플리케이션의 뷰들을 테스트하기 위한 유용한 방법입니다. `assert_select` 가정메소드를 사용하면 간단하지만 강력한 문법을 이용하여 이러한 테스트를 할 수 있게 됩니다. / Testing the response to your request by asserting the presence of key HTML elements and their content is a useful way to test the views of your application. The `assert_select` assertion allows you to do this by using a simple yet powerful syntax.
 
-NOTE: You may find references to `assert_tag` in other documentation, but this is now deprecated in favor of `assert_select`.
+NOTE: 다른 문서에서 `assert_tag`에 대한 참조를 찾아 볼 수 있지만 이것은 이제 사용하지 않게 되었고 `assert_select`를 우선적으로 사용하게 되었습니다. / You may find references to `assert_tag` in other documentation, but this is now deprecated in favor of `assert_select`.
 
-There are two forms of `assert_select`:
+`assert_select`는 두가지 형태로 사용할 수 있습니다. / There are two forms of `assert_select`:
 
-`assert_select(selector, [equality], [message])` ensures that the equality condition is met on the selected elements through the selector. The selector may be a CSS selector expression (String), an expression with substitution values, or an `HTML::Selector` object.
+`assert_select(selector, [equality], [message])`는 selector를 통해서 선택되어진 엘리먼트가 조건에 부합하는지를 확인할 때 사용합니다. selector는 문자열 형태의 CSS selector 표현식, 대체값을 가지는 표현식, 또는 `HTML::Selector` 객체가 될 수 있습니다. /  assert_select(selector, [equality], [message])` ensures that the equality condition is met on the selected elements through the selector. The selector may be a CSS selector expression (String), an expression with substitution values, or an `HTML::Selector` object.
 
-`assert_select(element, selector, [equality], [message])` ensures that the equality condition is met on all the selected elements through the selector starting from the _element_ (instance of `HTML::Node`) and its descendants.
+`assert_select(element, selector, [equality], [message])`는 `HTML::Node`의 인스턴스인 _element_ 와 하위 엘리먼트를 포함하여 selector를 통해서 선택된 모든 엘리먼트가 조건에 부합하는지를 확인할 때 사용합니다. / `assert_select(element, selector, [equality], [message])` ensures that the equality condition is met on all the selected elements through the selector starting from the _element_ (instance of `HTML::Node`) and its descendants.
 
-For example, you could verify the contents on the title element in your response with:
+예를 들어, 아래와 같이 select 가정을 사용하면, 요청에 대한 응답으로 만들어지는 내용 중에서 title 엘리먼트의 내용을 확인할 수 있을 것입니다. / For example, you could verify the contents on the title element in your response with:
 
 ```ruby
 assert_select 'title', "Welcome to Rails Testing Guide"
 ```
 
-You can also use nested `assert_select` blocks. In this case the inner `assert_select` runs the assertion on the complete collection of elements selected by the outer `assert_select` block:
+또한 `assert_select` 블록을 중첩해서 사용할 수도 있습니다. 이 경우에는,  내부 `asset_select`는 외부 `assert_select` 블록에서 선택한 모든 엘리먼트 컬렉션에 대해서 가정을 수행하게 됩니다. / You can also use nested `assert_select` blocks. In this case the inner `assert_select` runs the assertion on the complete collection of elements selected by the outer `assert_select` block:
 
 ```ruby
 assert_select 'ul.navigation' do
@@ -588,7 +588,7 @@ assert_select 'ul.navigation' do
 end
 ```
 
-Alternatively the collection of elements selected by the outer `assert_select` may be iterated through so that `assert_select` may be called separately for each element. Suppose for example that the response contains two ordered lists, each with four list elements then the following tests will both pass.
+또 다른 방법으로는, 외부 `assert_select`가 선택한 엘리먼트 컬렉션에 대해서 반복작업을 수행할 수 있기 때문에, `assert_select`를 각 엘리먼트에 대해서 별도로 호출할 수 있게 됩니다. 예를 들어, 응답내용 중에 각각 4개의 리스트 엘리먼트를 가지는 두개의 ordered list(ol)를 포함할 경우, 다음과 같이 테스트를 작성할 경우 실패없이 통과할 것입니다. / Alternatively the collection of elements selected by the outer `assert_select` may be iterated through so that `assert_select` may be called separately for each element. Suppose for example that the response contains two ordered lists, each with four list elements then the following tests will both pass.
 
 ```ruby
 assert_select "ol" do |elements|
@@ -602,11 +602,11 @@ assert_select "ol" do
 end
 ```
 
-The `assert_select` assertion is quite powerful. For more advanced usage, refer to its [documentation](http://api.rubyonrails.org/classes/ActionDispatch/Assertions/SelectorAssertions.html).
+`asset_select`는 기능이 매우 강력합니다. 더 고급기능을 사용하고자 한다면, [documentation](http://api.rubyonrails.org/classes/ActionDispatch/Assertions/SelectorAssertions.html)를 참고하기 바랍니다. / The `assert_select` assertion is quite powerful. For more advanced usage, refer to its [documentation](http://api.rubyonrails.org/classes/ActionDispatch/Assertions/SelectorAssertions.html).
 
-#### Additional View-Based Assertions
+#### 추가사용 가능한 뷰 기반의 가정들 / Additional View-Based Assertions
 
-There are more assertions that are primarily used in testing views:
+뷰 테스트할 때 주로 사용하는 가정들이 더 있습니다. / There are more assertions that are primarily used in testing views:
 
 | Assertion                                                  | Purpose |
 | ---------------------------------------------------------- | ------- |
@@ -614,7 +614,7 @@ There are more assertions that are primarily used in testing views:
 | `assert_select_encoded`                                    | Allows you to make assertions on encoded HTML. It does this by un-encoding the contents of each element and then calling the block with all the un-encoded elements.|
 | `css_select(selector)`  or `css_select(element, selector)` | Returns an array of all the elements selected by the _selector_. In the second variant it first matches the base _element_ and tries to match the _selector_ expression on any of its children. If there are no matches both variants return an empty array.|
 
-Here's an example of using `assert_select_email`:
+아래에 `assert_select_email`을 사용하는 예가 있습니다. / Here's an example of using `assert_select_email`:
 
 ```ruby
 assert_select_email do
