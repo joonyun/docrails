@@ -63,7 +63,7 @@
       work_in_progress: true
       description: 이 가이드의 내용은 액션 메일러를 이용하여 메일을 보내고 받는 방법에 대하서 다룬다.
     -
-      name: 레일스 어플리케이션 Test하기
+      name: 레일스 어플리케이션 테스트하기
       url: testing.html
       work_in_progress: true
       description: 이 가이드에는 레일스에서 unit test와 functional test하는 방법에 대한 다소 포괄적인 내용이 담겨져 있다. 'test란 무엇인가'로부터 test용 API에 이르는 모든 것을 다룬다.
@@ -76,7 +76,7 @@
       url: debugging_rails_applications.html
       description: 이 가이드 내용은 레일스 어플리케이션을 디버그하는 방법에 대해서 기술하고 있다. 디버깅을 위한 다양한 방법을 소개하고, 코드 이면에서 일어나는 것들에 대해서 이해하는 방법에 대해서 다룬다.
     -
-      name: 레일스 어플리케이션 퍼포먼스 Test하기
+      name: 레일스 어플리케이션 퍼포먼스 테스트하기
       url: performance_testing.html
       description: 이 가이드 내용은 루비온레일스 어플리케이션에 대한 퍼포먼스 test하는 다양한 방법에 대해 다룬다. 
     -

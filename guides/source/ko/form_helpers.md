@@ -619,9 +619,10 @@ NOTE: If the user has not selected a file the corresponding parameter will be an
 
 Unlike other forms making an asynchronous file upload form is not as simple as providing `form_for` with `remote: true`. With an Ajax form the serialization is done by JavaScript running inside the browser and since JavaScript cannot read files from your hard drive the file cannot be uploaded. The most common workaround is to use an invisible iframe that serves as the target for the form submission.
 
-Customizing Form Builders
+폼 빌더 변경하기 / Customizing Form Builders
 -------------------------
 
+이전에 언급한 바와 같이, `form_for`와 `fields_for`가 반환하는 객체은 FormBuilder(또는 그 하위클래스)의 인스턴스 객체입니다. 이러한 폼 빌더는, 폼 엘리먼트를 표시해 주는 방법을 하나의 객체에 내포하고 있습니다. 물론 일반적인 방법으로 자신만의 폼을 작성하는 헬퍼를 작성할 수 있지만, FormBuilder를 상속해서 헬퍼를 추가해 줄 수도 있습니다. 예를 들면, / 
 As mentioned previously the object yielded by `form_for` and `fields_for` is an instance of FormBuilder (or a subclass thereof). Form builders encapsulate the notion of displaying form elements for a single object. While you can of course write helpers for your forms in the usual way you can also subclass FormBuilder and add the helpers there. For example
 
 ```erb
@@ -630,7 +631,7 @@ As mentioned previously the object yielded by `form_for` and `fields_for` is an 
 <% end %>
 ```
 
-can be replaced with
+이것은 아래와 같이 작업할 수도 있습니다. / can be replaced with
 
 ```erb
 <%= form_for @person, builder: LabellingFormBuilder do |f| %>
@@ -638,7 +639,7 @@ can be replaced with
 <% end %>
 ```
 
-by defining a LabellingFormBuilder class similar to the following:
+아래와 같이 LabellingFormBuilder 클래스를 정의해 주고 / by defining a LabellingFormBuilder class similar to the following:
 
 ```ruby
 class LabellingFormBuilder < ActionView::Helpers::FormBuilder
@@ -673,35 +674,35 @@ Rack::Utils.parse_query "name=fred&phone=0123456789"
 # => {"name"=>"fred", "phone"=>"0123456789"}
 ```
 
-### Basic Structures
+### 기본 구조 / Basic Structures
 
-The two basic structures are arrays and hashes. Hashes mirror the syntax used for accessing the value in `params`. For example if a form contains
+두개의 기본 구조는 배열과 해시입니다. 해시는 `params`에서 특정 값을 찾을 때 사용하는 문법과 똑같습니다. 예를 들어 특정 폼이 아래와 같을 때 / The two basic structures are arrays and hashes. Hashes mirror the syntax used for accessing the value in `params`. For example if a form contains
 
 ```html
 <input id="person_name" name="person[name]" type="text" value="Henry"/>
 ```
 
-the `params` hash will contain
+`params` 해시는 다음과 같은 값을 가지게 됩니다. / the `params` hash will contain
 
 ```erb
 {'person' => {'name' => 'Henry'}}
 ```
 
-and `params[:person][:name]` will retrieve the submitted value in the controller.
+그리고 `params[:person][:name]`은 컨트롤러내에서 서밋된 값을 불러올 것입니다. / and `params[:person][:name]` will retrieve the submitted value in the controller.
 
-Hashes can be nested as many levels as required, for example
+해시는 필요한 만큼 중첩해서 사용할 수 있습니다. 예를 들면, / Hashes can be nested as many levels as required, for example
 
 ```html
 <input id="person_address_city" name="person[address][city]" type="text" value="New York"/>
 ```
 
-will result in the `params` hash being
+이것은 결과적으로 아래와 같은 `params` 해시를 만들어 주게 됩니다. / will result in the `params` hash being
 
 ```ruby
 {'person' => {'address' => {'city' => 'New York'}}}
 ```
 
-Normally Rails ignores duplicate parameter names. If the parameter name contains an empty set of square brackets [] then they will be accumulated in an array. If you wanted people to be able to input multiple phone numbers, you could place this in the form:
+보통의 경우 레일스는 중복된 파라메터 이름을 무시합니다. 파라메터 이름에 `[]`문자가 포함되어 있는 경우 배열로 저장될 것입니다. 유저가 전화번호를 여러개 입력할 수 있도록 하기 위해서는 폼을 아래와 같이 작성합니다. / Normally Rails ignores duplicate parameter names. If the parameter name contains an empty set of square brackets [] then they will be accumulated in an array. If you wanted people to be able to input multiple phone numbers, you could place this in the form:
 
 ```html
 <input name="person[phone_number][]" type="text"/>
@@ -709,9 +710,9 @@ Normally Rails ignores duplicate parameter names. If the parameter name contains
 <input name="person[phone_number][]" type="text"/>
 ```
 
-This would result in `params[:person][:phone_number]` being an array.
+이것을 결과적으로 `params[:person][:phone_number]`라는 배열을 만들게 될 것입니다. / This would result in `params[:person][:phone_number]` being an array.
 
-### Combining Them
+### 합치기 / Combining Them
 
 We can mix and match these two concepts. For example, one element of a hash might be an array as in the previous example, or you can have an array of hashes. For example a form might let you create any number of addresses by repeating the following form fragment
 
@@ -727,7 +728,8 @@ There's a restriction, however, while hashes can be nested arbitrarily, only one
 
 WARNING: Array parameters do not play well with the `check_box` helper. According to the HTML specification unchecked checkboxes submit no value. However it is often convenient for a checkbox to always submit a value. The `check_box` helper fakes this by creating an auxiliary hidden input with the same name. If the checkbox is unchecked only the hidden input is submitted and if it is checked then both are submitted but the value submitted by the checkbox takes precedence. When working with array parameters this duplicate submission will confuse Rails since duplicate input names are how it decides when to start a new array element. It is preferable to either use `check_box_tag` or to use hashes instead of arrays.
 
-### Using Form Helpers
+### 폼 헬퍼메소드 사용하기 / Using Form Helpers
+
 
 The previous sections did not use the Rails form helpers at all. While you can craft the input names yourself and pass them directly to helpers such as `text_field_tag` Rails also provides higher level support. The two tools at your disposal here are the name parameter to `form_for` and `fields_for` and the `:index` option that helpers take.
 
@@ -788,10 +790,10 @@ As a shortcut you can append [] to the name and omit the `:index` option. This i
 
 produces exactly the same output as the previous example.
 
-Forms to external resources
+폼을 외부 리소스로 서밋하기 / Forms to external resources
 ---------------------------
 
-If you need to post some data to an external resource it is still great to build your form using rails form helpers. But sometimes you need to set an `authenticity_token` for this resource. You can do it by passing an `authenticity_token: 'your_external_token'` parameter to the `form_tag` options:
+폼 데이터를 외부 리소스로 보낼 필요가 있을 때도 레일스의 폼 헬퍼메소드를 이용하면 폼을 문제없이 만들 수 있습니다. 그러나 때때로 이 리소스에 대한 `authenticity_token` 값을 설정해 줄 필요가 있습니다. 이 때는 `form_tag` 옵션으로 `authenticity_token: 'your_external_token'`를 넘겨주기만 하면 됩니다. / If you need to post some data to an external resource it is still great to build your form using rails form helpers. But sometimes you need to set an `authenticity_token` for this resource. You can do it by passing an `authenticity_token: 'your_external_token'` parameter to the `form_tag` options:
 
 ```erb
 <%= form_tag 'http://farfar.away/form', authenticity_token: 'external_token') do %>
@@ -799,7 +801,7 @@ If you need to post some data to an external resource it is still great to build
 <% end %>
 ```
 
-Sometimes when you submit data to an external resource, like payment gateway, fields you can use in your form are limited by an external API. So you may want not to generate an `authenticity_token` hidden field at all. For doing this just pass `false` to the `:authenticity_token` option:
+때로는 지불시스템의 게이트웨이와 같은 외부 리소스에 데이터를 서밋할 때 폼에서 사용하는 필드들이 외부 API에 의해 제한될 수 있습니다. 그래서 이때는 `authenticity_token` 옵션에 `false`값을 넘겨 주어, `authenticity_token` hidden 필드가 만들지 않도록 하면 됩니다. / Sometimes when you submit data to an external resource, like payment gateway, fields you can use in your form are limited by an external API. So you may want not to generate an `authenticity_token` hidden field at all. For doing this just pass `false` to the `:authenticity_token` option:
 
 ```erb
 <%= form_tag 'http://farfar.away/form', authenticity_token: false) do %>
@@ -807,7 +809,7 @@ Sometimes when you submit data to an external resource, like payment gateway, fi
 <% end %>
 ```
 
-The same technique is available for the `form_for` too:
+동일한 기법이 `form_for`에 대해서 적용됩니다. / The same technique is available for the `form_for` too:
 
 ```erb
 <%= form_for @invoice, url: external_url, authenticity_token: 'external_token' do |f| %>
@@ -815,7 +817,7 @@ The same technique is available for the `form_for` too:
 <% end %>
 ```
 
-Or if you don't want to render an `authenticity_token` field:
+또는 `authenticity_token` 필드를 렌더링하지 않을 경우에는 / Or if you don't want to render an `authenticity_token` field:
 
 ```erb
 <%= form_for @invoice, url: external_url, authenticity_token: false do |f| %>
@@ -823,14 +825,14 @@ Or if you don't want to render an `authenticity_token` field:
 <% end %>
 ```
 
-Building Complex Forms
+중첩 폼 만들기 / Building Complex Forms
 ----------------------
 
-Many apps grow beyond simple forms editing a single object. For example when creating a Person you might want to allow the user to (on the same form) create multiple address records (home, work, etc.). When later editing that person the user should be able to add, remove or amend addresses as necessary.
+많은 수의 어플리케이션들이 단일 객체를 대상으로 작업을 하는 간단한 형태의 폼의 한계를 넘어서게 됩니다. 예를 들어, Person 객체를 새로 만들 때 유저로 하여금 동일한 폼내에서 home, work 등과 같은 복수개의 주소 레코드를 동시에 생성하도록 할 경우가 있습니다. 나중에 해당 person 객체에 대해서 수정작업을 할 때도, 필요한 갯수만큼의 주소를 추가하거나 삭제하고 수정할 수 있어야 합니다. / Many apps grow beyond simple forms editing a single object. For example when creating a Person you might want to allow the user to (on the same form) create multiple address records (home, work, etc.). When later editing that person the user should be able to add, remove or amend addresses as necessary.
 
-### Configuring the Model
+### 모델 설정하기 / Configuring the Model
 
-Active Record provides model level support  via the `accepts_nested_attributes_for` method:
+액티브레코드는 `accepts_nested_attributes_for` 메소드를 통해서 모델 레벨에서의 이에 대한 지원을 할 수 있도록 해 줍니다. / Active Record provides model level support  via the `accepts_nested_attributes_for` method:
 
 ```ruby
 class Person < ActiveRecord::Base
@@ -846,11 +848,11 @@ class Address < ActiveRecord::Base
 end
 ```
 
-This creates an `addresses_attributes=` method on `Person` that allows you to create, update and (optionally) destroy addresses. When using `attr_accessible` or `attr_protected` you must mark `addresses_attributes` as accessible as well as the other attributes of `Person` and `Address` that should be mass assigned.
+이 메소드가 `Person` 모델 클래스롤 하여금 `addresses_attributes` 메소드를 사용할 수 있도록 해주어 이를 통해서, 주소를 생성, 업데이트, 삭제할 수 있도록 합니다. `attr_accessible`이나 `attr_protected`를 사용할 때, mass assignment의 대상이 되는 `Person`과 `Address`의 기타 다른 속성과 함게 `addresses_attributes` 속성을 `attr_accessible`에 등록해 주어야 합니다. / This creates an `addresses_attributes=` method on `Person` that allows you to create, update and (optionally) destroy addresses. When using `attr_accessible` or `attr_protected` you must mark `addresses_attributes` as accessible as well as the other attributes of `Person` and `Address` that should be mass assigned.
 
-### Building the Form
+### 폼 만들기 / Building the Form
 
-The following form allows a user to create a `Person` and its associated addresses.
+다음의 폼은 유저로 하여금 `Person` 모델 객체와 이와 일대다로 연결된 주소들을 생성할 수 있도록 해 줍니다. / The following form allows a user to create a `Person` and its associated addresses.
 
 ```html+erb
 <%= form_for @person do |f| %>
@@ -870,8 +872,7 @@ The following form allows a user to create a `Person` and its associated address
 <% end %>
 ```
 
-
-When an association accepts nested attributes `fields_for` renders its block once for every element of the association. In particular, if a person has no addresses it renders nothing. A common pattern is for the controller to build one or more empty children so that at least one set of fields is shown to the user. The example below would result in 3 sets of address fields being rendered on the new person form.
+관계를 가지는 임의의 모델이 중첩 속성을 사용하도록 지정해 주면 `fields_for` 메소드는 관계 선언된 모델의 모든 엘리먼트에 대해서 자신의 블록내의 코드를 한번만 렌더링하게 됩니다. 특히, person 객체가 어떠한 주소도 가지고 있지 않을 경우, `fields_for`메소드는 아무것도 렌더링하지 않게 됩니다. 따라서 일반적으로 해당 컨트롤러로 하여금 한개 또는 그 이상의 빈 child 객체를 만들어 주도록 하여 최소한 하나의 필드셋을 유저가 볼 수 있도록 해 줍니다. 아래의 예에서는 person 데이터를 새로 추가하는 person 폼에 대해서 주소 모델의 3개의 필드셋이 만들어 주게 됩니다. / When an association accepts nested attributes `fields_for` renders its block once for every element of the association. In particular, if a person has no addresses it renders nothing. A common pattern is for the controller to build one or more empty children so that at least one set of fields is shown to the user. The example below would result in 3 sets of address fields being rendered on the new person form.
 
 ```ruby
 def new
@@ -880,7 +881,7 @@ def new
 end
 ```
 
-`fields_for` yields a form builder that names parameters in the format expected the accessor generated by `accepts_nested_attributes_for`. For example when creating a user with 2 addresses, the submitted parameters would look like
+`fields_for` 메소드는 하나의 폼 빌더를 만들게 되는데 이것은 파라메터로서 `accepts_nested_attributes_for` 메소드가 만들어 주는 accessor를 불러 올 수 있도록 이름을 정해 주면 됩니다. 예를 들면, 2개의 주소를 가지는 한 유저를 만들고자 할 때, 서밋되는 파마메터들은 다음과 같습니다. / `fields_for` yields a form builder that names parameters in the format expected the accessor generated by `accepts_nested_attributes_for`. For example when creating a user with 2 addresses, the submitted parameters would look like
 
 ```ruby
 {
@@ -900,17 +901,17 @@ end
 }
 ```
 
-The keys of the `:addresses_attributes` hash are unimportant, they need merely be different for each address.
+`:addresses_attributs`의 키들은 중요하지 않아서 서로 다른 주소들로 구분할 수 있으면 됩니다. / The keys of the `:addresses_attributes` hash are unimportant, they need merely be different for each address.
 
-If the associated object is already saved, `fields_for` autogenerates a hidden input with the `id` of the saved record. You can disable this by passing `include_id: false` to `fields_for`. You may wish to do this if the autogenerated input is placed in a location where an input tag is not valid HTML or when using an ORM where children do not have an id.
+관계가 선언된 객체(여기서는 주소로 생각할 수 있음)가 이미 저장된 상태라면, `fields_for`메소드는 저장된 레코드의 `id`를 이용하여 hiddent input을 자동으로 생성해 줍니다. 이러한 자동생성을 하지 못하도록 하기 위해서는 `fields_for`메소드에 `include_id: false`를 넘겨 주면 됩니다. 하나의 input 태그가 유효한 HTML이 아닐 때 또는 자식객체들이 id를 가지지 않는 ORM을 사용할 때, 이와 같이 지정해 줄 수 있습니다. / If the associated object is already saved, `fields_for` autogenerates a hidden input with the `id` of the saved record. You can disable this by passing `include_id: false` to `fields_for`. You may wish to do this if the autogenerated input is placed in a location where an input tag is not valid HTML or when using an ORM where children do not have an id.
 
-### The Controller
+### 컨트롤러 / The Controller
 
-You do not need to write any specific controller code to use nested attributes. Create and update records as you would with a simple form.
+중첩 속성를 사용하기 위해 어떠한 특별한 컨트롤러 코드를 작성해 줄 필요는 없습니다. 간단한 폼에서 하는 것처럼 레코드를 생성하고 업데이트해 주면 됩니다. / You do not need to write any specific controller code to use nested attributes. Create and update records as you would with a simple form.
 
-### Removing Objects
+### 객체 삭제하기 / Removing Objects
 
-You can allow users to delete associated objects by passing `allow_destroy: true` to `accepts_nested_attributes_for`
+`accepts_nested_attributes_for`메소드에 `allow_destroy: true` 옵션을 넘겨주면 유저가 연관된 객체들(주소)을 삭제할 수 있게 해 줍니다. / You can allow users to delete associated objects by passing `allow_destroy: true` to `accepts_nested_attributes_for`
 
 ```ruby
 class Person < ActiveRecord::Base
@@ -919,7 +920,7 @@ class Person < ActiveRecord::Base
 end
 ```
 
-If the hash of attributes for an object contains the key `_destroy` with a value of '1' or 'true' then the object will be destroyed. This form allows users to remove addresses:
+특정 객체의 속성 해시 중에 `1` 또는 `true` 값을 가지는 `_destroy` 키가 포함되어 있을 때 해당 객체는 삭제될 것입니다. 아래의 폼은 유저가 주소를 삭제할 수 있게 해 줍니다. / If the hash of attributes for an object contains the key `_destroy` with a value of '1' or 'true' then the object will be destroyed. This form allows users to remove addresses:
 
 ```erb
 <%= form_for @person do |f| %>
@@ -937,9 +938,9 @@ If the hash of attributes for an object contains the key `_destroy` with a value
 <% end %>
 ```
 
-### Preventing Empty Records
+### 빈 레코드 방지하기 / Preventing Empty Records
 
-It is often useful to ignore sets of fields that the user has not filled in. You can control this by passing a `:reject_if` proc to `accepts_nested_attributes_for`. This proc will be called with each hash of attributes submitted by the form. If the proc returns `false` then Active Record will not build an associated object for that hash. The example below only tries to build an address if the `kind` attribute is set.
+종종 유저가 입력하지 않은 필드셋은 무시하는 것이 유용할 경우가 있습니다. `accepts_nested_attributes_for` 메소드에 `:reject_if` proc(코드블록)를 넘겨주면 이와 같이 할 수 있습니다. 이 proc는 폼이 서밋될 때 속성들에 대한 해시 각각에 대해서 호출될 것입니다. proc가 `false` 값을 반환하면 액티브레코드는 해당 해쉬에 대한 child 객체를 만들지 않게 될 것입니다. 아래의 예는 단지 `kind` 속성이 설정될 때만 주소 객체를 만들려고 할 것입니다. / It is often useful to ignore sets of fields that the user has not filled in. You can control this by passing a `:reject_if` proc to `accepts_nested_attributes_for`. This proc will be called with each hash of attributes submitted by the form. If the proc returns `false` then Active Record will not build an associated object for that hash. The example below only tries to build an address if the `kind` attribute is set.
 
 ```ruby
 class Person < ActiveRecord::Base
@@ -948,8 +949,8 @@ class Person < ActiveRecord::Base
 end
 ```
 
-As a convenience you can instead pass the symbol `:all_blank` which will create a proc that will reject records where all the attributes are blank excluding any value for `_destroy`.
+편리하게도 이것 대신에 `:all_blank` 심볼을 넘겨 주게 되면 `_destroy`를 제외한 모든 속성값이 비어 있는 레코드에 대해서 거부하는 proc가 만들어 집니다. / As a convenience you can instead pass the symbol `:all_blank` which will create a proc that will reject records where all the attributes are blank excluding any value for `_destroy`.
 
-### Adding Fields on the Fly
+### 필드를 임시로 추가하기 / Adding Fields on the Fly
 
-Rather than rendering multiple sets of fields ahead of time you may wish to add them only when a user clicks on an 'Add new child' button. Rails does not provide any builtin support for this. When generating new sets of fields you must ensure the the key of the associated array is unique - the current javascript date (milliseconds after the epoch) is a common choice.
+미리 필드셋을 여러개 렌더링하기보다는 유저가 `Add new child` 버튼을 클릭할 때만 추가하기를 원할 수 있습니다. 레일스에서는 이런 경우에 대한 지원을 제공하지 않습니다. 새로운 필드셋을 생성할 때 연관된 배열의 키가 유일해야 합니다. 자바스크립트로 현재 날짜(기원후 경과 밀리초 단위)를 이런 목적으로 흔히 사용합니다. / Rather than rendering multiple sets of fields ahead of time you may wish to add them only when a user clicks on an 'Add new child' button. Rails does not provide any builtin support for this. When generating new sets of fields you must ensure the the key of the associated array is unique - the current javascript date (milliseconds after the epoch) is a common choice.
