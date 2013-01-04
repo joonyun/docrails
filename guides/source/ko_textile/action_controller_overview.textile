@@ -65,7 +65,7 @@ class ClientsController < ActionController::Base
     end
   end
 
-  # 이 액션은 POST 데이터 매개변수을 이용합니다. 이 매개변수는 거의 대부분 사용자가
+  # 이 액션은 POST 데이터 파라메터를 이용합니다. 이 매개변수는 거의 대부분 사용자가
   # 작성한 HTML 폼으로 오게 됩니다. REST방식의 요청에 대한 URL은 "/clients"가
   # 될 것이고 데이터는 요청내용의 일부분으로 보내지게 될 것입니다.
   def create
@@ -105,7 +105,7 @@ NOTE: URL에서는 "[" 와 "]" 문자를 사용할 수 없기 때문에, 이 예
 
 이 폼을 제출(submit)하면, +params[:client]+ 값은 <tt>{"name" => "Acme", "phone" => "12345", "address" => {"postcode" => "12345", "city" => "Carrot City"}}</tt>이 될 것입니다. 여기서 +params[:client][:address]+ 와 같은 중첩 해쉬가 사용된 것을 유의하기 바랍니다.
 
-주목할 것은 +params+ 해쉬는 실제로, 키를 심볼이나 문자열 형태로 사용할 수 있게해 주는 해쉬와 같이 동작하는데, Active Support 모듈의 +HashWithIndifferentAccess+ 클래스의 인스턴스이라는 것입니다.
+주목할 것은 +params+ 해쉬는 실제로 Active Support 모듈의 +HashWithIndifferentAccess+ 클래스의 인스턴스이며, 키를 심볼이나 문자열 형태로 사용할 수 있게해 주는 해쉬와 같이 동작한다는 것입니다.
 
 h4(#JSON_XML_parameters). JSON/XML 매개변수
 
@@ -119,7 +119,7 @@ h4(#JSON_XML_parameters). JSON/XML 매개변수
 
 <tt>params[:company]</tt> 값은 <tt>{ :name => "acme", "address" => "123 Carrot Street" }</tt>와 같이 될 것입니다.
 
-또한, 레일스의 +initializer+ 에 +config.wrap_parameters+ 를 "on" 상태로 설정하거나 컨트롤러 내에서 +wrap_parameters+ 메소스를 호출하게 되면 JSON/XML 매개변수에서 root 엘리먼트를 생략해도 문제가 없을 것입니다. 이렇게 되면 디폴트로 컨트롤러의 이름에 해당하는 키 이름으로 매개변수들이 복제되어 할당될 것입니다. 따라서 위의 매개변수를 다음과 같이 작성될 수 있습니다:
+또한, 레일스의 initializer 에 +config.wrap_parameters+ 를 "on" 상태로 설정하거나 컨트롤러 내에서 +wrap_parameters+ 메소스를 호출하게 되면 JSON/XML 매개변수에서 root 엘리먼트를 생략해도 문제가 없을 것입니다. 이렇게 되면 디폴트로 컨트롤러의 이름에 해당하는 키 이름으로 매개변수들이 복제되어 할당될 것입니다. 따라서 위의 매개변수는 다음과 같이 작성될 수 있습니다:
 
 <pre>
 { "name": "acme", "address": "123 Carrot Street" }
@@ -131,7 +131,7 @@ h4(#JSON_XML_parameters). JSON/XML 매개변수
 { :name => "acme", :address => "123 Carrot Street", :company => { :name => "acme", :address => "123 Carrot Street" }}
 </ruby>
 
-"API documentation":http://api.rubyonrails.org/classes/ActionController/ParamsWrapper.html 를 참조하게 되면 매개변수를 할당받아 오게 될 키 이름이나 특수한 형태의 매개변수로 변경할 수 있습니다.
+"API documentation":http://api.rubyonrails.org/classes/ActionController/ParamsWrapper.html 를 참조하게 되면 매개변수를 할당받아 오게 될 키 이름이나 특수한 형태의 매개변수를 변경할 수 있습니다.
 
 h4(#Routing_Parameters). 라우팅 매개변수
 
