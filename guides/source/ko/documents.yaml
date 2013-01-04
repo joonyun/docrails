@@ -2,7 +2,7 @@
   name: 입문하기
   documents:
     -
-      name: 레일스 시하기
+      name: 레일스 시작하기
       url: getting_started.html
       description: 레일스 인스톨과 첫번째 어플리케이션을 생성하기 위해서 알아야 할 모든 것.
 -
