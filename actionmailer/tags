@@ -1,0 +1,93 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ActionMailer	lib/action_mailer.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/base.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/collector.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/delivery_methods.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/log_subscriber.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/mail_helper.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/queued_message.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/railtie.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/test_case.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/test_helper.rb	/^module ActionMailer$/;"	m
+ActionMailer	lib/action_mailer/version.rb	/^module ActionMailer$/;"	m
+Base	lib/action_mailer/base.rb	/^  class Base < AbstractController::Base$/;"	c	class:ActionMailer
+Behavior	lib/action_mailer/test_case.rb	/^    module Behavior$/;"	m	class:ActionMailer.TestCase
+ClassMethods	lib/action_mailer/delivery_methods.rb	/^    module ClassMethods$/;"	m	class:ActionMailer.DeliveryMethods
+ClassMethods	lib/action_mailer/test_case.rb	/^      module ClassMethods$/;"	m	class:ActionMailer.TestCase.Behavior
+Collector	lib/action_mailer/collector.rb	/^  class Collector$/;"	c	class:ActionMailer
+DeliveryJob	lib/action_mailer/queued_message.rb	/^    class DeliveryJob$/;"	c	class:ActionMailer.QueuedMessage
+DeliveryMethods	lib/action_mailer/delivery_methods.rb	/^  module DeliveryMethods$/;"	m	class:ActionMailer
+Generators	lib/rails/generators/mailer/mailer_generator.rb	/^  module Generators$/;"	m	class:Rails
+LogSubscriber	lib/action_mailer/log_subscriber.rb	/^  class LogSubscriber < ActiveSupport::LogSubscriber$/;"	c	class:ActionMailer
+MailHelper	lib/action_mailer/mail_helper.rb	/^  module MailHelper$/;"	m	class:ActionMailer
+MailerGenerator	lib/rails/generators/mailer/mailer_generator.rb	/^    class MailerGenerator < NamedBase$/;"	c	class:Rails.Generators
+NonInferrableMailerError	lib/action_mailer/test_case.rb	/^  class NonInferrableMailerError < ::StandardError$/;"	c	class:ActionMailer
+NullMail	lib/action_mailer/base.rb	/^    class NullMail #:nodoc:$/;"	c
+QueuedMessage	lib/action_mailer/queued_message.rb	/^  class QueuedMessage < ::Delegator$/;"	c	class:ActionMailer
+Rails	lib/rails/generators/mailer/mailer_generator.rb	/^module Rails$/;"	m
+Railtie	lib/action_mailer/railtie.rb	/^  class Railtie < Rails::Railtie # :nodoc:$/;"	c	class:ActionMailer
+TestCase	lib/action_mailer/test_case.rb	/^  class TestCase < ActiveSupport::TestCase$/;"	c	class:ActionMailer
+TestHelper	lib/action_mailer/test_helper.rb	/^  module TestHelper$/;"	m	class:ActionMailer
+VERSION	lib/action_mailer/version.rb	/^  module VERSION #:nodoc:$/;"	m	class:ActionMailer
+__getobj__	lib/action_mailer/queued_message.rb	/^    def __getobj__$/;"	f	class:ActionMailer.QueuedMessage
+add_delivery_method	lib/action_mailer/delivery_methods.rb	/^      def add_delivery_method(symbol, klass, default_options={})$/;"	f	class:ActionMailer.DeliveryMethods.ClassMethods
+any	lib/action_mailer/collector.rb	/^    def any(*args, &block)$/;"	f	class:ActionMailer.Collector
+assert_emails	lib/action_mailer/test_helper.rb	/^    def assert_emails(number)$/;"	f	class:ActionMailer.TestHelper
+assert_no_emails	lib/action_mailer/test_helper.rb	/^    def assert_no_emails(&block)$/;"	f	class:ActionMailer.TestHelper
+attachments	lib/action_mailer/base.rb	/^    def attachments$/;"	f
+attachments	lib/action_mailer/mail_helper.rb	/^    def attachments$/;"	f	class:ActionMailer.MailHelper
+block_format	lib/action_mailer/mail_helper.rb	/^    def block_format(text)$/;"	f	class:ActionMailer.MailHelper
+body	lib/action_mailer/base.rb	/^      def body; '' end$/;"	f	class:NullMail
+charset	lib/action_mailer/test_case.rb	/^        def charset$/;"	f	class:ActionMailer.TestCase.Behavior
+collect_responses_and_parts_order	lib/action_mailer/base.rb	/^    def collect_responses_and_parts_order(headers) #:nodoc:$/;"	f
+create_mailer_file	lib/rails/generators/mailer/mailer_generator.rb	/^      def create_mailer_file$/;"	f	class:Rails.Generators.MailerGenerator
+create_parts_from_responses	lib/action_mailer/base.rb	/^    def create_parts_from_responses(m, responses) #:nodoc:$/;"	f
+custom	lib/action_mailer/collector.rb	/^    def custom(mime, options={})$/;"	f	class:ActionMailer.Collector
+default	lib/action_mailer/base.rb	/^      def default(value = nil)$/;"	f	class:ActionMailer.Base
+default_i18n_subject	lib/action_mailer/base.rb	/^    def default_i18n_subject #:nodoc:$/;"	f
+deliver	lib/action_mailer/log_subscriber.rb	/^    def deliver(event)$/;"	f	class:ActionMailer.LogSubscriber
+deliver	lib/action_mailer/queued_message.rb	/^    def deliver$/;"	f	class:ActionMailer.QueuedMessage
+deliver_mail	lib/action_mailer/base.rb	/^      def deliver_mail(mail) #:nodoc:$/;"	f	class:ActionMailer
+determine_default_mailer	lib/action_mailer/test_case.rb	/^        def determine_default_mailer(name)$/;"	f	class:ActionMailer.TestCase.Behavior.ClassMethods
+each_template	lib/action_mailer/base.rb	/^    def each_template(paths, name, &block) #:nodoc:$/;"	f
+encode	lib/action_mailer/test_case.rb	/^        def encode(subject)$/;"	f	class:ActionMailer.TestCase.Behavior
+format_paragraph	lib/action_mailer/mail_helper.rb	/^    def format_paragraph(text, len = 72, indent = 2)$/;"	f	class:ActionMailer.MailHelper
+headers	lib/action_mailer/base.rb	/^    def headers(args=nil)$/;"	f
+initialize	lib/action_mailer/base.rb	/^    def initialize(method_name=nil, *args)$/;"	f
+initialize	lib/action_mailer/collector.rb	/^    def initialize(context, &block)$/;"	f	class:ActionMailer.Collector
+initialize	lib/action_mailer/queued_message.rb	/^      def initialize(mailer_class, method_name, args)$/;"	f	class:ActionMailer.QueuedMessage.DeliveryJob
+initialize	lib/action_mailer/queued_message.rb	/^    def initialize(queue, mailer_class, method_name, *args)$/;"	f	class:ActionMailer.QueuedMessage
+initialize	lib/action_mailer/test_case.rb	/^    def initialize(name)$/;"	f	class:ActionMailer.NonInferrableMailerError
+initialize_test_deliveries	lib/action_mailer/test_case.rb	/^        def initialize_test_deliveries$/;"	f	class:ActionMailer.TestCase.Behavior
+insert_part	lib/action_mailer/base.rb	/^    def insert_part(container, response, charset) #:nodoc:$/;"	f
+logger	lib/action_mailer/log_subscriber.rb	/^    def logger$/;"	f	class:ActionMailer.LogSubscriber
+mail	lib/action_mailer/base.rb	/^    def mail(headers={}, &block)$/;"	f
+mailer	lib/action_mailer/mail_helper.rb	/^    def mailer$/;"	f	class:ActionMailer.MailHelper
+mailer_class	lib/action_mailer/test_case.rb	/^        def mailer_class$/;"	f	class:ActionMailer.TestCase.Behavior.ClassMethods
+mailer_name	lib/action_mailer/base.rb	/^      def mailer_name$/;"	f	class:ActionMailer.Base
+mailer_name	lib/action_mailer/base.rb	/^    def mailer_name$/;"	f
+message	lib/action_mailer/mail_helper.rb	/^    def message$/;"	f	class:ActionMailer.MailHelper
+message	lib/action_mailer/queued_message.rb	/^      def message$/;"	f	class:ActionMailer.QueuedMessage.DeliveryJob
+method_missing	lib/action_mailer/base.rb	/^      def method_missing(*args)$/;"	f	class:NullMail
+method_missing	lib/action_mailer/base.rb	/^      def method_missing(method_name, *args)$/;"	f
+process	lib/action_mailer/base.rb	/^    def process(*args) #:nodoc:$/;"	f
+read_fixture	lib/action_mailer/test_case.rb	/^        def read_fixture(action)$/;"	f	class:ActionMailer.TestCase.Behavior
+receive	lib/action_mailer/base.rb	/^      def receive(raw_mail)$/;"	f	class:ActionMailer.Base
+receive	lib/action_mailer/log_subscriber.rb	/^    def receive(event)$/;"	f	class:ActionMailer.LogSubscriber
+register_interceptor	lib/action_mailer/base.rb	/^      def register_interceptor(interceptor)$/;"	f	class:ActionMailer.Base
+register_interceptors	lib/action_mailer/base.rb	/^      def register_interceptors(*interceptors)$/;"	f	class:ActionMailer.Base
+register_observer	lib/action_mailer/base.rb	/^      def register_observer(observer)$/;"	f	class:ActionMailer.Base
+register_observers	lib/action_mailer/base.rb	/^      def register_observers(*observers)$/;"	f	class:ActionMailer.Base
+respond_to?	lib/action_mailer/base.rb	/^      def respond_to?(method, include_private = false) #:nodoc:$/;"	f
+run	lib/action_mailer/queued_message.rb	/^      def run$/;"	f	class:ActionMailer.QueuedMessage.DeliveryJob
+set_content_type	lib/action_mailer/base.rb	/^    def set_content_type(m, user_content_type, class_default)$/;"	f
+set_expected_mail	lib/action_mailer/test_case.rb	/^        def set_expected_mail$/;"	f	class:ActionMailer.TestCase.Behavior
+set_payload_for_mail	lib/action_mailer/base.rb	/^      def set_payload_for_mail(payload, mail) #:nodoc:$/;"	f
+tests	lib/action_mailer/test_case.rb	/^        def tests(mailer)$/;"	f	class:ActionMailer.TestCase.Behavior.ClassMethods
+wrap_delivery_behavior	lib/action_mailer/delivery_methods.rb	/^      def wrap_delivery_behavior(mail, method=nil, options=nil) # :nodoc:$/;"	f	class:ActionMailer.DeliveryMethods.ClassMethods
+wrap_delivery_behavior!	lib/action_mailer/delivery_methods.rb	/^    def wrap_delivery_behavior!(*args) # :nodoc:$/;"	f	class:ActionMailer.DeliveryMethods

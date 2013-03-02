@@ -1,4 +1,4 @@
-Rails Form helpers
+레일스 폼 헬퍼 메소드
 ==================
 
 Forms in web applications are an essential interface for user input. However, form markup can quickly become tedious to write and maintain because of form control naming and their numerous attributes. Rails deals away with these complexities by providing view helpers for generating form markup. However, since they have different use-cases, developers are required to know all the differences between similar helper methods before putting them to use.
@@ -485,9 +485,9 @@ To recap, `options_from_collection_for_select` is to `collection_select` what `o
 
 NOTE: Pairs passed to `options_for_select` should have the name first and the id second, however with `options_from_collection_for_select` the first argument is the value method and the second the text method.
 
-### Time Zone and Country Select
+### [Time Zone and Country Select]Time Zone과 Country Select
 
-To leverage time zone support in Rails, you have to ask your users what time zone they are in. Doing so would require generating select options from a list of pre-defined TimeZone objects using `collection_select`, but you can simply use the `time_zone_select` helper that already wraps this:
+레일스에서 시간대영역 지원을 강화하기 위해서 사용자들에게 그들이 위치한 시간대 영역을 물어 봐야 합니다. 그러기 위해서, `collection_select` 를 이용하여 미리 정의된 TimeZone 객체의 목록으로부터 선택할 수 있는 옵션을 만들 필요가 있지만, 이미 이러한 것을 포함하는 `time_zone_select` 헬퍼를 이용하면 간단하게 해결할 수 있습니다.
 
 ```erb
 <%= time_zone_select(:person, :time_zone) %>

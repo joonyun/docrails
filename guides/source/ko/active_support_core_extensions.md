@@ -1,32 +1,32 @@
 Active Support Core Extensions
 ==============================
 
-Active Support is the Ruby on Rails component responsible for providing Ruby language extensions, utilities, and other transversal stuff.
+Active Support는 루비온레일스의 구성요소로서 루비언어에 대한 확장, 유틸리티 그리고 기타 다양한 것들을 제공해 줍니다.
 
-It offers a richer bottom-line at the language level, targeted both at the development of Rails applications, and at the development of Ruby on Rails itself.
+또한, 레일스 어플리케이션을 개발할 경우와 루비온레일스 프레임워크 자체를 개발하는 경우를 대상으로 루비언어 수준에서 핵심적인 것들을 보다 풍부하게 제공해 줍니다.
 
-By referring to this guide you will learn the extensions to the Ruby core classes and modules provided by Active Support.
+본 가이드를 참고하면, Active Support에서 제공하는 루비 핵심 클래스와 모듈로의 기능확장에 대하여 알게 될 것입니다.
 
 --------------------------------------------------------------------------------
 
-How to Load Core Extensions
+[How to Load Core Extensions] 코어 확장을 로드하는 방법
 ---------------------------
 
-### Stand-Alone Active Support
+### [Stand-Alone Active Support] 독립형 Active Support
 
-In order to have a near-zero default footprint, Active Support does not load anything by default. It is broken in small pieces so that you can load just what you need, and also has some convenience entry points to load related extensions in one shot, even everything.
+Active Support는 디폴트 상태에서 아무것도 로드하지 않습니다. 여러 개의 모듈로 분리되어 있어서 필요한 것만 로드할 수 있도록 되어 있습니다. 또한 한번에 관련 확장모듈만을, 심지어 모든 것을 로드할 수 있도록 진입점을 제공해 주어 편리하게 구성되어 있습니다.
 
-Thus, after a simple require like:
+따라서, 아래와 같이 간단하게 require을 사용할 경우,
 
 ```ruby
 require 'active_support'
 ```
 
-objects do not even respond to `blank?`. Let's see how to load its definition.
+객체들은 `blank` 메소드에 대해서 반응을 하지 않게 됩니다. 이제 해당 정의를 로드하는 방법을 알아보겠습니다.
 
-#### Cherry-picking a Definition
+#### [Cherry-picking a Definition] 특정 정의만 선별하기
 
-The most lightweight way to get `blank?` is to cherry-pick the file that defines it.
+`blank`를 사용하기 위한 가장 손쉬운 방법은 이에 대한 정의를 포함하는 파일만을 선별하는 것입니다.
 
 For every single method defined as a core extension this guide has a note that says where such a method is defined. In the case of `blank?` the note reads:
 

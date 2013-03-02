@@ -1,0 +1,1602 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+%	lib/active_support/core_ext/string/output_safety.rb	/^    def %(args)$/;"	f	class:ActiveSupport.SafeBuffer
++	lib/active_support/core_ext/string/output_safety.rb	/^    def +(other)$/;"	f	class:ActiveSupport.SafeBuffer
++	lib/active_support/duration.rb	/^    def +(other)$/;"	f	class:ActiveSupport.Duration
++	lib/active_support/time_with_zone.rb	/^    def +(other)$/;"	f	class:ActiveSupport
+-	lib/active_support/duration.rb	/^    def -(other)$/;"	f	class:ActiveSupport.Duration
+-	lib/active_support/time_with_zone.rb	/^    def -(other)$/;"	f	class:ActiveSupport
+-@	lib/active_support/duration.rb	/^    def -@ #:nodoc:$/;"	f	class:ActiveSupport.Duration
+<<	lib/active_support/notifications/instrumenter.rb	/^      def <<(event)$/;"	f	class:ActiveSupport.Notifications.Event
+<=>	lib/active_support/core_ext/date_time/calculations.rb	/^  def <=>(other)$/;"	f
+<=>	lib/active_support/time_with_zone.rb	/^    def <=>(other)$/;"	f	class:ActiveSupport
+<=>	lib/active_support/values/time_zone.rb	/^    def <=>(zone)$/;"	f	class:ActiveSupport.TimeZone
+==	lib/active_support/duration.rb	/^    def ==(other)$/;"	f	class:ActiveSupport.Duration
+===	lib/active_support/core_ext/time/calculations.rb	/^    def ===(other)$/;"	f	class:Time
+===	lib/active_support/duration.rb	/^    def self.===(other) #:nodoc:$/;"	F	class:ActiveSupport.Duration
+===	lib/active_support/multibyte/unicode.rb	/^              def ===(other)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize.load
+=~	lib/active_support/values/time_zone.rb	/^    def =~(re)$/;"	f	class:ActiveSupport.TimeZone
+ActiveSupport	lib/active_support.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/backtrace_cleaner.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/basic_object.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/benchmarkable.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/buffered_logger.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/cache.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/cache/file_store.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/cache/mem_cache_store.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/cache/memory_store.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/cache/null_store.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/cache/strategy/local_cache.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/callbacks.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/concern.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/concurrency/latch.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/configurable.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/core_ext/exception.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/core_ext/string/output_safety.rb	/^module ActiveSupport #:nodoc:$/;"	m
+ActiveSupport	lib/active_support/dependencies.rb	/^module ActiveSupport #:nodoc:$/;"	m
+ActiveSupport	lib/active_support/dependencies/autoload.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/deprecation.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/deprecation/behaviors.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/deprecation/instance_delegator.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/deprecation/method_wrappers.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/deprecation/proxy_wrappers.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/deprecation/reporting.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/descendants_tracker.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/duration.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/file_update_checker.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/file_watcher.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/gzip.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/hash_with_indifferent_access.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/inflections.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/inflector/inflections.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/inflector/methods.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/inflector/transliterate.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/json/decoding.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/json/encoding.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/json/variable.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/key_generator.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/lazy_load_hooks.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/log_subscriber.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/log_subscriber/test_helper.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/logger.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/message_encryptor.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/message_verifier.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/multibyte.rb	/^module ActiveSupport #:nodoc:$/;"	m
+ActiveSupport	lib/active_support/multibyte/chars.rb	/^module ActiveSupport #:nodoc:$/;"	m
+ActiveSupport	lib/active_support/multibyte/unicode.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/notifications.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/notifications/fanout.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/notifications/instrumenter.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/number_helper.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/option_merger.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/ordered_hash.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/ordered_options.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/queueing.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/railtie.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/rescuable.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/string_inquirer.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/tagged_logging.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/test_case.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/assertions.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/constant_lookup.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/deprecation.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/isolation.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/performance.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/performance/jruby.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/performance/rubinius.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/performance/ruby.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/setup_and_teardown.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/testing/tagged_logging.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/time.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/time_with_zone.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/values/time_zone.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/version.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini/jdom.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini/libxml.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini/libxmlsax.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini/nokogiri.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini/nokogirisax.rb	/^module ActiveSupport$/;"	m
+ActiveSupport	lib/active_support/xml_mini/rexml.rb	/^module ActiveSupport$/;"	m
+AllMessages	lib/active_support/notifications/fanout.rb	/^        class AllMessages # :nodoc:$/;"	c	class:ActiveSupport.Notifications.Fanout.Subscribers
+Amount	lib/active_support/testing/performance.rb	/^        class Amount < Base$/;"	c	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics
+Array	lib/active_support/core_ext/array/access.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/array/conversions.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/array/extract_options.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/array/grouping.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/array/prepend_and_append.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/array/uniq_by.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/array/wrap.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/object/blank.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/object/deep_dup.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/object/to_param.rb	/^class Array$/;"	c
+Array	lib/active_support/core_ext/object/to_query.rb	/^class Array$/;"	c
+Array	lib/active_support/json/encoding.rb	/^class Array$/;"	c
+Assertions	lib/active_support/testing/assertions.rb	/^    module Assertions$/;"	m	class:ActiveSupport.Testing
+Autoload	lib/active_support/dependencies/autoload.rb	/^  module Autoload$/;"	m	class:ActiveSupport
+Backend	lib/active_support/file_watcher.rb	/^    class Backend$/;"	c	class:ActiveSupport.FileWatcher
+BacktraceCleaner	lib/active_support/backtrace_cleaner.rb	/^  class BacktraceCleaner$/;"	c	class:ActiveSupport
+Base	lib/active_support/testing/performance.rb	/^        class Base$/;"	c	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics
+Base	lib/active_support/testing/performance/jruby.rb	/^        class Base$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Base	lib/active_support/testing/performance/rubinius.rb	/^        class Base$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Base	lib/active_support/testing/performance/ruby.rb	/^        class Base$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+BasicObject	lib/active_support/basic_object.rb	/^  class BasicObject < ::BasicObject$/;"	c	class:ActiveSupport
+Behavior	lib/active_support/deprecation/behaviors.rb	/^    module Behavior$/;"	m	class:ActiveSupport.Deprecation
+Benchmarkable	lib/active_support/benchmarkable.rb	/^  module Benchmarkable$/;"	m	class:ActiveSupport
+Benchmarker	lib/active_support/testing/performance.rb	/^      class Benchmarker < Performer$/;"	c	class:ActiveSupport.Testing.Performance
+BigDecimal	lib/active_support/core_ext/big_decimal/conversions.rb	/^class BigDecimal$/;"	c
+BigDecimal	lib/active_support/core_ext/object/duplicable.rb	/^class BigDecimal$/;"	c
+BigDecimal	lib/active_support/json/encoding.rb	/^class BigDecimal$/;"	c
+Blamable	lib/active_support/dependencies.rb	/^    module Blamable #:nodoc:$/;"	m	class:ActiveSupport.Dependencies
+Cache	lib/active_support/cache.rb	/^  module Cache$/;"	m	class:ActiveSupport
+Cache	lib/active_support/cache/file_store.rb	/^  module Cache$/;"	m	class:ActiveSupport
+Cache	lib/active_support/cache/mem_cache_store.rb	/^  module Cache$/;"	m	class:ActiveSupport
+Cache	lib/active_support/cache/memory_store.rb	/^  module Cache$/;"	m	class:ActiveSupport
+Cache	lib/active_support/cache/null_store.rb	/^  module Cache$/;"	m	class:ActiveSupport
+Cache	lib/active_support/cache/strategy/local_cache.rb	/^  module Cache$/;"	m	class:ActiveSupport
+CachingKeyGenerator	lib/active_support/key_generator.rb	/^  class CachingKeyGenerator$/;"	c	class:ActiveSupport
+Calculations	lib/active_support/core_ext/date_and_time/calculations.rb	/^  module Calculations$/;"	m	class:DateAndTime
+Callback	lib/active_support/callbacks.rb	/^    class Callback #:nodoc:#$/;"	c	class:ActiveSupport.Callbacks
+CallbackChain	lib/active_support/callbacks.rb	/^    class CallbackChain < Array #:nodoc:#$/;"	c
+Callbacks	lib/active_support/callbacks.rb	/^  module Callbacks$/;"	m	class:ActiveSupport
+Chars	lib/active_support/multibyte/chars.rb	/^    class Chars$/;"	c	class:ActiveSupport.Multibyte
+CircularReferenceError	lib/active_support/json/encoding.rb	/^      class CircularReferenceError < StandardError; end$/;"	c	class:JSON.Encoding
+Class	lib/active_support/core_ext/class/attribute.rb	/^class Class$/;"	c
+Class	lib/active_support/core_ext/class/attribute_accessors.rb	/^class Class$/;"	c
+Class	lib/active_support/core_ext/class/delegating_attributes.rb	/^class Class$/;"	c
+Class	lib/active_support/core_ext/class/subclasses.rb	/^class Class$/;"	c
+ClassCache	lib/active_support/dependencies.rb	/^    class ClassCache$/;"	c	class:ActiveSupport.Dependencies
+ClassMethods	lib/active_support/callbacks.rb	/^    module ClassMethods$/;"	m
+ClassMethods	lib/active_support/configurable.rb	/^    module ClassMethods$/;"	m	class:ActiveSupport.Configurable
+ClassMethods	lib/active_support/deprecation/instance_delegator.rb	/^      module ClassMethods$/;"	m	class:ActiveSupport.Deprecation.InstanceDelegator
+ClassMethods	lib/active_support/rescuable.rb	/^    module ClassMethods$/;"	m	class:ActiveSupport.Rescuable
+ClassMethods	lib/active_support/testing/constant_lookup.rb	/^      module ClassMethods$/;"	m	class:ActiveSupport.Testing.ConstantLookup
+ClassMethods	lib/active_support/testing/setup_and_teardown.rb	/^      module ClassMethods$/;"	m	class:ActiveSupport.Testing.SetupAndTeardown
+Codepoint	lib/active_support/multibyte/unicode.rb	/^      class Codepoint$/;"	c	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize
+Concern	lib/active_support/concern.rb	/^  module Concern$/;"	m	class:ActiveSupport
+Concurrency	lib/active_support/concurrency/latch.rb	/^  module Concurrency$/;"	m	class:ActiveSupport
+Configurable	lib/active_support/configurable.rb	/^  module Configurable$/;"	m	class:ActiveSupport
+Configuration	lib/active_support/configurable.rb	/^    class Configuration < ActiveSupport::InheritableOptions$/;"	c	class:ActiveSupport.Configurable
+ConstantLookup	lib/active_support/testing/constant_lookup.rb	/^    module ConstantLookup$/;"	m	class:ActiveSupport.Testing
+Conversions	lib/active_support/xml_mini/libxml.rb	/^  module Conversions #:nodoc:$/;"	m	class:LibXML
+Conversions	lib/active_support/xml_mini/nokogiri.rb	/^    module Conversions #:nodoc:$/;"	m	class:ActiveSupport.XmlMini_Nokogiri
+CpuTime	lib/active_support/testing/performance/jruby.rb	/^        class CpuTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+CpuTime	lib/active_support/testing/performance/ruby.rb	/^        class CpuTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Date	lib/active_support/core_ext/date/acts_like.rb	/^class Date$/;"	c
+Date	lib/active_support/core_ext/date/calculations.rb	/^class Date$/;"	c
+Date	lib/active_support/core_ext/date/conversions.rb	/^class Date$/;"	c
+Date	lib/active_support/core_ext/date/zones.rb	/^class Date$/;"	c
+Date	lib/active_support/json/encoding.rb	/^class Date$/;"	c
+DateAndTime	lib/active_support/core_ext/date_and_time/calculations.rb	/^module DateAndTime$/;"	m
+DateTime	lib/active_support/core_ext/date_time/acts_like.rb	/^class DateTime$/;"	c
+DateTime	lib/active_support/core_ext/date_time/calculations.rb	/^class DateTime$/;"	c
+DateTime	lib/active_support/core_ext/date_time/conversions.rb	/^class DateTime$/;"	c
+DateTime	lib/active_support/core_ext/date_time/zones.rb	/^class DateTime$/;"	c
+DateTime	lib/active_support/json/encoding.rb	/^class DateTime$/;"	c
+Dependencies	lib/active_support/dependencies.rb	/^  module Dependencies #:nodoc:$/;"	m	class:ActiveSupport
+DeprecatedConstantProxy	lib/active_support/deprecation/proxy_wrappers.rb	/^    class DeprecatedConstantProxy < DeprecationProxy$/;"	c	class:ActiveSupport.Deprecation
+DeprecatedInstanceVariableProxy	lib/active_support/deprecation/proxy_wrappers.rb	/^    class DeprecatedInstanceVariableProxy < DeprecationProxy$/;"	c	class:ActiveSupport.Deprecation
+DeprecatedObjectProxy	lib/active_support/deprecation/proxy_wrappers.rb	/^    class DeprecatedObjectProxy < DeprecationProxy$/;"	c	class:ActiveSupport.Deprecation
+Deprecation	lib/active_support/deprecation.rb	/^  class Deprecation$/;"	c	class:ActiveSupport
+Deprecation	lib/active_support/deprecation/behaviors.rb	/^  class Deprecation$/;"	c	class:ActiveSupport
+Deprecation	lib/active_support/deprecation/instance_delegator.rb	/^  class Deprecation$/;"	c	class:ActiveSupport
+Deprecation	lib/active_support/deprecation/method_wrappers.rb	/^  class Deprecation$/;"	c	class:ActiveSupport
+Deprecation	lib/active_support/deprecation/proxy_wrappers.rb	/^  class Deprecation$/;"	c	class:ActiveSupport
+Deprecation	lib/active_support/deprecation/reporting.rb	/^  class Deprecation$/;"	c	class:ActiveSupport
+Deprecation	lib/active_support/testing/deprecation.rb	/^    module Deprecation #:nodoc:$/;"	m	class:ActiveSupport.Testing
+DeprecationProxy	lib/active_support/deprecation/proxy_wrappers.rb	/^    class DeprecationProxy #:nodoc:$/;"	c	class:ActiveSupport.Deprecation
+DescendantsTracker	lib/active_support/descendants_tracker.rb	/^  module DescendantsTracker$/;"	m	class:ActiveSupport
+DigitalInformationUnit	lib/active_support/testing/performance.rb	/^        class DigitalInformationUnit < Base$/;"	c	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics
+Document	lib/active_support/xml_mini/libxml.rb	/^    module Document #:nodoc:$/;"	m	class:LibXML.Conversions
+Document	lib/active_support/xml_mini/nokogiri.rb	/^      module Document #:nodoc:$/;"	m	class:ActiveSupport.XmlMini_Nokogiri.Conversions
+DummyKeyGenerator	lib/active_support/key_generator.rb	/^  class DummyKeyGenerator # :nodoc:$/;"	c	class:ActiveSupport
+Duration	lib/active_support/duration.rb	/^  class Duration < BasicObject$/;"	c	class:ActiveSupport
+ERB	lib/active_support/core_ext/string/output_safety.rb	/^class ERB$/;"	c
+Encoder	lib/active_support/json/encoding.rb	/^      class Encoder$/;"	c	class:JSON.Encoding
+Encoding	lib/active_support/json/encoding.rb	/^    module Encoding #:nodoc:$/;"	m	class:JSON
+Entry	lib/active_support/cache.rb	/^    class Entry # :nodoc:$/;"	c	class:ActiveSupport.Cache
+Enumerable	lib/active_support/core_ext/enumerable.rb	/^module Enumerable$/;"	m
+Enumerable	lib/active_support/json/encoding.rb	/^module Enumerable$/;"	m
+Event	lib/active_support/notifications/instrumenter.rb	/^    class Event$/;"	c	class:ActiveSupport.Notifications
+Evented	lib/active_support/notifications/fanout.rb	/^        class Evented #:nodoc:$/;"	c	class:ActiveSupport.Notifications.Fanout.Subscribers
+FalseClass	lib/active_support/core_ext/object/blank.rb	/^class FalseClass$/;"	c
+FalseClass	lib/active_support/core_ext/object/duplicable.rb	/^class FalseClass$/;"	c
+FalseClass	lib/active_support/core_ext/object/to_param.rb	/^class FalseClass$/;"	c
+FalseClass	lib/active_support/json/encoding.rb	/^class FalseClass$/;"	c
+Fanout	lib/active_support/notifications/fanout.rb	/^    class Fanout$/;"	c	class:ActiveSupport.Notifications
+File	lib/active_support/core_ext/file/atomic.rb	/^class File$/;"	c
+FileLike	lib/active_support/xml_mini.rb	/^    module FileLike #:nodoc:$/;"	m	class:ActiveSupport.XmlMini
+FileStore	lib/active_support/cache/file_store.rb	/^    class FileStore < Store$/;"	c	class:ActiveSupport.Cache
+FileUpdateChecker	lib/active_support/file_update_checker.rb	/^  class FileUpdateChecker$/;"	c	class:ActiveSupport
+FileWatcher	lib/active_support/file_watcher.rb	/^  class FileWatcher$/;"	c	class:ActiveSupport
+Float	lib/active_support/json/encoding.rb	/^class Float$/;"	c
+Forking	lib/active_support/testing/isolation.rb	/^      module Forking$/;"	m	class:ActiveSupport.Testing.Isolation
+Formatter	lib/active_support/tagged_logging.rb	/^    module Formatter # :nodoc:$/;"	m	class:ActiveSupport.TaggedLogging
+GcRuns	lib/active_support/testing/performance/jruby.rb	/^        class GcRuns < Amount$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+GcRuns	lib/active_support/testing/performance/rubinius.rb	/^        class GcRuns < Amount$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+GcRuns	lib/active_support/testing/performance/ruby.rb	/^        class GcRuns < Amount$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+GcTime	lib/active_support/testing/performance/jruby.rb	/^        class GcTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+GcTime	lib/active_support/testing/performance/rubinius.rb	/^        class GcTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+GcTime	lib/active_support/testing/performance/ruby.rb	/^        class GcTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Gzip	lib/active_support/gzip.rb	/^  module Gzip$/;"	m	class:ActiveSupport
+Hash	lib/active_support/core_ext/array/extract_options.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/conversions.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/deep_merge.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/diff.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/except.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/indifferent_access.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/keys.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/reverse_merge.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/hash/slice.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/object/blank.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/object/deep_dup.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/object/to_param.rb	/^class Hash$/;"	c
+Hash	lib/active_support/core_ext/object/to_query.rb	/^class Hash$/;"	c
+Hash	lib/active_support/json/encoding.rb	/^class Hash$/;"	c
+HashBuilder	lib/active_support/xml_mini/libxmlsax.rb	/^    class HashBuilder$/;"	c	class:ActiveSupport.XmlMini_LibXMLSAX
+HashBuilder	lib/active_support/xml_mini/nokogirisax.rb	/^    class HashBuilder < Nokogiri::XML::SAX::Document$/;"	c	class:ActiveSupport.XmlMini_NokogiriSAX
+HashWithIndifferentAccess	lib/active_support/hash_with_indifferent_access.rb	/^  class HashWithIndifferentAccess < Hash$/;"	c	class:ActiveSupport
+I18n	lib/active_support/i18n_railtie.rb	/^module I18n$/;"	m
+Inflections	lib/active_support/inflector/inflections.rb	/^    class Inflections$/;"	c	class:ActiveSupport.Inflector
+Inflector	lib/active_support/inflector/inflections.rb	/^  module Inflector$/;"	m	class:ActiveSupport
+Inflector	lib/active_support/inflector/methods.rb	/^  module Inflector$/;"	m	class:ActiveSupport
+Inflector	lib/active_support/inflector/transliterate.rb	/^  module Inflector$/;"	m	class:ActiveSupport
+InheritableOptions	lib/active_support/ordered_options.rb	/^  class InheritableOptions < OrderedOptions$/;"	c	class:ActiveSupport
+InstanceDelegator	lib/active_support/deprecation/instance_delegator.rb	/^    module InstanceDelegator$/;"	m	class:ActiveSupport.Deprecation
+Instrumenter	lib/active_support/notifications/instrumenter.rb	/^    class Instrumenter$/;"	c	class:ActiveSupport.Notifications
+Integer	lib/active_support/core_ext/integer/inflections.rb	/^class Integer$/;"	c
+Integer	lib/active_support/core_ext/integer/multiple.rb	/^class Integer$/;"	c
+Integer	lib/active_support/core_ext/integer/time.rb	/^class Integer$/;"	c
+InvalidMessage	lib/active_support/message_encryptor.rb	/^    class InvalidMessage < StandardError; end$/;"	c	class:ActiveSupport.MessageEncryptor
+InvalidSignature	lib/active_support/message_verifier.rb	/^    class InvalidSignature < StandardError; end$/;"	c	class:ActiveSupport.MessageVerifier
+Isolation	lib/active_support/testing/isolation.rb	/^    module Isolation$/;"	m	class:ActiveSupport.Testing
+JSON	lib/active_support/json/decoding.rb	/^  module JSON$/;"	m	class:ActiveSupport
+JSON	lib/active_support/json/encoding.rb	/^  module JSON$/;"	m
+JSON	lib/active_support/json/variable.rb	/^  module JSON$/;"	m	class:ActiveSupport
+Kernel	lib/active_support/core_ext/kernel/debugger.rb	/^module Kernel$/;"	m
+Kernel	lib/active_support/core_ext/kernel/reporting.rb	/^module Kernel$/;"	m
+Kernel	lib/active_support/core_ext/kernel/singleton_class.rb	/^module Kernel$/;"	m
+KeyGenerator	lib/active_support/key_generator.rb	/^  class KeyGenerator$/;"	c	class:ActiveSupport
+Latch	lib/active_support/concurrency/latch.rb	/^    class Latch$/;"	c	class:ActiveSupport.Concurrency
+LibXML	lib/active_support/xml_mini/libxml.rb	/^module LibXML #:nodoc:$/;"	m
+LoadError	lib/active_support/core_ext/load_error.rb	/^class LoadError$/;"	c
+Loadable	lib/active_support/dependencies.rb	/^    module Loadable #:nodoc:$/;"	m	class:ActiveSupport.Dependencies
+LocalCache	lib/active_support/cache/strategy/local_cache.rb	/^      module LocalCache$/;"	m	class:ActiveSupport.Cache.Strategy
+LocalCacheWithRaw	lib/active_support/cache/mem_cache_store.rb	/^      module LocalCacheWithRaw # :nodoc:$/;"	m	class:ActiveSupport.Cache.MemCacheStore
+LocalStore	lib/active_support/cache/strategy/local_cache.rb	/^        class LocalStore < Store$/;"	c	class:ActiveSupport.Cache.Strategy.LocalCache
+LogSubscriber	lib/active_support/log_subscriber.rb	/^  class LogSubscriber$/;"	c	class:ActiveSupport
+LogSubscriber	lib/active_support/log_subscriber/test_helper.rb	/^  class LogSubscriber$/;"	c	class:ActiveSupport
+Logger	lib/active_support/core_ext/logger.rb	/^class Logger #:nodoc:$/;"	c
+Logger	lib/active_support/core_ext/logger.rb	/^class Logger$/;"	c
+Logger	lib/active_support/logger.rb	/^  class Logger < ::Logger$/;"	c	class:ActiveSupport
+MemCacheStore	lib/active_support/cache/mem_cache_store.rb	/^    class MemCacheStore < Store$/;"	c	class:ActiveSupport.Cache
+Memory	lib/active_support/testing/performance/jruby.rb	/^        class Memory < DigitalInformationUnit$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Memory	lib/active_support/testing/performance/rubinius.rb	/^        class Memory < DigitalInformationUnit$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Memory	lib/active_support/testing/performance/ruby.rb	/^        class Memory < DigitalInformationUnit$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+MemoryStore	lib/active_support/cache/memory_store.rb	/^    class MemoryStore < Store$/;"	c	class:ActiveSupport.Cache
+MessageEncryptor	lib/active_support/message_encryptor.rb	/^  class MessageEncryptor$/;"	c	class:ActiveSupport
+MessageVerifier	lib/active_support/message_verifier.rb	/^  class MessageVerifier$/;"	c	class:ActiveSupport
+MethodWrapper	lib/active_support/deprecation/method_wrappers.rb	/^    module MethodWrapper$/;"	m	class:ActiveSupport.Deprecation
+Metrics	lib/active_support/testing/performance.rb	/^      module Metrics$/;"	m	class:ActiveSupport.Testing.Performance.Benchmarker
+Metrics	lib/active_support/testing/performance/jruby.rb	/^      module Metrics$/;"	m	class:ActiveSupport.Testing.Performance
+Metrics	lib/active_support/testing/performance/rubinius.rb	/^      module Metrics$/;"	m	class:ActiveSupport.Testing.Performance
+Metrics	lib/active_support/testing/performance/ruby.rb	/^      module Metrics$/;"	m	class:ActiveSupport.Testing.Performance
+Middleware	lib/active_support/cache/strategy/local_cache.rb	/^        class Middleware # :nodoc:$/;"	c	class:ActiveSupport.Cache.Strategy.LocalCache
+MockLogger	lib/active_support/log_subscriber/test_helper.rb	/^      class MockLogger$/;"	c	class:ActiveSupport.LogSubscriber.TestHelper
+Module	lib/active_support/core_ext/module/aliasing.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/anonymous.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/attr_internal.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/attribute_accessors.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/delegation.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/deprecation.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/introspection.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/qualified_const.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/reachable.rb	/^class Module$/;"	c
+Module	lib/active_support/core_ext/module/remove_method.rb	/^class Module$/;"	c
+ModuleConstMissing	lib/active_support/dependencies.rb	/^    module ModuleConstMissing #:nodoc:$/;"	m	class:ActiveSupport.Dependencies
+Multibyte	lib/active_support/multibyte.rb	/^  module Multibyte$/;"	m	class:ActiveSupport
+Multibyte	lib/active_support/multibyte/chars.rb	/^  module Multibyte #:nodoc:$/;"	m	class:ActiveSupport
+Multibyte	lib/active_support/multibyte/unicode.rb	/^  module Multibyte$/;"	m	class:ActiveSupport
+NameError	lib/active_support/core_ext/name_error.rb	/^class NameError$/;"	c
+NilClass	lib/active_support/core_ext/object/blank.rb	/^class NilClass$/;"	c
+NilClass	lib/active_support/core_ext/object/duplicable.rb	/^class NilClass$/;"	c
+NilClass	lib/active_support/core_ext/object/to_param.rb	/^class NilClass$/;"	c
+NilClass	lib/active_support/core_ext/object/try.rb	/^class NilClass$/;"	c
+NilClass	lib/active_support/json/encoding.rb	/^class NilClass$/;"	c
+Node	lib/active_support/xml_mini/libxml.rb	/^    module Node #:nodoc:$/;"	m	class:LibXML.Conversions
+Node	lib/active_support/xml_mini/nokogiri.rb	/^      module Node #:nodoc:$/;"	m	class:ActiveSupport.XmlMini_Nokogiri.Conversions
+Notifications	lib/active_support/notifications.rb	/^  module Notifications$/;"	m	class:ActiveSupport
+Notifications	lib/active_support/notifications/fanout.rb	/^  module Notifications$/;"	m	class:ActiveSupport
+Notifications	lib/active_support/notifications/instrumenter.rb	/^  module Notifications$/;"	m	class:ActiveSupport
+NullSerializer	lib/active_support/message_encryptor.rb	/^    module NullSerializer #:nodoc:$/;"	m	class:ActiveSupport.MessageEncryptor
+NullStore	lib/active_support/cache/null_store.rb	/^    class NullStore < Store$/;"	c	class:ActiveSupport.Cache
+NumberHelper	lib/active_support/number_helper.rb	/^  module NumberHelper$/;"	m	class:ActiveSupport
+Numeric	lib/active_support/core_ext/numeric/bytes.rb	/^class Numeric$/;"	c
+Numeric	lib/active_support/core_ext/numeric/conversions.rb	/^class Numeric$/;"	c
+Numeric	lib/active_support/core_ext/numeric/time.rb	/^class Numeric$/;"	c
+Numeric	lib/active_support/core_ext/object/blank.rb	/^class Numeric #:nodoc:$/;"	c
+Numeric	lib/active_support/core_ext/object/duplicable.rb	/^class Numeric$/;"	c
+Numeric	lib/active_support/core_ext/string/output_safety.rb	/^class Numeric$/;"	c
+Numeric	lib/active_support/json/encoding.rb	/^class Numeric$/;"	c
+Object	lib/active_support/core_ext/kernel/agnostics.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/acts_like.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/blank.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/deep_dup.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/duplicable.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/inclusion.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/instance_variables.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/to_param.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/to_query.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/try.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/object/with_options.rb	/^class Object$/;"	c
+Object	lib/active_support/core_ext/string/output_safety.rb	/^class Object$/;"	c
+Object	lib/active_support/json/encoding.rb	/^class Object$/;"	c
+Objects	lib/active_support/testing/performance/rubinius.rb	/^        class Objects < Amount$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Objects	lib/active_support/testing/performance/ruby.rb	/^        class Objects < Amount$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+OptionMerger	lib/active_support/option_merger.rb	/^  class OptionMerger #:nodoc:$/;"	c	class:ActiveSupport
+OrderedHash	lib/active_support/ordered_hash.rb	/^  class OrderedHash < ::Hash$/;"	c	class:ActiveSupport
+OrderedOptions	lib/active_support/ordered_options.rb	/^  class OrderedOptions < Hash$/;"	c	class:ActiveSupport
+ParallelEach	lib/active_support/testing/isolation.rb	/^      class ParallelEach$/;"	c	class:ActiveSupport.Testing.Isolation
+Performance	lib/active_support/testing/performance.rb	/^    module Performance$/;"	m	class:ActiveSupport.Testing
+Performance	lib/active_support/testing/performance/jruby.rb	/^    module Performance$/;"	m	class:ActiveSupport.Testing
+Performance	lib/active_support/testing/performance/rubinius.rb	/^    module Performance$/;"	m	class:ActiveSupport.Testing
+Performance	lib/active_support/testing/performance/ruby.rb	/^    module Performance$/;"	m	class:ActiveSupport.Testing
+Performer	lib/active_support/testing/performance.rb	/^      class Performer$/;"	c	class:ActiveSupport.Testing.Performance
+Performer	lib/active_support/testing/performance/rubinius.rb	/^      class Performer; end$/;"	c	class:ActiveSupport.Testing.Performance
+Proc	lib/active_support/core_ext/proc.rb	/^class Proc #:nodoc:$/;"	c
+Process	lib/active_support/core_ext/object/to_json.rb	/^module Process$/;"	m
+ProcessTime	lib/active_support/testing/performance/ruby.rb	/^        class ProcessTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Profiler	lib/active_support/testing/performance.rb	/^      class Profiler < Performer$/;"	c	class:ActiveSupport.Testing.Performance
+Profiler	lib/active_support/testing/performance/jruby.rb	/^      class Profiler < Performer$/;"	c	class:ActiveSupport.Testing.Performance
+Profiler	lib/active_support/testing/performance/rubinius.rb	/^      class Profiler < Performer$/;"	c	class:ActiveSupport.Testing.Performance
+Profiler	lib/active_support/testing/performance/ruby.rb	/^      class Profiler < Performer$/;"	c	class:ActiveSupport.Testing.Performance
+ProxyTestResult	lib/active_support/testing/isolation.rb	/^    class ProxyTestResult$/;"	c	class:ActiveSupport.Testing
+QualifiedConstUtils	lib/active_support/core_ext/module/qualified_const.rb	/^module QualifiedConstUtils$/;"	m
+Queue	lib/active_support/queueing.rb	/^  class Queue < ::Queue$/;"	c	class:ActiveSupport
+Railtie	lib/active_support/i18n_railtie.rb	/^  class Railtie < Rails::Railtie$/;"	c	class:I18n
+Railtie	lib/active_support/railtie.rb	/^  class Railtie < Rails::Railtie # :nodoc:$/;"	c	class:ActiveSupport
+Range	lib/active_support/core_ext/enumerable.rb	/^class Range #:nodoc:$/;"	c
+Range	lib/active_support/core_ext/range/conversions.rb	/^class Range$/;"	c
+Range	lib/active_support/core_ext/range/include_range.rb	/^class Range$/;"	c
+Range	lib/active_support/core_ext/range/overlaps.rb	/^class Range$/;"	c
+Range	lib/active_support/json/encoding.rb	/^class Range$/;"	c
+Regexp	lib/active_support/core_ext/regexp.rb	/^class Regexp #:nodoc:$/;"	c
+Regexp	lib/active_support/json/encoding.rb	/^class Regexp$/;"	c
+RemoteError	lib/active_support/testing/isolation.rb	/^    class RemoteError < StandardError$/;"	c	class:ActiveSupport.Testing
+Reporting	lib/active_support/deprecation/reporting.rb	/^    module Reporting$/;"	m	class:ActiveSupport.Deprecation
+Rescuable	lib/active_support/rescuable.rb	/^  module Rescuable$/;"	m	class:ActiveSupport
+SafeBuffer	lib/active_support/core_ext/string/output_safety.rb	/^  class SafeBuffer < String$/;"	c	class:ActiveSupport
+SafeConcatError	lib/active_support/core_ext/string/output_safety.rb	/^    class SafeConcatError < StandardError$/;"	c	class:ActiveSupport.SafeBuffer
+SetupAndTeardown	lib/active_support/testing/setup_and_teardown.rb	/^    module SetupAndTeardown$/;"	m	class:ActiveSupport.Testing
+SimpleFormatter	lib/active_support/core_ext/logger.rb	/^  class SimpleFormatter < Logger::Formatter$/;"	c	class:Logger
+SimpleFormatter	lib/active_support/logger.rb	/^    class SimpleFormatter < ::Logger::Formatter$/;"	c	class:ActiveSupport.Logger
+Status	lib/active_support/core_ext/object/to_json.rb	/^  class Status$/;"	c	class:Process
+Store	lib/active_support/cache.rb	/^    class Store$/;"	c	class:ActiveSupport.Cache
+Strategy	lib/active_support/cache.rb	/^    module Strategy$/;"	m	class:ActiveSupport.Cache
+Strategy	lib/active_support/cache/strategy/local_cache.rb	/^    module Strategy$/;"	m	class:ActiveSupport.Cache
+Stream	lib/active_support/gzip.rb	/^    class Stream < StringIO$/;"	c	class:ActiveSupport.Gzip
+String	lib/active_support/core_ext/object/blank.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/access.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/behavior.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/conversions.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/encoding.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/exclude.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/filters.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/indent.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/inflections.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/inquiry.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/multibyte.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/output_safety.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/starts_ends_with.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/strip.rb	/^class String$/;"	c
+String	lib/active_support/core_ext/string/xchar.rb	/^  class String$/;"	c
+String	lib/active_support/json/encoding.rb	/^class String$/;"	c
+StringInquirer	lib/active_support/string_inquirer.rb	/^  class StringInquirer < String$/;"	c	class:ActiveSupport
+Struct	lib/active_support/core_ext/struct.rb	/^class Struct # :nodoc:$/;"	c
+Struct	lib/active_support/json/encoding.rb	/^class Struct #:nodoc:$/;"	c
+Subprocess	lib/active_support/testing/isolation.rb	/^      module Subprocess$/;"	m	class:ActiveSupport.Testing.Isolation
+Subscribers	lib/active_support/notifications/fanout.rb	/^      module Subscribers # :nodoc:$/;"	m	class:ActiveSupport.Notifications.Fanout
+Symbol	lib/active_support/core_ext/object/duplicable.rb	/^class Symbol$/;"	c
+Symbol	lib/active_support/json/encoding.rb	/^class Symbol$/;"	c
+SynchronousQueue	lib/active_support/queueing.rb	/^  class SynchronousQueue < Queue$/;"	c	class:ActiveSupport
+TaggedLogging	lib/active_support/tagged_logging.rb	/^  module TaggedLogging$/;"	m	class:ActiveSupport
+TaggedLogging	lib/active_support/testing/tagged_logging.rb	/^    module TaggedLogging$/;"	m	class:ActiveSupport.Testing
+TestCase	lib/active_support/test_case.rb	/^  class TestCase < ::MiniTest::Spec$/;"	c	class:ActiveSupport
+TestHelper	lib/active_support/log_subscriber/test_helper.rb	/^    module TestHelper$/;"	m	class:ActiveSupport.LogSubscriber
+TestQueue	lib/active_support/queueing.rb	/^  class TestQueue < Queue$/;"	c	class:ActiveSupport
+Testing	lib/active_support/testing/assertions.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/constant_lookup.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/deprecation.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/isolation.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/performance.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/performance/jruby.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/performance/rubinius.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/performance/ruby.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/setup_and_teardown.rb	/^  module Testing$/;"	m	class:ActiveSupport
+Testing	lib/active_support/testing/tagged_logging.rb	/^  module Testing$/;"	m	class:ActiveSupport
+ThreadedQueueConsumer	lib/active_support/queueing.rb	/^  class ThreadedQueueConsumer$/;"	c	class:ActiveSupport
+Time	lib/active_support/core_ext/time/acts_like.rb	/^class Time$/;"	c
+Time	lib/active_support/core_ext/time/calculations.rb	/^class Time$/;"	c
+Time	lib/active_support/core_ext/time/conversions.rb	/^class Time$/;"	c
+Time	lib/active_support/core_ext/time/marshal.rb	/^  class Time$/;"	c
+Time	lib/active_support/core_ext/time/zones.rb	/^class Time$/;"	c
+Time	lib/active_support/json/encoding.rb	/^class Time$/;"	c
+Time	lib/active_support/testing/performance.rb	/^        class Time < Base$/;"	c	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics
+TimeWithZone	lib/active_support/time_with_zone.rb	/^  class TimeWithZone$/;"	c	class:ActiveSupport
+TimeZone	lib/active_support/values/time_zone.rb	/^  class TimeZone$/;"	c	class:ActiveSupport
+Timed	lib/active_support/notifications/fanout.rb	/^        class Timed < Evented$/;"	c	class:ActiveSupport.Notifications.Fanout.Subscribers
+TrueClass	lib/active_support/core_ext/object/blank.rb	/^class TrueClass$/;"	c
+TrueClass	lib/active_support/core_ext/object/duplicable.rb	/^class TrueClass$/;"	c
+TrueClass	lib/active_support/core_ext/object/to_param.rb	/^class TrueClass$/;"	c
+TrueClass	lib/active_support/json/encoding.rb	/^class TrueClass$/;"	c
+URI	lib/active_support/core_ext/uri.rb	/^module URI$/;"	m
+Unicode	lib/active_support/multibyte/unicode.rb	/^    module Unicode$/;"	m	class:ActiveSupport.Multibyte
+UnicodeDatabase	lib/active_support/multibyte/unicode.rb	/^      class UnicodeDatabase$/;"	c	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize
+UserTime	lib/active_support/testing/performance/jruby.rb	/^        class UserTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+Util	lib/active_support/core_ext/string/output_safety.rb	/^  module Util$/;"	m	class:ERB
+VERSION	lib/active_support/version.rb	/^  module VERSION #:nodoc:$/;"	m	class:ActiveSupport
+Variable	lib/active_support/json/variable.rb	/^    class Variable < String$/;"	c	class:ActiveSupport.JSON
+WallTime	lib/active_support/testing/performance/jruby.rb	/^        class WallTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+WallTime	lib/active_support/testing/performance/rubinius.rb	/^        class WallTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+WallTime	lib/active_support/testing/performance/ruby.rb	/^        class WallTime < Time$/;"	c	class:ActiveSupport.Testing.Performance.Metrics
+WatchStack	lib/active_support/dependencies.rb	/^    class WatchStack$/;"	c	class:ActiveSupport.Dependencies
+XmlMini	lib/active_support/xml_mini.rb	/^  module XmlMini$/;"	m	class:ActiveSupport
+XmlMini_JDOM	lib/active_support/xml_mini/jdom.rb	/^  module XmlMini_JDOM #:nodoc:$/;"	m	class:ActiveSupport
+XmlMini_LibXML	lib/active_support/xml_mini/libxml.rb	/^  module XmlMini_LibXML #:nodoc:$/;"	m	class:ActiveSupport
+XmlMini_LibXMLSAX	lib/active_support/xml_mini/libxmlsax.rb	/^  module XmlMini_LibXMLSAX #:nodoc:$/;"	m	class:ActiveSupport
+XmlMini_Nokogiri	lib/active_support/xml_mini/nokogiri.rb	/^  module XmlMini_Nokogiri #:nodoc:$/;"	m	class:ActiveSupport
+XmlMini_NokogiriSAX	lib/active_support/xml_mini/nokogirisax.rb	/^  module XmlMini_NokogiriSAX #:nodoc:$/;"	m	class:ActiveSupport
+XmlMini_REXML	lib/active_support/xml_mini/rexml.rb	/^  module XmlMini_REXML #:nodoc:$/;"	m	class:ActiveSupport
+[]	lib/active_support/core_ext/string/output_safety.rb	/^    def [](*args)$/;"	f	class:ActiveSupport.SafeBuffer
+[]	lib/active_support/hash_with_indifferent_access.rb	/^    def self.[](*args)$/;"	F	class:ActiveSupport.HashWithIndifferentAccess
+[]	lib/active_support/ordered_options.rb	/^    def [](key)$/;"	f	class:ActiveSupport.OrderedOptions
+[]	lib/active_support/testing/performance.rb	/^        def self.[](name)$/;"	F	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics
+[]	lib/active_support/values/time_zone.rb	/^      def [](arg)$/;"	f	class:ActiveSupport.TimeZone
+[]=	lib/active_support/hash_with_indifferent_access.rb	/^    def []=(key, value)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+[]=	lib/active_support/ordered_options.rb	/^    def []=(key, value)$/;"	f	class:ActiveSupport.OrderedOptions
+__callback_runner_name	lib/active_support/callbacks.rb	/^      def __callback_runner_name(kind)$/;"	f	class:ClassMethods
+__define_callbacks	lib/active_support/callbacks.rb	/^      def __define_callbacks(kind, object) #:nodoc:$/;"	f	class:ClassMethods
+__replay__	lib/active_support/testing/isolation.rb	/^      def __replay__(result)$/;"	f	class:ActiveSupport.Testing.ProxyTestResult
+__reset_runner	lib/active_support/callbacks.rb	/^      def __reset_runner(symbol)$/;"	f	class:ClassMethods
+__update_callbacks	lib/active_support/callbacks.rb	/^      def __update_callbacks(name, filters = [], block = nil) #:nodoc:$/;"	f	class:ClassMethods
+_compile_filter	lib/active_support/callbacks.rb	/^      def _compile_filter(filter)$/;"	f
+_dasherize	lib/active_support/xml_mini.rb	/^    def _dasherize(key)$/;"	f	class:ActiveSupport.XmlMini
+_decrypt	lib/active_support/message_encryptor.rb	/^    def _decrypt(encrypted_message)$/;"	f	class:ActiveSupport.MessageEncryptor
+_dump	lib/active_support/core_ext/time/marshal.rb	/^    def _dump(*args)$/;"	f
+_encrypt	lib/active_support/message_encryptor.rb	/^    def _encrypt(value)$/;"	f	class:ActiveSupport.MessageEncryptor
+_load	lib/active_support/core_ext/time/marshal.rb	/^      def _load(marshaled_time)$/;"	f	class:Time
+_normalize_legacy_filter	lib/active_support/callbacks.rb	/^      def _normalize_legacy_filter(kind, filter)$/;"	f
+_parse_binary	lib/active_support/xml_mini.rb	/^    def _parse_binary(bin, entity) #:nodoc:$/;"	f	class:ActiveSupport.XmlMini
+_parse_file	lib/active_support/xml_mini.rb	/^    def _parse_file(file, entity)$/;"	f	class:ActiveSupport.XmlMini
+_run_class_setup	lib/active_support/testing/isolation.rb	/^      def _run_class_setup      # class setup method should only happen in parent$/;"	f	class:ActiveSupport.Testing.Isolation
+_stash_object_in_method	lib/active_support/core_ext/class/delegating_attributes.rb	/^    def _stash_object_in_method(object, method, instance_reader = true)$/;"	f	class:Class
+_superclass_delegating_accessor	lib/active_support/core_ext/class/delegating_attributes.rb	/^    def _superclass_delegating_accessor(name, options = {})$/;"	f	class:Class
+_update_filter	lib/active_support/callbacks.rb	/^      def _update_filter(filter_options, new_options)$/;"	f	class:ActiveSupport.Callbacks.Callback
+`	lib/active_support/core_ext/kernel/agnostics.rb	/^  def `(command) #:nodoc:$/;"	f	class:Object
+accumulate_descendants	lib/active_support/descendants_tracker.rb	/^      def accumulate_descendants(klass, acc)$/;"	f	class:ActiveSupport.DescendantsTracker
+acronym	lib/active_support/inflector/inflections.rb	/^      def acronym(word)$/;"	f	class:ActiveSupport.Inflector.Inflections
+acts_like?	lib/active_support/core_ext/object/acts_like.rb	/^  def acts_like?(duck)$/;"	f	class:Object
+acts_like_date?	lib/active_support/core_ext/date/acts_like.rb	/^  def acts_like_date?$/;"	f	class:Date
+acts_like_date?	lib/active_support/core_ext/date_time/acts_like.rb	/^  def acts_like_date?$/;"	f	class:DateTime
+acts_like_string?	lib/active_support/core_ext/string/behavior.rb	/^  def acts_like_string?$/;"	f	class:String
+acts_like_time?	lib/active_support/core_ext/date_time/acts_like.rb	/^  def acts_like_time?$/;"	f	class:DateTime
+acts_like_time?	lib/active_support/core_ext/time/acts_like.rb	/^  def acts_like_time?$/;"	f	class:Time
+acts_like_time?	lib/active_support/time_with_zone.rb	/^    def acts_like_time?$/;"	f
+add_error	lib/active_support/testing/isolation.rb	/^      def add_error(e)$/;"	f	class:ActiveSupport.Testing.ProxyTestResult
+add_filter	lib/active_support/backtrace_cleaner.rb	/^    def add_filter(&block)$/;"	f	class:ActiveSupport.BacktraceCleaner
+add_silencer	lib/active_support/backtrace_cleaner.rb	/^    def add_silencer(&block)$/;"	f	class:ActiveSupport.BacktraceCleaner
+advance	lib/active_support/core_ext/date/calculations.rb	/^  def advance(options)$/;"	f
+advance	lib/active_support/core_ext/date_time/calculations.rb	/^  def advance(options)$/;"	f
+advance	lib/active_support/core_ext/time/calculations.rb	/^  def advance(options)$/;"	f
+advance	lib/active_support/time_with_zone.rb	/^    def advance(options)$/;"	f	class:ActiveSupport
+after_teardown	lib/active_support/testing/setup_and_teardown.rb	/^      def after_teardown$/;"	f	class:ActiveSupport.Testing.SetupAndTeardown
+after_teardown	lib/active_support/testing/tagged_logging.rb	/^      def after_teardown$/;"	f	class:ActiveSupport.Testing.TaggedLogging
+ago	lib/active_support/core_ext/date/calculations.rb	/^  def ago(seconds)$/;"	f
+ago	lib/active_support/core_ext/date_time/calculations.rb	/^  def ago(seconds)$/;"	f
+ago	lib/active_support/core_ext/numeric/time.rb	/^  def ago(time = ::Time.current)$/;"	f	class:Numeric
+ago	lib/active_support/core_ext/time/calculations.rb	/^  def ago(seconds)$/;"	f
+ago	lib/active_support/duration.rb	/^    def ago(time = ::Time.current)$/;"	f	class:ActiveSupport.Duration
+ago	lib/active_support/time_with_zone.rb	/^    def ago(other)$/;"	f	class:ActiveSupport
+alias_attribute	lib/active_support/core_ext/module/aliasing.rb	/^  def alias_attribute(new_name, old_name)$/;"	f	class:Module
+alias_method_chain	lib/active_support/core_ext/module/aliasing.rb	/^  def alias_method_chain(target, feature)$/;"	f	class:Module
+all	lib/active_support/values/time_zone.rb	/^      def all$/;"	f	class:ActiveSupport.TimeZone
+all_day	lib/active_support/core_ext/time/calculations.rb	/^  def all_day$/;"	f
+all_month	lib/active_support/core_ext/time/calculations.rb	/^  def all_month$/;"	f
+all_quarter	lib/active_support/core_ext/time/calculations.rb	/^  def all_quarter$/;"	f
+all_week	lib/active_support/core_ext/time/calculations.rb	/^  def all_week(start_day = Date.beginning_of_week)$/;"	f
+all_year	lib/active_support/core_ext/time/calculations.rb	/^  def all_year$/;"	f
+anonymous?	lib/active_support/core_ext/module/anonymous.rb	/^  def anonymous?$/;"	f	class:Module
+append_features	lib/active_support/concern.rb	/^    def append_features(base)$/;"	f	class:ActiveSupport.Concern
+append_features	lib/active_support/dependencies.rb	/^      def self.append_features(base)$/;"	F	class:ActiveSupport.Dependencies.ModuleConstMissing
+apply	lib/active_support/callbacks.rb	/^      def apply(code)$/;"	f	class:ActiveSupport.Callbacks.Callback
+apply_inflections	lib/active_support/inflector/methods.rb	/^    def apply_inflections(word, rules)$/;"	f	class:ActiveSupport.Inflector
+apply_mapping	lib/active_support/multibyte/unicode.rb	/^      def apply_mapping(string, mapping) #:nodoc:$/;"	f	class:ActiveSupport.Multibyte.Unicode
+around	lib/active_support/callbacks.rb	/^          def filter.around(context)$/;"	F	class:_normalize_legacy_filter
+around_	lib/active_support/core_ext/logger.rb	/^      def around_#{level}(before_message, after_message)  # def around_debug(before_message, after_message, &block)$/;"	f	class:Logger.define_around_helper
+as_json	lib/active_support/core_ext/object/to_json.rb	/^    def as_json(options = nil)$/;"	f	class:Process.Status
+as_json	lib/active_support/duration.rb	/^    def as_json(options = nil) #:nodoc:$/;"	f	class:ActiveSupport.Duration.inspect
+as_json	lib/active_support/json/encoding.rb	/^        def as_json(value, use_options = true)$/;"	f	class:JSON.Encoding.Encoder
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Array
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:BigDecimal
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Date
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:DateTime
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Enumerable
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:FalseClass
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Float
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Hash
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:NilClass
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Numeric
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Object
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Range
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Regexp
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:String
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Symbol
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:Time
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil) #:nodoc:$/;"	f	class:TrueClass
+as_json	lib/active_support/json/encoding.rb	/^  def as_json(options = nil)$/;"	f	class:Struct
+as_json	lib/active_support/json/variable.rb	/^      def as_json(options = nil) self end #:nodoc:$/;"	f	class:ActiveSupport.JSON.Variable
+as_json	lib/active_support/multibyte/chars.rb	/^      def as_json(options = nil) #:nodoc:$/;"	f	class:ActiveSupport.Multibyte.Chars
+as_json	lib/active_support/time_with_zone.rb	/^    def as_json(options = nil)$/;"	f	class:ActiveSupport
+assert_blank	lib/active_support/testing/assertions.rb	/^      def assert_blank(object, message=nil)$/;"	f	class:ActiveSupport.Testing.Assertions
+assert_deprecated	lib/active_support/testing/deprecation.rb	/^      def assert_deprecated(match = nil, &block)$/;"	f	class:ActiveSupport.Testing.Deprecation
+assert_difference	lib/active_support/testing/assertions.rb	/^      def assert_difference(expression, difference = 1, message = nil, &block)$/;"	f	class:ActiveSupport.Testing.Assertions
+assert_no_difference	lib/active_support/testing/assertions.rb	/^      def assert_no_difference(expression, message = nil, &block)$/;"	f	class:ActiveSupport.Testing.Assertions
+assert_not_deprecated	lib/active_support/testing/deprecation.rb	/^      def assert_not_deprecated(&block)$/;"	f	class:ActiveSupport.Testing.Deprecation
+assert_nothing_raised	lib/active_support/test_case.rb	/^    def assert_nothing_raised(*args)$/;"	f	class:ActiveSupport
+assert_present	lib/active_support/testing/assertions.rb	/^      def assert_present(object, message=nil)$/;"	f	class:ActiveSupport.Testing.Assertions
+assert_valid_keys	lib/active_support/core_ext/hash/keys.rb	/^  def assert_valid_keys(*valid_keys)$/;"	f	class:Hash
+at	lib/active_support/core_ext/string/access.rb	/^  def at(position)$/;"	f	class:String
+at	lib/active_support/values/time_zone.rb	/^    def at(secs)$/;"	f	class:ActiveSupport.TimeZone
+atomic_write	lib/active_support/core_ext/file/atomic.rb	/^  def self.atomic_write(file_name, temp_dir = Dir.tmpdir)$/;"	F	class:File
+attach_to	lib/active_support/log_subscriber.rb	/^      def attach_to(namespace, log_subscriber=new, notifier=ActiveSupport::Notifications)$/;"	f	class:ActiveSupport.LogSubscriber
+attr_internal_accessor	lib/active_support/core_ext/module/attr_internal.rb	/^  def attr_internal_accessor(*attrs)$/;"	f	class:Module
+attr_internal_define	lib/active_support/core_ext/module/attr_internal.rb	/^    def attr_internal_define(attr_name, type)$/;"	f
+attr_internal_ivar_name	lib/active_support/core_ext/module/attr_internal.rb	/^    def attr_internal_ivar_name(attr)$/;"	f
+attr_internal_reader	lib/active_support/core_ext/module/attr_internal.rb	/^  def attr_internal_reader(*attrs)$/;"	f	class:Module
+attr_internal_writer	lib/active_support/core_ext/module/attr_internal.rb	/^  def attr_internal_writer(*attrs)$/;"	f	class:Module
+autoload	lib/active_support/dependencies/autoload.rb	/^    def autoload(const_name, path = @_at_path)$/;"	f	class:ActiveSupport.Autoload
+autoload_at	lib/active_support/dependencies/autoload.rb	/^    def autoload_at(path)$/;"	f	class:ActiveSupport.Autoload
+autoload_module!	lib/active_support/dependencies.rb	/^    def autoload_module!(into, const_name, qualified_name, path_suffix)$/;"	f	class:ActiveSupport.Dependencies
+autoload_under	lib/active_support/dependencies/autoload.rb	/^    def autoload_under(path)$/;"	f	class:ActiveSupport.Autoload
+autoloadable_module?	lib/active_support/dependencies.rb	/^    def autoloadable_module?(path_suffix)$/;"	f	class:ActiveSupport.Dependencies
+autoloaded?	lib/active_support/dependencies.rb	/^    def autoloaded?(desc)$/;"	f	class:ActiveSupport.Dependencies
+autoloads	lib/active_support/dependencies/autoload.rb	/^    def autoloads$/;"	f	class:ActiveSupport.Autoload
+await	lib/active_support/concurrency/latch.rb	/^      def await$/;"	f	class:ActiveSupport.Concurrency.Latch
+backend	lib/active_support/xml_mini.rb	/^    def backend$/;"	f	class:ActiveSupport.XmlMini
+backend=	lib/active_support/xml_mini.rb	/^    def backend=(name)$/;"	f	class:ActiveSupport.XmlMini
+before_setup	lib/active_support/testing/setup_and_teardown.rb	/^      def before_setup$/;"	f	class:ActiveSupport.Testing.SetupAndTeardown
+before_setup	lib/active_support/testing/tagged_logging.rb	/^      def before_setup$/;"	f	class:ActiveSupport.Testing.TaggedLogging
+beginning_of_day	lib/active_support/core_ext/date/calculations.rb	/^  def beginning_of_day$/;"	f
+beginning_of_day	lib/active_support/core_ext/date_time/calculations.rb	/^  def beginning_of_day$/;"	f
+beginning_of_day	lib/active_support/core_ext/time/calculations.rb	/^  def beginning_of_day$/;"	f
+beginning_of_hour	lib/active_support/core_ext/date_time/calculations.rb	/^  def beginning_of_hour$/;"	f
+beginning_of_hour	lib/active_support/core_ext/time/calculations.rb	/^  def beginning_of_hour$/;"	f
+beginning_of_month	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def beginning_of_month$/;"	f	class:DateAndTime.Calculations
+beginning_of_quarter	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def beginning_of_quarter$/;"	f	class:DateAndTime.Calculations
+beginning_of_week	lib/active_support/core_ext/date/calculations.rb	/^    def beginning_of_week$/;"	f	class:Date
+beginning_of_week	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def beginning_of_week(start_day = Date.beginning_of_week)$/;"	f	class:DateAndTime.Calculations
+beginning_of_week=	lib/active_support/core_ext/date/calculations.rb	/^    def beginning_of_week=(week_start)$/;"	f	class:Date
+beginning_of_year	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def beginning_of_year$/;"	f	class:DateAndTime.Calculations
+behavior	lib/active_support/deprecation/behaviors.rb	/^      def behavior$/;"	f	class:ActiveSupport.Deprecation.Behavior
+behavior=	lib/active_support/deprecation/behaviors.rb	/^      def behavior=(behavior)$/;"	f	class:ActiveSupport.Deprecation.Behavior
+benchmark	lib/active_support/benchmarkable.rb	/^    def benchmark(message = "Benchmarking", options = {})$/;"	f	class:ActiveSupport.Benchmarkable
+benchmark	lib/active_support/testing/performance.rb	/^          def benchmark$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Base
+between?	lib/active_support/time_with_zone.rb	/^    def between?(min, max)$/;"	f	class:ActiveSupport
+bind	lib/active_support/core_ext/proc.rb	/^  def bind(object)$/;"	f	class:Proc
+blame_file!	lib/active_support/dependencies.rb	/^      def blame_file!(file)$/;"	f	class:ActiveSupport.Dependencies.Blamable
+blamed_files	lib/active_support/dependencies.rb	/^      def blamed_files$/;"	f	class:ActiveSupport.Dependencies.Blamable
+blank?	lib/active_support/core_ext/object/blank.rb	/^  def blank?$/;"	f	class:FalseClass
+blank?	lib/active_support/core_ext/object/blank.rb	/^  def blank?$/;"	f	class:NilClass
+blank?	lib/active_support/core_ext/object/blank.rb	/^  def blank?$/;"	f	class:Numeric
+blank?	lib/active_support/core_ext/object/blank.rb	/^  def blank?$/;"	f	class:Object
+blank?	lib/active_support/core_ext/object/blank.rb	/^  def blank?$/;"	f	class:String
+blank?	lib/active_support/core_ext/object/blank.rb	/^  def blank?$/;"	f	class:TrueClass
+broadcast	lib/active_support/logger.rb	/^    def self.broadcast(logger) # :nodoc:$/;"	F	class:ActiveSupport.Logger
+build_mem_cache	lib/active_support/cache/mem_cache_store.rb	/^      def self.build_mem_cache(*addresses)$/;"	F	class:ActiveSupport.Cache.MemCacheStore
+bypass_local_cache	lib/active_support/cache/strategy/local_cache.rb	/^          def bypass_local_cache$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+bytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def bytes$/;"	f	class:Numeric
+call	lib/active_support/cache/strategy/local_cache.rb	/^          def call(env)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.Middleware
+call	lib/active_support/core_ext/logger.rb	/^    def call(severity, timestamp, progname, msg)$/;"	f	class:Logger.SimpleFormatter
+call	lib/active_support/logger.rb	/^      def call(severity, timestamp, progname, msg)$/;"	f	class:ActiveSupport.Logger.SimpleFormatter
+call	lib/active_support/tagged_logging.rb	/^      def call(severity, timestamp, progname, msg)$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+camelize	lib/active_support/core_ext/string/inflections.rb	/^  def camelize(first_letter = :upper)$/;"	f	class:String
+camelize	lib/active_support/inflector/methods.rb	/^    def camelize(term, uppercase_first_letter = true)$/;"	f	class:ActiveSupport.Inflector
+capitalize	lib/active_support/multibyte/chars.rb	/^      def capitalize$/;"	f	class:ActiveSupport.Multibyte.Chars
+capture	lib/active_support/core_ext/kernel/reporting.rb	/^  def capture(stream)$/;"	f	class:Kernel
+cast_backend_name_to_module	lib/active_support/xml_mini.rb	/^      def cast_backend_name_to_module(name)$/;"	f	class:ActiveSupport.XmlMini
+cattr_accessor	lib/active_support/core_ext/class/attribute_accessors.rb	/^  def cattr_accessor(*syms, &blk)$/;"	f
+cattr_reader	lib/active_support/core_ext/class/attribute_accessors.rb	/^  def cattr_reader(*syms)$/;"	f	class:Class
+cattr_writer	lib/active_support/core_ext/class/attribute_accessors.rb	/^  def cattr_writer(*syms)$/;"	f
+change	lib/active_support/core_ext/date/calculations.rb	/^  def change(options)$/;"	f
+change	lib/active_support/core_ext/date_time/calculations.rb	/^  def change(options)$/;"	f
+change	lib/active_support/core_ext/time/calculations.rb	/^  def change(options)$/;"	f
+characters	lib/active_support/xml_mini/nokogirisax.rb	/^      def characters(string)$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+chars	lib/active_support/multibyte/chars.rb	/^        def chars(string) #:nodoc:$/;"	f	class:ActiveSupport.Multibyte
+check_for_circular_references	lib/active_support/json/encoding.rb	/^          def check_for_circular_references(value)$/;"	f	class:JSON.Encoding.Encoder
+civil_from_format	lib/active_support/core_ext/date_time/conversions.rb	/^  def self.civil_from_format(utc_or_local, year, month=1, day=1, hour=0, min=0, sec=0)$/;"	F	class:DateTime
+class	lib/active_support/deprecation/proxy_wrappers.rb	/^      def class$/;"	f	class:ActiveSupport.Deprecation.DeprecatedConstantProxy
+class_attribute	lib/active_support/core_ext/class/attribute.rb	/^  def class_attribute(*attrs)$/;"	f	class:Class
+class_eval	lib/active_support/core_ext/kernel/singleton_class.rb	/^  def class_eval(*args, &block)$/;"	f	class:Kernel
+classify	lib/active_support/core_ext/string/inflections.rb	/^  def classify$/;"	f	class:String
+classify	lib/active_support/inflector/methods.rb	/^    def classify(table_name)$/;"	f	class:ActiveSupport.Inflector
+clean	lib/active_support/backtrace_cleaner.rb	/^    def clean(backtrace, kind = :silent)$/;"	f	class:ActiveSupport.BacktraceCleaner
+cleanup	lib/active_support/cache.rb	/^      def cleanup(options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+cleanup	lib/active_support/cache/file_store.rb	/^      def cleanup(options = nil)$/;"	f	class:ActiveSupport.Cache.FileStore
+cleanup	lib/active_support/cache/memory_store.rb	/^      def cleanup(options = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+cleanup	lib/active_support/cache/null_store.rb	/^      def cleanup(options = nil)$/;"	f	class:ActiveSupport.Cache.NullStore
+cleanup	lib/active_support/cache/strategy/local_cache.rb	/^        def cleanup(options = nil) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+clear	lib/active_support/cache.rb	/^      def clear(options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+clear	lib/active_support/cache/file_store.rb	/^      def clear(options = nil)$/;"	f	class:ActiveSupport.Cache.FileStore
+clear	lib/active_support/cache/mem_cache_store.rb	/^      def clear(options = nil)$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+clear	lib/active_support/cache/memory_store.rb	/^      def clear(options = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+clear	lib/active_support/cache/null_store.rb	/^      def clear(options = nil)$/;"	f	class:ActiveSupport.Cache.NullStore
+clear	lib/active_support/cache/strategy/local_cache.rb	/^          def clear(options = nil)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.LocalStore
+clear	lib/active_support/cache/strategy/local_cache.rb	/^        def clear(options = nil) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+clear	lib/active_support/dependencies.rb	/^    def clear$/;"	f	class:ActiveSupport.Dependencies
+clear	lib/active_support/descendants_tracker.rb	/^      def clear$/;"	f	class:ActiveSupport.DescendantsTracker
+clear	lib/active_support/inflector/inflections.rb	/^      def clear(scope = :all)$/;"	f	class:ActiveSupport.Inflector.Inflections
+clear!	lib/active_support/dependencies.rb	/^      def clear!$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+clear_tags!	lib/active_support/tagged_logging.rb	/^      def clear_tags!$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+clone	lib/active_support/callbacks.rb	/^      def clone(chain, klass)$/;"	f	class:ActiveSupport.Callbacks.Callback
+clone_empty	lib/active_support/core_ext/string/output_safety.rb	/^    def clone_empty$/;"	f	class:ActiveSupport.SafeBuffer
+close	lib/active_support/gzip.rb	/^      def close; rewind; end$/;"	f	class:ActiveSupport.Gzip.Stream
+codepoints_to_pattern	lib/active_support/multibyte/unicode.rb	/^      def self.codepoints_to_pattern(array_of_codepoints) #:nodoc:$/;"	F	class:ActiveSupport.Multibyte.Unicode
+collapse	lib/active_support/xml_mini/jdom.rb	/^    def collapse(element)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+collapse	lib/active_support/xml_mini/rexml.rb	/^      def collapse(element)$/;"	f	class:ActiveSupport.XmlMini_REXML
+collect_deprecations	lib/active_support/testing/deprecation.rb	/^        def collect_deprecations$/;"	f	class:ActiveSupport.Testing.Deprecation
+color	lib/active_support/log_subscriber.rb	/^    def color(text, color, bold=false)$/;"	f
+compare_with_coercion	lib/active_support/core_ext/time/calculations.rb	/^  def compare_with_coercion(other)$/;"	f
+compile	lib/active_support/callbacks.rb	/^      def compile$/;"	f	class:CallbackChain
+compile_ext	lib/active_support/file_update_checker.rb	/^    def compile_ext(array)$/;"	f	class:ActiveSupport.FileUpdateChecker
+compile_glob	lib/active_support/file_update_checker.rb	/^    def compile_glob(hash)$/;"	f	class:ActiveSupport.FileUpdateChecker
+compile_methods	lib/active_support/configurable.rb	/^      def self.compile_methods!(keys)$/;"	F	class:ActiveSupport.Configurable.Configuration
+compile_methods!	lib/active_support/configurable.rb	/^      def compile_methods!$/;"	f	class:ActiveSupport.Configurable.Configuration
+compose	lib/active_support/multibyte/chars.rb	/^      def compose$/;"	f	class:ActiveSupport.Multibyte.Chars
+compose	lib/active_support/multibyte/unicode.rb	/^      def compose(codepoints)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters
+compress	lib/active_support/cache.rb	/^        def compress(value)$/;"	f	class:ActiveSupport.Cache.Entry
+compress	lib/active_support/gzip.rb	/^    def self.compress(source)$/;"	F	class:ActiveSupport.Gzip
+compressed?	lib/active_support/cache.rb	/^        def compressed?$/;"	f	class:ActiveSupport.Cache.Entry
+concat	lib/active_support/core_ext/string/output_safety.rb	/^    def concat(value)$/;"	f	class:ActiveSupport.SafeBuffer
+config	lib/active_support/configurable.rb	/^      def config$/;"	f	class:ActiveSupport.Configurable.ClassMethods
+config	lib/active_support/configurable.rb	/^    def config$/;"	f	class:ActiveSupport
+config_accessor	lib/active_support/configurable.rb	/^      def config_accessor(*names)$/;"	f	class:ActiveSupport.Configurable
+configure	lib/active_support/configurable.rb	/^      def configure$/;"	f	class:ActiveSupport.Configurable
+const_missing	lib/active_support/dependencies.rb	/^      def const_missing(const_name)$/;"	f	class:ActiveSupport.Dependencies.ModuleConstMissing
+const_regexp	lib/active_support/inflector/methods.rb	/^    def const_regexp(camel_cased_word) #:nodoc:$/;"	f	class:ActiveSupport.Inflector
+constantize	lib/active_support/core_ext/string/inflections.rb	/^  def constantize$/;"	f	class:String
+constantize	lib/active_support/dependencies.rb	/^    def constantize(name)$/;"	f	class:ActiveSupport.Dependencies
+constantize	lib/active_support/inflector/methods.rb	/^    def constantize(camel_cased_word)$/;"	f	class:ActiveSupport.Inflector
+consume	lib/active_support/queueing.rb	/^    def consume$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+consumer	lib/active_support/queueing.rb	/^    def consumer$/;"	f	class:ActiveSupport.Queue
+consumes	lib/active_support/multibyte/chars.rb	/^      def self.consumes?(string)$/;"	F	class:ActiveSupport.Multibyte.Chars
+content_type	lib/active_support/xml_mini.rb	/^      def content_type$/;"	f	class:ActiveSupport.XmlMini.FileLike
+convert_dates_from	lib/active_support/json/decoding.rb	/^      def convert_dates_from(data)$/;"	f	class:ActiveSupport.JSON
+convert_key	lib/active_support/hash_with_indifferent_access.rb	/^      def convert_key(key)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+convert_value	lib/active_support/hash_with_indifferent_access.rb	/^      def convert_value(value)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+convert_version_3_entry!	lib/active_support/cache.rb	/^        def convert_version_3_entry!$/;"	f	class:ActiveSupport.Cache.Entry
+copy_blame!	lib/active_support/dependencies.rb	/^      def copy_blame!(exc)$/;"	f	class:ActiveSupport.Dependencies.Blamable
+create_path_and_open_file	lib/active_support/testing/performance/rubinius.rb	/^          def create_path_and_open_file(printer_name)$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+current	lib/active_support/core_ext/date/calculations.rb	/^    def current$/;"	f	class:Date
+current	lib/active_support/core_ext/date_time/calculations.rb	/^    def current$/;"	f	class:DateTime
+current	lib/active_support/core_ext/time/calculations.rb	/^    def current$/;"	f	class:Time
+current_hash	lib/active_support/xml_mini/libxmlsax.rb	/^      def current_hash$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX.HashBuilder
+current_hash	lib/active_support/xml_mini/nokogirisax.rb	/^      def current_hash$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+current_tags	lib/active_support/tagged_logging.rb	/^      def current_tags$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+current_thread_backend	lib/active_support/xml_mini.rb	/^      def current_thread_backend$/;"	f	class:ActiveSupport.XmlMini
+current_thread_backend=	lib/active_support/xml_mini.rb	/^      def current_thread_backend=(name)$/;"	f	class:ActiveSupport.XmlMini
+dasherize	lib/active_support/core_ext/string/inflections.rb	/^  def dasherize$/;"	f	class:String
+dasherize	lib/active_support/inflector/methods.rb	/^    def dasherize(underscored_word)$/;"	f	class:ActiveSupport.Inflector
+database	lib/active_support/multibyte/unicode.rb	/^      def database$/;"	f	class:ActiveSupport.Multibyte.Unicode.apply_mapping
+datetime_format	lib/active_support/core_ext/logger.rb	/^  def datetime_format$/;"	f	class:Logger
+datetime_format=	lib/active_support/core_ext/logger.rb	/^  def datetime_format=(format)$/;"	f	class:Logger
+days	lib/active_support/core_ext/numeric/time.rb	/^  def days$/;"	f	class:Numeric
+days_ago	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def days_ago(days)$/;"	f	class:DateAndTime.Calculations
+days_in_month	lib/active_support/core_ext/time/calculations.rb	/^    def days_in_month(month, year = now.year)$/;"	f	class:Time
+days_since	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def days_since(days)$/;"	f	class:DateAndTime.Calculations
+days_span	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def days_span(day)$/;"	f	class:DateAndTime.Calculations
+days_to_week_start	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def days_to_week_start(start_day = Date.beginning_of_week)$/;"	f	class:DateAndTime.Calculations
+debugger	lib/active_support/core_ext/kernel/debugger.rb	/^    def debugger$/;"	f	class:Kernel
+decode	lib/active_support/json/decoding.rb	/^      def decode(json, options ={})$/;"	f	class:ActiveSupport.JSON
+decompose	lib/active_support/multibyte/chars.rb	/^      def decompose$/;"	f	class:ActiveSupport.Multibyte.Chars
+decompose	lib/active_support/multibyte/unicode.rb	/^      def decompose(type, codepoints)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters
+decompress	lib/active_support/gzip.rb	/^    def self.decompress(source)$/;"	F	class:ActiveSupport.Gzip
+deconstantize	lib/active_support/core_ext/string/inflections.rb	/^  def deconstantize$/;"	f	class:String
+deconstantize	lib/active_support/inflector/methods.rb	/^    def deconstantize(path)$/;"	f	class:ActiveSupport.Inflector
+decrement	lib/active_support/cache.rb	/^      def decrement(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+decrement	lib/active_support/cache/file_store.rb	/^      def decrement(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.FileStore
+decrement	lib/active_support/cache/mem_cache_store.rb	/^      def decrement(name, amount = 1, options = nil) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+decrement	lib/active_support/cache/memory_store.rb	/^      def decrement(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+decrement	lib/active_support/cache/null_store.rb	/^      def decrement(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.NullStore
+decrement	lib/active_support/cache/strategy/local_cache.rb	/^        def decrement(name, amount = 1, options = nil) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+decrypt_and_verify	lib/active_support/message_encryptor.rb	/^    def decrypt_and_verify(value)$/;"	f	class:ActiveSupport.MessageEncryptor
+deep_dup	lib/active_support/core_ext/object/deep_dup.rb	/^  def deep_dup$/;"	f	class:Array
+deep_dup	lib/active_support/core_ext/object/deep_dup.rb	/^  def deep_dup$/;"	f	class:Hash
+deep_dup	lib/active_support/core_ext/object/deep_dup.rb	/^  def deep_dup$/;"	f	class:Object
+deep_merge	lib/active_support/core_ext/hash/deep_merge.rb	/^  def deep_merge(other_hash, &block)$/;"	f	class:Hash
+deep_merge!	lib/active_support/core_ext/hash/deep_merge.rb	/^  def deep_merge!(other_hash, &block)$/;"	f	class:Hash
+deep_stringify_keys	lib/active_support/core_ext/hash/keys.rb	/^  def deep_stringify_keys$/;"	f	class:Hash
+deep_stringify_keys	lib/active_support/hash_with_indifferent_access.rb	/^    def deep_stringify_keys; dup end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+deep_stringify_keys!	lib/active_support/core_ext/hash/keys.rb	/^  def deep_stringify_keys!$/;"	f	class:Hash
+deep_stringify_keys!	lib/active_support/hash_with_indifferent_access.rb	/^    def deep_stringify_keys!; self end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+deep_symbolize_keys	lib/active_support/core_ext/hash/keys.rb	/^  def deep_symbolize_keys$/;"	f	class:Hash
+deep_symbolize_keys	lib/active_support/hash_with_indifferent_access.rb	/^    def deep_symbolize_keys; to_hash.deep_symbolize_keys end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+deep_symbolize_keys!	lib/active_support/core_ext/hash/keys.rb	/^  def deep_symbolize_keys!$/;"	f	class:Hash
+deep_transform_keys	lib/active_support/core_ext/hash/keys.rb	/^  def deep_transform_keys(&block)$/;"	f	class:Hash
+deep_transform_keys!	lib/active_support/core_ext/hash/keys.rb	/^  def deep_transform_keys!(&block)$/;"	f	class:Hash
+default	lib/active_support/hash_with_indifferent_access.rb	/^    def default(key = nil)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+default_format_options	lib/active_support/number_helper.rb	/^    def default_format_options(namespace = nil) #:nodoc:$/;"	f	class:ActiveSupport
+define_around_helper	lib/active_support/core_ext/logger.rb	/^  def self.define_around_helper(level)$/;"	F	class:Logger
+define_callbacks	lib/active_support/callbacks.rb	/^      def define_callbacks(*callbacks)$/;"	f	class:ClassMethods
+define_conditional_callback	lib/active_support/callbacks.rb	/^      def define_conditional_callback$/;"	f	class:ActiveSupport.Callbacks
+delegate	lib/active_support/core_ext/module/delegation.rb	/^  def delegate(*methods)$/;"	f	class:Module
+delete	lib/active_support/cache.rb	/^      def delete(name, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+delete	lib/active_support/hash_with_indifferent_access.rb	/^    def delete(key)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+delete_empty	lib/active_support/xml_mini/jdom.rb	/^    def delete_empty(hash)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+delete_empty_directories	lib/active_support/cache/file_store.rb	/^        def delete_empty_directories(dir)$/;"	f	class:ActiveSupport.Cache.FileStore
+delete_entry	lib/active_support/cache.rb	/^        def delete_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Store
+delete_entry	lib/active_support/cache/file_store.rb	/^        def delete_entry(key, options)$/;"	f	class:ActiveSupport.Cache.FileStore
+delete_entry	lib/active_support/cache/mem_cache_store.rb	/^        def delete_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+delete_entry	lib/active_support/cache/memory_store.rb	/^        def delete_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemoryStore
+delete_entry	lib/active_support/cache/null_store.rb	/^        def delete_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.NullStore
+delete_entry	lib/active_support/cache/strategy/local_cache.rb	/^          def delete_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+delete_entry	lib/active_support/cache/strategy/local_cache.rb	/^          def delete_entry(key, options)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.LocalStore
+delete_matched	lib/active_support/cache.rb	/^      def delete_matched(matcher, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+delete_matched	lib/active_support/cache/file_store.rb	/^      def delete_matched(matcher, options = nil)$/;"	f	class:ActiveSupport.Cache.FileStore
+delete_matched	lib/active_support/cache/memory_store.rb	/^      def delete_matched(matcher, options = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+delete_matched	lib/active_support/cache/null_store.rb	/^      def delete_matched(matcher, options = nil)$/;"	f	class:ActiveSupport.Cache.NullStore
+demodulize	lib/active_support/core_ext/string/inflections.rb	/^  def demodulize$/;"	f	class:String
+demodulize	lib/active_support/inflector/methods.rb	/^    def demodulize(path)$/;"	f	class:ActiveSupport.Inflector
+depend_on	lib/active_support/dependencies.rb	/^    def depend_on(file_name, message = "No such file to load -- %s.rb")$/;"	f	class:ActiveSupport.Dependencies
+deprecate	lib/active_support/core_ext/module/deprecation.rb	/^  def deprecate(*method_names)$/;"	f	class:Module
+deprecate_methods	lib/active_support/deprecation/method_wrappers.rb	/^      def deprecate_methods(target_module, *method_names)$/;"	f	class:ActiveSupport.Deprecation.MethodWrapper
+deprecate_per_key_option	lib/active_support/callbacks.rb	/^      def deprecate_per_key_option(options)$/;"	f	class:ActiveSupport.Callbacks.Callback
+deprecated_method_warning	lib/active_support/deprecation/reporting.rb	/^        def deprecated_method_warning(method_name, message = nil)$/;"	f	class:ActiveSupport.Deprecation.Reporting
+deprecation_caller_message	lib/active_support/deprecation/reporting.rb	/^        def deprecation_caller_message(callstack)$/;"	f	class:ActiveSupport.Deprecation.Reporting
+deprecation_message	lib/active_support/deprecation/reporting.rb	/^        def deprecation_message(callstack, message = nil)$/;"	f	class:ActiveSupport.Deprecation.Reporting
+deprecation_warning	lib/active_support/deprecation/reporting.rb	/^      def deprecation_warning(deprecated_method_name, message = nil, caller_backtrace = nil)$/;"	f	class:ActiveSupport.Deprecation.Reporting
+descendants	lib/active_support/core_ext/class/subclasses.rb	/^    def descendants # :nodoc:$/;"	f	class:Class
+descendants	lib/active_support/descendants_tracker.rb	/^      def descendants(klass)$/;"	f	class:ActiveSupport.DescendantsTracker
+descendants	lib/active_support/descendants_tracker.rb	/^    def descendants$/;"	f	class:ActiveSupport
+describe	lib/active_support/test_case.rb	/^    def self.describe(text)$/;"	F	class:ActiveSupport.TestCase
+describe_blame	lib/active_support/dependencies.rb	/^      def describe_blame$/;"	f	class:ActiveSupport.Dependencies.Blamable
+deserialize_entry	lib/active_support/cache/mem_cache_store.rb	/^        def deserialize_entry(raw_value)$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+determine_constant_from_test_name	lib/active_support/testing/constant_lookup.rb	/^        def determine_constant_from_test_name(test_name)$/;"	f	class:ActiveSupport.Testing.ConstantLookup.ClassMethods
+diff	lib/active_support/core_ext/hash/diff.rb	/^  def diff(other)$/;"	f	class:Hash
+direct_descendants	lib/active_support/descendants_tracker.rb	/^      def direct_descendants(klass)$/;"	f	class:ActiveSupport.DescendantsTracker
+direct_descendants	lib/active_support/descendants_tracker.rb	/^    def direct_descendants$/;"	f	class:ActiveSupport
+dirname	lib/active_support/multibyte/unicode.rb	/^        def self.dirname$/;"	F	class:ActiveSupport.Multibyte.Unicode.reorder_characters
+downcase	lib/active_support/multibyte/chars.rb	/^      def downcase$/;"	f	class:ActiveSupport.Multibyte.Chars
+downcase	lib/active_support/multibyte/unicode.rb	/^      def downcase(string)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize
+drain	lib/active_support/queueing.rb	/^    def drain$/;"	f	class:ActiveSupport.Queue
+drain	lib/active_support/queueing.rb	/^    def drain$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+dst?	lib/active_support/time_with_zone.rb	/^    def dst?$/;"	f	class:ActiveSupport.TimeWithZone
+dump	lib/active_support/message_encryptor.rb	/^      def self.dump(value)$/;"	F	class:ActiveSupport.MessageEncryptor.NullSerializer
+dup	lib/active_support/hash_with_indifferent_access.rb	/^    def dup$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+dup_value!	lib/active_support/cache.rb	/^      def dup_value!$/;"	f	class:ActiveSupport.Cache.Entry
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^    def duplicable?$/;"	f	class:BigDecimal
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^  def duplicable?$/;"	f	class:FalseClass
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^  def duplicable?$/;"	f	class:NilClass
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^  def duplicable?$/;"	f	class:Numeric
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^  def duplicable?$/;"	f	class:Object
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^  def duplicable?$/;"	f	class:Symbol
+duplicable?	lib/active_support/core_ext/object/duplicable.rb	/^  def duplicable?$/;"	f	class:TrueClass
+duration	lib/active_support/notifications/instrumenter.rb	/^      def duration$/;"	f	class:ActiveSupport.Notifications.Event
+duration_of_variable_length?	lib/active_support/time_with_zone.rb	/^      def duration_of_variable_length?(obj)$/;"	f
+each	lib/active_support/dependencies.rb	/^      def each(&block)$/;"	f	class:ActiveSupport.Dependencies.WatchStack
+each	lib/active_support/testing/isolation.rb	/^        def each$/;"	f	class:ActiveSupport.Testing.Isolation.ParallelEach
+eager_autoload	lib/active_support/dependencies/autoload.rb	/^    def eager_autoload$/;"	f	class:ActiveSupport.Autoload
+eager_load!	lib/active_support/dependencies/autoload.rb	/^    def eager_load!$/;"	f	class:ActiveSupport.Autoload
+empty?	lib/active_support/dependencies.rb	/^      def empty?$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+empty_content?	lib/active_support/xml_mini/jdom.rb	/^    def empty_content?(element)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+empty_content?	lib/active_support/xml_mini/rexml.rb	/^      def empty_content?(element)$/;"	f	class:ActiveSupport.XmlMini_REXML
+enable_warnings	lib/active_support/core_ext/kernel/reporting.rb	/^  def enable_warnings$/;"	f	class:Kernel
+encode	lib/active_support/json/encoding.rb	/^        def encode(value, use_options = true)$/;"	f	class:JSON.Encoding.Encoder
+encode	lib/active_support/json/encoding.rb	/^    def self.encode(value, options = nil)$/;"	F	class:JSON
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f	class:Array
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f	class:FalseClass
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f	class:NilClass
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f	class:Numeric
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f	class:String
+encode_json	lib/active_support/json/encoding.rb	/^  def encode_json(encoder) #:nodoc:$/;"	f	class:TrueClass
+encode_json	lib/active_support/json/variable.rb	/^      def encode_json(encoder) self end #:nodoc:$/;"	f	class:ActiveSupport.JSON.Variable
+encode_with	lib/active_support/core_ext/big_decimal/conversions.rb	/^  def encode_with(coder)$/;"	f	class:BigDecimal
+encode_with	lib/active_support/core_ext/string/output_safety.rb	/^    def encode_with(coder)$/;"	f	class:ActiveSupport.SafeBuffer
+encode_with	lib/active_support/ordered_hash.rb	/^    def encode_with(coder)$/;"	f	class:ActiveSupport.OrderedHash
+encode_with	lib/active_support/time_with_zone.rb	/^    def encode_with(coder)$/;"	f	class:ActiveSupport
+encoding_aware?	lib/active_support/core_ext/string/encoding.rb	/^  def encoding_aware?$/;"	f	class:String
+encrypt_and_sign	lib/active_support/message_encryptor.rb	/^    def encrypt_and_sign(value)$/;"	f	class:ActiveSupport.MessageEncryptor
+end_document	lib/active_support/xml_mini/nokogirisax.rb	/^      def end_document$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+end_element	lib/active_support/xml_mini/nokogirisax.rb	/^      def end_element(name)$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+end_of_day	lib/active_support/core_ext/date/calculations.rb	/^  def end_of_day$/;"	f
+end_of_day	lib/active_support/core_ext/date_time/calculations.rb	/^  def end_of_day$/;"	f
+end_of_day	lib/active_support/core_ext/time/calculations.rb	/^  def end_of_day$/;"	f
+end_of_hour	lib/active_support/core_ext/date_time/calculations.rb	/^  def end_of_hour$/;"	f
+end_of_hour	lib/active_support/core_ext/time/calculations.rb	/^  def end_of_hour$/;"	f
+end_of_month	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def end_of_month$/;"	f	class:DateAndTime.Calculations
+end_of_quarter	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def end_of_quarter$/;"	f	class:DateAndTime.Calculations
+end_of_week	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def end_of_week(start_day = Date.beginning_of_week)$/;"	f	class:DateAndTime.Calculations
+end_of_year	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def end_of_year$/;"	f	class:DateAndTime.Calculations
+engine	lib/active_support/json/decoding.rb	/^      def engine$/;"	f	class:ActiveSupport.JSON
+engine=	lib/active_support/json/decoding.rb	/^      def engine=(name)$/;"	f	class:ActiveSupport.JSON
+ensure_cache_path	lib/active_support/cache/file_store.rb	/^        def ensure_cache_path(path)$/;"	f	class:ActiveSupport.Cache.FileStore
+ensure_secret_secure	lib/active_support/key_generator.rb	/^    def ensure_secret_secure(secret)$/;"	f	class:ActiveSupport.DummyKeyGenerator
+environment	lib/active_support/testing/performance.rb	/^        def environment$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker
+eql?	lib/active_support/time_with_zone.rb	/^    def eql?(other)$/;"	f	class:ActiveSupport
+eql_with_coercion	lib/active_support/core_ext/time/calculations.rb	/^  def eql_with_coercion(other)$/;"	f
+error	lib/active_support/xml_mini/nokogirisax.rb	/^      def error(error_message)$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+escape	lib/active_support/file_update_checker.rb	/^    def escape(key)$/;"	f	class:ActiveSupport.FileUpdateChecker
+escape	lib/active_support/json/encoding.rb	/^        def escape(string)$/;"	f	class:JSON.Encoding
+escape	lib/active_support/json/encoding.rb	/^        def escape(string)$/;"	f	class:JSON.Encoding.Encoder
+escape_html_entities_in_json=	lib/active_support/json/encoding.rb	/^        def escape_html_entities_in_json=(value)$/;"	f	class:JSON.Encoding
+escape_key	lib/active_support/cache/mem_cache_store.rb	/^        def escape_key(key)$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+event_stack	lib/active_support/log_subscriber.rb	/^    def event_stack$/;"	f
+exabytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def exabytes$/;"	f	class:Numeric
+except	lib/active_support/core_ext/hash/except.rb	/^  def except(*keys)$/;"	f	class:Hash
+except!	lib/active_support/core_ext/hash/except.rb	/^  def except!(*keys)$/;"	f	class:Hash
+exclude?	lib/active_support/core_ext/enumerable.rb	/^  def exclude?(object)$/;"	f	class:Enumerable
+exclude?	lib/active_support/core_ext/string/exclude.rb	/^  def exclude?(string)$/;"	f	class:String
+exclude_from	lib/active_support/dependencies.rb	/^      def self.exclude_from(base)$/;"	F	class:ActiveSupport.Dependencies.Loadable
+exclude_from	lib/active_support/dependencies.rb	/^      def self.exclude_from(base)$/;"	F	class:ActiveSupport.Dependencies.ModuleConstMissing
+execute	lib/active_support/file_update_checker.rb	/^    def execute$/;"	f	class:ActiveSupport.FileUpdateChecker
+execute_hook	lib/active_support/lazy_load_hooks.rb	/^  def self.execute_hook(base, options, block)$/;"	F	class:ActiveSupport
+execute_if_updated	lib/active_support/file_update_checker.rb	/^    def execute_if_updated$/;"	f	class:ActiveSupport.FileUpdateChecker
+exist?	lib/active_support/cache.rb	/^      def exist?(name, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+expand_cache_key	lib/active_support/cache.rb	/^      def expand_cache_key(key, namespace = nil)$/;"	f	class:ActiveSupport.Cache
+expanded_key	lib/active_support/cache.rb	/^        def expanded_key(key) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Store
+expired?	lib/active_support/cache.rb	/^      def expired?$/;"	f	class:ActiveSupport.Cache.Entry
+expires_at	lib/active_support/cache.rb	/^      def expires_at$/;"	f	class:ActiveSupport.Cache.Entry
+expires_at=	lib/active_support/cache.rb	/^      def expires_at=(value)$/;"	f	class:ActiveSupport.Cache.Entry
+extended	lib/active_support/concern.rb	/^    def self.extended(base) #:nodoc:$/;"	F	class:ActiveSupport.Concern
+extended	lib/active_support/dependencies/autoload.rb	/^    def self.extended(base) # :nodoc:$/;"	F	class:ActiveSupport.Autoload
+extract!	lib/active_support/core_ext/hash/slice.rb	/^  def extract!(*keys)$/;"	f	class:Hash
+extract_callstack	lib/active_support/deprecation/reporting.rb	/^        def extract_callstack(callstack)$/;"	f	class:ActiveSupport.Deprecation.Reporting
+extract_options!	lib/active_support/core_ext/array/extract_options.rb	/^  def extract_options!$/;"	f	class:Array
+extractable_options?	lib/active_support/core_ext/array/extract_options.rb	/^  def extractable_options?$/;"	f	class:Hash
+extractable_options?	lib/active_support/hash_with_indifferent_access.rb	/^    def extractable_options?$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+extractable_options?	lib/active_support/ordered_hash.rb	/^    def extractable_options?$/;"	f	class:ActiveSupport.OrderedHash
+fetch	lib/active_support/cache.rb	/^      def fetch(name, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+fetch	lib/active_support/hash_with_indifferent_access.rb	/^    def fetch(key, *extras)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+fifth	lib/active_support/core_ext/array/access.rb	/^  def fifth$/;"	f	class:Array
+file_path_key	lib/active_support/cache/file_store.rb	/^        def file_path_key(path)$/;"	f	class:ActiveSupport.Cache.FileStore
+filename	lib/active_support/multibyte/unicode.rb	/^        def self.filename$/;"	F	class:ActiveSupport.Multibyte.Unicode.reorder_characters
+filter_backtrace	lib/active_support/backtrace_cleaner.rb	/^      def filter_backtrace(backtrace)$/;"	f	class:ActiveSupport.BacktraceCleaner
+find_beginning_of_week!	lib/active_support/core_ext/date/calculations.rb	/^    def find_beginning_of_week!(week_start)$/;"	f	class:Date
+find_tzinfo	lib/active_support/values/time_zone.rb	/^    def self.find_tzinfo(name)$/;"	F	class:ActiveSupport.TimeZone
+find_zone	lib/active_support/core_ext/time/zones.rb	/^    def find_zone(time_zone)$/;"	f	class:Time
+find_zone!	lib/active_support/core_ext/time/zones.rb	/^    def find_zone!(time_zone)$/;"	f	class:Time
+finish	lib/active_support/log_subscriber.rb	/^    def finish(name, id, payload)$/;"	f	class:ActiveSupport
+finish	lib/active_support/notifications/fanout.rb	/^          def finish(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.AllMessages
+finish	lib/active_support/notifications/fanout.rb	/^          def finish(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Evented
+finish	lib/active_support/notifications/fanout.rb	/^          def finish(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Timed
+finish	lib/active_support/notifications/fanout.rb	/^      def finish(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout
+first	lib/active_support/core_ext/string/access.rb	/^  def first(limit = 1)$/;"	f	class:String
+first_hour	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def first_hour$/;"	f	class:DateAndTime.Calculations
+flush	lib/active_support/log_subscriber/test_helper.rb	/^        def flush$/;"	f	class:ActiveSupport.LogSubscriber.TestHelper.MockLogger
+flush	lib/active_support/tagged_logging.rb	/^    def flush$/;"	f	class:ActiveSupport.TaggedLogging
+flush_all!	lib/active_support/log_subscriber.rb	/^      def flush_all!$/;"	f	class:ActiveSupport.LogSubscriber
+for_tag	lib/active_support/test_case.rb	/^    def self.for_tag(tag)$/;"	F	class:ActiveSupport.TestCase
+foreign_key	lib/active_support/core_ext/string/inflections.rb	/^  def foreign_key(separate_class_name_and_id_with_underscore = true)$/;"	f	class:String
+foreign_key	lib/active_support/inflector/methods.rb	/^    def foreign_key(class_name, separate_class_name_and_id_with_underscore = true)$/;"	f	class:ActiveSupport.Inflector
+forking_env	lib/active_support/testing/isolation.rb	/^      def self.forking_env?$/;"	F	class:ActiveSupport.Testing.Isolation
+format	lib/active_support/testing/performance.rb	/^          def format(measurement)$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Amount
+format	lib/active_support/testing/performance.rb	/^          def format(measurement)$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.DigitalInformationUnit
+format	lib/active_support/testing/performance.rb	/^          def format(measurement)$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Time
+format_options	lib/active_support/number_helper.rb	/^    def format_options(locale, namespace = nil) #:nodoc:$/;"	f	class:ActiveSupport
+formatted_offset	lib/active_support/core_ext/date_time/conversions.rb	/^  def formatted_offset(colon = true, alternate_utc_string = nil)$/;"	f	class:DateTime
+formatted_offset	lib/active_support/core_ext/time/conversions.rb	/^  def formatted_offset(colon = true, alternate_utc_string = nil)$/;"	f	class:Time
+formatted_offset	lib/active_support/time_with_zone.rb	/^    def formatted_offset(colon = true, alternate_utc_string = nil)$/;"	f	class:ActiveSupport.TimeWithZone
+formatted_offset	lib/active_support/values/time_zone.rb	/^    def formatted_offset(colon=true, alternate_utc_string = nil)$/;"	f	class:ActiveSupport.TimeZone
+fortnights	lib/active_support/core_ext/numeric/time.rb	/^  def fortnights$/;"	f	class:Numeric
+forty_two	lib/active_support/core_ext/array/access.rb	/^  def forty_two$/;"	f	class:Array
+fourth	lib/active_support/core_ext/array/access.rb	/^  def fourth$/;"	f	class:Array
+freeze	lib/active_support/time_with_zone.rb	/^    def freeze$/;"	f
+from	lib/active_support/core_ext/array/access.rb	/^  def from(position)$/;"	f	class:Array
+from	lib/active_support/core_ext/string/access.rb	/^  def from(position)$/;"	f	class:String
+from_xml	lib/active_support/core_ext/hash/conversions.rb	/^    def from_xml(xml)$/;"	f	class:Hash
+full_profile_options	lib/active_support/testing/performance.rb	/^      def full_profile_options$/;"	f	class:ActiveSupport.Testing.Performance
+full_test_name	lib/active_support/testing/performance.rb	/^      def full_test_name$/;"	f	class:ActiveSupport.Testing.Performance
+future?	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def future?$/;"	f	class:DateAndTime.Calculations
+future?	lib/active_support/core_ext/date_time/calculations.rb	/^  def future?$/;"	f
+future?	lib/active_support/time_with_zone.rb	/^    def future?$/;"	f	class:ActiveSupport
+generate	lib/active_support/message_verifier.rb	/^    def generate(value)$/;"	f	class:ActiveSupport.MessageVerifier
+generate_digest	lib/active_support/message_verifier.rb	/^      def generate_digest(data)$/;"	f	class:ActiveSupport.MessageVerifier
+generate_key	lib/active_support/key_generator.rb	/^    def generate_key(salt)$/;"	f	class:ActiveSupport.DummyKeyGenerator
+generate_key	lib/active_support/key_generator.rb	/^    def generate_key(salt, key_size=64)$/;"	f	class:ActiveSupport.CachingKeyGenerator
+generate_key	lib/active_support/key_generator.rb	/^    def generate_key(salt, key_size=64)$/;"	f	class:ActiveSupport.KeyGenerator
+get	lib/active_support/dependencies.rb	/^      def get(key)$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+get_attributes	lib/active_support/xml_mini/jdom.rb	/^    def get_attributes(element)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+get_attributes	lib/active_support/xml_mini/rexml.rb	/^      def get_attributes(element)$/;"	f	class:ActiveSupport.XmlMini_REXML
+get_period_and_ensure_valid_local_time	lib/active_support/time_with_zone.rb	/^      def get_period_and_ensure_valid_local_time$/;"	f
+gigabytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def gigabytes$/;"	f	class:Numeric
+grapheme_length	lib/active_support/multibyte/chars.rb	/^      def grapheme_length$/;"	f	class:ActiveSupport.Multibyte.Chars
+grep	lib/active_support/testing/isolation.rb	/^        def grep pattern$/;"	f	class:ActiveSupport.Testing.Isolation.ParallelEach
+halted_callback_hook	lib/active_support/callbacks.rb	/^    def halted_callback_hook(filter)$/;"	f	class:ActiveSupport.Callbacks
+handle_exception	lib/active_support/queueing.rb	/^    def handle_exception(job, exception)$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+handler_for_rescue	lib/active_support/rescuable.rb	/^    def handler_for_rescue(exception)$/;"	f	class:ActiveSupport
+hash	lib/active_support/time_with_zone.rb	/^    def hash$/;"	f	class:ActiveSupport
+hook!	lib/active_support/dependencies.rb	/^    def hook!$/;"	f	class:ActiveSupport.Dependencies
+hours	lib/active_support/core_ext/numeric/time.rb	/^  def hours$/;"	f	class:Numeric
+html_escape	lib/active_support/core_ext/string/output_safety.rb	/^    def html_escape(s)$/;"	f	class:ERB.Util
+html_escape_once	lib/active_support/core_ext/string/output_safety.rb	/^    def html_escape_once(s)$/;"	f	class:ERB.Util
+html_safe	lib/active_support/core_ext/string/output_safety.rb	/^  def html_safe$/;"	f	class:String
+html_safe?	lib/active_support/core_ext/string/output_safety.rb	/^    def html_safe?$/;"	f	class:ActiveSupport.SafeBuffer
+html_safe?	lib/active_support/core_ext/string/output_safety.rb	/^  def html_safe?$/;"	f	class:Numeric
+html_safe?	lib/active_support/core_ext/string/output_safety.rb	/^  def html_safe?$/;"	f	class:Object
+httpdate	lib/active_support/time_with_zone.rb	/^    def httpdate$/;"	f	class:ActiveSupport
+human	lib/active_support/inflector/inflections.rb	/^      def human(rule, replacement)$/;"	f	class:ActiveSupport.Inflector.Inflections
+humanize	lib/active_support/core_ext/string/inflections.rb	/^  def humanize$/;"	f	class:String
+humanize	lib/active_support/inflector/methods.rb	/^    def humanize(lower_case_and_underscored_word)$/;"	f	class:ActiveSupport.Inflector
+i18n_format_options	lib/active_support/number_helper.rb	/^    def i18n_format_options(locale, namespace = nil) #:nodoc:$/;"	f	class:ActiveSupport
+in?	lib/active_support/core_ext/object/inclusion.rb	/^  def in?(*args)$/;"	f	class:Object
+in_char_class?	lib/active_support/multibyte/unicode.rb	/^      def in_char_class?(codepoint, classes)$/;"	f	class:ActiveSupport.Multibyte.Unicode
+in_groups	lib/active_support/core_ext/array/grouping.rb	/^  def in_groups(number, fill_with = nil)$/;"	f	class:Array
+in_groups_of	lib/active_support/core_ext/array/grouping.rb	/^  def in_groups_of(number, fill_with = nil)$/;"	f	class:Array
+in_time_zone	lib/active_support/core_ext/date_time/zones.rb	/^  def in_time_zone(zone = ::Time.zone)$/;"	f	class:DateTime
+in_time_zone	lib/active_support/core_ext/time/zones.rb	/^  def in_time_zone(zone = ::Time.zone)$/;"	f
+in_time_zone	lib/active_support/time_with_zone.rb	/^    def in_time_zone(new_zone = ::Time.zone)$/;"	f	class:ActiveSupport.TimeWithZone
+include	lib/active_support/deprecation/instance_delegator.rb	/^        def include(included_module)$/;"	f	class:ActiveSupport.Deprecation.InstanceDelegator.ClassMethods
+include_fallbacks_module	lib/active_support/i18n_railtie.rb	/^    def self.include_fallbacks_module$/;"	F	class:I18n.Railtie
+include_with_range?	lib/active_support/core_ext/range/include_range.rb	/^  def include_with_range?(value)$/;"	f	class:Range
+included	lib/active_support/concern.rb	/^    def included(base = nil, &block)$/;"	f	class:ActiveSupport.Concern
+included	lib/active_support/deprecation/instance_delegator.rb	/^      def self.included(base)$/;"	F	class:ActiveSupport.Deprecation.InstanceDelegator
+included	lib/active_support/testing/isolation.rb	/^      def self.included(klass) #:nodoc:$/;"	F	class:ActiveSupport.Testing.Isolation
+increment	lib/active_support/cache.rb	/^      def increment(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+increment	lib/active_support/cache/file_store.rb	/^      def increment(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.FileStore
+increment	lib/active_support/cache/mem_cache_store.rb	/^      def increment(name, amount = 1, options = nil) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+increment	lib/active_support/cache/memory_store.rb	/^      def increment(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+increment	lib/active_support/cache/null_store.rb	/^      def increment(name, amount = 1, options = nil)$/;"	f	class:ActiveSupport.Cache.NullStore
+increment	lib/active_support/cache/strategy/local_cache.rb	/^        def increment(name, amount = 1, options = nil) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+indent	lib/active_support/core_ext/string/indent.rb	/^  def indent(amount, indent_string=nil, indent_empty_lines=false)$/;"	f	class:String
+indent!	lib/active_support/core_ext/string/indent.rb	/^  def indent!(amount, indent_string=nil, indent_empty_lines=false)$/;"	f	class:String
+index_by	lib/active_support/core_ext/enumerable.rb	/^  def index_by$/;"	f	class:Enumerable
+inflections	lib/active_support/inflector/inflections.rb	/^    def inflections(locale = :en)$/;"	f	class:ActiveSupport.Inflector
+inheritable_copy	lib/active_support/ordered_options.rb	/^    def inheritable_copy$/;"	f	class:ActiveSupport.InheritableOptions
+inherited	lib/active_support/descendants_tracker.rb	/^    def inherited(base)$/;"	f	class:ActiveSupport
+init_fallbacks	lib/active_support/i18n_railtie.rb	/^    def self.init_fallbacks(fallbacks)$/;"	F	class:I18n.Railtie
+initialize	lib/active_support/backtrace_cleaner.rb	/^    def initialize$/;"	f	class:ActiveSupport.BacktraceCleaner
+initialize	lib/active_support/cache.rb	/^      def initialize(options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+initialize	lib/active_support/cache.rb	/^      def initialize(value, options = {})$/;"	f	class:ActiveSupport.Cache.Entry
+initialize	lib/active_support/cache/file_store.rb	/^      def initialize(cache_path, options = nil)$/;"	f	class:ActiveSupport.Cache.FileStore
+initialize	lib/active_support/cache/mem_cache_store.rb	/^      def initialize(*addresses)$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+initialize	lib/active_support/cache/memory_store.rb	/^      def initialize(options = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+initialize	lib/active_support/cache/null_store.rb	/^      def initialize(options = nil)$/;"	f	class:ActiveSupport.Cache.NullStore
+initialize	lib/active_support/cache/strategy/local_cache.rb	/^          def initialize$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.LocalStore
+initialize	lib/active_support/cache/strategy/local_cache.rb	/^          def initialize(name, thread_local_key)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.Middleware
+initialize	lib/active_support/callbacks.rb	/^      def initialize(chain, filter, kind, options, klass)$/;"	f	class:ActiveSupport.Callbacks.Callback
+initialize	lib/active_support/callbacks.rb	/^      def initialize(name, config)$/;"	f	class:CallbackChain
+initialize	lib/active_support/concurrency/latch.rb	/^      def initialize(count = 1)$/;"	f	class:ActiveSupport.Concurrency.Latch
+initialize	lib/active_support/core_ext/logger.rb	/^  def initialize(*args)$/;"	f	class:Logger
+initialize	lib/active_support/core_ext/string/output_safety.rb	/^      def initialize$/;"	f	class:ActiveSupport.SafeBuffer.SafeConcatError
+initialize	lib/active_support/core_ext/string/output_safety.rb	/^    def initialize(*)$/;"	f	class:ActiveSupport.SafeBuffer
+initialize	lib/active_support/dependencies.rb	/^      def initialize$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+initialize	lib/active_support/dependencies.rb	/^      def initialize$/;"	f	class:ActiveSupport.Dependencies.WatchStack
+initialize	lib/active_support/deprecation.rb	/^    def initialize(deprecation_horizon = '4.1', gem_name = 'Rails')$/;"	f	class:ActiveSupport.Deprecation
+initialize	lib/active_support/deprecation/proxy_wrappers.rb	/^      def initialize(instance, method, var = "@#{method}", deprecator = ActiveSupport::Deprecation.instance)$/;"	f	class:ActiveSupport.Deprecation.DeprecatedInstanceVariableProxy
+initialize	lib/active_support/deprecation/proxy_wrappers.rb	/^      def initialize(object, message, deprecator = ActiveSupport::Deprecation.instance)$/;"	f	class:ActiveSupport.Deprecation.DeprecatedObjectProxy
+initialize	lib/active_support/deprecation/proxy_wrappers.rb	/^      def initialize(old_const, new_const, deprecator = ActiveSupport::Deprecation.instance)$/;"	f	class:ActiveSupport.Deprecation.DeprecatedConstantProxy
+initialize	lib/active_support/duration.rb	/^    def initialize(value, parts) #:nodoc:$/;"	f	class:ActiveSupport.Duration
+initialize	lib/active_support/file_update_checker.rb	/^    def initialize(files, dirs={}, &block)$/;"	f	class:ActiveSupport.FileUpdateChecker
+initialize	lib/active_support/file_watcher.rb	/^      def initialize(path, watcher)$/;"	f	class:ActiveSupport.FileWatcher.Backend
+initialize	lib/active_support/file_watcher.rb	/^    def initialize$/;"	f	class:ActiveSupport.FileWatcher
+initialize	lib/active_support/gzip.rb	/^      def initialize(*)$/;"	f	class:ActiveSupport.Gzip.Stream
+initialize	lib/active_support/hash_with_indifferent_access.rb	/^    def initialize(constructor = {})$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+initialize	lib/active_support/inflector/inflections.rb	/^      def initialize$/;"	f	class:ActiveSupport.Inflector.Inflections
+initialize	lib/active_support/json/encoding.rb	/^        def initialize(options = nil)$/;"	f	class:JSON.Encoding.Encoder
+initialize	lib/active_support/json/variable.rb	/^      def initialize(*args)$/;"	f	class:ActiveSupport.JSON.Variable
+initialize	lib/active_support/key_generator.rb	/^    def initialize(key_generator)$/;"	f	class:ActiveSupport.CachingKeyGenerator
+initialize	lib/active_support/key_generator.rb	/^    def initialize(secret)$/;"	f	class:ActiveSupport.DummyKeyGenerator
+initialize	lib/active_support/key_generator.rb	/^    def initialize(secret, options = {})$/;"	f	class:ActiveSupport.KeyGenerator
+initialize	lib/active_support/log_subscriber.rb	/^    def initialize$/;"	f	class:ActiveSupport
+initialize	lib/active_support/log_subscriber/test_helper.rb	/^        def initialize(level = DEBUG)$/;"	f	class:ActiveSupport.LogSubscriber.TestHelper.MockLogger
+initialize	lib/active_support/logger.rb	/^    def initialize(*args)$/;"	f	class:ActiveSupport.Logger
+initialize	lib/active_support/message_encryptor.rb	/^    def initialize(secret, *signature_key_or_options)$/;"	f	class:ActiveSupport.MessageEncryptor
+initialize	lib/active_support/message_verifier.rb	/^    def initialize(secret, options = {})$/;"	f	class:ActiveSupport.MessageVerifier
+initialize	lib/active_support/multibyte/chars.rb	/^      def initialize(string)$/;"	f	class:ActiveSupport.Multibyte.Chars
+initialize	lib/active_support/multibyte/unicode.rb	/^        def initialize$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize.UnicodeDatabase
+initialize	lib/active_support/notifications/fanout.rb	/^          def initialize(delegate)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.AllMessages
+initialize	lib/active_support/notifications/fanout.rb	/^          def initialize(pattern, delegate)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Evented
+initialize	lib/active_support/notifications/fanout.rb	/^          def initialize(pattern, delegate)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Timed
+initialize	lib/active_support/notifications/fanout.rb	/^      def initialize$/;"	f	class:ActiveSupport.Notifications.Fanout
+initialize	lib/active_support/notifications/instrumenter.rb	/^      def initialize(name, start, ending, transaction_id, payload)$/;"	f	class:ActiveSupport.Notifications.Event
+initialize	lib/active_support/notifications/instrumenter.rb	/^      def initialize(notifier)$/;"	f	class:ActiveSupport.Notifications.Instrumenter
+initialize	lib/active_support/option_merger.rb	/^    def initialize(context, options)$/;"	f	class:ActiveSupport.OptionMerger
+initialize	lib/active_support/ordered_options.rb	/^    def initialize(parent = nil)$/;"	f	class:ActiveSupport.InheritableOptions
+initialize	lib/active_support/queueing.rb	/^    def initialize(consumer_options = {})$/;"	f	class:ActiveSupport.Queue
+initialize	lib/active_support/queueing.rb	/^    def initialize(queue, options = {})$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+initialize	lib/active_support/testing/isolation.rb	/^        def initialize list$/;"	f	class:ActiveSupport.Testing.Isolation.ParallelEach
+initialize	lib/active_support/testing/isolation.rb	/^      def initialize$/;"	f	class:ActiveSupport.Testing.ProxyTestResult
+initialize	lib/active_support/testing/isolation.rb	/^      def initialize(exception)$/;"	f	class:ActiveSupport.Testing.RemoteError
+initialize	lib/active_support/testing/performance.rb	/^          def initialize$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Base
+initialize	lib/active_support/testing/performance.rb	/^        def initialize(*args)$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker
+initialize	lib/active_support/testing/performance.rb	/^        def initialize(harness, metric)$/;"	f	class:ActiveSupport.Testing.Performance.Performer
+initialize	lib/active_support/testing/performance/jruby.rb	/^        def initialize(*args)$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+initialize	lib/active_support/testing/performance/rubinius.rb	/^        def initialize(*args)$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+initialize	lib/active_support/testing/performance/ruby.rb	/^          def initialize(*args)$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.CpuTime
+initialize	lib/active_support/testing/performance/ruby.rb	/^        def initialize(*args)$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+initialize	lib/active_support/time_with_zone.rb	/^    def initialize(utc_time, time_zone, local_time = nil, period = nil)$/;"	f	class:ActiveSupport.TimeWithZone
+initialize	lib/active_support/values/time_zone.rb	/^    def initialize(name, utc_offset = nil, tzinfo = nil)$/;"	f	class:ActiveSupport.TimeZone
+initialize_copy	lib/active_support/core_ext/string/output_safety.rb	/^    def initialize_copy(other)$/;"	f	class:ActiveSupport.SafeBuffer
+initialize_dup	lib/active_support/inflector/inflections.rb	/^      def initialize_dup(orig) # :nodoc:$/;"	f	class:ActiveSupport.Inflector.Inflections
+initialize_i18n	lib/active_support/i18n_railtie.rb	/^    def self.initialize_i18n(app)$/;"	F	class:I18n.Railtie
+inquiry	lib/active_support/core_ext/string/inquiry.rb	/^  def inquiry$/;"	f	class:String
+inspect	lib/active_support/cache/memory_store.rb	/^      def inspect # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemoryStore
+inspect	lib/active_support/deprecation/proxy_wrappers.rb	/^      def inspect$/;"	f	class:ActiveSupport.Deprecation.DeprecationProxy
+inspect	lib/active_support/duration.rb	/^    def inspect #:nodoc:$/;"	f	class:ActiveSupport.Duration
+inspect	lib/active_support/time_with_zone.rb	/^    def inspect$/;"	f	class:ActiveSupport.TimeWithZone
+instance	lib/active_support/inflector/inflections.rb	/^      def self.instance(locale = :en)$/;"	F	class:ActiveSupport.Inflector.Inflections
+instance_values	lib/active_support/core_ext/object/instance_variables.rb	/^  def instance_values$/;"	f	class:Object
+instance_variable_names	lib/active_support/core_ext/object/instance_variables.rb	/^  def instance_variable_names$/;"	f	class:Object
+instrument	lib/active_support/cache.rb	/^        def instrument(operation, key, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+instrument	lib/active_support/cache.rb	/^      def self.instrument$/;"	F	class:ActiveSupport.Cache.Store
+instrument	lib/active_support/cache.rb	/^      def self.instrument=(boolean)$/;"	F	class:ActiveSupport.Cache.Store
+instrument	lib/active_support/notifications.rb	/^      def instrument(name, payload = {})$/;"	f	class:ActiveSupport.Notifications
+instrument	lib/active_support/notifications/instrumenter.rb	/^      def instrument(name, payload={})$/;"	f	class:ActiveSupport.Notifications.Instrumenter
+instrumenter	lib/active_support/notifications.rb	/^      def instrumenter$/;"	f	class:ActiveSupport.Notifications
+irregular	lib/active_support/inflector/inflections.rb	/^      def irregular(singular, plural)$/;"	f	class:ActiveSupport.Inflector.Inflections
+is_a?	lib/active_support/duration.rb	/^    def is_a?(klass) #:nodoc:$/;"	f	class:ActiveSupport.Duration
+is_a?	lib/active_support/time_with_zone.rb	/^    def is_a?(klass)$/;"	f
+is_missing?	lib/active_support/core_ext/load_error.rb	/^  def is_missing?(location)$/;"	f	class:LoadError
+is_utf8?	lib/active_support/core_ext/string/multibyte.rb	/^  def is_utf8?$/;"	f	class:String
+jobs	lib/active_support/queueing.rb	/^    def jobs$/;"	f	class:ActiveSupport.TestQueue
+json_escape	lib/active_support/core_ext/string/output_safety.rb	/^    def json_escape(s)$/;"	f	class:ERB.Util
+key?	lib/active_support/dependencies.rb	/^      def key?(key)$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+key?	lib/active_support/hash_with_indifferent_access.rb	/^    def key?(key)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+key_file_path	lib/active_support/cache/file_store.rb	/^        def key_file_path(key)$/;"	f	class:ActiveSupport.Cache.FileStore
+key_matcher	lib/active_support/cache.rb	/^        def key_matcher(pattern, options)$/;"	f	class:ActiveSupport.Cache.Store
+kilobytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def kilobytes$/;"	f	class:Numeric
+last	lib/active_support/core_ext/string/access.rb	/^  def last(limit = 1)$/;"	f	class:String
+last_hour	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def last_hour$/;"	f	class:DateAndTime.Calculations
+lazy_zones_map	lib/active_support/values/time_zone.rb	/^        def lazy_zones_map$/;"	f	class:ActiveSupport.TimeZone
+limit	lib/active_support/multibyte/chars.rb	/^      def limit(limit)$/;"	f	class:ActiveSupport.Multibyte.Chars
+listeners_for	lib/active_support/notifications/fanout.rb	/^      def listeners_for(name)$/;"	f	class:ActiveSupport.Notifications.Fanout
+listening?	lib/active_support/notifications/fanout.rb	/^      def listening?(name)$/;"	f	class:ActiveSupport.Notifications.Fanout
+load	lib/active_support/dependencies.rb	/^      def load(file, wrap = false)$/;"	f	class:ActiveSupport.Dependencies.Loadable
+load	lib/active_support/message_encryptor.rb	/^      def self.load(value)$/;"	F	class:ActiveSupport.MessageEncryptor.NullSerializer
+load	lib/active_support/multibyte/unicode.rb	/^        def load$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize
+load?	lib/active_support/dependencies.rb	/^    def load?$/;"	f	class:ActiveSupport.Dependencies
+load_dependency	lib/active_support/dependencies.rb	/^      def load_dependency(file)$/;"	f	class:ActiveSupport.Dependencies.Loadable
+load_file	lib/active_support/dependencies.rb	/^    def load_file(path, const_paths = loadable_constants_for_path(path))$/;"	f	class:ActiveSupport.Dependencies
+load_missing_constant	lib/active_support/dependencies.rb	/^    def load_missing_constant(from_mod, const_name)$/;"	f	class:ActiveSupport.Dependencies
+load_once_path?	lib/active_support/dependencies.rb	/^    def load_once_path?(path)$/;"	f	class:ActiveSupport.Dependencies
+loadable_constants_for_path	lib/active_support/dependencies.rb	/^    def loadable_constants_for_path(path, bases = autoload_paths)$/;"	f	class:ActiveSupport.Dependencies
+local	lib/active_support/values/time_zone.rb	/^    def local(*args)$/;"	f	class:ActiveSupport.TimeZone
+local_cache	lib/active_support/cache/strategy/local_cache.rb	/^          def local_cache$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+local_constant_names	lib/active_support/core_ext/module/introspection.rb	/^  def local_constant_names$/;"	f
+local_constants	lib/active_support/core_ext/module/introspection.rb	/^  def local_constants #:nodoc:$/;"	f
+local_offset	lib/active_support/core_ext/date_time/calculations.rb	/^    def local_offset$/;"	f	class:DateTime
+local_time	lib/active_support/core_ext/time/calculations.rb	/^    def local_time(*args)$/;"	f	class:Time
+local_to_utc	lib/active_support/values/time_zone.rb	/^    def local_to_utc(time, dst=true)$/;"	f	class:ActiveSupport.TimeZone
+localtime	lib/active_support/time_with_zone.rb	/^    def localtime$/;"	f	class:ActiveSupport.TimeWithZone
+lock_file	lib/active_support/cache/file_store.rb	/^        def lock_file(file_name, &block) # :nodoc:$/;"	f	class:ActiveSupport.Cache.FileStore
+log	lib/active_support/cache.rb	/^        def log(operation, key, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+log	lib/active_support/dependencies.rb	/^      def log(msg)$/;"	f	class:ActiveSupport.Dependencies
+log_activity?	lib/active_support/dependencies.rb	/^      def log_activity?$/;"	f	class:ActiveSupport.Dependencies
+log_call	lib/active_support/dependencies.rb	/^      def log_call(*args)$/;"	f	class:ActiveSupport.Dependencies
+log_subscribers	lib/active_support/log_subscriber.rb	/^      def log_subscribers$/;"	f	class:ActiveSupport.LogSubscriber
+logged	lib/active_support/log_subscriber/test_helper.rb	/^        def logged(level)$/;"	f	class:ActiveSupport.LogSubscriber.TestHelper.MockLogger
+logger	lib/active_support/log_subscriber.rb	/^      def logger$/;"	f	class:ActiveSupport.LogSubscriber
+logger	lib/active_support/log_subscriber.rb	/^    def logger$/;"	f	class:ActiveSupport
+lookup	lib/active_support/values/time_zone.rb	/^        def lookup(name)$/;"	f	class:ActiveSupport.TimeZone
+lookup_store	lib/active_support/cache.rb	/^      def lookup_store(*store_option)$/;"	f	class:ActiveSupport.Cache
+many?	lib/active_support/core_ext/enumerable.rb	/^  def many?$/;"	f	class:Enumerable
+mark_for_unload	lib/active_support/dependencies.rb	/^    def mark_for_unload(const_desc)$/;"	f	class:ActiveSupport.Dependencies
+marshal_dump	lib/active_support/time_with_zone.rb	/^    def marshal_dump$/;"	f
+marshal_load	lib/active_support/time_with_zone.rb	/^    def marshal_load(variables)$/;"	f
+matches?	lib/active_support/callbacks.rb	/^      def matches?(_kind, _filter)$/;"	f	class:ActiveSupport.Callbacks.Callback
+matches?	lib/active_support/notifications/fanout.rb	/^          def matches?(subscriber_or_name)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Evented
+mattr_accessor	lib/active_support/core_ext/module/attribute_accessors.rb	/^  def mattr_accessor(*syms)$/;"	f
+mattr_reader	lib/active_support/core_ext/module/attribute_accessors.rb	/^  def mattr_reader(*syms)$/;"	f	class:Module
+mattr_writer	lib/active_support/core_ext/module/attribute_accessors.rb	/^  def mattr_writer(*syms)$/;"	f
+max_mtime	lib/active_support/file_update_checker.rb	/^    def max_mtime(paths)$/;"	f	class:ActiveSupport.FileUpdateChecker
+mb_chars	lib/active_support/core_ext/string/multibyte.rb	/^  def mb_chars$/;"	f	class:String
+measure	lib/active_support/testing/performance.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Time
+measure	lib/active_support/testing/performance/jruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.CpuTime
+measure	lib/active_support/testing/performance/jruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.GcRuns
+measure	lib/active_support/testing/performance/jruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.GcTime
+measure	lib/active_support/testing/performance/jruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Memory
+measure	lib/active_support/testing/performance/jruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.UserTime
+measure	lib/active_support/testing/performance/jruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.WallTime
+measure	lib/active_support/testing/performance/rubinius.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.GcRuns
+measure	lib/active_support/testing/performance/rubinius.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.GcTime
+measure	lib/active_support/testing/performance/rubinius.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Memory
+measure	lib/active_support/testing/performance/rubinius.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Objects
+measure	lib/active_support/testing/performance/rubinius.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.WallTime
+measure	lib/active_support/testing/performance/ruby.rb	/^            def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Memory
+measure	lib/active_support/testing/performance/ruby.rb	/^            def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Objects
+measure	lib/active_support/testing/performance/ruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.CpuTime
+measure	lib/active_support/testing/performance/ruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.GcRuns
+measure	lib/active_support/testing/performance/ruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.GcTime
+measure	lib/active_support/testing/performance/ruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.ProcessTime
+measure	lib/active_support/testing/performance/ruby.rb	/^          def measure$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.WallTime
+measure_mode	lib/active_support/testing/performance/ruby.rb	/^          def measure_mode$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+megabytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def megabytes$/;"	f	class:Numeric
+merge	lib/active_support/hash_with_indifferent_access.rb	/^    def merge(hash, &block)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+merge!	lib/active_support/xml_mini/jdom.rb	/^    def merge!(hash, key, value)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+merge!	lib/active_support/xml_mini/rexml.rb	/^      def merge!(hash, key, value)$/;"	f	class:ActiveSupport.XmlMini_REXML
+merge_element!	lib/active_support/xml_mini/jdom.rb	/^    def merge_element!(hash, element)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+merge_element!	lib/active_support/xml_mini/rexml.rb	/^      def merge_element!(hash, element)$/;"	f	class:ActiveSupport.XmlMini_REXML
+merge_texts!	lib/active_support/xml_mini/jdom.rb	/^    def merge_texts!(hash, element)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+merge_texts!	lib/active_support/xml_mini/rexml.rb	/^      def merge_texts!(hash, element)$/;"	f	class:ActiveSupport.XmlMini_REXML
+merged_options	lib/active_support/cache.rb	/^        def merged_options(call_options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Store
+method_added	lib/active_support/deprecation/instance_delegator.rb	/^        def method_added(method_name)$/;"	f	class:ActiveSupport.Deprecation.InstanceDelegator.ClassMethods
+method_missing	lib/active_support/deprecation/proxy_wrappers.rb	/^        def method_missing(called, *args, &block)$/;"	f	class:ActiveSupport.Deprecation.DeprecationProxy
+method_missing	lib/active_support/duration.rb	/^      def method_missing(method, *args, &block) #:nodoc:$/;"	f	class:ActiveSupport.Duration.inspect
+method_missing	lib/active_support/log_subscriber/test_helper.rb	/^        def method_missing(level, message = nil)$/;"	f	class:ActiveSupport.LogSubscriber.TestHelper.MockLogger
+method_missing	lib/active_support/multibyte/chars.rb	/^      def method_missing(method, *args, &block)$/;"	f	class:ActiveSupport.Multibyte.Chars
+method_missing	lib/active_support/option_merger.rb	/^      def method_missing(method, *arguments, &block)$/;"	f	class:ActiveSupport.OptionMerger
+method_missing	lib/active_support/ordered_options.rb	/^    def method_missing(name, *args)$/;"	f	class:ActiveSupport.OrderedOptions
+method_missing	lib/active_support/string_inquirer.rb	/^      def method_missing(method_name, *arguments)$/;"	f	class:ActiveSupport.StringInquirer
+method_missing	lib/active_support/testing/isolation.rb	/^      def method_missing(name, *args)$/;"	f	class:ActiveSupport.Testing.ProxyTestResult
+method_missing	lib/active_support/time_with_zone.rb	/^    def method_missing(sym, *args, &block)$/;"	f
+middleware	lib/active_support/cache/strategy/local_cache.rb	/^        def middleware$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+minus_with_coercion	lib/active_support/core_ext/time/calculations.rb	/^  def minus_with_coercion(other)$/;"	f
+minus_with_duration	lib/active_support/core_ext/date/calculations.rb	/^  def minus_with_duration(other) #:nodoc:$/;"	f
+minus_with_duration	lib/active_support/core_ext/time/calculations.rb	/^  def minus_with_duration(other) #:nodoc:$/;"	f
+minutes	lib/active_support/core_ext/numeric/time.rb	/^  def minutes$/;"	f	class:Numeric
+missing_name	lib/active_support/core_ext/name_error.rb	/^  def missing_name$/;"	f	class:NameError
+missing_name?	lib/active_support/core_ext/name_error.rb	/^  def missing_name?(name)$/;"	f	class:NameError
+monday	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def monday$/;"	f	class:DateAndTime.Calculations
+months	lib/active_support/core_ext/integer/time.rb	/^  def months$/;"	f	class:Integer
+months_ago	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def months_ago(months)$/;"	f	class:DateAndTime.Calculations
+months_since	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def months_since(months)$/;"	f	class:DateAndTime.Calculations
+ms	lib/active_support/core_ext/benchmark.rb	/^  def ms$/;"	f
+multiline?	lib/active_support/core_ext/regexp.rb	/^  def multiline?$/;"	f	class:Regexp
+multiple_of?	lib/active_support/core_ext/integer/multiple.rb	/^  def multiple_of?(number)$/;"	f	class:Integer
+mute	lib/active_support/cache.rb	/^      def mute$/;"	f	class:ActiveSupport.Cache.Store
+name	lib/active_support/callbacks.rb	/^      def name$/;"	f	class:ActiveSupport.Callbacks.Callback
+name	lib/active_support/test_case.rb	/^          def self.name$/;"	F	class:ActiveSupport.TestCase.describe
+name	lib/active_support/testing/performance.rb	/^          def name$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Base
+name	lib/active_support/time_with_zone.rb	/^    def self.name$/;"	F	class:ActiveSupport.TimeWithZone
+names	lib/active_support/core_ext/module/qualified_const.rb	/^  def self.names(path)$/;"	F	class:QualifiedConstUtils
+namespaced_key	lib/active_support/cache.rb	/^        def namespaced_key(key, options)$/;"	f	class:ActiveSupport.Cache.Store
+nested_under_indifferent_access	lib/active_support/hash_with_indifferent_access.rb	/^    def nested_under_indifferent_access$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+nested_under_indifferent_access	lib/active_support/ordered_hash.rb	/^    def nested_under_indifferent_access$/;"	f	class:ActiveSupport.OrderedHash
+new	lib/active_support/cache/strategy/local_cache.rb	/^          def new(app)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.Middleware
+new	lib/active_support/deprecation/proxy_wrappers.rb	/^      def self.new(*args, &block)$/;"	F	class:ActiveSupport.Deprecation.DeprecationProxy
+new	lib/active_support/notifications/fanout.rb	/^        def self.new(pattern, listener)$/;"	F	class:ActiveSupport.Notifications.Fanout.Subscribers
+new	lib/active_support/tagged_logging.rb	/^    def self.new(logger)$/;"	F	class:ActiveSupport.TaggedLogging
+new	lib/active_support/values/time_zone.rb	/^      def new(name)$/;"	f	class:ActiveSupport.TimeZone
+new_cipher	lib/active_support/message_encryptor.rb	/^    def new_cipher$/;"	f	class:ActiveSupport.MessageEncryptor
+new_constants	lib/active_support/dependencies.rb	/^      def new_constants$/;"	f	class:ActiveSupport.Dependencies.WatchStack
+new_constants_in	lib/active_support/dependencies.rb	/^    def new_constants_in(*descs)$/;"	f	class:ActiveSupport.Dependencies
+new_from_hash_copying_default	lib/active_support/hash_with_indifferent_access.rb	/^    def self.new_from_hash_copying_default(hash)$/;"	F	class:ActiveSupport.HashWithIndifferentAccess
+next_id	lib/active_support/callbacks.rb	/^      def next_id$/;"	f	class:ActiveSupport.Callbacks.Callback
+next_month	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def next_month$/;"	f	class:DateAndTime.Calculations
+next_quarter	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def next_quarter$/;"	f	class:DateAndTime.Calculations
+next_week	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def next_week(start_day = Date.beginning_of_week)$/;"	f	class:DateAndTime.Calculations
+next_year	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def next_year$/;"	f	class:DateAndTime.Calculations
+noise	lib/active_support/backtrace_cleaner.rb	/^      def noise(backtrace)$/;"	f	class:ActiveSupport.BacktraceCleaner
+normalize	lib/active_support/multibyte/chars.rb	/^      def normalize(form = nil)$/;"	f	class:ActiveSupport.Multibyte.Chars
+normalize	lib/active_support/multibyte/unicode.rb	/^      def normalize(string, form=nil)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters
+normalize_options!	lib/active_support/callbacks.rb	/^      def normalize_options!(options)$/;"	f	class:ActiveSupport.Callbacks.Callback
+now	lib/active_support/values/time_zone.rb	/^    def now$/;"	f	class:ActiveSupport.TimeZone
+number_to_currency	lib/active_support/number_helper.rb	/^    def number_to_currency(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+number_to_delimited	lib/active_support/number_helper.rb	/^    def number_to_delimited(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+number_to_human	lib/active_support/number_helper.rb	/^    def number_to_human(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+number_to_human_size	lib/active_support/number_helper.rb	/^    def number_to_human_size(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+number_to_percentage	lib/active_support/number_helper.rb	/^    def number_to_percentage(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+number_to_phone	lib/active_support/number_helper.rb	/^    def number_to_phone(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+number_to_rounded	lib/active_support/number_helper.rb	/^    def number_to_rounded(number, options = {})$/;"	f	class:ActiveSupport.NumberHelper
+offset_in_seconds	lib/active_support/core_ext/date_time/conversions.rb	/^  def offset_in_seconds$/;"	f	class:DateTime
+on_characters	lib/active_support/xml_mini/libxmlsax.rb	/^      def on_characters(string)$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX.HashBuilder
+on_end_document	lib/active_support/xml_mini/libxmlsax.rb	/^      def on_end_document$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX.HashBuilder
+on_end_element	lib/active_support/xml_mini/libxmlsax.rb	/^      def on_end_element(name)$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX.HashBuilder
+on_load	lib/active_support/lazy_load_hooks.rb	/^  def self.on_load(name, options = {}, &block)$/;"	F	class:ActiveSupport
+on_start_document	lib/active_support/xml_mini/libxmlsax.rb	/^      def on_start_document$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX.HashBuilder
+on_start_element	lib/active_support/xml_mini/libxmlsax.rb	/^      def on_start_element(name, attrs = {})$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX.HashBuilder
+options_for	lib/active_support/json/encoding.rb	/^        def options_for(value)$/;"	f	class:JSON.Encoding.Encoder
+ordinal	lib/active_support/core_ext/integer/inflections.rb	/^  def ordinal$/;"	f	class:Integer
+ordinal	lib/active_support/inflector/methods.rb	/^    def ordinal(number)$/;"	f	class:ActiveSupport.Inflector
+ordinalize	lib/active_support/core_ext/integer/inflections.rb	/^  def ordinalize$/;"	f	class:Integer
+ordinalize	lib/active_support/inflector/methods.rb	/^    def ordinalize(number)$/;"	f	class:ActiveSupport.Inflector
+original_filename	lib/active_support/xml_mini.rb	/^      def original_filename$/;"	f	class:ActiveSupport.XmlMini.FileLike
+output_filename	lib/active_support/testing/performance.rb	/^          def output_filename$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.environment
+output_filename	lib/active_support/testing/performance.rb	/^          def output_filename$/;"	f	class:ActiveSupport.Testing.Performance.Performer
+output_filename	lib/active_support/testing/performance/jruby.rb	/^          def output_filename(printer_class)$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+output_filename	lib/active_support/testing/performance/ruby.rb	/^          def output_filename(printer_class)$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+overlaps?	lib/active_support/core_ext/range/overlaps.rb	/^  def overlaps?(other)$/;"	f	class:Range
+pack_graphemes	lib/active_support/multibyte/unicode.rb	/^      def pack_graphemes(unpacked)$/;"	f	class:ActiveSupport.Multibyte.Unicode
+parameterize	lib/active_support/core_ext/string/inflections.rb	/^  def parameterize(sep = '-')$/;"	f	class:String
+parameterize	lib/active_support/inflector/transliterate.rb	/^    def parameterize(string, sep = '-')$/;"	f	class:ActiveSupport.Inflector
+parent	lib/active_support/core_ext/module/introspection.rb	/^  def parent$/;"	f	class:Module
+parent_name	lib/active_support/core_ext/module/introspection.rb	/^  def parent_name$/;"	f	class:Module
+parent_of?	lib/active_support/notifications/instrumenter.rb	/^      def parent_of?(event)$/;"	f	class:ActiveSupport.Notifications.Event
+parents	lib/active_support/core_ext/module/introspection.rb	/^  def parents$/;"	f	class:Module
+parse	lib/active_support/values/time_zone.rb	/^    def parse(str, now=now)$/;"	f	class:ActiveSupport.TimeZone
+parse	lib/active_support/xml_mini/jdom.rb	/^    def parse(data)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+parse	lib/active_support/xml_mini/libxml.rb	/^    def parse(data)$/;"	f	class:ActiveSupport.XmlMini_LibXML
+parse	lib/active_support/xml_mini/libxmlsax.rb	/^    def parse(data)$/;"	f	class:ActiveSupport.XmlMini_LibXMLSAX
+parse	lib/active_support/xml_mini/nokogiri.rb	/^    def parse(data)$/;"	f	class:ActiveSupport.XmlMini_Nokogiri
+parse	lib/active_support/xml_mini/nokogirisax.rb	/^    def parse(data)$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX
+parse	lib/active_support/xml_mini/rexml.rb	/^    def parse(data)$/;"	f	class:ActiveSupport.XmlMini_REXML
+parse_error	lib/active_support/json/decoding.rb	/^      def parse_error$/;"	f	class:ActiveSupport.JSON
+parser	lib/active_support/core_ext/uri.rb	/^    def parser$/;"	f	class:URI
+past?	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def past?$/;"	f	class:DateAndTime.Calculations
+past?	lib/active_support/core_ext/date_time/calculations.rb	/^  def past?$/;"	f
+past?	lib/active_support/time_with_zone.rb	/^    def past?$/;"	f	class:ActiveSupport
+path	lib/active_support/core_ext/load_error.rb	/^    def path$/;"	f	class:LoadError
+period	lib/active_support/time_with_zone.rb	/^    def period$/;"	f	class:ActiveSupport.TimeWithZone
+period_for_local	lib/active_support/values/time_zone.rb	/^    def period_for_local(time, dst=true)$/;"	f	class:ActiveSupport.TimeZone
+period_for_utc	lib/active_support/values/time_zone.rb	/^    def period_for_utc(time)$/;"	f	class:ActiveSupport.TimeZone
+petabytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def petabytes$/;"	f	class:Numeric
+plural	lib/active_support/inflector/inflections.rb	/^      def plural(rule, replacement)$/;"	f	class:ActiveSupport.Inflector.Inflections
+pluralize	lib/active_support/core_ext/string/inflections.rb	/^  def pluralize(count = nil, locale = :en)$/;"	f	class:String
+pluralize	lib/active_support/inflector/methods.rb	/^    def pluralize(word, locale = :en)$/;"	f	class:ActiveSupport.Inflector
+plus_with_duration	lib/active_support/core_ext/date/calculations.rb	/^  def plus_with_duration(other) #:nodoc:$/;"	f
+plus_with_duration	lib/active_support/core_ext/time/calculations.rb	/^  def plus_with_duration(other) #:nodoc:$/;"	f
+pop_modules	lib/active_support/dependencies.rb	/^      def pop_modules(modules)$/;"	f	class:ActiveSupport.Dependencies.WatchStack
+pop_tags	lib/active_support/tagged_logging.rb	/^      def pop_tags(size = 1)$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+presence	lib/active_support/core_ext/object/blank.rb	/^  def presence$/;"	f	class:Object
+present?	lib/active_support/core_ext/object/blank.rb	/^  def present?$/;"	f	class:Object
+prev_month	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def prev_month$/;"	f	class:DateAndTime.Calculations
+prev_quarter	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def prev_quarter$/;"	f	class:DateAndTime.Calculations
+prev_week	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def prev_week(start_day = Date.beginning_of_week)$/;"	f	class:DateAndTime.Calculations
+prev_year	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def prev_year$/;"	f	class:DateAndTime.Calculations
+private_module_and_instance_method	lib/active_support/number_helper.rb	/^    def self.private_module_and_instance_method(method_name) #:nodoc:$/;"	F	class:ActiveSupport
+probe_stat_in	lib/active_support/core_ext/file/atomic.rb	/^  def self.probe_stat_in(dir) #:nodoc:$/;"	F	class:File
+profile	lib/active_support/testing/performance.rb	/^          def profile; end$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Base
+profile	lib/active_support/testing/performance/jruby.rb	/^          def profile$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+profile	lib/active_support/testing/performance/rubinius.rb	/^          def profile$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+profile	lib/active_support/testing/performance/ruby.rb	/^          def profile$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+proxy_class	lib/active_support/multibyte.rb	/^    def self.proxy_class$/;"	F	class:ActiveSupport.Multibyte
+proxy_class	lib/active_support/multibyte.rb	/^    def self.proxy_class=(klass)$/;"	F	class:ActiveSupport.Multibyte
+prune	lib/active_support/cache/memory_store.rb	/^      def prune(target_size, max_time = nil)$/;"	f	class:ActiveSupport.Cache.MemoryStore
+pruning?	lib/active_support/cache/memory_store.rb	/^      def pruning?$/;"	f	class:ActiveSupport.Cache.MemoryStore
+publish	lib/active_support/notifications.rb	/^      def publish(name, *args)$/;"	f	class:ActiveSupport.Notifications
+publish	lib/active_support/notifications/fanout.rb	/^          def publish(name, *args)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.AllMessages
+publish	lib/active_support/notifications/fanout.rb	/^          def publish(name, *args)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Timed
+publish	lib/active_support/notifications/fanout.rb	/^      def publish(name, *args)$/;"	f	class:ActiveSupport.Notifications.Fanout
+push	lib/active_support/queueing.rb	/^    def push(job)$/;"	f	class:ActiveSupport.SynchronousQueue
+push	lib/active_support/queueing.rb	/^    def push(job)$/;"	f	class:ActiveSupport.TestQueue
+push_tags	lib/active_support/tagged_logging.rb	/^      def push_tags(*tags)$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+qualified_const_defined?	lib/active_support/core_ext/module/qualified_const.rb	/^  def qualified_const_defined?(path, search_parents=true)$/;"	f	class:Module
+qualified_const_defined?	lib/active_support/dependencies.rb	/^    def qualified_const_defined?(path)$/;"	f	class:ActiveSupport.Dependencies
+qualified_const_get	lib/active_support/core_ext/module/qualified_const.rb	/^  def qualified_const_get(path)$/;"	f	class:Module
+qualified_const_set	lib/active_support/core_ext/module/qualified_const.rb	/^  def qualified_const_set(path, value)$/;"	f	class:Module
+qualified_name_for	lib/active_support/dependencies.rb	/^    def qualified_name_for(mod, name)$/;"	f	class:ActiveSupport.Dependencies
+quietly	lib/active_support/core_ext/kernel/reporting.rb	/^  def quietly$/;"	f	class:Kernel
+rails_branch	lib/active_support/testing/performance.rb	/^          def rails_branch$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.environment
+rails_version	lib/active_support/testing/performance.rb	/^          def rails_version$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.environment
+raise	lib/active_support/basic_object.rb	/^    def raise(*args)$/;"	f	class:ActiveSupport.BasicObject
+raise_if_absolute	lib/active_support/core_ext/module/qualified_const.rb	/^  def self.raise_if_absolute(path)$/;"	F	class:QualifiedConstUtils
+reachable?	lib/active_support/core_ext/module/reachable.rb	/^  def reachable? #:nodoc:$/;"	f	class:Module
+read	lib/active_support/cache.rb	/^      def read(name, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+read_entry	lib/active_support/cache.rb	/^        def read_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Store
+read_entry	lib/active_support/cache/file_store.rb	/^        def read_entry(key, options)$/;"	f	class:ActiveSupport.Cache.FileStore
+read_entry	lib/active_support/cache/mem_cache_store.rb	/^          def read_entry(key, options)$/;"	f	class:ActiveSupport.Cache.MemCacheStore.LocalCacheWithRaw
+read_entry	lib/active_support/cache/mem_cache_store.rb	/^        def read_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+read_entry	lib/active_support/cache/memory_store.rb	/^        def read_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemoryStore
+read_entry	lib/active_support/cache/null_store.rb	/^        def read_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.NullStore
+read_entry	lib/active_support/cache/strategy/local_cache.rb	/^          def read_entry(key, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+read_entry	lib/active_support/cache/strategy/local_cache.rb	/^          def read_entry(key, options)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.LocalStore
+read_multi	lib/active_support/cache.rb	/^      def read_multi(*names)$/;"	f	class:ActiveSupport.Cache.Store
+read_multi	lib/active_support/cache/mem_cache_store.rb	/^      def read_multi(*names)$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+readable_inspect	lib/active_support/core_ext/date/conversions.rb	/^  def readable_inspect$/;"	f	class:Date
+readable_inspect	lib/active_support/core_ext/date_time/conversions.rb	/^  def readable_inspect$/;"	f	class:DateTime
+recompile!	lib/active_support/callbacks.rb	/^      def recompile!(_options)$/;"	f	class:ActiveSupport.Callbacks.Callback
+recompile_options!	lib/active_support/callbacks.rb	/^      def recompile_options!$/;"	f
+record	lib/active_support/testing/performance.rb	/^        def record$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker
+record	lib/active_support/testing/performance.rb	/^        def record; end$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+record	lib/active_support/testing/performance/jruby.rb	/^        def record$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+record	lib/active_support/testing/performance/rubinius.rb	/^        def record$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+record	lib/active_support/testing/performance/ruby.rb	/^        def record$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+redefine_method	lib/active_support/core_ext/module/remove_method.rb	/^  def redefine_method(method, &block)$/;"	f	class:Module
+reference	lib/active_support/dependencies.rb	/^    def reference(klass)$/;"	f	class:ActiveSupport.Dependencies
+release	lib/active_support/concurrency/latch.rb	/^      def release$/;"	f	class:ActiveSupport.Concurrency.Latch
+remove_constant	lib/active_support/dependencies.rb	/^    def remove_constant(const) #:nodoc:$/;"	f	class:ActiveSupport.Dependencies
+remove_filters!	lib/active_support/backtrace_cleaner.rb	/^    def remove_filters!$/;"	f	class:ActiveSupport.BacktraceCleaner
+remove_possible_method	lib/active_support/core_ext/module/remove_method.rb	/^  def remove_possible_method(method)$/;"	f	class:Module
+remove_silencers!	lib/active_support/backtrace_cleaner.rb	/^    def remove_silencers!$/;"	f	class:ActiveSupport.BacktraceCleaner
+remove_unloadable_constants!	lib/active_support/dependencies.rb	/^    def remove_unloadable_constants!$/;"	f	class:ActiveSupport.Dependencies
+rename_key	lib/active_support/xml_mini.rb	/^    def rename_key(key, options = {})$/;"	f	class:ActiveSupport.XmlMini
+reorder_characters	lib/active_support/multibyte/unicode.rb	/^      def reorder_characters(codepoints)$/;"	f	class:ActiveSupport.Multibyte.Unicode
+replace	lib/active_support/hash_with_indifferent_access.rb	/^    def replace(other_hash)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+report	lib/active_support/testing/performance.rb	/^        def report$/;"	f	class:ActiveSupport.Testing.Performance.Performer
+require	lib/active_support/dependencies.rb	/^      def require(file)$/;"	f	class:ActiveSupport.Dependencies.Loadable
+require_dependency	lib/active_support/dependencies.rb	/^      def require_dependency(file_name, message = "No such file to load -- %s")$/;"	f	class:ActiveSupport.Dependencies.Loadable
+require_or_load	lib/active_support/dependencies.rb	/^      def require_or_load(file_name)$/;"	f	class:ActiveSupport.Dependencies.Loadable
+require_or_load	lib/active_support/dependencies.rb	/^    def require_or_load(file_name, const_path = nil)$/;"	f	class:ActiveSupport.Dependencies
+require_tzinfo	lib/active_support/values/time_zone.rb	/^        def require_tzinfo$/;"	f	class:ActiveSupport.TimeZone
+rescue_from	lib/active_support/rescuable.rb	/^      def rescue_from(*klasses, &block)$/;"	f	class:ActiveSupport.Rescuable.ClassMethods
+rescue_with_handler	lib/active_support/rescuable.rb	/^    def rescue_with_handler(exception)$/;"	f	class:ActiveSupport
+reset_callbacks	lib/active_support/callbacks.rb	/^      def reset_callbacks(symbol)$/;"	f	class:ClassMethods
+respond_to_missing?	lib/active_support/multibyte/chars.rb	/^      def respond_to_missing?(method, include_private)$/;"	f	class:ActiveSupport.Multibyte.Chars
+respond_to_missing?	lib/active_support/ordered_options.rb	/^    def respond_to_missing?(name, include_private)$/;"	f	class:ActiveSupport.OrderedOptions
+respond_to_missing?	lib/active_support/string_inquirer.rb	/^      def respond_to_missing?(method_name, include_private = false)$/;"	f	class:ActiveSupport.StringInquirer
+respond_to_missing?	lib/active_support/time_with_zone.rb	/^    def respond_to_missing?(sym, include_priv)$/;"	f
+retrieve_cache_key	lib/active_support/cache.rb	/^      def retrieve_cache_key(key)$/;"	f	class:ActiveSupport.Cache
+reverse	lib/active_support/multibyte/chars.rb	/^      def reverse$/;"	f	class:ActiveSupport.Multibyte.Chars
+reverse_merge	lib/active_support/core_ext/hash/reverse_merge.rb	/^  def reverse_merge(other_hash)$/;"	f	class:Hash
+reverse_merge	lib/active_support/hash_with_indifferent_access.rb	/^    def reverse_merge(other_hash)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+reverse_merge!	lib/active_support/core_ext/hash/reverse_merge.rb	/^  def reverse_merge!(other_hash)$/;"	f	class:Hash
+reverse_merge!	lib/active_support/hash_with_indifferent_access.rb	/^    def reverse_merge!(other_hash)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+rfc2822	lib/active_support/time_with_zone.rb	/^    def rfc2822$/;"	f	class:ActiveSupport
+run	lib/active_support/queueing.rb	/^    def run(job)$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+run	lib/active_support/testing/isolation.rb	/^      def run(runner)$/;"	f	class:ActiveSupport.Testing.Isolation
+run	lib/active_support/testing/performance.rb	/^        def run$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker
+run	lib/active_support/testing/performance.rb	/^        def run;    end$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+run	lib/active_support/testing/performance.rb	/^      def run(runner)$/;"	f	class:ActiveSupport.Testing.Performance
+run	lib/active_support/testing/performance/jruby.rb	/^        def run$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+run	lib/active_support/testing/performance/rubinius.rb	/^        def run$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+run	lib/active_support/testing/performance/ruby.rb	/^        def run$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+run_callbacks	lib/active_support/callbacks.rb	/^    def run_callbacks(kind, &block)$/;"	f	class:ActiveSupport.Callbacks
+run_gc	lib/active_support/testing/performance.rb	/^        def run_gc; end$/;"	f	class:ActiveSupport.Testing.Performance
+run_gc	lib/active_support/testing/performance/jruby.rb	/^        def run_gc$/;"	f	class:ActiveSupport.Testing.Performance
+run_gc	lib/active_support/testing/performance/rubinius.rb	/^        def run_gc$/;"	f	class:ActiveSupport.Testing.Performance
+run_gc	lib/active_support/testing/performance/ruby.rb	/^        def run_gc$/;"	f	class:ActiveSupport.Testing.Performance
+run_in_isolation	lib/active_support/testing/isolation.rb	/^        def run_in_isolation(&blk)$/;"	f	class:ActiveSupport.Testing.Isolation.Forking
+run_in_isolation	lib/active_support/testing/isolation.rb	/^        def run_in_isolation(&blk)$/;"	f	class:ActiveSupport.Testing.Isolation.Subprocess
+run_load_hooks	lib/active_support/lazy_load_hooks.rb	/^  def self.run_load_hooks(name, base = Object)$/;"	F	class:ActiveSupport
+run_profile	lib/active_support/testing/performance.rb	/^        def run_profile(metric)$/;"	f	class:ActiveSupport.Testing.Performance
+run_test	lib/active_support/testing/performance.rb	/^      def run_test(metric, mode)$/;"	f	class:ActiveSupport.Testing.Performance
+run_warmup	lib/active_support/testing/performance.rb	/^        def run_warmup$/;"	f	class:ActiveSupport.Testing.Performance
+safe_concat	lib/active_support/core_ext/string/output_safety.rb	/^    def safe_concat(value)$/;"	f	class:ActiveSupport.SafeBuffer
+safe_constantize	lib/active_support/core_ext/string/inflections.rb	/^  def safe_constantize$/;"	f	class:String
+safe_constantize	lib/active_support/dependencies.rb	/^    def safe_constantize(name)$/;"	f	class:ActiveSupport.Dependencies
+safe_constantize	lib/active_support/inflector/methods.rb	/^    def safe_constantize(camel_cased_word)$/;"	f	class:ActiveSupport.Inflector
+safe_get	lib/active_support/dependencies.rb	/^      def safe_get(key)$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+search_dir	lib/active_support/cache/file_store.rb	/^        def search_dir(dir, &callback)$/;"	f	class:ActiveSupport.Cache.FileStore
+search_for_file	lib/active_support/dependencies.rb	/^    def search_for_file(path_suffix)$/;"	f	class:ActiveSupport.Dependencies
+second	lib/active_support/core_ext/array/access.rb	/^  def second$/;"	f	class:Array
+seconds	lib/active_support/core_ext/numeric/time.rb	/^  def seconds$/;"	f	class:Numeric
+seconds_since_midnight	lib/active_support/core_ext/date_time/calculations.rb	/^  def seconds_since_midnight$/;"	f
+seconds_since_midnight	lib/active_support/core_ext/time/calculations.rb	/^  def seconds_since_midnight$/;"	f
+seconds_since_unix_epoch	lib/active_support/core_ext/date_time/conversions.rb	/^  def seconds_since_unix_epoch$/;"	f	class:DateTime
+seconds_to_utc_offset	lib/active_support/values/time_zone.rb	/^    def self.seconds_to_utc_offset(seconds, colon = true)$/;"	F	class:ActiveSupport.TimeZone
+secure_compare	lib/active_support/message_verifier.rb	/^      def secure_compare(a, b)$/;"	f	class:ActiveSupport.MessageVerifier
+set_callback	lib/active_support/callbacks.rb	/^      def set_callback(name, *filter_list, &block)$/;"	f	class:ClassMethods
+set_logger	lib/active_support/log_subscriber/test_helper.rb	/^      def set_logger(logger)$/;"	f	class:ActiveSupport.LogSubscriber
+setup	lib/active_support/log_subscriber/test_helper.rb	/^      def setup$/;"	f	class:ActiveSupport.LogSubscriber.TestHelper
+setup	lib/active_support/testing/setup_and_teardown.rb	/^        def setup(*args, &block)$/;"	f	class:ActiveSupport.Testing.SetupAndTeardown.ClassMethods
+should_compress?	lib/active_support/cache.rb	/^        def should_compress?(value, options)$/;"	f	class:ActiveSupport.Cache.Entry
+shutdown	lib/active_support/queueing.rb	/^    def shutdown$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+silence	lib/active_support/backtrace_cleaner.rb	/^      def silence(backtrace)$/;"	f	class:ActiveSupport.BacktraceCleaner
+silence	lib/active_support/benchmarkable.rb	/^    def silence$/;"	f	class:ActiveSupport.Benchmarkable
+silence	lib/active_support/core_ext/logger.rb	/^  def silence(temporary_level = Logger::ERROR)$/;"	f	class:Logger
+silence	lib/active_support/deprecation/reporting.rb	/^      def silence$/;"	f	class:ActiveSupport.Deprecation.Reporting
+silence!	lib/active_support/cache.rb	/^      def silence!$/;"	f	class:ActiveSupport.Cache.Store
+silence_stderr	lib/active_support/core_ext/kernel/reporting.rb	/^  def silence_stderr #:nodoc:$/;"	f	class:Kernel
+silence_stream	lib/active_support/core_ext/kernel/reporting.rb	/^  def silence_stream(stream)$/;"	f	class:Kernel
+silence_warnings	lib/active_support/core_ext/kernel/reporting.rb	/^  def silence_warnings$/;"	f	class:Kernel
+since	lib/active_support/core_ext/date/calculations.rb	/^  def since(seconds)$/;"	f
+since	lib/active_support/core_ext/date_time/calculations.rb	/^  def since(seconds)$/;"	f
+since	lib/active_support/core_ext/numeric/time.rb	/^  def since(time = ::Time.current)$/;"	f	class:Numeric
+since	lib/active_support/core_ext/time/calculations.rb	/^  def since(seconds)$/;"	f
+since	lib/active_support/duration.rb	/^    def since(time = ::Time.current)$/;"	f	class:ActiveSupport.Duration
+since	lib/active_support/time_with_zone.rb	/^    def since(other)$/;"	f	class:ActiveSupport
+singleton_class?	lib/active_support/core_ext/class/attribute.rb	/^    def singleton_class?$/;"	f
+singular	lib/active_support/inflector/inflections.rb	/^      def singular(rule, replacement)$/;"	f	class:ActiveSupport.Inflector.Inflections
+singularize	lib/active_support/core_ext/string/inflections.rb	/^  def singularize(locale = :en)$/;"	f	class:String
+singularize	lib/active_support/inflector/methods.rb	/^    def singularize(word, locale = :en)$/;"	f	class:ActiveSupport.Inflector
+size	lib/active_support/cache.rb	/^      def size$/;"	f	class:ActiveSupport.Cache.Entry
+skip_callback	lib/active_support/callbacks.rb	/^      def skip_callback(name, *filter_list, &block)$/;"	f	class:ClassMethods
+slice	lib/active_support/core_ext/hash/slice.rb	/^  def slice(*keys)$/;"	f	class:Hash
+slice!	lib/active_support/core_ext/hash/slice.rb	/^  def slice!(*keys)$/;"	f	class:Hash
+slice!	lib/active_support/multibyte/chars.rb	/^      def slice!(*args)$/;"	f	class:ActiveSupport.Multibyte.Chars
+split	lib/active_support/core_ext/array/grouping.rb	/^  def split(value = nil, &block)$/;"	f	class:Array
+split	lib/active_support/multibyte/chars.rb	/^      def split(*args)$/;"	f	class:ActiveSupport.Multibyte.Chars
+squish	lib/active_support/core_ext/string/filters.rb	/^  def squish$/;"	f	class:String
+squish!	lib/active_support/core_ext/string/filters.rb	/^  def squish!$/;"	f	class:String
+start	lib/active_support/log_subscriber.rb	/^    def start(name, id, payload)$/;"	f	class:ActiveSupport
+start	lib/active_support/notifications/fanout.rb	/^          def start(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.AllMessages
+start	lib/active_support/notifications/fanout.rb	/^          def start(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Evented
+start	lib/active_support/notifications/fanout.rb	/^          def start(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Timed
+start	lib/active_support/notifications/fanout.rb	/^      def start(name, id, payload)$/;"	f	class:ActiveSupport.Notifications.Fanout
+start	lib/active_support/queueing.rb	/^    def start$/;"	f	class:ActiveSupport.ThreadedQueueConsumer
+start_document	lib/active_support/xml_mini/nokogirisax.rb	/^      def start_document$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+start_element	lib/active_support/xml_mini/nokogirisax.rb	/^      def start_element(name, attrs = [])$/;"	f	class:ActiveSupport.XmlMini_NokogiriSAX.HashBuilder
+stats	lib/active_support/cache/mem_cache_store.rb	/^      def stats$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+store	lib/active_support/dependencies.rb	/^      def store(klass)$/;"	f	class:ActiveSupport.Dependencies.ClassCache
+store_inherited	lib/active_support/descendants_tracker.rb	/^      def store_inherited(klass, descendant)$/;"	f	class:ActiveSupport.DescendantsTracker
+strftime	lib/active_support/time_with_zone.rb	/^    def strftime(format)$/;"	f	class:ActiveSupport
+stringify_keys	lib/active_support/core_ext/hash/keys.rb	/^  def stringify_keys$/;"	f	class:Hash
+stringify_keys	lib/active_support/hash_with_indifferent_access.rb	/^    def stringify_keys; dup end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+stringify_keys!	lib/active_support/core_ext/hash/keys.rb	/^  def stringify_keys!$/;"	f	class:Hash
+stringify_keys!	lib/active_support/hash_with_indifferent_access.rb	/^    def stringify_keys!; self end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+strip_heredoc	lib/active_support/core_ext/string/strip.rb	/^  def strip_heredoc$/;"	f	class:String
+subclasses	lib/active_support/core_ext/class/subclasses.rb	/^  def subclasses$/;"	f	class:Class
+subscribe	lib/active_support/notifications.rb	/^      def subscribe(*args, &block)$/;"	f	class:ActiveSupport.Notifications
+subscribe	lib/active_support/notifications/fanout.rb	/^      def subscribe(pattern = nil, block = Proc.new)$/;"	f	class:ActiveSupport.Notifications.Fanout
+subscribed	lib/active_support/notifications.rb	/^      def subscribed(callback, *args, &block)$/;"	f	class:ActiveSupport.Notifications
+subscribed_to?	lib/active_support/notifications/fanout.rb	/^          def subscribed_to?(name)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.AllMessages
+subscribed_to?	lib/active_support/notifications/fanout.rb	/^          def subscribed_to?(name)$/;"	f	class:ActiveSupport.Notifications.Fanout.Subscribers.Evented
+sum	lib/active_support/core_ext/enumerable.rb	/^  def sum(identity = 0)$/;"	f	class:Range
+sum	lib/active_support/core_ext/enumerable.rb	/^  def sum(identity = 0, &block)$/;"	f	class:Enumerable
+sum	lib/active_support/duration.rb	/^      def sum(sign, time = ::Time.current) #:nodoc:$/;"	f	class:ActiveSupport.Duration.inspect
+sunday	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def sunday$/;"	f	class:DateAndTime.Calculations
+superclass_delegating_accessor	lib/active_support/core_ext/class/delegating_attributes.rb	/^  def superclass_delegating_accessor(name, options = {})$/;"	f	class:Class
+suppress	lib/active_support/core_ext/kernel/reporting.rb	/^  def suppress(*exception_classes)$/;"	f	class:Kernel
+swapcase	lib/active_support/multibyte/chars.rb	/^      def swapcase$/;"	f	class:ActiveSupport.Multibyte.Chars
+swapcase	lib/active_support/multibyte/unicode.rb	/^      def swapcase(string)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize
+swapcase_mapping	lib/active_support/multibyte/unicode.rb	/^        def swapcase_mapping$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize.Codepoint
+symbolize_keys	lib/active_support/core_ext/hash/keys.rb	/^  def symbolize_keys$/;"	f	class:Hash
+symbolize_keys	lib/active_support/hash_with_indifferent_access.rb	/^    def symbolize_keys; to_hash.symbolize_keys end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+symbolize_keys!	lib/active_support/core_ext/hash/keys.rb	/^  def symbolize_keys!$/;"	f	class:Hash
+synchronize	lib/active_support/cache/memory_store.rb	/^      def synchronize(&block) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemoryStore
+synchronize	lib/active_support/cache/strategy/local_cache.rb	/^          def synchronize # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.LocalStore
+tableize	lib/active_support/core_ext/string/inflections.rb	/^  def tableize$/;"	f	class:String
+tableize	lib/active_support/inflector/methods.rb	/^    def tableize(class_name)$/;"	f	class:ActiveSupport.Inflector
+tagged	lib/active_support/tagged_logging.rb	/^      def tagged(*tags)$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+tagged	lib/active_support/tagged_logging.rb	/^    def tagged(*tags)$/;"	f	class:ActiveSupport.TaggedLogging
+tagged_logger	lib/active_support/testing/tagged_logging.rb	/^        def tagged_logger$/;"	f	class:ActiveSupport.Testing.TaggedLogging
+tagged_logging?	lib/active_support/testing/tagged_logging.rb	/^        def tagged_logging?$/;"	f	class:ActiveSupport.Testing.TaggedLogging
+tags_text	lib/active_support/tagged_logging.rb	/^        def tags_text$/;"	f	class:ActiveSupport.TaggedLogging.Formatter
+target	lib/active_support/deprecation/proxy_wrappers.rb	/^        def target$/;"	f	class:ActiveSupport.Deprecation.DeprecatedConstantProxy
+target	lib/active_support/deprecation/proxy_wrappers.rb	/^        def target$/;"	f	class:ActiveSupport.Deprecation.DeprecatedInstanceVariableProxy
+target	lib/active_support/deprecation/proxy_wrappers.rb	/^        def target$/;"	f	class:ActiveSupport.Deprecation.DeprecatedObjectProxy
+teardown	lib/active_support/log_subscriber/test_helper.rb	/^      def teardown$/;"	f	class:ActiveSupport.LogSubscriber.TestHelper
+teardown	lib/active_support/testing/setup_and_teardown.rb	/^        def teardown(*args, &block)$/;"	f	class:ActiveSupport.Testing.SetupAndTeardown.ClassMethods
+terabytes	lib/active_support/core_ext/numeric/bytes.rb	/^  def terabytes$/;"	f	class:Numeric
+test_methods	lib/active_support/testing/isolation.rb	/^          def test_methods$/;"	f	class:ActiveSupport.Testing.Isolation.included
+test_order	lib/active_support/test_case.rb	/^    def self.test_order # :nodoc:$/;"	F	class:ActiveSupport.TestCase
+texts	lib/active_support/xml_mini/jdom.rb	/^    def texts(element)$/;"	f	class:ActiveSupport.XmlMini_JDOM
+third	lib/active_support/core_ext/array/access.rb	/^  def third$/;"	f	class:Array
+thread_local_key	lib/active_support/cache/strategy/local_cache.rb	/^          def thread_local_key$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+tidy_byte	lib/active_support/multibyte/unicode.rb	/^      def tidy_byte(byte)$/;"	f	class:ActiveSupport.Multibyte.Unicode.apply_mapping
+tidy_bytes	lib/active_support/multibyte/chars.rb	/^      def tidy_bytes(force = false)$/;"	f	class:ActiveSupport.Multibyte.Chars
+tidy_bytes	lib/active_support/multibyte/unicode.rb	/^      def tidy_bytes(string, force = false)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters
+time	lib/active_support/time_with_zone.rb	/^    def time$/;"	f	class:ActiveSupport.TimeWithZone
+time_now	lib/active_support/values/time_zone.rb	/^    def time_now$/;"	f	class:ActiveSupport
+time_with_block	lib/active_support/testing/performance.rb	/^        def time_with_block$/;"	f	class:ActiveSupport.Testing.Performance.Profiler
+time_with_datetime_fallback	lib/active_support/core_ext/time/calculations.rb	/^    def time_with_datetime_fallback(utc_or_local, year, month=1, day=1, hour=0, min=0, sec=0, usec=0)$/;"	f	class:Time
+titleize	lib/active_support/core_ext/string/inflections.rb	/^  def titleize$/;"	f	class:String
+titleize	lib/active_support/inflector/methods.rb	/^    def titleize(word)$/;"	f	class:ActiveSupport.Inflector
+titleize	lib/active_support/multibyte/chars.rb	/^      def titleize$/;"	f	class:ActiveSupport.Multibyte.Chars
+to	lib/active_support/core_ext/array/access.rb	/^  def to(position)$/;"	f	class:Array
+to	lib/active_support/core_ext/string/access.rb	/^  def to(position)$/;"	f	class:String
+to_a	lib/active_support/time_with_zone.rb	/^    def to_a$/;"	f
+to_constant_name	lib/active_support/dependencies.rb	/^    def to_constant_name(desc) #:nodoc:$/;"	f	class:ActiveSupport.Dependencies
+to_d	lib/active_support/core_ext/big_decimal/conversions.rb	/^    def to_d$/;"	f	class:BigDecimal
+to_date	lib/active_support/core_ext/string/conversions.rb	/^  def to_date$/;"	f	class:String
+to_datetime	lib/active_support/core_ext/string/conversions.rb	/^  def to_datetime$/;"	f	class:String
+to_datetime	lib/active_support/time_with_zone.rb	/^    def to_datetime$/;"	f
+to_f	lib/active_support/core_ext/date_time/conversions.rb	/^  def to_f$/;"	f	class:DateTime
+to_f	lib/active_support/time_with_zone.rb	/^    def to_f$/;"	f
+to_formatted_s	lib/active_support/core_ext/array/conversions.rb	/^  def to_formatted_s(format = :default)$/;"	f	class:Array
+to_formatted_s	lib/active_support/core_ext/big_decimal/conversions.rb	/^  def to_formatted_s(*args)$/;"	f	class:BigDecimal
+to_formatted_s	lib/active_support/core_ext/date/conversions.rb	/^  def to_formatted_s(format = :default)$/;"	f	class:Date
+to_formatted_s	lib/active_support/core_ext/date_time/conversions.rb	/^  def to_formatted_s(format = :default)$/;"	f	class:DateTime
+to_formatted_s	lib/active_support/core_ext/numeric/conversions.rb	/^  def to_formatted_s(format = :default, options = {})$/;"	f	class:Numeric
+to_formatted_s	lib/active_support/core_ext/range/conversions.rb	/^  def to_formatted_s(format = :default)$/;"	f	class:Range
+to_formatted_s	lib/active_support/core_ext/time/conversions.rb	/^  def to_formatted_s(format = :default)$/;"	f	class:Time
+to_h	lib/active_support/core_ext/struct.rb	/^  def to_h$/;"	f	class:Struct
+to_hash	lib/active_support/hash_with_indifferent_access.rb	/^    def to_hash$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+to_hash	lib/active_support/xml_mini/libxml.rb	/^      def to_hash$/;"	f	class:LibXML.Conversions.Document
+to_hash	lib/active_support/xml_mini/libxml.rb	/^      def to_hash(hash={})$/;"	f	class:LibXML.Conversions.Node
+to_hash	lib/active_support/xml_mini/nokogiri.rb	/^        def to_hash$/;"	f	class:ActiveSupport.XmlMini_Nokogiri.Conversions.Document
+to_hash	lib/active_support/xml_mini/nokogiri.rb	/^        def to_hash(hash={})$/;"	f	class:ActiveSupport.XmlMini_Nokogiri.Conversions.Node
+to_i	lib/active_support/core_ext/date_time/conversions.rb	/^  def to_i$/;"	f	class:DateTime
+to_i	lib/active_support/time_with_zone.rb	/^    def to_i$/;"	f
+to_json	lib/active_support/core_ext/object/to_json.rb	/^    def to_json(options = nil)$/;"	f
+to_options!	lib/active_support/hash_with_indifferent_access.rb	/^    def to_options!; self end$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+to_param	lib/active_support/core_ext/object/to_param.rb	/^  def to_param$/;"	f	class:Array
+to_param	lib/active_support/core_ext/object/to_param.rb	/^  def to_param$/;"	f	class:FalseClass
+to_param	lib/active_support/core_ext/object/to_param.rb	/^  def to_param$/;"	f	class:NilClass
+to_param	lib/active_support/core_ext/object/to_param.rb	/^  def to_param$/;"	f	class:Object
+to_param	lib/active_support/core_ext/object/to_param.rb	/^  def to_param$/;"	f	class:TrueClass
+to_param	lib/active_support/core_ext/object/to_param.rb	/^  def to_param(namespace = nil)$/;"	f	class:Hash
+to_param	lib/active_support/core_ext/string/output_safety.rb	/^    def to_param$/;"	f	class:ActiveSupport.SafeBuffer
+to_query	lib/active_support/core_ext/object/to_query.rb	/^  def to_query(key)$/;"	f	class:Array
+to_query	lib/active_support/core_ext/object/to_query.rb	/^  def to_query(key)$/;"	f	class:Object
+to_s	lib/active_support/core_ext/string/output_safety.rb	/^    def to_s$/;"	f	class:ActiveSupport.SafeBuffer
+to_s	lib/active_support/time_with_zone.rb	/^    def to_s(format = :default)$/;"	f	class:ActiveSupport
+to_s	lib/active_support/values/time_zone.rb	/^    def to_s$/;"	f	class:ActiveSupport.TimeZone
+to_sentence	lib/active_support/core_ext/array/conversions.rb	/^  def to_sentence(options = {})$/;"	f	class:Array
+to_tag	lib/active_support/xml_mini.rb	/^    def to_tag(key, value, options)$/;"	f	class:ActiveSupport.XmlMini
+to_time	lib/active_support/core_ext/date/conversions.rb	/^  def to_time(form = :local)$/;"	f	class:Date
+to_time	lib/active_support/core_ext/string/conversions.rb	/^  def to_time(form = :utc)$/;"	f	class:String
+to_time	lib/active_support/time_with_zone.rb	/^    def to_time$/;"	f
+to_time_in_current_zone	lib/active_support/core_ext/date/zones.rb	/^  def to_time_in_current_zone$/;"	f	class:Date
+to_xml	lib/active_support/core_ext/array/conversions.rb	/^  def to_xml(options = {})$/;"	f	class:Array
+to_xml	lib/active_support/core_ext/hash/conversions.rb	/^  def to_xml(options = {})$/;"	f	class:Hash
+to_yaml_type	lib/active_support/ordered_hash.rb	/^    def to_yaml_type$/;"	f	class:ActiveSupport.OrderedHash
+today	lib/active_support/values/time_zone.rb	/^    def today$/;"	f	class:ActiveSupport.TimeZone
+today?	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def today?$/;"	f	class:DateAndTime.Calculations
+today?	lib/active_support/time_with_zone.rb	/^    def today?$/;"	f	class:ActiveSupport
+tomorrow	lib/active_support/core_ext/date/calculations.rb	/^    def tomorrow$/;"	f	class:Date
+tomorrow	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def tomorrow$/;"	f	class:DateAndTime.Calculations
+transfer_time_values_to_utc_constructor	lib/active_support/time_with_zone.rb	/^      def transfer_time_values_to_utc_constructor(time)$/;"	f
+transform_keys	lib/active_support/core_ext/hash/keys.rb	/^  def transform_keys$/;"	f	class:Hash
+transform_keys!	lib/active_support/core_ext/hash/keys.rb	/^  def transform_keys!$/;"	f	class:Hash
+translate_number_value_with_default	lib/active_support/number_helper.rb	/^    def translate_number_value_with_default(key, i18n_options = {}) #:nodoc:$/;"	f	class:ActiveSupport
+translate_offset	lib/active_support/multibyte/chars.rb	/^        def translate_offset(byte_offset) #:nodoc:$/;"	f	class:ActiveSupport.Multibyte
+transliterate	lib/active_support/inflector/transliterate.rb	/^    def transliterate(string, replacement = "?")$/;"	f	class:ActiveSupport.Inflector
+trigger	lib/active_support/file_watcher.rb	/^      def trigger(files)$/;"	f	class:ActiveSupport.FileWatcher.Backend
+trigger	lib/active_support/file_watcher.rb	/^    def trigger(files)$/;"	f	class:ActiveSupport.FileWatcher
+truncate	lib/active_support/core_ext/string/filters.rb	/^  def truncate(truncate_at, options = {})$/;"	f	class:String
+try	lib/active_support/core_ext/object/try.rb	/^  def try(*a, &b)$/;"	f	class:Object
+try	lib/active_support/core_ext/object/try.rb	/^  def try(*args)$/;"	f	class:NilClass
+try!	lib/active_support/core_ext/object/try.rb	/^  def try!(*a, &b)$/;"	f	class:Object
+try!	lib/active_support/core_ext/object/try.rb	/^  def try!(*args)$/;"	f	class:NilClass
+typecast_xml_value	lib/active_support/core_ext/hash/conversions.rb	/^      def typecast_xml_value(value)$/;"	f	class:Hash
+uncompress	lib/active_support/cache.rb	/^        def uncompress(value)$/;"	f	class:ActiveSupport.Cache.Entry
+uncountable	lib/active_support/inflector/inflections.rb	/^      def uncountable(*words)$/;"	f	class:ActiveSupport.Inflector.Inflections
+underscore	lib/active_support/core_ext/string/inflections.rb	/^  def underscore$/;"	f	class:String
+underscore	lib/active_support/inflector/methods.rb	/^    def underscore(camel_cased_word)$/;"	f	class:ActiveSupport.Inflector
+unescape	lib/active_support/core_ext/uri.rb	/^    def unescape(str, escaped = \/%[a-fA-F\\d]{2}\/)$/;"	f
+unhook!	lib/active_support/dependencies.rb	/^    def unhook!$/;"	f	class:ActiveSupport.Dependencies
+uniq_by	lib/active_support/core_ext/array/uniq_by.rb	/^  def uniq_by(&block)$/;"	f	class:Array
+uniq_by!	lib/active_support/core_ext/array/uniq_by.rb	/^  def uniq_by!(&block)$/;"	f	class:Array
+unique_id	lib/active_support/notifications/instrumenter.rb	/^        def unique_id$/;"	f	class:ActiveSupport.Notifications.Instrumenter
+unloadable	lib/active_support/dependencies.rb	/^      def unloadable(const_desc = self)$/;"	f	class:ActiveSupport.Dependencies.ModuleConstMissing
+unloadable	lib/active_support/dependencies.rb	/^      def unloadable(const_desc)$/;"	f	class:ActiveSupport.Dependencies.Loadable
+unpack_graphemes	lib/active_support/multibyte/unicode.rb	/^      def unpack_graphemes(string)$/;"	f	class:ActiveSupport.Multibyte.Unicode
+unrename_keys	lib/active_support/core_ext/hash/conversions.rb	/^      def unrename_keys(params)$/;"	f	class:Hash
+unsubscribe	lib/active_support/notifications.rb	/^      def unsubscribe(args)$/;"	f	class:ActiveSupport.Notifications
+unsubscribe	lib/active_support/notifications/fanout.rb	/^      def unsubscribe(subscriber)$/;"	f	class:ActiveSupport.Notifications.Fanout
+upcase	lib/active_support/multibyte/chars.rb	/^      def upcase$/;"	f	class:ActiveSupport.Multibyte.Chars
+upcase	lib/active_support/multibyte/unicode.rb	/^      def upcase(string)$/;"	f	class:ActiveSupport.Multibyte.Unicode.reorder_characters.normalize
+update	lib/active_support/hash_with_indifferent_access.rb	/^    def update(other_hash)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+updated?	lib/active_support/file_update_checker.rb	/^    def updated?$/;"	f	class:ActiveSupport.FileUpdateChecker
+updated_at	lib/active_support/file_update_checker.rb	/^    def updated_at(paths)$/;"	f	class:ActiveSupport.FileUpdateChecker
+us_zones	lib/active_support/values/time_zone.rb	/^      def us_zones$/;"	f	class:ActiveSupport.TimeZone
+use_zone	lib/active_support/core_ext/time/zones.rb	/^    def use_zone(time_zone)$/;"	f	class:Time
+usec	lib/active_support/time_with_zone.rb	/^    def usec$/;"	f
+utc	lib/active_support/core_ext/date_time/calculations.rb	/^  def utc$/;"	f
+utc	lib/active_support/time_with_zone.rb	/^    def utc$/;"	f	class:ActiveSupport.TimeWithZone
+utc?	lib/active_support/core_ext/date_time/calculations.rb	/^  def utc?$/;"	f
+utc?	lib/active_support/time_with_zone.rb	/^    def utc?$/;"	f	class:ActiveSupport.TimeWithZone
+utc_offset	lib/active_support/core_ext/date_time/calculations.rb	/^  def utc_offset$/;"	f
+utc_offset	lib/active_support/time_with_zone.rb	/^    def utc_offset$/;"	f	class:ActiveSupport.TimeWithZone
+utc_offset	lib/active_support/values/time_zone.rb	/^    def utc_offset$/;"	f	class:ActiveSupport.TimeZone
+utc_time	lib/active_support/core_ext/time/calculations.rb	/^    def utc_time(*args)$/;"	f	class:Time
+utc_to_local	lib/active_support/values/time_zone.rb	/^    def utc_to_local(time)$/;"	f	class:ActiveSupport.TimeZone
+valid_float?	lib/active_support/number_helper.rb	/^    def valid_float?(number) #:nodoc:$/;"	f	class:ActiveSupport
+validate_fallbacks	lib/active_support/i18n_railtie.rb	/^    def self.validate_fallbacks(fallbacks)$/;"	F	class:I18n
+value	lib/active_support/cache.rb	/^      def value$/;"	f	class:ActiveSupport.Cache.Entry
+values_at	lib/active_support/hash_with_indifferent_access.rb	/^    def values_at(*indices)$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+verifier	lib/active_support/message_encryptor.rb	/^    def verifier$/;"	f	class:ActiveSupport.MessageEncryptor
+verify	lib/active_support/message_verifier.rb	/^    def verify(signed_message)$/;"	f	class:ActiveSupport.MessageVerifier
+wait	lib/active_support/log_subscriber/test_helper.rb	/^      def wait$/;"	f	class:ActiveSupport.LogSubscriber
+wait	lib/active_support/notifications/fanout.rb	/^      def wait$/;"	f	class:ActiveSupport.Notifications.Fanout
+warn	lib/active_support/deprecation/proxy_wrappers.rb	/^        def warn(callstack, called, args)$/;"	f	class:ActiveSupport.Deprecation.DeprecatedConstantProxy
+warn	lib/active_support/deprecation/proxy_wrappers.rb	/^        def warn(callstack, called, args)$/;"	f	class:ActiveSupport.Deprecation.DeprecatedInstanceVariableProxy
+warn	lib/active_support/deprecation/proxy_wrappers.rb	/^        def warn(callstack, called, args)$/;"	f	class:ActiveSupport.Deprecation.DeprecatedObjectProxy
+warn	lib/active_support/deprecation/reporting.rb	/^      def warn(message = nil, callstack = nil)$/;"	f	class:ActiveSupport.Deprecation.Reporting
+watch	lib/active_support/file_watcher.rb	/^    def watch(pattern, &block)$/;"	f	class:ActiveSupport.FileWatcher
+watch_namespaces	lib/active_support/dependencies.rb	/^      def watch_namespaces(namespaces)$/;"	f	class:ActiveSupport.Dependencies.WatchStack
+watched	lib/active_support/file_update_checker.rb	/^    def watched$/;"	f	class:ActiveSupport.FileUpdateChecker
+watching?	lib/active_support/dependencies.rb	/^      def watching?$/;"	f	class:ActiveSupport.Dependencies.WatchStack
+weeks	lib/active_support/core_ext/numeric/time.rb	/^  def weeks$/;"	f	class:Numeric
+weeks_ago	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def weeks_ago(weeks)$/;"	f	class:DateAndTime.Calculations
+weeks_since	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def weeks_since(weeks)$/;"	f	class:DateAndTime.Calculations
+will_unload?	lib/active_support/dependencies.rb	/^    def will_unload?(const_desc)$/;"	f	class:ActiveSupport.Dependencies
+with_backend	lib/active_support/json/decoding.rb	/^      def with_backend(name)$/;"	f	class:ActiveSupport.JSON
+with_backend	lib/active_support/xml_mini.rb	/^    def with_backend(name)$/;"	f	class:ActiveSupport.XmlMini
+with_gc_stats	lib/active_support/testing/performance.rb	/^            def with_gc_stats; end$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.Metrics.Base
+with_gc_stats	lib/active_support/testing/performance/jruby.rb	/^            def with_gc_stats$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+with_gc_stats	lib/active_support/testing/performance/rubinius.rb	/^            def with_gc_stats$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+with_gc_stats	lib/active_support/testing/performance/ruby.rb	/^            def with_gc_stats$/;"	f	class:ActiveSupport.Testing.Performance.Metrics.Base
+with_indifferent_access	lib/active_support/core_ext/hash/indifferent_access.rb	/^  def with_indifferent_access$/;"	f	class:Hash
+with_indifferent_access	lib/active_support/hash_with_indifferent_access.rb	/^    def with_indifferent_access$/;"	f	class:ActiveSupport.HashWithIndifferentAccess
+with_local_cache	lib/active_support/cache/strategy/local_cache.rb	/^        def with_local_cache$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+with_options	lib/active_support/core_ext/object/with_options.rb	/^  def with_options(options)$/;"	f	class:Object
+with_output_file	lib/active_support/testing/performance.rb	/^          def with_output_file$/;"	f	class:ActiveSupport.Testing.Performance.Benchmarker.environment
+with_warnings	lib/active_support/core_ext/kernel/reporting.rb	/^  def with_warnings(flag)$/;"	f	class:Kernel
+wrap	lib/active_support/core_ext/array/wrap.rb	/^  def self.wrap(object)$/;"	F	class:Array
+wrap_with_time_zone	lib/active_support/time_with_zone.rb	/^      def wrap_with_time_zone(time)$/;"	f
+write	lib/active_support/cache.rb	/^      def write(name, value, options = nil)$/;"	f	class:ActiveSupport.Cache.Store
+write_entry	lib/active_support/cache.rb	/^        def write_entry(key, entry, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Store
+write_entry	lib/active_support/cache/file_store.rb	/^        def write_entry(key, entry, options)$/;"	f	class:ActiveSupport.Cache.FileStore
+write_entry	lib/active_support/cache/mem_cache_store.rb	/^          def write_entry(key, entry, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemCacheStore.LocalCacheWithRaw
+write_entry	lib/active_support/cache/mem_cache_store.rb	/^        def write_entry(key, entry, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemCacheStore
+write_entry	lib/active_support/cache/memory_store.rb	/^        def write_entry(key, entry, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.MemoryStore
+write_entry	lib/active_support/cache/null_store.rb	/^        def write_entry(key, entry, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.NullStore
+write_entry	lib/active_support/cache/strategy/local_cache.rb	/^          def write_entry(key, entry, options) # :nodoc:$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache
+write_entry	lib/active_support/cache/strategy/local_cache.rb	/^          def write_entry(key, value, options)$/;"	f	class:ActiveSupport.Cache.Strategy.LocalCache.LocalStore
+xmlschema	lib/active_support/core_ext/date/conversions.rb	/^  def xmlschema$/;"	f	class:Date
+xmlschema	lib/active_support/time_with_zone.rb	/^    def xmlschema(fraction_digits = 0)$/;"	f	class:ActiveSupport.TimeWithZone
+years	lib/active_support/core_ext/integer/time.rb	/^  def years$/;"	f	class:Integer
+years_ago	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def years_ago(years)$/;"	f	class:DateAndTime.Calculations
+years_since	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def years_since(years)$/;"	f	class:DateAndTime.Calculations
+yesterday	lib/active_support/core_ext/date/calculations.rb	/^    def yesterday$/;"	f	class:Date
+yesterday	lib/active_support/core_ext/date_and_time/calculations.rb	/^    def yesterday$/;"	f	class:DateAndTime.Calculations
+zone	lib/active_support/core_ext/time/zones.rb	/^    def zone$/;"	f	class:Time
+zone	lib/active_support/time_with_zone.rb	/^    def zone$/;"	f	class:ActiveSupport.TimeWithZone
+zone=	lib/active_support/core_ext/time/zones.rb	/^    def zone=(time_zone)$/;"	f	class:Time
+zones_map	lib/active_support/values/time_zone.rb	/^      def zones_map$/;"	f	class:ActiveSupport.TimeZone

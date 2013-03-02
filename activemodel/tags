@@ -1,0 +1,345 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AcceptanceValidator	lib/active_model/validations/acceptance.rb	/^    class AcceptanceValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+ActiveModel	lib/active_model.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/attribute_methods.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/callbacks.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/conversion.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/deprecated_mass_assignment_security.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/dirty.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/errors.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/forbidden_attributes_protection.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/lint.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/model.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/naming.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/observer_array.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/observing.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/railtie.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/secure_password.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/serialization.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/serializers/json.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/serializers/xml.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/test_case.rb	/^module ActiveModel #:nodoc:$/;"	m
+ActiveModel	lib/active_model/translation.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/acceptance.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/callbacks.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/clusivity.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/confirmation.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/exclusion.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/format.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/inclusion.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/length.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/numericality.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/presence.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/validates.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validations/with.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/validator.rb	/^module ActiveModel$/;"	m
+ActiveModel	lib/active_model/version.rb	/^module ActiveModel$/;"	m
+Attribute	lib/active_model/serializers/xml.rb	/^        class Attribute #:nodoc:$/;"	c	class:ActiveModel.Serializers.Xml.Serializer
+AttributeMethodMatcher	lib/active_model/attribute_methods.rb	/^        class AttributeMethodMatcher #:nodoc:$/;"	c
+AttributeMethods	lib/active_model/attribute_methods.rb	/^  module AttributeMethods$/;"	m	class:ActiveModel
+BlockValidator	lib/active_model/validator.rb	/^  class BlockValidator < EachValidator #:nodoc:$/;"	c	class:ActiveModel
+Callbacks	lib/active_model/callbacks.rb	/^  module Callbacks$/;"	m	class:ActiveModel
+Callbacks	lib/active_model/validations/callbacks.rb	/^    module Callbacks$/;"	m	class:ActiveModel.Validations
+ClassMethods	lib/active_model/attribute_methods.rb	/^    module ClassMethods$/;"	m	class:ActiveModel.AttributeMethods
+ClassMethods	lib/active_model/conversion.rb	/^    module ClassMethods #:nodoc:$/;"	m	class:ActiveModel.Conversion
+ClassMethods	lib/active_model/deprecated_mass_assignment_security.rb	/^     module ClassMethods # :nodoc:$/;"	m	class:ActiveModel.DeprecatedMassAssignmentSecurity
+ClassMethods	lib/active_model/observing.rb	/^    module ClassMethods$/;"	m	class:ActiveModel.Observing
+ClassMethods	lib/active_model/secure_password.rb	/^    module ClassMethods$/;"	m	class:ActiveModel
+ClassMethods	lib/active_model/validations.rb	/^    module ClassMethods$/;"	m	class:ActiveModel.Validations
+ClassMethods	lib/active_model/validations/callbacks.rb	/^      module ClassMethods$/;"	m	class:ActiveModel.Validations.Callbacks
+ClassMethods	lib/active_model/validations/validates.rb	/^    module ClassMethods$/;"	m	class:ActiveModel.Validations
+ClassMethods	lib/active_model/validations/with.rb	/^    module ClassMethods$/;"	m	class:ActiveModel.Validations
+Clusivity	lib/active_model/validations/clusivity.rb	/^    module Clusivity #:nodoc:$/;"	m	class:ActiveModel.Validations
+ConfirmationValidator	lib/active_model/validations/confirmation.rb	/^    class ConfirmationValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+Conversion	lib/active_model/conversion.rb	/^  module Conversion$/;"	m	class:ActiveModel
+DeprecatedMassAssignmentSecurity	lib/active_model/deprecated_mass_assignment_security.rb	/^  module DeprecatedMassAssignmentSecurity # :nodoc:$/;"	m	class:ActiveModel
+Dirty	lib/active_model/dirty.rb	/^  module Dirty$/;"	m	class:ActiveModel
+EachValidator	lib/active_model/validator.rb	/^  class EachValidator < Validator #:nodoc:$/;"	c	class:ActiveModel
+Errors	lib/active_model/errors.rb	/^  class Errors$/;"	c	class:ActiveModel
+ExclusionValidator	lib/active_model/validations/exclusion.rb	/^    class ExclusionValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+ForbiddenAttributesError	lib/active_model/forbidden_attributes_protection.rb	/^  class ForbiddenAttributesError < StandardError$/;"	c	class:ActiveModel
+ForbiddenAttributesProtection	lib/active_model/forbidden_attributes_protection.rb	/^  module ForbiddenAttributesProtection # :nodoc:$/;"	m	class:ActiveModel
+FormatValidator	lib/active_model/validations/format.rb	/^    class FormatValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/acceptance.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/confirmation.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations.ConfirmationValidator
+HelperMethods	lib/active_model/validations/exclusion.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/format.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/inclusion.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/length.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/numericality.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/presence.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+HelperMethods	lib/active_model/validations/with.rb	/^    module HelperMethods$/;"	m	class:ActiveModel.Validations
+InclusionValidator	lib/active_model/validations/inclusion.rb	/^    class InclusionValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+InstanceMethodsOnActivation	lib/active_model/secure_password.rb	/^    module InstanceMethodsOnActivation$/;"	m	class:ActiveModel
+JSON	lib/active_model/serializers/json.rb	/^    module JSON$/;"	m	class:ActiveModel.Serializers
+LengthValidator	lib/active_model/validations/length.rb	/^    class LengthValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+Lint	lib/active_model/lint.rb	/^  module Lint$/;"	m	class:ActiveModel
+MethodAttribute	lib/active_model/serializers/xml.rb	/^        class MethodAttribute < Attribute #:nodoc:$/;"	c	class:ActiveModel.Serializers.Xml.Serializer
+MissingAttributeError	lib/active_model/attribute_methods.rb	/^  class MissingAttributeError < NoMethodError$/;"	c	class:ActiveModel
+Model	lib/active_model/model.rb	/^  module Model$/;"	m	class:ActiveModel
+Name	lib/active_model/naming.rb	/^  class Name$/;"	c	class:ActiveModel
+Naming	lib/active_model/naming.rb	/^  module Naming$/;"	m	class:ActiveModel
+NumericalityValidator	lib/active_model/validations/numericality.rb	/^    class NumericalityValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+Observer	lib/active_model/observing.rb	/^  class Observer$/;"	c	class:ActiveModel
+ObserverArray	lib/active_model/observer_array.rb	/^  class ObserverArray < Array$/;"	c	class:ActiveModel
+Observing	lib/active_model/observing.rb	/^  module Observing$/;"	m	class:ActiveModel
+PresenceValidator	lib/active_model/validations/presence.rb	/^    class PresenceValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+Railtie	lib/active_model/railtie.rb	/^  class Railtie < Rails::Railtie # :nodoc:$/;"	c	class:ActiveModel
+SecurePassword	lib/active_model/secure_password.rb	/^  module SecurePassword$/;"	m	class:ActiveModel
+Serialization	lib/active_model/serialization.rb	/^  module Serialization$/;"	m	class:ActiveModel
+Serializer	lib/active_model/serializers/xml.rb	/^      class Serializer #:nodoc:$/;"	c	class:ActiveModel.Serializers.Xml
+Serializers	lib/active_model.rb	/^  module Serializers$/;"	m	class:ActiveModel
+Serializers	lib/active_model/serializers/json.rb	/^  module Serializers$/;"	m	class:ActiveModel
+Serializers	lib/active_model/serializers/xml.rb	/^  module Serializers$/;"	m	class:ActiveModel
+StrictValidationFailed	lib/active_model/errors.rb	/^  class StrictValidationFailed < StandardError$/;"	c	class:ActiveModel
+TestCase	lib/active_model/test_case.rb	/^  class TestCase < ActiveSupport::TestCase #:nodoc:$/;"	c	class:ActiveModel
+Tests	lib/active_model/lint.rb	/^    module Tests$/;"	m	class:ActiveModel.Lint
+Translation	lib/active_model/translation.rb	/^  module Translation$/;"	m	class:ActiveModel
+VERSION	lib/active_model/version.rb	/^  module VERSION #:nodoc:$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/acceptance.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/callbacks.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/clusivity.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/confirmation.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/exclusion.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/format.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/inclusion.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/length.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/numericality.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/presence.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/validates.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validations	lib/active_model/validations/with.rb	/^  module Validations$/;"	m	class:ActiveModel
+Validator	lib/active_model/validator.rb	/^  class Validator$/;"	c	class:ActiveModel
+WithValidator	lib/active_model/validations/with.rb	/^    class WithValidator < EachValidator # :nodoc:$/;"	c	class:ActiveModel.Validations
+Xml	lib/active_model/serializers/xml.rb	/^    module Xml$/;"	m	class:ActiveModel.Serializers
+[]	lib/active_model/errors.rb	/^    def [](attribute)$/;"	f	class:ActiveModel.Errors
+[]=	lib/active_model/errors.rb	/^    def []=(attribute, error)$/;"	f	class:ActiveModel.Errors
+_define_after_model_callback	lib/active_model/callbacks.rb	/^    def _define_after_model_callback(klass, callback) #:nodoc:$/;"	f	class:ActiveModel.Callbacks
+_define_around_model_callback	lib/active_model/callbacks.rb	/^    def _define_around_model_callback(klass, callback) #:nodoc:$/;"	f	class:ActiveModel.Callbacks
+_define_before_model_callback	lib/active_model/callbacks.rb	/^    def _define_before_model_callback(klass, callback) #:nodoc:$/;"	f	class:ActiveModel.Callbacks
+_merge_attributes	lib/active_model/validations/with.rb	/^        def _merge_attributes(attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+_parse_validates_options	lib/active_model/validations/validates.rb	/^      def _parse_validates_options(options) # :nodoc:$/;"	f	class:ActiveModel.Validations.ClassMethods
+_singularize	lib/active_model/naming.rb	/^    def _singularize(string, replacement='_')$/;"	f	class:ActiveModel.Name
+_to_partial_path	lib/active_model/conversion.rb	/^      def _to_partial_path #:nodoc:$/;"	f	class:ActiveModel.Conversion.ClassMethods
+_validates_default_keys	lib/active_model/validations/validates.rb	/^      def _validates_default_keys # :nodoc:$/;"	f	class:ActiveModel.Validations.ClassMethods
+add	lib/active_model/errors.rb	/^    def add(attribute, message = nil, options = {})$/;"	f	class:ActiveModel.Errors
+add_associations	lib/active_model/serializers/xml.rb	/^        def add_associations(association, records, opts)$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+add_attributes_and_methods	lib/active_model/serializers/xml.rb	/^        def add_attributes_and_methods$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+add_extra_behavior	lib/active_model/serializers/xml.rb	/^        def add_extra_behavior$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+add_includes	lib/active_model/serializers/xml.rb	/^        def add_includes$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+add_observer	lib/active_model/observing.rb	/^      def add_observer(observer)$/;"	f	class:ActiveModel.Observing.ClassMethods
+add_observer!	lib/active_model/observing.rb	/^      def add_observer!(klass) #:nodoc:$/;"	f	class:ActiveModel
+add_on_blank	lib/active_model/errors.rb	/^    def add_on_blank(attributes, options = {})$/;"	f	class:ActiveModel.Errors
+add_on_empty	lib/active_model/errors.rb	/^    def add_on_empty(attributes, options = {})$/;"	f	class:ActiveModel.Errors
+add_procs	lib/active_model/serializers/xml.rb	/^        def add_procs$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+added?	lib/active_model/errors.rb	/^    def added?(attribute, message = nil, options = {})$/;"	f	class:ActiveModel.Errors
+after_	lib/active_model/callbacks.rb	/^        def self.after_#{callback}(*args, &block)$/;"	F	class:ActiveModel.Callbacks._define_after_model_callback
+after_validation	lib/active_model/validations/callbacks.rb	/^        def after_validation(*args, &block)$/;"	f	class:ActiveModel.Validations.Callbacks.ClassMethods
+alias_attribute	lib/active_model/attribute_methods.rb	/^      def alias_attribute(new_name, old_name)$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+around_	lib/active_model/callbacks.rb	/^        def self.around_#{callback}(*args, &block)$/;"	F	class:ActiveModel.Callbacks._define_around_model_callback
+as_json	lib/active_model/errors.rb	/^    def as_json(options=nil)$/;"	f	class:ActiveModel.Errors
+as_json	lib/active_model/serializers/json.rb	/^      def as_json(options = nil)$/;"	f	class:ActiveModel.Serializers.JSON
+assert_boolean	lib/active_model/lint.rb	/^        def assert_boolean(result, name)$/;"	f	class:ActiveModel.Lint.Tests
+attr_accessible	lib/active_model/deprecated_mass_assignment_security.rb	/^       def attr_accessible(*args)$/;"	f	class:ActiveModel.DeprecatedMassAssignmentSecurity.ClassMethods
+attr_protected	lib/active_model/deprecated_mass_assignment_security.rb	/^       def attr_protected(*args)$/;"	f	class:ActiveModel.DeprecatedMassAssignmentSecurity.ClassMethods
+attribute_change	lib/active_model/dirty.rb	/^      def attribute_change(attr)$/;"	f	class:ActiveModel.Dirty
+attribute_changed?	lib/active_model/dirty.rb	/^      def attribute_changed?(attr)$/;"	f	class:ActiveModel.Dirty
+attribute_method?	lib/active_model/attribute_methods.rb	/^      def attribute_method?(attr_name) #:nodoc:$/;"	f
+attribute_method?	lib/active_model/validations.rb	/^      def attribute_method?(attribute)$/;"	f	class:ActiveModel.Validations.ClassMethods
+attribute_method_affix	lib/active_model/attribute_methods.rb	/^      def attribute_method_affix(*affixes)$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+attribute_method_matcher	lib/active_model/attribute_methods.rb	/^        def attribute_method_matcher(method_name) #:nodoc:$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+attribute_method_matchers_cache	lib/active_model/attribute_methods.rb	/^        def attribute_method_matchers_cache #:nodoc:$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+attribute_method_prefix	lib/active_model/attribute_methods.rb	/^      def attribute_method_prefix(*prefixes)$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+attribute_method_suffix	lib/active_model/attribute_methods.rb	/^      def attribute_method_suffix(*suffixes)$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+attribute_missing	lib/active_model/attribute_methods.rb	/^    def attribute_missing(match, *args, &block)$/;"	f
+attribute_was	lib/active_model/dirty.rb	/^      def attribute_was(attr)$/;"	f	class:ActiveModel.Dirty
+attribute_will_change!	lib/active_model/dirty.rb	/^      def attribute_will_change!(attr)$/;"	f	class:ActiveModel.Dirty
+attributes_protected_by_default	lib/active_model/secure_password.rb	/^          def self.attributes_protected_by_default #:nodoc:$/;"	F	class:ActiveModel.ClassMethods.has_secure_password
+authenticate	lib/active_model/secure_password.rb	/^      def authenticate(unencrypted_password)$/;"	f	class:ActiveModel.InstanceMethodsOnActivation
+before_	lib/active_model/callbacks.rb	/^        def self.before_#{callback}(*args, &block)$/;"	F	class:ActiveModel.Callbacks._define_before_model_callback
+before_validation	lib/active_model/validations/callbacks.rb	/^        def before_validation(*args, &block)$/;"	f	class:ActiveModel.Validations.Callbacks.ClassMethods
+changed	lib/active_model/dirty.rb	/^    def changed$/;"	f	class:ActiveModel.Dirty
+changed?	lib/active_model/dirty.rb	/^    def changed?$/;"	f	class:ActiveModel.Dirty
+changed_attributes	lib/active_model/dirty.rb	/^    def changed_attributes$/;"	f	class:ActiveModel.Dirty
+changes	lib/active_model/dirty.rb	/^    def changes$/;"	f	class:ActiveModel.Dirty
+check_options_validity	lib/active_model/validations/format.rb	/^      def check_options_validity(options, name)$/;"	f	class:ActiveModel.Validations.FormatValidator
+check_validity!	lib/active_model/validations/clusivity.rb	/^      def check_validity!$/;"	f	class:ActiveModel.Validations.Clusivity
+check_validity!	lib/active_model/validations/format.rb	/^      def check_validity!$/;"	f	class:ActiveModel.Validations.FormatValidator
+check_validity!	lib/active_model/validations/length.rb	/^      def check_validity!$/;"	f	class:ActiveModel.Validations.LengthValidator
+check_validity!	lib/active_model/validations/numericality.rb	/^      def check_validity!$/;"	f	class:ActiveModel.Validations.NumericalityValidator
+check_validity!	lib/active_model/validator.rb	/^    def check_validity!$/;"	f	class:ActiveModel.EachValidator
+clear	lib/active_model/errors.rb	/^    def clear$/;"	f	class:ActiveModel.Errors
+compute_type	lib/active_model/serializers/xml.rb	/^          def compute_type$/;"	f	class:ActiveModel.Serializers.Xml.Serializer.Attribute
+count	lib/active_model/errors.rb	/^    def count$/;"	f	class:ActiveModel.Errors
+count_observers	lib/active_model/observing.rb	/^      def count_observers$/;"	f	class:ActiveModel.Observing.ClassMethods
+decorations	lib/active_model/serializers/xml.rb	/^          def decorations$/;"	f	class:ActiveModel.Serializers.Xml.Serializer.Attribute
+define_attribute_method	lib/active_model/attribute_methods.rb	/^      def define_attribute_method(attr_name)$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+define_attribute_methods	lib/active_model/attribute_methods.rb	/^      def define_attribute_methods(*attr_names)$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+define_model_callbacks	lib/active_model/callbacks.rb	/^    def define_model_callbacks(*callbacks)$/;"	f	class:ActiveModel.Callbacks
+define_proxy_call	lib/active_model/attribute_methods.rb	/^        def define_proxy_call(include_private, mod, name, send, *extra) #:nodoc:$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+delete	lib/active_model/errors.rb	/^    def delete(key)$/;"	f	class:ActiveModel.Errors
+delimiter	lib/active_model/validations/clusivity.rb	/^      def delimiter$/;"	f	class:ActiveModel.Validations
+disable	lib/active_model/observer_array.rb	/^    def disable(*observers, &block)$/;"	f	class:ActiveModel.ObserverArray
+disabled_for?	lib/active_model/observer_array.rb	/^    def disabled_for?(observer) #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+disabled_for?	lib/active_model/observing.rb	/^      def disabled_for?(object) #:nodoc:$/;"	f	class:ActiveModel
+disabled_observer_stack	lib/active_model/observer_array.rb	/^      def disabled_observer_stack #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+disabled_observers	lib/active_model/observer_array.rb	/^      def disabled_observers #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+each	lib/active_model/errors.rb	/^    def each$/;"	f	class:ActiveModel.Errors
+each_subclass_array	lib/active_model/observer_array.rb	/^      def each_subclass_array #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+eager_load!	lib/active_model.rb	/^  def eager_load!$/;"	f	class:ActiveModel
+empty?	lib/active_model/errors.rb	/^    def empty?$/;"	f	class:ActiveModel.Errors
+enable	lib/active_model/observer_array.rb	/^    def enable(*observers, &block)$/;"	f	class:ActiveModel.ObserverArray
+end_transaction	lib/active_model/observer_array.rb	/^      def end_transaction #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+errors	lib/active_model/validations.rb	/^    def errors$/;"	f	class:ActiveModel.Validations
+extended	lib/active_model/callbacks.rb	/^    def self.extended(base) #:nodoc:$/;"	F	class:ActiveModel.Callbacks
+filtered_options	lib/active_model/validations/numericality.rb	/^      def filtered_options(value)$/;"	f	class:ActiveModel.Validations.NumericalityValidator
+from_json	lib/active_model/serializers/json.rb	/^      def from_json(json, include_root=include_root_in_json)$/;"	f	class:ActiveModel.Serializers
+from_xml	lib/active_model/serializers/xml.rb	/^      def from_xml(xml)$/;"	f	class:ActiveModel.Serializers.Xml
+full_message	lib/active_model/errors.rb	/^    def full_message(attribute, message)$/;"	f	class:ActiveModel.Errors
+full_messages	lib/active_model/errors.rb	/^    def full_messages$/;"	f	class:ActiveModel.Errors
+generate_message	lib/active_model/errors.rb	/^    def generate_message(attribute, type = :invalid, options = {})$/;"	f	class:ActiveModel.Errors
+generated_attribute_methods	lib/active_model/attribute_methods.rb	/^      def generated_attribute_methods #:nodoc:$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+get	lib/active_model/errors.rb	/^    def get(key)$/;"	f	class:ActiveModel.Errors
+has_secure_password	lib/active_model/secure_password.rb	/^      def has_secure_password(options = {})$/;"	f	class:ActiveModel.ClassMethods
+human	lib/active_model/naming.rb	/^    def human(options={})$/;"	f	class:ActiveModel.Name
+human_attribute_name	lib/active_model/translation.rb	/^    def human_attribute_name(attribute, options = {})$/;"	f	class:ActiveModel.Translation
+i18n_scope	lib/active_model/translation.rb	/^    def i18n_scope$/;"	f	class:ActiveModel.Translation
+include?	lib/active_model/errors.rb	/^    def include?(attribute)$/;"	f	class:ActiveModel.Errors
+include?	lib/active_model/validations/clusivity.rb	/^      def include?(record, value)$/;"	f	class:ActiveModel.Validations.Clusivity
+included	lib/active_model/model.rb	/^    def self.included(base) #:nodoc:$/;"	F	class:ActiveModel.Model
+inclusion_method	lib/active_model/validations/clusivity.rb	/^      def inclusion_method(enumerable)$/;"	f	class:ActiveModel.Validations
+inherited	lib/active_model/observing.rb	/^        def inherited(subclass) #:nodoc:$/;"	f	class:ActiveModel.Observing.ClassMethods
+inherited	lib/active_model/validations.rb	/^      def inherited(base) #:nodoc:$/;"	f	class:ActiveModel.Validations.ClassMethods
+initialize	lib/active_model/attribute_methods.rb	/^          def initialize(options = {})$/;"	f	class:AttributeMethodMatcher
+initialize	lib/active_model/errors.rb	/^    def initialize(base)$/;"	f	class:ActiveModel.Errors
+initialize	lib/active_model/model.rb	/^    def initialize(params={})$/;"	f	class:ActiveModel.Model
+initialize	lib/active_model/naming.rb	/^    def initialize(klass, namespace = nil, name = nil)$/;"	f	class:ActiveModel.Name
+initialize	lib/active_model/observer_array.rb	/^    def initialize(model_class, *args) #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+initialize	lib/active_model/observing.rb	/^    def initialize #:nodoc:$/;"	f	class:ActiveModel
+initialize	lib/active_model/serializers/xml.rb	/^          def initialize(name, serializable, value)$/;"	f	class:ActiveModel.Serializers.Xml.Serializer.Attribute
+initialize	lib/active_model/serializers/xml.rb	/^        def initialize(serializable, options = nil)$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+initialize	lib/active_model/validations/acceptance.rb	/^      def initialize(options)$/;"	f	class:ActiveModel.Validations.AcceptanceValidator
+initialize	lib/active_model/validations/length.rb	/^      def initialize(options)$/;"	f	class:ActiveModel.Validations.LengthValidator
+initialize	lib/active_model/validator.rb	/^    def initialize(options)$/;"	f	class:ActiveModel.EachValidator
+initialize	lib/active_model/validator.rb	/^    def initialize(options)$/;"	f	class:ActiveModel.Validator
+initialize	lib/active_model/validator.rb	/^    def initialize(options, &block)$/;"	f	class:ActiveModel.BlockValidator
+initialize_dup	lib/active_model/errors.rb	/^    def initialize_dup(other) # :nodoc:$/;"	f	class:ActiveModel.Errors
+initialize_dup	lib/active_model/validations.rb	/^    def initialize_dup(other) #:nodoc:$/;"	f	class:ActiveModel.Validations
+instance_method_already_implemented?	lib/active_model/attribute_methods.rb	/^        def instance_method_already_implemented?(method_name) #:nodoc:$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+instantiate_observer	lib/active_model/observing.rb	/^        def instantiate_observer(observer) #:nodoc:$/;"	f	class:ActiveModel.Observing.ClassMethods
+instantiate_observers	lib/active_model/observing.rb	/^      def instantiate_observers$/;"	f	class:ActiveModel.Observing.ClassMethods
+invalid?	lib/active_model/validations.rb	/^    def invalid?(context = nil)$/;"	f	class:ActiveModel.Validations
+keys	lib/active_model/errors.rb	/^    def keys$/;"	f	class:ActiveModel.Errors
+kind	lib/active_model/validator.rb	/^    def kind$/;"	f	class:ActiveModel.Validator
+kind	lib/active_model/validator.rb	/^    def self.kind$/;"	F	class:ActiveModel.Validator
+lookup_ancestors	lib/active_model/translation.rb	/^    def lookup_ancestors$/;"	f	class:ActiveModel.Translation
+match	lib/active_model/attribute_methods.rb	/^          def match(method_name)$/;"	f	class:AttributeMethodMatcher
+match_attribute_method?	lib/active_model/attribute_methods.rb	/^      def match_attribute_method?(method_name)$/;"	f
+method_missing	lib/active_model/attribute_methods.rb	/^    def method_missing(method, *args, &block)$/;"	f
+method_name	lib/active_model/attribute_methods.rb	/^          def method_name(attr_name)$/;"	f	class:AttributeMethodMatcher
+missing_attribute	lib/active_model/attribute_methods.rb	/^      def missing_attribute(attr_name, stack)$/;"	f
+model	lib/active_model/lint.rb	/^        def model$/;"	f	class:ActiveModel.Lint.Tests
+model_name	lib/active_model/naming.rb	/^    def model_name$/;"	f	class:ActiveModel.Naming
+model_name_from_record_or_class	lib/active_model/naming.rb	/^    def self.model_name_from_record_or_class(record_or_class) #:nodoc:$/;"	F	class:ActiveModel.Naming
+normalize_message	lib/active_model/errors.rb	/^    def normalize_message(attribute, message, options)$/;"	f	class:ActiveModel.Errors
+notify_observers	lib/active_model/observing.rb	/^      def notify_observers(*args)$/;"	f	class:ActiveModel.Observing.ClassMethods
+notify_observers	lib/active_model/observing.rb	/^    def notify_observers(method, *extra_args)$/;"	f	class:ActiveModel.Observing
+observe	lib/active_model/observing.rb	/^      def observe(*models)$/;"	f	class:ActiveModel.Observer
+observed_class	lib/active_model/observing.rb	/^      def observed_class$/;"	f	class:ActiveModel.Observer
+observed_class_inherited	lib/active_model/observing.rb	/^    def observed_class_inherited(subclass) #:nodoc:$/;"	f	class:ActiveModel
+observed_classes	lib/active_model/observing.rb	/^      def observed_classes$/;"	f	class:ActiveModel.Observer
+observed_classes	lib/active_model/observing.rb	/^    def observed_classes #:nodoc:$/;"	f	class:ActiveModel
+observer_class_for	lib/active_model/observer_array.rb	/^      def observer_class_for(observer) #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+observer_instances	lib/active_model/observing.rb	/^      def observer_instances$/;"	f	class:ActiveModel.Observing.ClassMethods
+observers	lib/active_model/observing.rb	/^      def observers$/;"	f	class:ActiveModel.Observing.ClassMethods
+observers=	lib/active_model/observing.rb	/^      def observers=(*values)$/;"	f	class:ActiveModel.Observing.ClassMethods
+observers_count	lib/active_model/observing.rb	/^      def observers_count$/;"	f	class:ActiveModel.Observing.ClassMethods
+option_call	lib/active_model/validations/format.rb	/^      def option_call(record, name)$/;"	f	class:ActiveModel.Validations.FormatValidator
+param_key	lib/active_model/naming.rb	/^    def self.param_key(record_or_class)$/;"	F	class:ActiveModel.Naming
+parse_raw_value_as_a_number	lib/active_model/validations/numericality.rb	/^      def parse_raw_value_as_a_number(raw_value)$/;"	f	class:ActiveModel.Validations.NumericalityValidator
+parse_raw_value_as_an_integer	lib/active_model/validations/numericality.rb	/^      def parse_raw_value_as_an_integer(raw_value)$/;"	f	class:ActiveModel.Validations.NumericalityValidator
+password=	lib/active_model/secure_password.rb	/^      def password=(unencrypted_password)$/;"	f	class:ActiveModel.InstanceMethodsOnActivation
+persisted	lib/active_model/lint.rb	/^        def model.persisted?() false end$/;"	F	class:ActiveModel.Lint.Tests.test_to_key
+persisted	lib/active_model/lint.rb	/^        def model.persisted?() false end$/;"	F	class:ActiveModel.Lint.Tests.test_to_param
+persisted?	lib/active_model/model.rb	/^    def persisted?$/;"	f	class:ActiveModel.Model
+plain?	lib/active_model/attribute_methods.rb	/^          def plain?$/;"	f	class:AttributeMethodMatcher
+plural	lib/active_model/naming.rb	/^    def self.plural(record_or_class)$/;"	F	class:ActiveModel.Naming
+previous_changes	lib/active_model/dirty.rb	/^    def previous_changes$/;"	f	class:ActiveModel.Dirty
+record_error	lib/active_model/validations/format.rb	/^      def record_error(record, attribute, name, value)$/;"	f	class:ActiveModel.Validations.FormatValidator
+regexp_using_multiline_anchors?	lib/active_model/validations/format.rb	/^      def regexp_using_multiline_anchors?(regexp)$/;"	f	class:ActiveModel.Validations.FormatValidator
+reset_attribute!	lib/active_model/dirty.rb	/^      def reset_attribute!(attr)$/;"	f	class:ActiveModel.Dirty
+respond_to?	lib/active_model/attribute_methods.rb	/^    def respond_to?(method, include_private_methods = false)$/;"	f
+route_key	lib/active_model/naming.rb	/^    def self.route_key(record_or_class)$/;"	F	class:ActiveModel.Naming
+run_validations!	lib/active_model/validations.rb	/^    def run_validations! #:nodoc:$/;"	f	class:ActiveModel.Validations
+run_validations!	lib/active_model/validations/callbacks.rb	/^      def run_validations! #:nodoc:$/;"	f	class:ActiveModel.Validations.Callbacks
+sanitize_for_mass_assignment	lib/active_model/forbidden_attributes_protection.rb	/^      def sanitize_for_mass_assignment(attributes)$/;"	f	class:ActiveModel.ForbiddenAttributesProtection
+serializable_add_includes	lib/active_model/serialization.rb	/^      def serializable_add_includes(options = {}) #:nodoc:$/;"	f	class:ActiveModel
+serializable_collection	lib/active_model/serializers/xml.rb	/^        def serializable_collection$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+serializable_hash	lib/active_model/serialization.rb	/^    def serializable_hash(options = nil)$/;"	f	class:ActiveModel.Serialization
+serializable_hash	lib/active_model/serializers/xml.rb	/^        def serializable_hash$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+serialize	lib/active_model/serializers/xml.rb	/^        def serialize$/;"	f	class:ActiveModel.Serializers.Xml.Serializer
+set	lib/active_model/errors.rb	/^    def set(key, value)$/;"	f	class:ActiveModel.Errors
+set_enablement	lib/active_model/observer_array.rb	/^      def set_enablement(enabled, observers) #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+setup	lib/active_model/validations/acceptance.rb	/^      def setup(klass)$/;"	f	class:ActiveModel.Validations.AcceptanceValidator
+setup	lib/active_model/validations/confirmation.rb	/^      def setup(klass)$/;"	f	class:ActiveModel.Validations.ConfirmationValidator
+singular	lib/active_model/naming.rb	/^    def self.singular(record_or_class)$/;"	F	class:ActiveModel.Naming
+singular_route_key	lib/active_model/naming.rb	/^    def self.singular_route_key(record_or_class)$/;"	F	class:ActiveModel.Naming
+size	lib/active_model/errors.rb	/^    def size$/;"	f	class:ActiveModel.Errors
+start_transaction	lib/active_model/observer_array.rb	/^      def start_transaction #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+test_errors_aref	lib/active_model/lint.rb	/^      def test_errors_aref$/;"	f	class:ActiveModel.Lint.Tests
+test_model_naming	lib/active_model/lint.rb	/^      def test_model_naming$/;"	f	class:ActiveModel.Lint.Tests
+test_persisted?	lib/active_model/lint.rb	/^      def test_persisted?$/;"	f	class:ActiveModel.Lint.Tests
+test_to_key	lib/active_model/lint.rb	/^      def test_to_key$/;"	f	class:ActiveModel.Lint.Tests
+test_to_param	lib/active_model/lint.rb	/^      def test_to_param$/;"	f	class:ActiveModel.Lint.Tests
+test_to_partial_path	lib/active_model/lint.rb	/^      def test_to_partial_path$/;"	f	class:ActiveModel.Lint.Tests
+to_a	lib/active_model/errors.rb	/^    def to_a$/;"	f	class:ActiveModel.Errors
+to_hash	lib/active_model/errors.rb	/^    def to_hash(full_messages = false)$/;"	f	class:ActiveModel.Errors
+to_key	lib/active_model/conversion.rb	/^    def to_key$/;"	f	class:ActiveModel.Conversion
+to_key	lib/active_model/lint.rb	/^        def model.to_key() [1] end$/;"	F	class:ActiveModel.Lint.Tests.test_to_param
+to_model	lib/active_model/conversion.rb	/^    def to_model$/;"	f	class:ActiveModel.Conversion
+to_param	lib/active_model/conversion.rb	/^    def to_param$/;"	f	class:ActiveModel.Conversion
+to_partial_path	lib/active_model/conversion.rb	/^    def to_partial_path$/;"	f	class:ActiveModel.Conversion
+to_xml	lib/active_model/errors.rb	/^    def to_xml(options={})$/;"	f	class:ActiveModel.Errors
+to_xml	lib/active_model/serializers/xml.rb	/^      def to_xml(options = {}, &block)$/;"	f	class:ActiveModel.Serializers.Xml
+tokenize	lib/active_model/validations/length.rb	/^      def tokenize(value)$/;"	f	class:ActiveModel.Validations.LengthValidator
+transaction	lib/active_model/observer_array.rb	/^      def transaction #:nodoc:$/;"	f	class:ActiveModel.ObserverArray
+uncountable	lib/active_model/naming.rb	/^    def self.uncountable?(record_or_class)$/;"	F	class:ActiveModel.Naming
+undefine_attribute_methods	lib/active_model/attribute_methods.rb	/^      def undefine_attribute_methods$/;"	f	class:ActiveModel.AttributeMethods.ClassMethods
+update	lib/active_model/observing.rb	/^    def update(observed_method, object, *extra_args, &block) #:nodoc:$/;"	f	class:ActiveModel
+valid?	lib/active_model/validations.rb	/^    def valid?(context = nil)$/;"	f	class:ActiveModel.Validations
+validate	lib/active_model/validations.rb	/^      def validate(*args, &block)$/;"	f	class:ActiveModel.Validations.ClassMethods
+validate	lib/active_model/validations/presence.rb	/^      def validate(record)$/;"	f	class:ActiveModel.Validations.PresenceValidator
+validate	lib/active_model/validator.rb	/^    def validate(record)$/;"	f	class:ActiveModel.EachValidator
+validate	lib/active_model/validator.rb	/^    def validate(record)$/;"	f	class:ActiveModel.Validator
+validate_each	lib/active_model/validations/acceptance.rb	/^      def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.Validations.AcceptanceValidator
+validate_each	lib/active_model/validations/confirmation.rb	/^      def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.Validations.ConfirmationValidator
+validate_each	lib/active_model/validations/exclusion.rb	/^      def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.Validations.ExclusionValidator
+validate_each	lib/active_model/validations/format.rb	/^      def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.Validations.FormatValidator
+validate_each	lib/active_model/validations/inclusion.rb	/^      def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.Validations.InclusionValidator
+validate_each	lib/active_model/validations/length.rb	/^      def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.Validations.LengthValidator
+validate_each	lib/active_model/validations/numericality.rb	/^      def validate_each(record, attr_name, value)$/;"	f	class:ActiveModel.Validations.NumericalityValidator
+validate_each	lib/active_model/validations/with.rb	/^      def validate_each(record, attr, val)$/;"	f	class:ActiveModel.Validations.WithValidator
+validate_each	lib/active_model/validator.rb	/^    def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.BlockValidator
+validate_each	lib/active_model/validator.rb	/^    def validate_each(record, attribute, value)$/;"	f	class:ActiveModel.EachValidator
+validates	lib/active_model/validations/validates.rb	/^      def validates(*attributes)$/;"	f	class:ActiveModel.Validations.ClassMethods
+validates!	lib/active_model/validations/validates.rb	/^      def validates!(*attributes)$/;"	f	class:ActiveModel.Validations.ClassMethods
+validates_acceptance_of	lib/active_model/validations/acceptance.rb	/^      def validates_acceptance_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_confirmation_of	lib/active_model/validations/confirmation.rb	/^      def validates_confirmation_of(*attr_names)$/;"	f	class:ActiveModel.Validations.ConfirmationValidator.HelperMethods
+validates_each	lib/active_model/validations.rb	/^      def validates_each(*attr_names, &block)$/;"	f	class:ActiveModel.Validations.ClassMethods
+validates_exclusion_of	lib/active_model/validations/exclusion.rb	/^      def validates_exclusion_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_format_of	lib/active_model/validations/format.rb	/^      def validates_format_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_inclusion_of	lib/active_model/validations/inclusion.rb	/^      def validates_inclusion_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_length_of	lib/active_model/validations/length.rb	/^      def validates_length_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_numericality_of	lib/active_model/validations/numericality.rb	/^      def validates_numericality_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_presence_of	lib/active_model/validations/presence.rb	/^      def validates_presence_of(*attr_names)$/;"	f	class:ActiveModel.Validations.HelperMethods
+validates_with	lib/active_model/validations/with.rb	/^      def validates_with(*args, &block)$/;"	f	class:ActiveModel.Validations.ClassMethods
+validates_with	lib/active_model/validations/with.rb	/^    def validates_with(*args, &block)$/;"	f	class:ActiveModel.Validations
+validators	lib/active_model/validations.rb	/^      def validators$/;"	f	class:ActiveModel.Validations.ClassMethods
+validators_on	lib/active_model/validations.rb	/^      def validators_on(*attributes)$/;"	f	class:ActiveModel.Validations.ClassMethods
+values	lib/active_model/errors.rb	/^    def values$/;"	f	class:ActiveModel.Errors

@@ -1,0 +1,810 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
++	lib/rails/initializable.rb	/^      def +(other)$/;"	f	class:Rails.Initializable.Collection
+<<	lib/rails/paths.rb	/^      def <<(path)$/;"	f	class:Rails
+ActionController	lib/rails/test_help.rb	/^class ActionController::TestCase$/;"	c
+ActionDispatch	lib/rails/test_help.rb	/^class ActionDispatch::IntegrationTest$/;"	c
+ActionMethods	lib/rails/generators/rails/app/app_generator.rb	/^  module ActionMethods # :nodoc:$/;"	m	class:Rails
+Actions	lib/rails/generators/actions.rb	/^    module Actions$/;"	m	class:Rails.Generators
+ActiveModel	lib/rails/generators/active_model.rb	/^    class ActiveModel$/;"	c	class:Rails.Generators
+ActiveSupport	lib/rails/generators/rails/app/templates/test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+ActiveSupport	lib/rails/test_help.rb	/^  class ActiveSupport::TestCase$/;"	c
+Annotation	lib/rails/source_annotation_extractor.rb	/^  class Annotation < Struct.new(:line, :tag, :text)$/;"	c	class:SourceAnnotationExtractor
+AppBase	lib/rails/generators/app_base.rb	/^    class AppBase < Base # :nodoc:$/;"	c	class:Rails.Generators
+AppBuilder	lib/rails/generators/rails/app/app_generator.rb	/^  class AppBuilder$/;"	c
+AppGenerator	lib/rails/commands/application.rb	/^    class AppGenerator # :nodoc:$/;"	c	class:Rails.Generators
+AppGenerator	lib/rails/generators/rails/app/app_generator.rb	/^    class AppGenerator < AppBase # :nodoc:$/;"	c	class:Generators
+Application	lib/rails/application.rb	/^  class Application < Engine$/;"	c	class:Rails
+Application	lib/rails/application/bootstrap.rb	/^  class Application$/;"	c	class:Rails
+Application	lib/rails/application/configuration.rb	/^  class Application$/;"	c	class:Rails
+Application	lib/rails/application/finisher.rb	/^  class Application$/;"	c	class:Rails
+Application	lib/rails/application/routes_reloader.rb	/^  class Application$/;"	c	class:Rails
+Application	lib/rails/generators/rails/app/templates/config/application.rb	/^  class Application < Rails::Application$/;"	c
+ApplicationHelper	lib/rails/generators/rails/app/templates/app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+AssetsGenerator	lib/rails/generators/css/assets/assets_generator.rb	/^    class AssetsGenerator < Rails::Generators::NamedBase # :nodoc:$/;"	c	class:Css.Generators
+AssetsGenerator	lib/rails/generators/js/assets/assets_generator.rb	/^    class AssetsGenerator < Rails::Generators::NamedBase # :nodoc:$/;"	c	class:Js.Generators
+AssetsGenerator	lib/rails/generators/rails/assets/assets_generator.rb	/^    class AssetsGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+BacktraceCleaner	lib/rails/backtrace_cleaner.rb	/^  class BacktraceCleaner < ActiveSupport::BacktraceCleaner$/;"	c	class:Rails
+Base	lib/rails/generators/base.rb	/^    class Base < Thor::Group$/;"	c	class:Rails.Generators
+Base	lib/rails/generators/erb.rb	/^    class Base < Rails::Generators::NamedBase #:nodoc:$/;"	c	class:Erb.Generators
+Base	lib/rails/generators/test_unit.rb	/^    class Base < Rails::Generators::NamedBase # :nodoc:$/;"	c	class:TestUnit.Generators
+BenchmarkerTest	lib/rails/commands/benchmarker.rb	/^class BenchmarkerTest < ActionDispatch::PerformanceTest #:nodoc:$/;"	c
+Bootstrap	lib/rails/application/bootstrap.rb	/^    module Bootstrap$/;"	m	class:Rails.Application
+BrowsingTest	lib/rails/generators/rails/app/templates/test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+ClassMethods	lib/rails/generators/migration.rb	/^      module ClassMethods$/;"	m	class:Rails.Generators.Migration
+ClassMethods	lib/rails/initializable.rb	/^    module ClassMethods$/;"	m	class:Rails.Initializable
+ClassMethods	lib/rails/railtie/configurable.rb	/^      module ClassMethods$/;"	m	class:Rails.Railtie.Configurable
+CodeStatistics	lib/rails/code_statistics.rb	/^class CodeStatistics #:nodoc:$/;"	c
+Collection	lib/rails/initializable.rb	/^    class Collection < Array$/;"	c	class:Rails.Initializable
+Configurable	lib/rails/railtie/configurable.rb	/^    module Configurable$/;"	m	class:Rails.Railtie
+Configuration	lib/rails/application/configuration.rb	/^    class Configuration < ::Rails::Engine::Configuration$/;"	c	class:Rails.Application
+Configuration	lib/rails/configuration.rb	/^  module Configuration$/;"	m	class:Rails
+Configuration	lib/rails/engine/configuration.rb	/^    class Configuration < ::Rails::Railtie::Configuration$/;"	c	class:Rails.Engine
+Configuration	lib/rails/railtie/configuration.rb	/^    class Configuration$/;"	c	class:Rails.Railtie
+Console	lib/rails/commands/console.rb	/^  class Console$/;"	c	class:Rails
+ConsoleMethods	lib/rails/console/app.rb	/^  module ConsoleMethods$/;"	m	class:Rails
+ConsoleMethods	lib/rails/console/helpers.rb	/^  module ConsoleMethods$/;"	m	class:Rails
+ControllerGenerator	lib/rails/generators/erb/controller/controller_generator.rb	/^    class ControllerGenerator < Base # :nodoc:$/;"	c	class:Erb.Generators
+ControllerGenerator	lib/rails/generators/rails/controller/controller_generator.rb	/^    class ControllerGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+ControllerGenerator	lib/rails/generators/test_unit/controller/controller_generator.rb	/^    class ControllerGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+Css	lib/rails/generators/css/assets/assets_generator.rb	/^module Css # :nodoc:$/;"	m
+Css	lib/rails/generators/css/scaffold/scaffold_generator.rb	/^module Css # :nodoc:$/;"	m
+DBConsole	lib/rails/commands/dbconsole.rb	/^  class DBConsole$/;"	c	class:Rails
+Debugger	lib/rails/rack/debugger.rb	/^    class Debugger$/;"	c	class:Rails.Rack
+DeprecatedConstant	lib/rails/deprecation.rb	/^  class DeprecatedConstant < ActiveSupport::Deprecation::DeprecatedConstantProxy$/;"	c	class:Rails
+Engine	lib/rails/engine.rb	/^  class Engine < Railtie$/;"	c	class:Rails
+Engine	lib/rails/engine/configuration.rb	/^  class Engine$/;"	c	class:Rails
+Engine	lib/rails/generators/rails/plugin_new/templates/lib/%name%/engine.rb	/^  class Engine < ::Rails::Engine$/;"	c
+Erb	lib/rails/generators/erb.rb	/^module Erb # :nodoc:$/;"	m
+Erb	lib/rails/generators/erb/controller/controller_generator.rb	/^module Erb # :nodoc:$/;"	m
+Erb	lib/rails/generators/erb/mailer/mailer_generator.rb	/^module Erb # :nodoc:$/;"	m
+Erb	lib/rails/generators/erb/scaffold/scaffold_generator.rb	/^module Erb # :nodoc:$/;"	m
+Error	lib/rails/generators/base.rb	/^    class Error < Thor::Error # :nodoc:$/;"	c	class:Rails.Generators
+Finisher	lib/rails/application/finisher.rb	/^    module Finisher$/;"	m	class:Rails.Application
+GeneratedAttribute	lib/rails/generators/generated_attribute.rb	/^    class GeneratedAttribute # :nodoc:$/;"	c	class:Rails.Generators
+GeneratorGenerator	lib/rails/generators/rails/generator/generator_generator.rb	/^    class GeneratorGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+Generators	lib/rails/commands/application.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/configuration.rb	/^    class Generators #:nodoc:$/;"	c	class:Rails.Configuration
+Generators	lib/rails/generators.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/actions.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/active_model.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/app_base.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/base.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/css/assets/assets_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:Css
+Generators	lib/rails/generators/css/scaffold/scaffold_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:Css
+Generators	lib/rails/generators/erb.rb	/^  module Generators # :nodoc:$/;"	m	class:Erb
+Generators	lib/rails/generators/erb/controller/controller_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:Erb
+Generators	lib/rails/generators/erb/mailer/mailer_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:Erb
+Generators	lib/rails/generators/erb/scaffold/scaffold_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:Erb
+Generators	lib/rails/generators/generated_attribute.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/js/assets/assets_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:Js
+Generators	lib/rails/generators/migration.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/named_base.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/app/app_generator.rb	/^  module Generators$/;"	m
+Generators	lib/rails/generators/rails/assets/assets_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/controller/controller_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/generator/generator_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/helper/helper_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/integration_test/integration_test_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/migration/migration_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/model/model_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/observer/observer_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/performance_test/performance_test_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^  module Generators$/;"	m
+Generators	lib/rails/generators/rails/resource/resource_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/scaffold/scaffold_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/scaffold_controller/scaffold_controller_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/rails/task/task_generator.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/resource_helpers.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/test_case.rb	/^  module Generators$/;"	m	class:Rails
+Generators	lib/rails/generators/test_unit.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/controller/controller_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/helper/helper_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/integration/integration_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/mailer/mailer_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/model/model_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/observer/observer_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/performance/performance_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/plugin/plugin_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+Generators	lib/rails/generators/test_unit/scaffold/scaffold_generator.rb	/^  module Generators # :nodoc:$/;"	m	class:TestUnit
+HelperGenerator	lib/rails/generators/rails/helper/helper_generator.rb	/^    class HelperGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+HelperGenerator	lib/rails/generators/test_unit/helper/helper_generator.rb	/^    class HelperGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+Info	lib/rails/info.rb	/^  module Info$/;"	m	class:Rails
+Initializable	lib/rails/initializable.rb	/^  module Initializable$/;"	m	class:Rails
+Initializer	lib/rails/initializable.rb	/^    class Initializer$/;"	c	class:Rails.Initializable
+IntegrationGenerator	lib/rails/generators/test_unit/integration/integration_generator.rb	/^    class IntegrationGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+IntegrationTestGenerator	lib/rails/generators/rails/integration_test/integration_test_generator.rb	/^    class IntegrationTestGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+Js	lib/rails/generators/js/assets/assets_generator.rb	/^module Js # :nodoc:$/;"	m
+LogTailer	lib/rails/rack/log_tailer.rb	/^    class LogTailer$/;"	c	class:Rails.Rack
+Logger	lib/rails/rack/logger.rb	/^    class Logger < ActiveSupport::LogSubscriber$/;"	c	class:Rails.Rack
+MailerGenerator	lib/rails/generators/erb/mailer/mailer_generator.rb	/^    class MailerGenerator < ControllerGenerator # :nodoc:$/;"	c	class:Erb.Generators
+MailerGenerator	lib/rails/generators/test_unit/mailer/mailer_generator.rb	/^    class MailerGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+MiddlewareStackProxy	lib/rails/configuration.rb	/^    class MiddlewareStackProxy$/;"	c	class:Rails.Configuration
+Migration	lib/rails/generators/migration.rb	/^    module Migration$/;"	m	class:Rails.Generators
+MigrationGenerator	lib/rails/generators/rails/migration/migration_generator.rb	/^    class MigrationGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+ModelGenerator	lib/rails/generators/rails/model/model_generator.rb	/^    class ModelGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+ModelGenerator	lib/rails/generators/test_unit/model/model_generator.rb	/^    class ModelGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+NamedBase	lib/rails/generators/named_base.rb	/^    class NamedBase < Base$/;"	c	class:Rails.Generators
+NavigationTest	lib/rails/generators/rails/plugin_new/templates/test/integration/navigation_test.rb	/^class NavigationTest < ActionDispatch::IntegrationTest$/;"	c
+ObserverGenerator	lib/rails/generators/rails/observer/observer_generator.rb	/^    class ObserverGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+ObserverGenerator	lib/rails/generators/test_unit/observer/observer_generator.rb	/^    class ObserverGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+Options	lib/rails/commands/server.rb	/^    class Options$/;"	c	class:Rails.Server
+Path	lib/rails/paths.rb	/^    class Path$/;"	c	class:Rails.Paths
+Paths	lib/rails/paths.rb	/^  module Paths$/;"	m	class:Rails
+PerformanceGenerator	lib/rails/generators/test_unit/performance/performance_generator.rb	/^    class PerformanceGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+PerformanceTestGenerator	lib/rails/generators/rails/performance_test/performance_test_generator.rb	/^    class PerformanceTestGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+PluginBuilder	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^  class PluginBuilder$/;"	c	class:Rails
+PluginGenerator	lib/rails/generators/test_unit/plugin/plugin_generator.rb	/^    class PluginGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+PluginNewGenerator	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    class PluginNewGenerator < AppBase # :nodoc:$/;"	c	class:Generators
+Prof	lib/rails/rubyprof_ext.rb	/^module Prof #:nodoc:$/;"	m
+ProfilerTest	lib/rails/commands/profiler.rb	/^class ProfilerTest < ActionDispatch::PerformanceTest #:nodoc:$/;"	c
+Rack	lib/rails/rack.rb	/^  module Rack$/;"	m	class:Rails
+Rack	lib/rails/rack/debugger.rb	/^  module Rack$/;"	m	class:Rails
+Rack	lib/rails/rack/log_tailer.rb	/^  module Rack$/;"	m	class:Rails
+Rack	lib/rails/rack/logger.rb	/^  module Rack$/;"	m	class:Rails
+Rails	lib/rails.rb	/^module Rails$/;"	m
+Rails	lib/rails/application.rb	/^module Rails$/;"	m
+Rails	lib/rails/application/bootstrap.rb	/^module Rails$/;"	m
+Rails	lib/rails/application/configuration.rb	/^module Rails$/;"	m
+Rails	lib/rails/application/finisher.rb	/^module Rails$/;"	m
+Rails	lib/rails/application/routes_reloader.rb	/^module Rails$/;"	m
+Rails	lib/rails/backtrace_cleaner.rb	/^module Rails$/;"	m
+Rails	lib/rails/commands/application.rb	/^module Rails$/;"	m
+Rails	lib/rails/commands/console.rb	/^module Rails$/;"	m
+Rails	lib/rails/commands/dbconsole.rb	/^module Rails$/;"	m
+Rails	lib/rails/commands/server.rb	/^module Rails$/;"	m
+Rails	lib/rails/configuration.rb	/^module Rails$/;"	m
+Rails	lib/rails/console/app.rb	/^module Rails$/;"	m
+Rails	lib/rails/console/helpers.rb	/^module Rails$/;"	m
+Rails	lib/rails/deprecation.rb	/^module Rails$/;"	m
+Rails	lib/rails/engine.rb	/^module Rails$/;"	m
+Rails	lib/rails/engine/configuration.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/actions.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/active_model.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/app_base.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/base.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/generated_attribute.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/migration.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/named_base.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/app/app_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/assets/assets_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/controller/controller_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/generator/generator_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/helper/helper_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/integration_test/integration_test_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/migration/migration_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/model/model_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/observer/observer_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/performance_test/performance_test_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/resource/resource_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/scaffold/scaffold_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/scaffold_controller/scaffold_controller_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/rails/task/task_generator.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/resource_helpers.rb	/^module Rails$/;"	m
+Rails	lib/rails/generators/test_case.rb	/^module Rails$/;"	m
+Rails	lib/rails/info.rb	/^module Rails$/;"	m
+Rails	lib/rails/info_controller.rb	/^class Rails::InfoController < ActionController::Base$/;"	c
+Rails	lib/rails/initializable.rb	/^module Rails$/;"	m
+Rails	lib/rails/paths.rb	/^module Rails$/;"	m
+Rails	lib/rails/rack.rb	/^module Rails$/;"	m
+Rails	lib/rails/rack/debugger.rb	/^module Rails$/;"	m
+Rails	lib/rails/rack/log_tailer.rb	/^module Rails$/;"	m
+Rails	lib/rails/rack/logger.rb	/^module Rails$/;"	m
+Rails	lib/rails/railtie.rb	/^module Rails$/;"	m
+Rails	lib/rails/railtie/configurable.rb	/^module Rails$/;"	m
+Rails	lib/rails/railtie/configuration.rb	/^module Rails$/;"	m
+Rails	lib/rails/script_rails_loader.rb	/^module Rails$/;"	m
+Rails	lib/rails/test_unit/railtie.rb	/^module Rails$/;"	m
+Rails	lib/rails/test_unit/sub_test_task.rb	/^module Rails$/;"	m
+Rails	lib/rails/version.rb	/^module Rails$/;"	m
+Railtie	lib/rails/railtie.rb	/^  class Railtie$/;"	c	class:Rails
+Railtie	lib/rails/railtie/configurable.rb	/^  class Railtie$/;"	c	class:Rails
+Railtie	lib/rails/railtie/configuration.rb	/^  class Railtie$/;"	c	class:Rails
+ResourceGenerator	lib/rails/generators/rails/resource/resource_generator.rb	/^    class ResourceGenerator < ModelGenerator # :nodoc:$/;"	c	class:Rails.Generators
+ResourceHelpers	lib/rails/generators/resource_helpers.rb	/^    module ResourceHelpers # :nodoc:$/;"	m	class:Rails.Generators
+ResourceRouteGenerator	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^    class ResourceRouteGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+Root	lib/rails/paths.rb	/^    class Root$/;"	c	class:Rails.Paths
+RoutesReloader	lib/rails/application/routes_reloader.rb	/^    class RoutesReloader$/;"	c	class:Rails.Application
+ScaffoldControllerGenerator	lib/rails/generators/rails/scaffold_controller/scaffold_controller_generator.rb	/^    class ScaffoldControllerGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+ScaffoldGenerator	lib/rails/generators/css/scaffold/scaffold_generator.rb	/^    class ScaffoldGenerator < Rails::Generators::NamedBase # :nodoc:$/;"	c	class:Css.Generators
+ScaffoldGenerator	lib/rails/generators/erb/scaffold/scaffold_generator.rb	/^    class ScaffoldGenerator < Base # :nodoc:$/;"	c	class:Erb.Generators
+ScaffoldGenerator	lib/rails/generators/rails/scaffold/scaffold_generator.rb	/^    class ScaffoldGenerator < ResourceGenerator # :nodoc:$/;"	c	class:Rails.Generators
+ScaffoldGenerator	lib/rails/generators/test_unit/scaffold/scaffold_generator.rb	/^    class ScaffoldGenerator < Base # :nodoc:$/;"	c	class:TestUnit.Generators
+ScriptRailsLoader	lib/rails/script_rails_loader.rb	/^  module ScriptRailsLoader$/;"	m	class:Rails
+Server	lib/rails/commands/server.rb	/^  class Server < ::Rack::Server$/;"	c	class:Rails
+SourceAnnotationExtractor	lib/rails/source_annotation_extractor.rb	/^class SourceAnnotationExtractor$/;"	c
+SubTestTask	lib/rails/test_unit/sub_test_task.rb	/^  class SubTestTask < Rake::TestTask$/;"	c	class:Rails
+TaskGenerator	lib/rails/generators/rails/task/task_generator.rb	/^    class TaskGenerator < NamedBase # :nodoc:$/;"	c	class:Rails.Generators
+TestCase	lib/rails/generators/test_case.rb	/^    class TestCase < ActiveSupport::TestCase$/;"	c	class:Rails.Generators
+TestUnit	lib/rails/generators/test_unit.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/controller/controller_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/helper/helper_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/integration/integration_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/mailer/mailer_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/model/model_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/observer/observer_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/performance/performance_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/plugin/plugin_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnit	lib/rails/generators/test_unit/scaffold/scaffold_generator.rb	/^module TestUnit # :nodoc:$/;"	m
+TestUnitRailtie	lib/rails/test_unit/railtie.rb	/^  class TestUnitRailtie < Rails::Railtie$/;"	c	class:Rails
+VERSION	lib/rails/version.rb	/^  module VERSION #:nodoc:$/;"	m	class:Rails
+[]	lib/rails/paths.rb	/^      def [](path)$/;"	f	class:Rails.Paths.Root
+[]=	lib/rails/paths.rb	/^      def []=(path, value)$/;"	f	class:Rails.Paths.Root
+_all_autoload_once_paths	lib/rails/engine.rb	/^    def _all_autoload_once_paths #:nodoc:$/;"	f
+_all_autoload_paths	lib/rails/engine.rb	/^    def _all_autoload_paths #:nodoc:$/;"	f
+_all_load_paths	lib/rails/engine.rb	/^    def _all_load_paths #:nodoc:$/;"	f
+abstract_railtie?	lib/rails/railtie.rb	/^      def abstract_railtie?$/;"	f	class:Rails.Railtie
+accessible_attributes	lib/rails/generators/test_unit/scaffold/scaffold_generator.rb	/^        def accessible_attributes$/;"	f	class:TestUnit.Generators.ScaffoldGenerator.attributes_hash
+add	lib/rails/paths.rb	/^      def add(path, options={})$/;"	f	class:Rails.Paths.Root
+add_gem_filters	lib/rails/backtrace_cleaner.rb	/^      def add_gem_filters$/;"	f	class:Rails.BacktraceCleaner
+add_lib_to_load_path!	lib/rails/application.rb	/^    def add_lib_to_load_path! #:nodoc:$/;"	f	class:Rails
+add_resource_route	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^      def add_resource_route$/;"	f	class:Rails.Generators.ResourceRouteGenerator
+add_routes	lib/rails/generators/rails/controller/controller_generator.rb	/^      def add_routes$/;"	f	class:Rails.Generators.ControllerGenerator
+add_shared_options_for	lib/rails/generators/app_base.rb	/^      def self.add_shared_options_for(name)$/;"	F	class:Rails.Generators.AppBase
+add_shebang_option	lib/rails/generators/base.rb	/^        def self.add_shebang_option!$/;"	F	class:Rails
+add_source	lib/rails/generators/actions.rb	/^      def add_source(source, options={})$/;"	f	class:Rails.Generators.Actions
+after	lib/rails/initializable.rb	/^      def after$/;"	f	class:Rails.Initializable.Initializer
+after_initialize	lib/rails/railtie/configuration.rb	/^      def after_initialize(&block)$/;"	f	class:Rails.Railtie.Configuration
+aliases	lib/rails/generators.rb	/^    def self.aliases #:nodoc:$/;"	F	class:Rails.Generators
+all	lib/rails/generators/active_model.rb	/^      def self.all(klass)$/;"	F	class:Rails.Generators.ActiveModel
+all_paths	lib/rails/paths.rb	/^      def all_paths$/;"	f	class:Rails.Paths.Root
+app	lib/rails/commands/server.rb	/^    def app$/;"	f	class:Rails.Server
+app	lib/rails/console/app.rb	/^    def app(create=false)$/;"	f	class:Rails.ConsoleMethods
+app	lib/rails/engine.rb	/^    def app$/;"	f
+app	lib/rails/generators/rails/app/app_generator.rb	/^    def app$/;"	f	class:AppBuilder
+app	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def app$/;"	f	class:Rails.PluginBuilder
+app_const	lib/rails/generators/rails/app/app_generator.rb	/^      def app_const$/;"	f	class:Generators.AppGenerator
+app_const_base	lib/rails/generators/rails/app/app_generator.rb	/^      def app_const_base$/;"	f	class:Generators.AppGenerator
+app_generators	lib/rails/railtie/configuration.rb	/^      def app_generators$/;"	f	class:Rails.Railtie.Configuration
+app_middleware	lib/rails/railtie/configuration.rb	/^      def app_middleware$/;"	f	class:Rails.Railtie.Configuration
+app_name	lib/rails/generators/rails/app/app_generator.rb	/^      def app_name$/;"	f	class:Generators.AppGenerator
+app_secret	lib/rails/generators/rails/app/app_generator.rb	/^      def app_secret$/;"	f	class:Generators.AppGenerator
+app_templates_dir	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def app_templates_dir$/;"	f	class:Generators.PluginNewGenerator
+application	lib/rails.rb	/^    def application$/;"	f	class:Rails
+application=	lib/rails.rb	/^    def application=(application)$/;"	f	class:Rails
+application_definition	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def application_definition$/;"	f	class:Generators.PluginNewGenerator
+application_name	lib/rails/generators/named_base.rb	/^        def application_name$/;"	f	class:Rails.Generators.NamedBase
+apply_rails_template	lib/rails/generators/app_base.rb	/^      def apply_rails_template$/;"	f	class:Rails.Generators.AppBase
+arguments	lib/rails/generators/test_case.rb	/^      def self.arguments(array)$/;"	F	class:Rails.Generators.TestCase
+assert_class_method	lib/rails/generators/test_case.rb	/^      def assert_class_method(method, content, &block)$/;"	f	class:Rails.Generators.TestCase
+assert_field_default_value	lib/rails/generators/test_case.rb	/^      def assert_field_default_value(attribute_type, value)$/;"	f	class:Rails.Generators.TestCase
+assert_field_type	lib/rails/generators/test_case.rb	/^      def assert_field_type(attribute_type, field_type)$/;"	f	class:Rails.Generators.TestCase
+assert_file	lib/rails/generators/test_case.rb	/^      def assert_file(relative, *contents)$/;"	f	class:Rails.Generators.TestCase
+assert_instance_method	lib/rails/generators/test_case.rb	/^      def assert_instance_method(method, content)$/;"	f	class:Rails.Generators.TestCase
+assert_migration	lib/rails/generators/test_case.rb	/^      def assert_migration(relative, *contents, &block)$/;"	f	class:Rails.Generators.TestCase
+assert_no_file	lib/rails/generators/test_case.rb	/^      def assert_no_file(relative)$/;"	f	class:Rails.Generators.TestCase
+assert_no_migration	lib/rails/generators/test_case.rb	/^      def assert_no_migration(relative)$/;"	f	class:Rails.Generators.TestCase
+asset_name	lib/rails/generators/rails/assets/assets_generator.rb	/^      def asset_name$/;"	f	class:Rails.Generators.AssetsGenerator
+assets_gemfile_entry	lib/rails/generators/app_base.rb	/^      def assets_gemfile_entry$/;"	f	class:Rails.Generators
+assign_names!	lib/rails/generators/named_base.rb	/^        def assign_names!(name) #:nodoc:$/;"	f	class:Rails.Generators.NamedBase
+attributes_hash	lib/rails/generators/test_unit/scaffold/scaffold_generator.rb	/^        def attributes_hash$/;"	f	class:TestUnit.Generators.ScaffoldGenerator
+autoload_once	lib/rails/paths.rb	/^      def autoload_once$/;"	f	class:Rails.Paths.Root
+autoload_once_paths	lib/rails/engine/configuration.rb	/^      def autoload_once_paths$/;"	f	class:Rails.Engine.Configuration
+autoload_paths	lib/rails/engine/configuration.rb	/^      def autoload_paths$/;"	f	class:Rails.Engine.Configuration
+autoload_paths	lib/rails/paths.rb	/^      def autoload_paths$/;"	f	class:Rails.Paths.Root
+available_views	lib/rails/generators/erb/scaffold/scaffold_generator.rb	/^      def available_views$/;"	f	class:Erb.Generators.ScaffoldGenerator
+backtrace_cleaner	lib/rails.rb	/^    def backtrace_cleaner$/;"	f	class:Rails
+banner	lib/rails/generators/base.rb	/^        def self.banner$/;"	F	class:Rails
+banner	lib/rails/generators/rails/app/app_generator.rb	/^      def self.banner$/;"	F	class:Generators.AppGenerator
+banner	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def self.banner$/;"	F	class:Generators.PluginNewGenerator
+base_name	lib/rails/generators/base.rb	/^        def self.base_name$/;"	F	class:Rails
+base_root	lib/rails/generators/base.rb	/^      def self.base_root$/;"	F	class:Rails
+before	lib/rails/initializable.rb	/^      def before$/;"	f	class:Rails.Initializable.Initializer
+before_configuration	lib/rails/railtie/configuration.rb	/^      def before_configuration(&block)$/;"	f	class:Rails.Railtie.Configuration
+before_eager_load	lib/rails/railtie/configuration.rb	/^      def before_eager_load(&block)$/;"	f	class:Rails.Railtie.Configuration
+before_initialize	lib/rails/railtie/configuration.rb	/^      def before_initialize(&block)$/;"	f	class:Rails.Railtie.Configuration
+belongs_to?	lib/rails/initializable.rb	/^      def belongs_to?(group)$/;"	f	class:Rails.Initializable.Initializer
+bind	lib/rails/initializable.rb	/^      def bind(context)$/;"	f	class:Rails.Initializable.Initializer
+build	lib/rails/generators/active_model.rb	/^      def self.build(klass, params=nil)$/;"	F	class:Rails.Generators.ActiveModel
+build	lib/rails/generators/app_base.rb	/^      def build(meth, *args)$/;"	f	class:Rails.Generators.AppBase
+build_original_fullpath	lib/rails/application.rb	/^    def build_original_fullpath(env) #:nodoc:$/;"	f	class:Rails
+builder	lib/rails/generators/app_base.rb	/^      def builder$/;"	f	class:Rails.Generators.AppBase
+bundle_command	lib/rails/generators/app_base.rb	/^      def bundle_command(command)$/;"	f	class:Rails
+cache	lib/rails.rb	/^    def cache$/;"	f	class:Rails
+cache=	lib/rails.rb	/^    def cache=(cache)$/;"	f	class:Rails
+calculate_code	lib/rails/code_statistics.rb	/^    def calculate_code$/;"	f
+calculate_directory_statistics	lib/rails/code_statistics.rb	/^    def calculate_directory_statistics(directory, pattern = \/.*\\.(rb|js|coffee)$\/)$/;"	f	class:CodeStatistics
+calculate_statistics	lib/rails/code_statistics.rb	/^    def calculate_statistics$/;"	f	class:CodeStatistics
+calculate_tests	lib/rails/code_statistics.rb	/^    def calculate_tests$/;"	f
+calculate_total	lib/rails/code_statistics.rb	/^    def calculate_total$/;"	f
+call	lib/rails/application.rb	/^    def call(env)$/;"	f	class:Rails
+call	lib/rails/engine.rb	/^    def call(env)$/;"	f
+call	lib/rails/rack/debugger.rb	/^      def call(env)$/;"	f	class:Rails.Rack.Debugger
+call	lib/rails/rack/log_tailer.rb	/^      def call(env)$/;"	f	class:Rails.Rack.LogTailer
+call	lib/rails/rack/logger.rb	/^      def call(env)$/;"	f	class:Rails.Rack.Logger
+call_app	lib/rails/rack/logger.rb	/^      def call_app(request, env)$/;"	f	class:Rails.Rack.Logger
+camelized	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def camelized$/;"	f	class:Generators.PluginNewGenerator
+capify!	lib/rails/generators/actions.rb	/^      def capify!$/;"	f	class:Rails.Generators.Actions
+check_class_collision	lib/rails/generators/named_base.rb	/^        def self.check_class_collision(options={})$/;"	F	class:Rails.Generators.NamedBase
+children	lib/rails/paths.rb	/^      def children$/;"	f	class:Rails.Paths.Path
+class_collisions	lib/rails/generators/base.rb	/^        def class_collisions(*class_names) #:nodoc:$/;"	f	class:Rails
+class_name	lib/rails/generators/named_base.rb	/^        def class_name$/;"	f	class:Rails.Generators.NamedBase
+class_option	lib/rails/generators/base.rb	/^      def self.class_option(name, options={}) #:nodoc:$/;"	F	class:Rails
+class_path	lib/rails/generators/named_base.rb	/^        def class_path$/;"	f	class:Rails.Generators.NamedBase
+clear!	lib/rails/application/routes_reloader.rb	/^      def clear!$/;"	f	class:Rails.Application.RoutesReloader
+colorize_logging	lib/rails/application/configuration.rb	/^      def colorize_logging$/;"	f	class:Rails.Application.Configuration
+colorize_logging=	lib/rails/application/configuration.rb	/^      def colorize_logging=(val)$/;"	f	class:Rails.Application.Configuration
+comment_if	lib/rails/generators/app_base.rb	/^      def comment_if(value)$/;"	f	class:Rails.Generators
+compute_tags	lib/rails/rack/logger.rb	/^      def compute_tags(request)$/;"	f	class:Rails.Rack.Logger
+concat	lib/rails/paths.rb	/^      def concat(paths)$/;"	f	class:Rails
+config	lib/rails/application.rb	/^    def config #:nodoc:$/;"	f	class:Rails
+config	lib/rails/commands/dbconsole.rb	/^    def config$/;"	f	class:Rails.DBConsole
+config	lib/rails/engine.rb	/^    def config$/;"	f
+config	lib/rails/generators/rails/app/app_generator.rb	/^    def config$/;"	f	class:AppBuilder
+config	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def config$/;"	f	class:Rails.PluginBuilder
+config	lib/rails/railtie.rb	/^    def config$/;"	f	class:Rails
+configru	lib/rails/generators/rails/app/app_generator.rb	/^    def configru$/;"	f	class:AppBuilder
+configuration	lib/rails.rb	/^    def configuration$/;"	f	class:Rails
+configure	lib/rails/generators.rb	/^    def self.configure!(config) #:nodoc:$/;"	F	class:Rails.Generators
+configure	lib/rails/railtie/configurable.rb	/^        def configure(&block)$/;"	f	class:Rails.Railtie.Configurable.ClassMethods
+console	lib/rails/railtie.rb	/^      def console(&blk)$/;"	f	class:Rails.Railtie
+controller	lib/rails/console/helpers.rb	/^    def controller$/;"	f	class:Rails.ConsoleMethods
+controller_class_name	lib/rails/generators/resource_helpers.rb	/^        def controller_class_name$/;"	f	class:Rails.Generators.ResourceHelpers
+controller_class_path	lib/rails/generators/resource_helpers.rb	/^        def controller_class_path$/;"	f	class:Rails.Generators.ResourceHelpers
+controller_file_name	lib/rails/generators/resource_helpers.rb	/^        def controller_file_name$/;"	f	class:Rails.Generators.ResourceHelpers
+controller_file_path	lib/rails/generators/resource_helpers.rb	/^        def controller_file_path$/;"	f	class:Rails.Generators.ResourceHelpers
+controller_i18n_scope	lib/rails/generators/resource_helpers.rb	/^        def controller_i18n_scope$/;"	f	class:Rails.Generators.ResourceHelpers
+convert_database_option_for_jruby	lib/rails/generators/app_base.rb	/^      def convert_database_option_for_jruby$/;"	f	class:Rails.Generators
+copy_javascript	lib/rails/generators/js/assets/assets_generator.rb	/^      def copy_javascript$/;"	f	class:Js.Generators.AssetsGenerator
+copy_stylesheet	lib/rails/generators/css/assets/assets_generator.rb	/^      def copy_stylesheet$/;"	f	class:Css.Generators.AssetsGenerator
+copy_stylesheet	lib/rails/generators/css/scaffold/scaffold_generator.rb	/^      def copy_stylesheet$/;"	f	class:Css.Generators.ScaffoldGenerator
+copy_view_files	lib/rails/generators/erb/controller/controller_generator.rb	/^      def copy_view_files$/;"	f	class:Erb.Generators.ControllerGenerator
+copy_view_files	lib/rails/generators/erb/scaffold/scaffold_generator.rb	/^      def copy_view_files$/;"	f	class:Erb.Generators.ScaffoldGenerator
+create	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def create$/;"	f
+create_active_record_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_active_record_files$/;"	f	class:Generators.AppGenerator
+create_app_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_app_files$/;"	f	class:Generators.AppGenerator
+create_app_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_app_files$/;"	f	class:Generators.PluginNewGenerator
+create_boot_file	lib/rails/generators/rails/app/app_generator.rb	/^      def create_boot_file$/;"	f	class:Generators.AppGenerator
+create_config_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_config_files$/;"	f	class:Generators.AppGenerator
+create_config_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_config_files$/;"	f	class:Generators.PluginNewGenerator
+create_controller_files	lib/rails/generators/rails/controller/controller_generator.rb	/^      def create_controller_files$/;"	f	class:Rails.Generators.ControllerGenerator
+create_controller_files	lib/rails/generators/rails/scaffold_controller/scaffold_controller_generator.rb	/^      def create_controller_files$/;"	f	class:Rails.Generators.ScaffoldControllerGenerator
+create_db_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_db_files$/;"	f	class:Generators.AppGenerator
+create_doc_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_doc_files$/;"	f	class:Generators.AppGenerator
+create_dummy_app	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_dummy_app(path = nil)$/;"	f	class:Generators.PluginNewGenerator
+create_fixture_file	lib/rails/generators/test_unit/model/model_generator.rb	/^      def create_fixture_file$/;"	f	class:TestUnit.Generators.ModelGenerator
+create_fixtures	lib/rails/test_help.rb	/^  def create_fixtures(*fixture_set_names, &block)$/;"	f
+create_generated_attribute	lib/rails/generators/test_case.rb	/^      def create_generated_attribute(attribute_type, name = 'test', index = nil)$/;"	f	class:Rails.Generators.TestCase
+create_generator_files	lib/rails/generators/rails/generator/generator_generator.rb	/^      def create_generator_files$/;"	f	class:Rails.Generators.GeneratorGenerator
+create_helper_files	lib/rails/generators/rails/helper/helper_generator.rb	/^      def create_helper_files$/;"	f	class:Rails.Generators.HelperGenerator
+create_helper_files	lib/rails/generators/test_unit/helper/helper_generator.rb	/^      def create_helper_files$/;"	f	class:TestUnit.Generators.HelperGenerator
+create_images_directory	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_images_directory$/;"	f	class:Generators.PluginNewGenerator
+create_javascript_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_javascript_files$/;"	f	class:Generators.PluginNewGenerator
+create_lib_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_lib_files$/;"	f	class:Generators.AppGenerator
+create_lib_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_lib_files$/;"	f	class:Generators.PluginNewGenerator
+create_log_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_log_files$/;"	f	class:Generators.AppGenerator
+create_public_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_public_files$/;"	f	class:Generators.AppGenerator
+create_public_stylesheets_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_public_stylesheets_files$/;"	f	class:Generators.PluginNewGenerator
+create_root	lib/rails/generators/app_base.rb	/^      def create_root$/;"	f	class:Rails.Generators.AppBase
+create_root_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_root_files$/;"	f	class:Generators.AppGenerator
+create_root_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_root_files$/;"	f	class:Generators.PluginNewGenerator
+create_root_folder	lib/rails/generators/erb/scaffold/scaffold_generator.rb	/^      def create_root_folder$/;"	f	class:Erb.Generators.ScaffoldGenerator
+create_script_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_script_files$/;"	f	class:Generators.AppGenerator
+create_script_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_script_files$/;"	f	class:Generators.PluginNewGenerator
+create_task_files	lib/rails/generators/rails/task/task_generator.rb	/^      def create_task_files$/;"	f	class:Rails.Generators.TaskGenerator
+create_test_dummy_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_test_dummy_files$/;"	f	class:Generators.PluginNewGenerator
+create_test_file	lib/rails/generators/test_unit/model/model_generator.rb	/^      def create_test_file$/;"	f	class:TestUnit.Generators.ModelGenerator
+create_test_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_test_files$/;"	f	class:Generators.AppGenerator
+create_test_files	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def create_test_files$/;"	f	class:Generators.PluginNewGenerator
+create_test_files	lib/rails/generators/test_unit/controller/controller_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.ControllerGenerator
+create_test_files	lib/rails/generators/test_unit/integration/integration_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.IntegrationGenerator
+create_test_files	lib/rails/generators/test_unit/mailer/mailer_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.MailerGenerator
+create_test_files	lib/rails/generators/test_unit/observer/observer_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.ObserverGenerator
+create_test_files	lib/rails/generators/test_unit/performance/performance_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.PerformanceGenerator
+create_test_files	lib/rails/generators/test_unit/plugin/plugin_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.PluginGenerator
+create_test_files	lib/rails/generators/test_unit/scaffold/scaffold_generator.rb	/^      def create_test_files$/;"	f	class:TestUnit.Generators.ScaffoldGenerator
+create_tmp_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_tmp_files$/;"	f	class:Generators.AppGenerator
+create_vendor_files	lib/rails/generators/rails/app/app_generator.rb	/^      def create_vendor_files$/;"	f	class:Generators.AppGenerator
+current_migration_number	lib/rails/generators/migration.rb	/^        def current_migration_number(dirname) #:nodoc:$/;"	f	class:Rails.Generators.Migration.ClassMethods
+database_configuration	lib/rails/application/configuration.rb	/^      def database_configuration$/;"	f	class:Rails.Application.Configuration
+database_gemfile_entry	lib/rails/generators/app_base.rb	/^      def database_gemfile_entry$/;"	f	class:Rails.Generators
+database_yml	lib/rails/generators/rails/app/app_generator.rb	/^    def database_yml$/;"	f
+db	lib/rails/generators/rails/app/app_generator.rb	/^    def db$/;"	f
+debugger?	lib/rails/commands/console.rb	/^    def debugger?$/;"	f	class:Rails
+default	lib/rails/generators/generated_attribute.rb	/^      def default$/;"	f	class:Rails
+default_aliases_for_option	lib/rails/generators/base.rb	/^        def self.default_aliases_for_option(name, options)$/;"	F	class:Rails
+default_for_option	lib/rails/generators/base.rb	/^        def self.default_for_option(config, name, options, default)$/;"	F	class:Rails
+default_generator_root	lib/rails/generators/base.rb	/^        def self.default_generator_root$/;"	F
+default_middleware_stack	lib/rails/application.rb	/^    def default_middleware_stack #:nodoc:$/;"	f	class:Rails
+default_middleware_stack	lib/rails/engine.rb	/^    def default_middleware_stack #:nodoc:$/;"	f
+default_options	lib/rails/commands/server.rb	/^    def default_options$/;"	f	class:Rails.Server
+default_source_root	lib/rails/generators/base.rb	/^      def self.default_source_root$/;"	F	class:Rails
+default_value_for_option	lib/rails/generators/base.rb	/^        def self.default_value_for_option(name, options)$/;"	F	class:Rails
+defined_app_const_base	lib/rails/generators/rails/app/app_generator.rb	/^      def defined_app_const_base$/;"	f	class:Generators.AppGenerator
+defined_app_name	lib/rails/generators/rails/app/app_generator.rb	/^      def defined_app_name$/;"	f	class:Generators.AppGenerator
+delete	lib/rails/configuration.rb	/^      def delete(*args, &block)$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+deprecate	lib/rails/deprecation.rb	/^    def self.deprecate(old, current)$/;"	F	class:Rails.DeprecatedConstant
+desc	lib/rails/generators/base.rb	/^      def self.desc(description=nil)$/;"	F	class:Rails.Generators.Base
+desc	lib/rails/test_unit/sub_test_task.rb	/^    def desc(string)$/;"	f	class:Rails.SubTestTask
+destination	lib/rails/generators/test_case.rb	/^      def self.destination(path)$/;"	F	class:Rails.Generators.TestCase
+destination_root_is_set?	lib/rails/generators/test_case.rb	/^        def destination_root_is_set? # :nodoc:$/;"	f	class:Rails.Generators.TestCase
+destroy	lib/rails/generators/active_model.rb	/^      def destroy$/;"	f	class:Rails.Generators.ActiveModel
+destroy	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def destroy$/;"	f
+directories	lib/rails/source_annotation_extractor.rb	/^    def self.directories$/;"	F	class:SourceAnnotationExtractor.Annotation
+display	lib/rails/source_annotation_extractor.rb	/^  def display(results, options={})$/;"	f
+doc	lib/rails/generators/rails/app/app_generator.rb	/^    def doc$/;"	f
+dummy_path	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def dummy_path(path = nil)$/;"	f	class:Generators.PluginNewGenerator
+each	lib/rails/paths.rb	/^      def each(&block)$/;"	f	class:Rails
+eager_load	lib/rails/paths.rb	/^      def eager_load$/;"	f	class:Rails.Paths.Root
+eager_load!	lib/rails/engine.rb	/^    def eager_load!$/;"	f	class:Rails
+eager_load_namespaces	lib/rails/railtie/configuration.rb	/^      def eager_load_namespaces$/;"	f	class:Rails.Railtie.Configuration
+eager_load_namespaces	lib/rails/railtie/configuration.rb	/^      def self.eager_load_namespaces #:nodoc:$/;"	F	class:Rails.Railtie.Configuration
+eager_load_paths	lib/rails/engine/configuration.rb	/^      def eager_load_paths$/;"	f	class:Rails.Engine.Configuration
+edit	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def edit$/;"	f
+empty_directory_with_keep_file	lib/rails/generators/app_base.rb	/^      def empty_directory_with_keep_file(destination, config = {})$/;"	f	class:Rails
+encoding=	lib/rails/application/configuration.rb	/^      def encoding=(value)$/;"	f	class:Rails.Application.Configuration
+endpoint	lib/rails/engine.rb	/^      def endpoint(endpoint = nil)$/;"	f	class:Rails.Engine
+endpoint	lib/rails/engine.rb	/^    def endpoint$/;"	f
+ensure_current_path	lib/rails/generators/test_case.rb	/^        def ensure_current_path # :nodoc:$/;"	f	class:Rails.Generators.TestCase
+enumerate	lib/rails/source_annotation_extractor.rb	/^  def self.enumerate(tag, options={})$/;"	F	class:SourceAnnotationExtractor
+env	lib/rails.rb	/^    def env$/;"	f	class:Rails
+env=	lib/rails.rb	/^    def env=(environment)$/;"	f	class:Rails
+env_config	lib/rails/application.rb	/^    def env_config$/;"	f	class:Rails
+env_config	lib/rails/engine.rb	/^    def env_config$/;"	f
+environment	lib/rails/commands/console.rb	/^    def environment$/;"	f	class:Rails
+environment	lib/rails/commands/dbconsole.rb	/^    def environment$/;"	f	class:Rails.DBConsole
+environment	lib/rails/generators/actions.rb	/^      def environment(data=nil, options={}, &block)$/;"	f	class:Rails.Generators.Actions
+environment?	lib/rails/commands/console.rb	/^    def environment?$/;"	f	class:Rails
+errors	lib/rails/generators/active_model.rb	/^      def errors$/;"	f	class:Rails.Generators.ActiveModel
+exec_script_rails	lib/rails/script_rails_loader.rb	/^    def self.exec_script_rails!$/;"	F	class:Rails.ScriptRailsLoader
+existent	lib/rails/paths.rb	/^      def existent$/;"	f	class:Rails
+existent_base_paths	lib/rails/paths.rb	/^      def existent_base_paths$/;"	f	class:Rails
+existent_directories	lib/rails/paths.rb	/^      def existent_directories$/;"	f	class:Rails
+exit_on_failure	lib/rails/commands/application.rb	/^      def self.exit_on_failure?$/;"	F	class:Rails.Generators.AppGenerator
+expanded	lib/rails/paths.rb	/^      def expanded$/;"	f	class:Rails
+extify	lib/rails/generators/actions.rb	/^        def extify(name)$/;"	f	class:Rails.Generators.Actions
+extract_annotations_from	lib/rails/source_annotation_extractor.rb	/^  def extract_annotations_from(file, pattern)$/;"	f
+fallbacks	lib/rails/generators.rb	/^    def self.fallbacks$/;"	F	class:Rails.Generators
+field_type	lib/rails/generators/generated_attribute.rb	/^      def field_type$/;"	f	class:Rails.Generators
+file	lib/rails/generators/rails/app/app_generator.rb	/^      def file(*args, &block)$/;"	f	class:Generators.AppGenerator
+file_path	lib/rails/generators/named_base.rb	/^        def file_path$/;"	f	class:Rails.Generators.NamedBase
+filename_with_extensions	lib/rails/generators/erb.rb	/^      def filename_with_extensions(name)$/;"	f	class:Erb.Generators.Base
+filter_by	lib/rails/paths.rb	/^      def filter_by(constraint)$/;"	f	class:Rails.Paths.Root
+finalize!	lib/rails/application/routes_reloader.rb	/^      def finalize!$/;"	f	class:Rails.Application.RoutesReloader
+find	lib/rails/engine.rb	/^      def find(path)$/;"	f	class:Rails.Engine
+find	lib/rails/generators/active_model.rb	/^      def self.find(klass, params=nil)$/;"	F	class:Rails.Generators.ActiveModel
+find	lib/rails/source_annotation_extractor.rb	/^  def find(dirs = Annotation.directories)$/;"	f	class:SourceAnnotationExtractor
+find_by_namespace	lib/rails/generators.rb	/^    def self.find_by_namespace(name, base=nil, context=nil) #:nodoc:$/;"	F	class:Rails.Generators
+find_cmd_and_exec	lib/rails/commands/dbconsole.rb	/^    def find_cmd_and_exec(commands, *args)$/;"	f
+find_in	lib/rails/source_annotation_extractor.rb	/^  def find_in(dir)$/;"	f	class:SourceAnnotationExtractor
+find_root_with_flag	lib/rails/engine.rb	/^    def find_root_with_flag(flag, default=nil) #:nodoc:$/;"	f
+finish_template	lib/rails/generators/rails/app/app_generator.rb	/^      def finish_template$/;"	f	class:Generators.AppGenerator
+finish_template	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def finish_template$/;"	f	class:Generators.PluginNewGenerator
+first	lib/rails/paths.rb	/^      def first$/;"	f	class:Rails.Paths.Path
+foreign_key?	lib/rails/generators/generated_attribute.rb	/^      def foreign_key?$/;"	f
+format	lib/rails/generators/erb.rb	/^      def format$/;"	f	class:Erb.Generators.Base
+format	lib/rails/generators/erb/mailer/mailer_generator.rb	/^      def format$/;"	f	class:Erb.Generators.MailerGenerator
+framework_version	lib/rails/info.rb	/^      def framework_version(framework)$/;"	f	class:Rails
+frameworks	lib/rails/info.rb	/^      def frameworks$/;"	f	class:Rails
+full?	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def full?$/;"	f	class:Generators.PluginNewGenerator
+gem	lib/rails/generators/actions.rb	/^      def gem(*args)$/;"	f	class:Rails.Generators.Actions
+gem_for_database	lib/rails/generators/app_base.rb	/^      def gem_for_database$/;"	f	class:Rails.Generators
+gem_group	lib/rails/generators/actions.rb	/^      def gem_group(*names, &block)$/;"	f	class:Rails.Generators.Actions
+gemfile	lib/rails/generators/rails/app/app_generator.rb	/^    def gemfile$/;"	f	class:AppBuilder
+gemfile	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def gemfile$/;"	f	class:Rails.PluginBuilder
+gemfile_entry	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def gemfile_entry$/;"	f	class:Rails
+gemspec	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def gemspec$/;"	f	class:Rails.PluginBuilder
+generate	lib/rails/generators/actions.rb	/^      def generate(what, *args)$/;"	f	class:Rails.Generators.Actions
+generate_railtie_name	lib/rails/railtie.rb	/^        def generate_railtie_name(class_or_module)$/;"	f	class:Rails.Railtie
+generate_test_dummy	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def generate_test_dummy(force = false)$/;"	f	class:Rails.PluginBuilder
+generator	lib/rails/generators/test_case.rb	/^      def generator(args=self.default_arguments, options={}, config={})$/;"	f	class:Rails.Generators.TestCase
+generator_dir	lib/rails/generators/rails/generator/generator_generator.rb	/^        def generator_dir$/;"	f	class:Rails.Generators.GeneratorGenerator
+generator_name	lib/rails/generators/base.rb	/^        def self.generator_name$/;"	F	class:Rails
+generators	lib/rails/engine/configuration.rb	/^      def generators #:nodoc:$/;"	f	class:Rails.Engine.Configuration
+generators	lib/rails/railtie.rb	/^      def generators(&blk)$/;"	f	class:Rails.Railtie
+get_builder_class	lib/rails/generators/rails/app/app_generator.rb	/^      def get_builder_class$/;"	f	class:Generators.AppGenerator
+get_builder_class	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def get_builder_class$/;"	f	class:Generators.PluginNewGenerator
+git	lib/rails/generators/actions.rb	/^      def git(commands={})$/;"	f	class:Rails.Generators.Actions
+gitignore	lib/rails/generators/rails/app/app_generator.rb	/^    def gitignore$/;"	f	class:AppBuilder
+gitignore	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def gitignore$/;"	f	class:Rails.PluginBuilder
+groups	lib/rails.rb	/^    def groups(*groups)$/;"	f	class:Rails
+handler	lib/rails/generators/erb.rb	/^      def handler$/;"	f	class:Erb.Generators.Base
+has_index?	lib/rails/generators/generated_attribute.rb	/^      def has_index?$/;"	f
+has_migrations?	lib/rails/engine.rb	/^    def has_migrations? #:nodoc:$/;"	f
+has_uniq_index?	lib/rails/generators/generated_attribute.rb	/^      def has_uniq_index?$/;"	f
+help	lib/rails/generators.rb	/^    def self.help(command = 'generate')$/;"	F	class:Rails
+helper	lib/rails/console/helpers.rb	/^    def helper$/;"	f	class:Rails.ConsoleMethods
+helpers	lib/rails/engine.rb	/^    def helpers$/;"	f
+helpers_paths	lib/rails/application.rb	/^    def helpers_paths #:nodoc:$/;"	f	class:Rails
+helpers_paths	lib/rails/engine.rb	/^    def helpers_paths$/;"	f
+hidden_namespaces	lib/rails/generators.rb	/^    def self.hidden_namespaces$/;"	F	class:Rails.Generators
+hide	lib/rails/generators/base.rb	/^      def self.hide!$/;"	F	class:Rails.Generators
+hide_namespace	lib/rails/configuration.rb	/^      def hide_namespace(namespace)$/;"	f	class:Rails.Configuration.Generators
+hide_namespaces	lib/rails/generators.rb	/^      def hide_namespaces(*namespaces)$/;"	f	class:Rails.Generators
+hook_for	lib/rails/generators/base.rb	/^      def self.hook_for(*names, &block)$/;"	F	class:Rails.Generators
+hooks	lib/rails/generators/base.rb	/^        def self.hooks #:nodoc:$/;"	F	class:Rails
+human_name	lib/rails/generators/generated_attribute.rb	/^      def human_name$/;"	f
+human_name	lib/rails/generators/named_base.rb	/^        def human_name$/;"	f	class:Rails.Generators.NamedBase
+i18n_scope	lib/rails/generators/named_base.rb	/^        def i18n_scope$/;"	f	class:Rails.Generators.NamedBase
+in_rails_application	lib/rails/script_rails_loader.rb	/^    def self.in_rails_application?$/;"	F	class:Rails
+in_rails_application_subdirectory	lib/rails/script_rails_loader.rb	/^    def self.in_rails_application_subdirectory?(path = Pathname.new(Dir.pwd))$/;"	F	class:Rails
+include_all_railties?	lib/rails/generators/app_base.rb	/^      def include_all_railties?$/;"	f	class:Rails.Generators
+included	lib/rails/generators/migration.rb	/^      def self.included(base) #:nodoc:$/;"	F	class:Rails.Generators.Migration
+included	lib/rails/generators/resource_helpers.rb	/^      def self.included(base) #:nodoc:$/;"	F	class:Rails.Generators.ResourceHelpers
+included	lib/rails/initializable.rb	/^    def self.included(base) #:nodoc:$/;"	F	class:Rails.Initializable
+indent	lib/rails/generators/named_base.rb	/^        def indent(content, multiplier = 2)$/;"	f	class:Rails.Generators.NamedBase
+index	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def index$/;"	f
+index	lib/rails/info_controller.rb	/^  def index$/;"	f	class:Rails
+index_helper	lib/rails/generators/named_base.rb	/^        def index_helper$/;"	f	class:Rails.Generators.NamedBase
+index_name	lib/rails/generators/generated_attribute.rb	/^      def index_name$/;"	f
+inherited	lib/rails/application.rb	/^      def inherited(base)$/;"	f	class:Rails.Application
+inherited	lib/rails/engine.rb	/^      def inherited(base)$/;"	f	class:Rails.Engine
+inherited	lib/rails/generators/base.rb	/^      def self.inherited(base) #:nodoc:$/;"	F	class:Rails
+inherited	lib/rails/railtie.rb	/^      def inherited(base)$/;"	f	class:Rails.Railtie
+inherited	lib/rails/railtie/configurable.rb	/^        def inherited(base)$/;"	f	class:Rails.Railtie.Configurable.ClassMethods
+initialize	lib/rails/application.rb	/^    def initialize$/;"	f	class:Rails
+initialize	lib/rails/application/configuration.rb	/^      def initialize(*)$/;"	f	class:Rails.Application.Configuration
+initialize	lib/rails/application/routes_reloader.rb	/^      def initialize$/;"	f	class:Rails.Application.RoutesReloader
+initialize	lib/rails/backtrace_cleaner.rb	/^    def initialize$/;"	f	class:Rails.BacktraceCleaner
+initialize	lib/rails/code_statistics.rb	/^  def initialize(*pairs)$/;"	f	class:CodeStatistics
+initialize	lib/rails/commands/console.rb	/^    def initialize(app, options={})$/;"	f	class:Rails
+initialize	lib/rails/commands/dbconsole.rb	/^    def initialize(arguments = ARGV)$/;"	f	class:Rails.DBConsole
+initialize	lib/rails/commands/server.rb	/^    def initialize(*)$/;"	f	class:Rails.Server
+initialize	lib/rails/configuration.rb	/^      def initialize$/;"	f	class:Rails.Configuration.Generators
+initialize	lib/rails/configuration.rb	/^      def initialize$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+initialize	lib/rails/engine.rb	/^    def initialize$/;"	f	class:Rails
+initialize	lib/rails/engine/configuration.rb	/^      def initialize(root=nil)$/;"	f	class:Rails.Engine.Configuration
+initialize	lib/rails/generators/active_model.rb	/^      def initialize(name)$/;"	f	class:Rails.Generators.ActiveModel
+initialize	lib/rails/generators/app_base.rb	/^      def initialize(*args)$/;"	f	class:Rails.Generators.AppBase
+initialize	lib/rails/generators/generated_attribute.rb	/^      def initialize(name, type=nil, index_type=false, attr_options={})$/;"	f	class:Rails.Generators
+initialize	lib/rails/generators/named_base.rb	/^      def initialize(args, *options) #:nodoc:$/;"	f	class:Rails.Generators.NamedBase
+initialize	lib/rails/generators/rails/app/app_generator.rb	/^      def initialize(*args)$/;"	f	class:Generators.AppGenerator
+initialize	lib/rails/generators/rails/app/app_generator.rb	/^    def initialize(generator)$/;"	f	class:Rails.ActionMethods
+initialize	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def initialize(*args)$/;"	f	class:Generators.PluginNewGenerator
+initialize	lib/rails/generators/resource_helpers.rb	/^      def initialize(*args) #:nodoc:$/;"	f	class:Rails.Generators.ResourceHelpers
+initialize	lib/rails/initializable.rb	/^      def initialize(name, context, options, &block)$/;"	f	class:Rails.Initializable.Initializer
+initialize	lib/rails/paths.rb	/^      def initialize(path)$/;"	f	class:Rails.Paths.Root
+initialize	lib/rails/paths.rb	/^      def initialize(root, current, paths, options = {})$/;"	f	class:Rails.Paths.Path
+initialize	lib/rails/rack/debugger.rb	/^      def initialize(app)$/;"	f	class:Rails.Rack.Debugger
+initialize	lib/rails/rack/log_tailer.rb	/^      def initialize(app, log = nil)$/;"	f	class:Rails.Rack.LogTailer
+initialize	lib/rails/rack/logger.rb	/^      def initialize(app, taggers = nil)$/;"	f	class:Rails.Rack.Logger
+initialize	lib/rails/railtie/configuration.rb	/^      def initialize$/;"	f	class:Rails.Railtie.Configuration
+initialize	lib/rails/source_annotation_extractor.rb	/^  def initialize(tag)$/;"	f	class:SourceAnnotationExtractor
+initialize!	lib/rails.rb	/^    def initialize!$/;"	f	class:Rails
+initialize!	lib/rails/application.rb	/^    def initialize!(group=:default) #:nodoc:$/;"	f	class:Rails
+initialize_copy	lib/rails/configuration.rb	/^      def initialize_copy(source)$/;"	f	class:Rails.Configuration.Generators
+initialized?	lib/rails.rb	/^    def initialized?$/;"	f	class:Rails
+initialized?	lib/rails/application.rb	/^    def initialized?$/;"	f	class:Rails
+initializer	lib/rails/generators/actions.rb	/^      def initializer(filename, data=nil, &block)$/;"	f	class:Rails.Generators.Actions
+initializer	lib/rails/initializable.rb	/^      def initializer(name, opts = {}, &blk)$/;"	f	class:Rails.Initializable.ClassMethods
+initializers	lib/rails/application.rb	/^    def initializers #:nodoc:$/;"	f	class:Rails
+initializers	lib/rails/initializable.rb	/^      def initializers$/;"	f	class:Rails.Initializable.ClassMethods
+initializers	lib/rails/initializable.rb	/^    def initializers$/;"	f	class:Rails.Initializable
+initializers_chain	lib/rails/initializable.rb	/^      def initializers_chain$/;"	f	class:Rails.Initializable.ClassMethods
+initializers_for	lib/rails/initializable.rb	/^      def initializers_for(binding)$/;"	f	class:Rails.Initializable.ClassMethods
+inject_index_options	lib/rails/generators/generated_attribute.rb	/^      def inject_index_options$/;"	f
+inject_options	lib/rails/generators/generated_attribute.rb	/^      def inject_options$/;"	f
+insert_after	lib/rails/configuration.rb	/^      def insert_after(*args, &block)$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+insert_before	lib/rails/configuration.rb	/^      def insert_before(*args, &block)$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+inside_application?	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def inside_application?$/;"	f	class:Generators.PluginNewGenerator
+inside_template	lib/rails/generators/named_base.rb	/^        def inside_template$/;"	f	class:Rails.Generators.NamedBase
+inside_template?	lib/rails/generators/named_base.rb	/^        def inside_template?$/;"	f	class:Rails.Generators.NamedBase
+instance	lib/rails/railtie/configurable.rb	/^        def instance$/;"	f	class:Rails.Railtie.Configurable.ClassMethods
+invoke	lib/rails/generators.rb	/^    def self.invoke(namespace, args=ARGV, config={})$/;"	F	class:Rails.Generators
+invoke_fallbacks_for	lib/rails/generators.rb	/^      def self.invoke_fallbacks_for(name, base) #:nodoc:$/;"	F	class:Rails
+isolate_namespace	lib/rails/engine.rb	/^      def isolate_namespace(mod)$/;"	f	class:Rails.Engine
+javascript_gemfile_entry	lib/rails/generators/app_base.rb	/^      def javascript_gemfile_entry$/;"	f	class:Rails
+javascript_runtime_gemfile_entry	lib/rails/generators/app_base.rb	/^      def javascript_runtime_gemfile_entry$/;"	f	class:Rails
+javascripts	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def javascripts$/;"	f	class:Rails.PluginBuilder
+keep_file	lib/rails/generators/app_base.rb	/^      def keep_file(destination)$/;"	f	class:Rails
+key_generator	lib/rails/application.rb	/^    def key_generator$/;"	f	class:Rails
+keys	lib/rails/paths.rb	/^      def keys$/;"	f	class:Rails.Paths.Root
+last	lib/rails/paths.rb	/^      def last$/;"	f	class:Rails.Paths.Path
+lib	lib/rails/generators/actions.rb	/^      def lib(filename, data=nil, &block)$/;"	f	class:Rails.Generators.Actions
+lib	lib/rails/generators/rails/app/app_generator.rb	/^    def lib$/;"	f
+lib	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def lib$/;"	f	class:Rails.PluginBuilder
+license	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def license$/;"	f	class:Rails.PluginBuilder
+load_console	lib/rails/engine.rb	/^    def load_console(app=self)$/;"	f	class:Rails
+load_generators	lib/rails/engine.rb	/^    def load_generators(app=self)$/;"	f	class:Rails
+load_paths	lib/rails/application/routes_reloader.rb	/^      def load_paths$/;"	f	class:Rails.Application.RoutesReloader
+load_paths	lib/rails/paths.rb	/^      def load_paths$/;"	f	class:Rails.Paths.Root
+load_runner	lib/rails/engine.rb	/^    def load_runner(app=self)$/;"	f	class:Rails
+load_seed	lib/rails/engine.rb	/^    def load_seed$/;"	f
+load_tasks	lib/rails/engine.rb	/^    def load_tasks(app=self)$/;"	f	class:Rails
+local_request?	lib/rails/info_controller.rb	/^  def local_request?$/;"	f	class:Rails
+log	lib/rails/generators/actions.rb	/^        def log(*args)$/;"	f	class:Rails.Generators.Actions
+log	lib/rails/generators/rails/app/app_generator.rb	/^    def log$/;"	f
+log_level	lib/rails/application/configuration.rb	/^      def log_level$/;"	f	class:Rails.Application.Configuration
+log_path	lib/rails/commands/server.rb	/^    def log_path$/;"	f	class:Rails.Server
+logger	lib/rails.rb	/^    def logger$/;"	f	class:Rails
+logger=	lib/rails.rb	/^    def logger=(logger)$/;"	f	class:Rails
+lookup	lib/rails/generators.rb	/^      def self.lookup! #:nodoc:$/;"	F
+lookup	lib/rails/generators.rb	/^      def self.lookup(namespaces) #:nodoc:$/;"	F	class:Rails
+merge_into	lib/rails/configuration.rb	/^      def merge_into(other) #:nodoc:$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+method_missing	lib/rails/configuration.rb	/^      def method_missing(method, *args)$/;"	f	class:Rails.Configuration.Generators
+method_missing	lib/rails/generators/rails/app/app_generator.rb	/^      def method_missing(meth, *args, &block)$/;"	f	class:Rails
+method_missing	lib/rails/railtie/configurable.rb	/^        def method_missing(*args, &block)$/;"	f	class:Rails.Railtie.Configurable.ClassMethods
+method_missing	lib/rails/railtie/configuration.rb	/^      def method_missing(name, *args, &blk)$/;"	f	class:Rails.Railtie.Configuration
+middleware	lib/rails/commands/server.rb	/^    def middleware$/;"	f	class:Rails.Server
+middleware	lib/rails/engine/configuration.rb	/^      def middleware$/;"	f	class:Rails.Engine.Configuration
+migration_exists?	lib/rails/generators/migration.rb	/^        def migration_exists?(dirname, file_name) #:nodoc:$/;"	f	class:Rails.Generators.Migration.ClassMethods
+migration_file_name	lib/rails/generators/test_case.rb	/^        def migration_file_name(relative) # :nodoc:$/;"	f	class:Rails.Generators.TestCase
+migration_lookup_at	lib/rails/generators/migration.rb	/^        def migration_lookup_at(dirname) #:nodoc:$/;"	f	class:Rails.Generators.Migration.ClassMethods
+migration_template	lib/rails/generators/migration.rb	/^      def migration_template(source, destination=nil, config={})$/;"	f	class:Rails.Generators.Migration.ClassMethods
+module_namespacing	lib/rails/generators/named_base.rb	/^        def module_namespacing(&block)$/;"	f	class:Rails.Generators.NamedBase
+mountable?	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def mountable?$/;"	f	class:Generators.PluginNewGenerator
+mute	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def mute(&block)$/;"	f	class:Generators.PluginNewGenerator
+mysql_socket	lib/rails/generators/rails/app/app_generator.rb	/^      def mysql_socket$/;"	f	class:Generators.AppGenerator
+name	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def name$/;"	f	class:Generators.PluginNewGenerator
+names	lib/rails/info.rb	/^      def names$/;"	f	class:Rails.Info
+namespace	lib/rails/generators/base.rb	/^      def self.namespace(name=nil)$/;"	F	class:Rails.Generators
+namespace	lib/rails/generators/named_base.rb	/^        def namespace$/;"	f	class:Rails.Generators.NamedBase
+namespaced?	lib/rails/generators/named_base.rb	/^        def namespaced?$/;"	f	class:Rails.Generators.NamedBase
+namespaced_class_path	lib/rails/generators/named_base.rb	/^        def namespaced_class_path$/;"	f	class:Rails.Generators.NamedBase
+namespaced_file_path	lib/rails/generators/named_base.rb	/^        def namespaced_file_path$/;"	f	class:Rails.Generators.NamedBase
+namespaced_path	lib/rails/generators/named_base.rb	/^        def namespaced_path$/;"	f	class:Rails.Generators.NamedBase
+namespaces_to_paths	lib/rails/generators.rb	/^      def self.namespaces_to_paths(namespaces) #:nodoc:$/;"	F
+new	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def new$/;"	f
+new_session	lib/rails/console/app.rb	/^    def new_session$/;"	f	class:Rails.ConsoleMethods
+next_migration_number	lib/rails/generators/migration.rb	/^        def next_migration_number(dirname) #:nodoc:$/;"	f	class:Rails.Generators.Migration.ClassMethods.current_migration_number
+no_color	lib/rails/generators.rb	/^    def self.no_color!$/;"	F	class:Rails.Generators
+opt_parser	lib/rails/commands/server.rb	/^    def opt_parser$/;"	f	class:Rails.Server
+options	lib/rails/commands/benchmarker.rb	/^def options$/;"	f
+options	lib/rails/commands/profiler.rb	/^def options$/;"	f
+options	lib/rails/generators.rb	/^    def self.options #:nodoc:$/;"	F	class:Rails.Generators
+ordered_railties	lib/rails/application.rb	/^    def ordered_railties #:nodoc:$/;"	f	class:Rails
+original_name	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def original_name$/;"	f	class:Generators.PluginNewGenerator
+orm_class	lib/rails/generators/resource_helpers.rb	/^        def orm_class$/;"	f	class:Rails.Generators.ResourceHelpers
+orm_instance	lib/rails/generators/resource_helpers.rb	/^        def orm_instance(name=singular_table_name)$/;"	f	class:Rails.Generators.ResourceHelpers
+parse	lib/rails/generators/generated_attribute.rb	/^        def parse(column_definition)$/;"	f	class:Rails.Generators.GeneratedAttribute
+parse!	lib/rails/commands/server.rb	/^      def parse!(args)$/;"	f	class:Rails.Server.Options
+parse_arguments	lib/rails/commands/console.rb	/^      def parse_arguments(arguments)$/;"	f	class:Rails.Console
+parse_arguments	lib/rails/commands/dbconsole.rb	/^    def parse_arguments(arguments)$/;"	f	class:Rails.DBConsole
+parse_attributes!	lib/rails/generators/named_base.rb	/^        def parse_attributes! #:nodoc:$/;"	f	class:Rails.Generators.NamedBase
+parse_type_and_options	lib/rails/generators/generated_attribute.rb	/^        def parse_type_and_options(type)$/;"	f	class:Rails.Generators.GeneratedAttribute
+paths	lib/rails/application/configuration.rb	/^      def paths$/;"	f	class:Rails.Application.Configuration
+paths	lib/rails/engine/configuration.rb	/^      def paths$/;"	f	class:Rails.Engine.Configuration
+plural_file_name	lib/rails/generators/named_base.rb	/^        def plural_file_name$/;"	f	class:Rails.Generators.NamedBase
+plural_name	lib/rails/generators/generated_attribute.rb	/^      def plural_name$/;"	f
+plural_name	lib/rails/generators/named_base.rb	/^        def plural_name$/;"	f	class:Rails.Generators.NamedBase
+plural_table_name	lib/rails/generators/named_base.rb	/^        def plural_table_name$/;"	f	class:Rails.Generators.NamedBase
+pluralize_table_names?	lib/rails/generators/named_base.rb	/^        def pluralize_table_names?$/;"	f	class:Rails.Generators.NamedBase
+polymorphic?	lib/rails/generators/generated_attribute.rb	/^      def polymorphic?$/;"	f
+prepare_destination	lib/rails/generators/test_case.rb	/^        def prepare_destination # :nodoc:$/;"	f	class:Rails.Generators.TestCase
+prepare_for_invocation	lib/rails/generators/base.rb	/^        def self.prepare_for_invocation(name, value) #:nodoc:$/;"	F	class:Rails
+print_code_test_stats	lib/rails/code_statistics.rb	/^    def print_code_test_stats$/;"	f
+print_header	lib/rails/code_statistics.rb	/^    def print_header$/;"	f
+print_line	lib/rails/code_statistics.rb	/^    def print_line(name, statistics)$/;"	f
+print_list	lib/rails/generators.rb	/^      def self.print_list(base, namespaces) #:nodoc:$/;"	F	class:Rails
+print_profile	lib/rails/rubyprof_ext.rb	/^  def self.print_profile(results, io = $stderr)$/;"	F	class:Prof
+print_splitter	lib/rails/code_statistics.rb	/^    def print_splitter$/;"	f
+properties	lib/rails/info_controller.rb	/^  def properties$/;"	f	class:Rails
+property	lib/rails/info.rb	/^      def property(name, value = nil)$/;"	f	class:Rails
+public_directory	lib/rails/generators/rails/app/app_generator.rb	/^    def public_directory$/;"	f
+public_path	lib/rails.rb	/^    def public_path$/;"	f	class:Rails
+queue	lib/rails.rb	/^    def queue$/;"	f	class:Rails
+queue	lib/rails/application.rb	/^    def queue #:nodoc:$/;"	f	class:Rails
+rails_app_path	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def rails_app_path$/;"	f	class:Generators.PluginNewGenerator
+rails_gemfile_entry	lib/rails/generators/app_base.rb	/^      def rails_gemfile_entry$/;"	f	class:Rails.Generators
+railtie_name	lib/rails/railtie.rb	/^      def railtie_name(name = nil)$/;"	f	class:Rails.Railtie
+railtie_namespace	lib/rails/railtie.rb	/^    def railtie_namespace$/;"	f	class:Rails
+railties	lib/rails/application.rb	/^    def railties #:nodoc:$/;"	f	class:Rails
+railties_initializers	lib/rails/application.rb	/^    def railties_initializers(current) #:nodoc:$/;"	f	class:Rails
+rake	lib/rails/generators/actions.rb	/^      def rake(command, options={})$/;"	f	class:Rails.Generators.Actions
+rake_tasks	lib/rails/railtie.rb	/^      def rake_tasks(&blk)$/;"	f	class:Rails.Railtie
+rakefile	lib/rails/generators/actions.rb	/^      def rakefile(filename, data=nil, &block)$/;"	f	class:Rails.Generators.Actions
+rakefile	lib/rails/generators/rails/app/app_generator.rb	/^    def rakefile$/;"	f	class:AppBuilder
+rakefile	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def rakefile$/;"	f	class:Rails.PluginBuilder
+rakefile_test_tasks	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def rakefile_test_tasks$/;"	f	class:Generators.PluginNewGenerator
+readme	lib/rails/generators/actions.rb	/^      def readme(path)$/;"	f	class:Rails.Generators.Actions
+readme	lib/rails/generators/rails/app/app_generator.rb	/^    def readme$/;"	f	class:AppBuilder
+readme	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def readme$/;"	f	class:Rails.PluginBuilder
+reference?	lib/rails/generators/generated_attribute.rb	/^        def reference?(type)$/;"	f	class:Rails.Generators.GeneratedAttribute
+reference?	lib/rails/generators/generated_attribute.rb	/^      def reference?$/;"	f
+regular_class_path	lib/rails/generators/named_base.rb	/^        def regular_class_path$/;"	f	class:Rails.Generators.NamedBase
+relative_path	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def relative_path$/;"	f	class:Generators.PluginNewGenerator
+reload!	lib/rails/application/routes_reloader.rb	/^      def reload!$/;"	f	class:Rails.Application.RoutesReloader
+reload!	lib/rails/console/app.rb	/^    def reload!(print=true)$/;"	f	class:Rails.ConsoleMethods
+reload_dependencies?	lib/rails/application.rb	/^    def reload_dependencies? #:nodoc:$/;"	f	class:Rails
+reload_routes!	lib/rails/application.rb	/^    def reload_routes!$/;"	f	class:Rails
+remove_hook_for	lib/rails/generators/base.rb	/^      def self.remove_hook_for(*names)$/;"	F	class:Rails
+require_debugger	lib/rails/commands/console.rb	/^    def require_debugger$/;"	f	class:Rails
+require_environment!	lib/rails/application.rb	/^    def require_environment! #:nodoc:$/;"	f	class:Rails
+require_local!	lib/rails/info_controller.rb	/^  def require_local!$/;"	f	class:Rails
+respond_to?	lib/rails/railtie/configurable.rb	/^        def respond_to?(*args)$/;"	f	class:Rails.Railtie.Configurable.ClassMethods
+respond_to?	lib/rails/railtie/configuration.rb	/^      def respond_to?(name)$/;"	f	class:Rails.Railtie.Configuration
+revert	lib/rails/application/routes_reloader.rb	/^      def revert$/;"	f	class:Rails.Application.RoutesReloader
+root	lib/rails.rb	/^    def root$/;"	f	class:Rails
+root=	lib/rails/engine/configuration.rb	/^      def root=(value)$/;"	f	class:Rails.Engine.Configuration
+route	lib/rails/generators/actions.rb	/^      def route(routing_code)$/;"	f	class:Rails.Generators.Actions
+route_length	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^        def route_length$/;"	f	class:Rails.Generators.ResourceRouteGenerator
+route_string	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^        def route_string$/;"	f	class:Rails.Generators.ResourceRouteGenerator
+route_url	lib/rails/generators/named_base.rb	/^        def route_url$/;"	f	class:Rails.Generators.NamedBase
+routes	lib/rails/engine.rb	/^    def routes$/;"	f
+routes	lib/rails/info_controller.rb	/^  def routes$/;"	f	class:Rails
+routes?	lib/rails/engine.rb	/^    def routes? #:nodoc:$/;"	f
+routes_reloader	lib/rails/application.rb	/^    def routes_reloader #:nodoc:$/;"	f	class:Rails
+run	lib/rails/initializable.rb	/^      def run(*args)$/;"	f	class:Rails.Initializable.Initializer
+run_bundle	lib/rails/generators/app_base.rb	/^      def run_bundle$/;"	f	class:Rails
+run_console_blocks	lib/rails/application.rb	/^    def run_console_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_console_blocks	lib/rails/railtie.rb	/^    def run_console_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_generator	lib/rails/generators/test_case.rb	/^      def run_generator(args=self.default_arguments, config={})$/;"	f	class:Rails.Generators.TestCase
+run_generators_blocks	lib/rails/application.rb	/^    def run_generators_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_generators_blocks	lib/rails/railtie.rb	/^    def run_generators_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_initializers	lib/rails/initializable.rb	/^    def run_initializers(group=:default, *args)$/;"	f	class:Rails.Initializable
+run_runner_blocks	lib/rails/application.rb	/^    def run_runner_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_runner_blocks	lib/rails/railtie.rb	/^    def run_runner_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_tasks_blocks	lib/rails/application.rb	/^    def run_tasks_blocks(app) #:nodoc:$/;"	f	class:Rails
+run_tasks_blocks	lib/rails/engine.rb	/^    def run_tasks_blocks(*) #:nodoc:$/;"	f
+run_tasks_blocks	lib/rails/railtie.rb	/^    def run_tasks_blocks(app) #:nodoc:$/;"	f	class:Rails
+runner	lib/rails/railtie.rb	/^      def runner(&blk)$/;"	f	class:Rails.Railtie
+sandbox?	lib/rails/commands/console.rb	/^    def sandbox?$/;"	f	class:Rails
+save	lib/rails/generators/active_model.rb	/^      def save$/;"	f	class:Rails.Generators.ActiveModel
+script	lib/rails/generators/rails/app/app_generator.rb	/^    def script$/;"	f
+script	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def script(force = false)$/;"	f	class:Rails.PluginBuilder
+session_store	lib/rails/application/configuration.rb	/^      def session_store(*args)$/;"	f	class:Rails.Application.Configuration
+set_default_accessors!	lib/rails/generators/app_base.rb	/^      def set_default_accessors!$/;"	f	class:Rails.Generators.AppBase
+set_environment	lib/rails/commands/server.rb	/^    def set_environment$/;"	f	class:Rails.Server
+set_environment!	lib/rails/commands/console.rb	/^    def set_environment!$/;"	f	class:Rails
+setup	lib/rails/generators/test_case.rb	/^      def setup # :nodoc:$/;"	f	class:Rails.Generators.TestCase
+show	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def show$/;"	f
+singular_table_name	lib/rails/generators/named_base.rb	/^        def singular_table_name$/;"	f	class:Rails.Generators.NamedBase
+skip_	lib/rails/paths.rb	/^          def skip_#{m}!   # def skip_eager_load!$/;"	f	class:Rails.Paths.Path
+source_root	lib/rails/generators/base.rb	/^      def self.source_root(path=nil)$/;"	F	class:Rails.Generators.Base
+start	lib/rails/commands/console.rb	/^      def start(*args)$/;"	f	class:Rails.Console
+start	lib/rails/commands/console.rb	/^    def start$/;"	f	class:Rails
+start	lib/rails/commands/dbconsole.rb	/^    def self.start$/;"	F	class:Rails.DBConsole
+start	lib/rails/commands/dbconsole.rb	/^    def start$/;"	f	class:Rails.DBConsole
+start	lib/rails/commands/server.rb	/^    def start$/;"	f	class:Rails.Server
+started_request_message	lib/rails/rack/logger.rb	/^      def started_request_message(request)$/;"	f	class:Rails.Rack.Logger
+stylesheets	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def stylesheets$/;"	f	class:Rails.PluginBuilder
+subclasses	lib/rails/generators.rb	/^    def self.subclasses$/;"	F	class:Rails.Generators
+subclasses	lib/rails/railtie.rb	/^      def subclasses$/;"	f	class:Rails.Railtie
+swap	lib/rails/configuration.rb	/^      def swap(*args, &block)$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+table_name	lib/rails/generators/named_base.rb	/^        def table_name$/;"	f	class:Rails.Generators.NamedBase
+tail!	lib/rails/rack/log_tailer.rb	/^      def tail!$/;"	f	class:Rails.Rack.LogTailer
+target	lib/rails/deprecation.rb	/^    def target$/;"	f	class:Rails.DeprecatedConstant
+teardown	lib/rails/generators/test_case.rb	/^      def teardown # :nodoc:$/;"	f	class:Rails.Generators.TestCase
+template	lib/rails/generators/named_base.rb	/^        def template(source, *args, &block)$/;"	f	class:Rails.Generators.NamedBase
+templates_path	lib/rails/generators.rb	/^    def self.templates_path #:nodoc:$/;"	F	class:Rails.Generators
+test	lib/rails/generators/rails/app/app_generator.rb	/^    def test$/;"	f
+test	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def test$/;"	f	class:Rails.PluginBuilder
+test_	lib/rails/commands/benchmarker.rb	/^      def test_#{expression.parameterize('_')}$/;"	f	class:BenchmarkerTest
+test_	lib/rails/commands/profiler.rb	/^      def test_#{expression.parameterize('_')}$/;"	f	class:ProfilerTest
+test_dummy_clean	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def test_dummy_clean$/;"	f	class:Rails.PluginBuilder
+test_dummy_config	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^    def test_dummy_config$/;"	f	class:Rails.PluginBuilder
+tests	lib/rails/generators/test_case.rb	/^      def self.tests(klass)$/;"	F	class:Rails.Generators.TestCase
+threadsafe!	lib/rails/application/configuration.rb	/^      def threadsafe!$/;"	f	class:Rails.Application.Configuration
+tmp	lib/rails/generators/rails/app/app_generator.rb	/^    def tmp$/;"	f
+to_app	lib/rails/application.rb	/^    def to_app #:nodoc:$/;"	f	class:Rails
+to_ary	lib/rails/paths.rb	/^      def to_ary$/;"	f	class:Rails
+to_html	lib/rails/info.rb	/^      def to_html$/;"	f	class:Rails
+to_prepare	lib/rails/railtie/configuration.rb	/^      def to_prepare(&blk)$/;"	f	class:Rails.Railtie.Configuration
+to_prepare_blocks	lib/rails/railtie/configuration.rb	/^      def to_prepare_blocks$/;"	f	class:Rails.Railtie.Configuration
+to_s	lib/rails/code_statistics.rb	/^  def to_s$/;"	f	class:CodeStatistics
+to_s	lib/rails/info.rb	/^      def to_s$/;"	f	class:Rails
+to_s	lib/rails/source_annotation_extractor.rb	/^    def to_s(options={})$/;"	f	class:SourceAnnotationExtractor.Annotation
+tsort_each_child	lib/rails/initializable.rb	/^      def tsort_each_child(initializer, &block)$/;"	f	class:Rails.Initializable.Collection
+uncountable?	lib/rails/generators/named_base.rb	/^        def uncountable?$/;"	f	class:Rails.Generators.NamedBase
+unshift	lib/rails/paths.rb	/^      def unshift(path)$/;"	f	class:Rails
+update	lib/rails/generators/rails/scaffold_controller/templates/controller.rb	/^  def update$/;"	f
+update_attributes	lib/rails/generators/active_model.rb	/^      def update_attributes(params=nil)$/;"	f	class:Rails.Generators.ActiveModel
+update_gemfile	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def update_gemfile$/;"	f	class:Generators.PluginNewGenerator
+updater	lib/rails/application/routes_reloader.rb	/^      def updater$/;"	f	class:Rails.Application.RoutesReloader
+usage_path	lib/rails/generators/base.rb	/^        def self.usage_path$/;"	F
+use	lib/rails/configuration.rb	/^      def use(*args, &block)$/;"	f	class:Rails.Configuration.MiddlewareStackProxy
+valid_const?	lib/rails/generators/rails/app/app_generator.rb	/^      def valid_const?$/;"	f	class:Generators.AppGenerator
+valid_const?	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def valid_const?$/;"	f	class:Generators.PluginNewGenerator
+value_for	lib/rails/info.rb	/^      def value_for(property_name)$/;"	f	class:Rails.Info
+values	lib/rails/paths.rb	/^      def values$/;"	f	class:Rails.Paths.Root
+values_at	lib/rails/paths.rb	/^      def values_at(*list)$/;"	f	class:Rails.Paths.Root
+vendor	lib/rails/generators/actions.rb	/^      def vendor(filename, data=nil, &block)$/;"	f	class:Rails.Generators.Actions
+vendor	lib/rails/generators/rails/app/app_generator.rb	/^    def vendor$/;"	f
+vendor_javascripts	lib/rails/generators/rails/app/app_generator.rb	/^    def vendor_javascripts$/;"	f
+vendor_stylesheets	lib/rails/generators/rails/app/app_generator.rb	/^    def vendor_stylesheets$/;"	f
+version	lib/rails.rb	/^    def version$/;"	f	class:Rails
+watchable_args	lib/rails/application.rb	/^    def watchable_args #:nodoc:$/;"	f	class:Rails
+watchable_dirs	lib/rails/railtie/configuration.rb	/^      def watchable_dirs$/;"	f	class:Rails.Railtie.Configuration
+watchable_files	lib/rails/railtie/configuration.rb	/^      def watchable_files$/;"	f	class:Rails.Railtie.Configuration
+whiny_nils=	lib/rails/application/configuration.rb	/^      def whiny_nils=(*)$/;"	f	class:Rails.Application.Configuration
+with_dummy_app?	lib/rails/generators/rails/plugin_new/plugin_new_generator.rb	/^      def with_dummy_app?$/;"	f	class:Generators.PluginNewGenerator
+wrap_with_namespace	lib/rails/generators/named_base.rb	/^        def wrap_with_namespace(content)$/;"	f	class:Rails.Generators.NamedBase
+write	lib/rails/generators/rails/resource_route/resource_route_generator.rb	/^        def write(str, indent)$/;"	f	class:Rails.Generators.ResourceRouteGenerator
