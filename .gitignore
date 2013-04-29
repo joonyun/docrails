@@ -4,8 +4,9 @@
 .DS_Store
 debug.log
 .Gemfile
-/.bundle
-/.ruby-version
+.bundle
+vendor/bundle
+.ruby-version
 /Gemfile.lock
 pkg
 /dist
