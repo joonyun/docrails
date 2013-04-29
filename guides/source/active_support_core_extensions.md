@@ -5,7 +5,12 @@ Active Support is the Ruby on Rails component responsible for providing Ruby lan
 
 It offers a richer bottom-line at the language level, targeted both at the development of Rails applications, and at the development of Ruby on Rails itself.
 
-By referring to this guide you will learn the extensions to the Ruby core classes and modules provided by Active Support.
+After reading this guide, you will know:
+
+* What Core Extensions are.
+* How to load all extensions.
+* How to cherry-pick just the extensions you want.
+* What extensions ActiveSupport provides.
 
 --------------------------------------------------------------------------------
 
@@ -416,24 +421,6 @@ NOTE: Defined in `active_support/core_ext/object/with_options.rb`.
 ### Instance Variables
 
 Active Support provides several methods to ease access to instance variables.
-
-#### `instance_variable_names`
-
-Ruby 1.8 and 1.9 have a method called `instance_variables` that returns the names of the defined instance variables. But they behave differently, in 1.8 it returns strings whereas in 1.9 it returns symbols. Active Support defines `instance_variable_names` as a portable way to obtain them as strings:
-
-```ruby
-class C
-  def initialize(x, y)
-    @x, @y = x, y
-  end
-end
-
-C.new(0, 1).instance_variable_names # => ["@y", "@x"]
-```
-
-WARNING: The order in which the names are returned is unspecified, and it indeed depends on the version of the interpreter.
-
-NOTE: Defined in `active_support/core_ext/object/instance_variables.rb`.
 
 #### `instance_values`
 
@@ -915,7 +902,7 @@ When interpolated into a string, the `:to` option should become an expression th
 delegate :logger, to: :Rails
 
 # delegates to the receiver's class
-delegate :table_name, to: 'self.class'
+delegate :table_name, to: :class
 ```
 
 WARNING: If the `:prefix` option is `true` this is less generic, see below.
@@ -1052,6 +1039,8 @@ For convenience `class_attribute` also defines an instance predicate which is th
 
 When `:instance_reader` is `false`, the instance predicate returns a `NoMethodError` just like the reader method.
 
+If you do not want the instance predicate,  pass `instance_predicate: false` and it will not be defined.
+
 NOTE: Defined in `active_support/core_ext/class/attribute.rb`
 
 #### `cattr_reader`, `cattr_writer`, and `cattr_accessor`
@@ -1120,8 +1109,6 @@ C.subclasses # => [B, D]
 
 The order in which these classes are returned is unspecified.
 
-WARNING: This method is redefined in some Rails core classes but should be all compatible in Rails 3.1.
-
 NOTE: Defined in `active_support/core_ext/class/subclasses.rb`.
 
 #### `descendants`
@@ -1157,7 +1144,7 @@ Inserting data into HTML templates needs extra care. For example, you can't just
 
 #### Safe Strings
 
-Active Support has the concept of <i>(html) safe</i> strings since Rails 3. A safe string is one that is marked as being insertable into HTML as is. It is trusted, no matter whether it has been escaped or not.
+Active Support has the concept of <i>(html) safe</i> strings. A safe string is one that is marked as being insertable into HTML as is. It is trusted, no matter whether it has been escaped or not.
 
 Strings are considered to be <i>unsafe</i> by default:
 
@@ -1194,10 +1181,10 @@ Safe arguments are directly appended:
 "".html_safe + "<".html_safe # => "<"
 ```
 
-These methods should not be used in ordinary views. In Rails 3 unsafe values are automatically escaped:
+These methods should not be used in ordinary views. Unsafe values are automatically escaped:
 
 ```erb
-<%= @review.title %> <%# fine in Rails 3, escaped if needed %>
+<%= @review.title %> <%# fine, escaped if needed %>
 ```
 
 To insert something verbatim use the `raw` helper rather than calling `html_safe`:
@@ -1247,6 +1234,8 @@ The method `squish` strips leading and trailing whitespace, and substitutes runs
 ```
 
 There's also the destructive version `String#squish!`.
+
+Note that it handles both ASCII and Unicode whitespace like mongolian vowel separator (U+180E).
 
 NOTE: Defined in `active_support/core_ext/string/filters.rb`.
 
@@ -1357,7 +1346,7 @@ The second argument, `indent_string`, specifies which indent string to use. The 
 "foo".indent(2, "\t")    # => "\t\tfoo"
 ```
 
-While `indent_string` is tipically one space or tab, it may be any string.
+While `indent_string` is typically one space or tab, it may be any string.
 
 The third argument, `indent_empty_lines`, is a flag that says whether empty lines should be indented. Default is false.
 
@@ -1446,11 +1435,10 @@ As the previous example shows, Active Support knows some irregular plurals and u
 Active Record uses this method to compute the default table name that corresponds to a model:
 
 ```ruby
-# active_record/base.rb
+# active_record/model_schema.rb
 def undecorated_table_name(class_name = base_class.name)
   table_name = class_name.to_s.demodulize.underscore
-  table_name = table_name.pluralize if pluralize_table_names
-  table_name
+  pluralize_table_names ? table_name.pluralize : table_name
 end
 ```
 
@@ -2067,14 +2055,6 @@ The sum of an empty receiver can be customized in this form as well:
 [].sum(1) {|n| n**3} # => 1
 ```
 
-The method `ActiveRecord::Observer#observed_subclasses` for example is implemented this way:
-
-```ruby
-def observed_subclasses
-  observed_classes.sum([]) { |klass| klass.send(:subclasses) }
-end
-```
-
 NOTE: Defined in `active_support/core_ext/enumerable.rb`.
 
 ### `index_by`
@@ -2220,7 +2200,7 @@ This method accepts three options:
 * `:words_connector`: What is used to join the elements of arrays with 3 or more elements, except for the last two. Default is ", ".
 * `:last_word_connector`: What is used to join the last items of an array with 3 or more elements. Default is ", and ".
 
-The defaults for these options can be localised, their keys are:
+The defaults for these options can be localized, their keys are:
 
 | Option                 | I18n key                            |
 | ---------------------- | ----------------------------------- |
@@ -2236,7 +2216,7 @@ NOTE: Defined in `active_support/core_ext/array/conversions.rb`.
 
 The method `to_formatted_s` acts like `to_s` by default.
 
-If the array contains items that respond to `id`, however, it may be passed the symbol `:db` as argument. That's typically used with collections of ARs. Returned strings are:
+If the array contains items that respond to `id`, however, the symbol `:db` may be passed as argument. That's typically used with collections of ActiveRecord objects. Returned strings are:
 
 ```ruby
 [].to_formatted_s(:db)            # => "null"
@@ -2418,9 +2398,9 @@ or yields them in turn if a block is passed:
 ```html+erb
 <% sample.in_groups_of(3) do |a, b, c| %>
   <tr>
-    <td><%=h a %></td>
-    <td><%=h b %></td>
-    <td><%=h c %></td>
+    <td><%= a %></td>
+    <td><%= b %></td>
+    <td><%= c %></td>
   </tr>
 <% end %>
 ```
@@ -2681,13 +2661,6 @@ If the receiver responds to `convert_key`, the method is called on each of the a
 ```ruby
 {a: 1}.with_indifferent_access.except(:a)  # => {}
 {a: 1}.with_indifferent_access.except("a") # => {}
-```
-
-The method `except` may come in handy for example when you want to protect some parameter that can't be globally protected with `attr_protected`:
-
-```ruby
-params[:account] = params[:account].except(:plan_id) unless admin?
-@account.update_attributes(params[:account])
 ```
 
 There's also the bang variant `except!` that removes keys in the very receiver.
@@ -3349,7 +3322,25 @@ date.end_of_hour # => Mon Jun 07 19:59:59 +0200 2010
 
 `beginning_of_hour` is aliased to `at_beginning_of_hour`.
 
-INFO: `beginning_of_hour` and `end_of_hour` are implemented for `Time` and `DateTime` but **not** `Date` as it does not make sense to request the beginning or end of an hour on a `Date` instance.
+##### `beginning_of_minute`, `end_of_minute`
+
+The method `beginning_of_minute` returns a timestamp at the beginning of the minute (hh:mm:00):
+
+```ruby
+date = DateTime.new(2010, 6, 7, 19, 55, 25)
+date.beginning_of_minute # => Mon Jun 07 19:55:00 +0200 2010
+```
+
+The method `end_of_minute` returns a timestamp at the end of the minute (hh:mm:59):
+
+```ruby
+date = DateTime.new(2010, 6, 7, 19, 55, 25)
+date.end_of_minute # => Mon Jun 07 19:55:59 +0200 2010
+```
+
+`beginning_of_minute` is aliased to `at_beginning_of_minute`.
+
+INFO: `beginning_of_hour`, `end_of_hour`, `beginning_of_minute` and `end_of_minute` are implemented for `Time` and `DateTime` but **not** `Date` as it does not make sense to request the beginning or end of an hour or minute on a `Date` instance.
 
 ##### `ago`, `since`
 
@@ -3604,7 +3595,7 @@ Time.zone_default
 # => #<ActiveSupport::TimeZone:0x7f73654d4f38 @utc_offset=nil, @name="Madrid", ...>
 
 # In Barcelona, 2010/03/28 02:00 +0100 becomes 2010/03/28 03:00 +0200 due to DST.
-t = Time.local_time(2010, 3, 28, 1, 59, 59)
+t = Time.local(2010, 3, 28, 1, 59, 59)
 # => Sun Mar 28 01:59:59 +0100 2010
 t.advance(seconds: 1)
 # => Sun Mar 28 03:00:00 +0200 2010
@@ -3659,26 +3650,6 @@ Time.current
 
 Analogously to `DateTime`, the predicates `past?`, and `future?` are relative to `Time.current`.
 
-Use the `local_time` class method to create time objects honoring the user time zone:
-
-```ruby
-Time.zone_default
-# => #<ActiveSupport::TimeZone:0x7f73654d4f38 @utc_offset=nil, @name="Madrid", ...>
-Time.local_time(2010, 8, 15)
-# => Sun Aug 15 00:00:00 +0200 2010
-```
-
-The `utc_time` class method returns a time in UTC:
-
-```ruby
-Time.zone_default
-# => #<ActiveSupport::TimeZone:0x7f73654d4f38 @utc_offset=nil, @name="Madrid", ...>
-Time.utc_time(2010, 8, 15)
-# => Sun Aug 15 00:00:00 UTC 2010
-```
-
-Both `local_time` and `utc_time` accept up to seven positional arguments: year, month, day, hour, min, sec, usec. Year is mandatory, month and day default to 1, and the rest default to 0.
-
 If the time to be constructed lies beyond the range supported by `Time` in the runtime platform, usecs are discarded and a `DateTime` object is returned instead.
 
 #### Durations
@@ -3697,7 +3668,7 @@ now - 1.week
 They translate to calls to `since` or `advance`. For example here we get the correct jump in the calendar reform:
 
 ```ruby
-Time.utc_time(1582, 10, 3) + 5.days
+Time.utc(1582, 10, 3) + 5.days
 # => Mon Oct 18 00:00:00 UTC 1582
 ```
 
@@ -3727,6 +3698,25 @@ WARNING. Note you can't append with `atomic_write`.
 The auxiliary file is written in a standard directory for temporary files, but you can pass a directory of your choice as second argument.
 
 NOTE: Defined in `active_support/core_ext/file/atomic.rb`.
+
+Extensions to `Marshal`
+-----------------------
+
+### `load`
+
+Active Support adds constant autoloading support to `load`.
+
+For example, the file cache store deserializes this way:
+
+```ruby
+File.open(file_name) { |f| Marshal.load(f) }
+```
+
+If the cached data refers to a constant that is unknown at that point, the autoloading mechanism is triggered and if it succeeds the deserialization is retried transparently.
+
+WARNING. If the argument is an `IO` it needs to respond to `rewind` to be able to retry. Regular files respond to `rewind`.
+
+NOTE: Defined in `active_support/core_ext/marshal.rb`.
 
 Extensions to `Logger`
 ----------------------

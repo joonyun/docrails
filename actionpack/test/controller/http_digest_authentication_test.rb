@@ -1,11 +1,10 @@
 require 'abstract_unit'
-# FIXME remove DummyKeyGenerator and this require in 4.1
 require 'active_support/key_generator'
 
 class HttpDigestAuthenticationTest < ActionController::TestCase
   class DummyDigestController < ActionController::Base
-    before_filter :authenticate, :only => :index
-    before_filter :authenticate_with_request, :only => :display
+    before_action :authenticate, only: :index
+    before_action :authenticate_with_request, only: :display
 
     USERS = { 'lifo' => 'world', 'pretty' => 'please',
               'dhh' => ::Digest::MD5::hexdigest(["dhh","SuperSecret","secret"].join(":"))}
@@ -43,7 +42,7 @@ class HttpDigestAuthenticationTest < ActionController::TestCase
   setup do
     # Used as secret in generating nonce to prevent tampering of timestamp
     @secret = "4fb45da9e4ab4ddeb7580d6a35503d99"
-    @request.env["action_dispatch.key_generator"] = ActiveSupport::DummyKeyGenerator.new(@secret)
+    @request.env["action_dispatch.key_generator"] = ActiveSupport::LegacyKeyGenerator.new(@secret)
   end
 
   teardown do
@@ -247,6 +246,14 @@ class HttpDigestAuthenticationTest < ActionController::TestCase
     assert_response :success
     assert assigns(:logged_in)
     assert_equal 'Definitely Maybe', @response.body
+  end
+
+  test "when sent a basic auth header, returns Unauthorized" do
+    @request.env['HTTP_AUTHORIZATION'] = 'Basic Gwf2aXq8ZLF3Hxq='
+
+    get :display
+
+    assert_response :unauthorized
   end
 
   private

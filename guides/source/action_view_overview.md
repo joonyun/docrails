@@ -1,13 +1,13 @@
 Action View Overview
 ====================
 
-In this guide you will learn:
+After reading this guide, you will know:
 
-* What Action View is and how to use it with Rails
-* How best to use templates, partials, and layouts
-* What helpers are provided by Action View and how to make your own
-* How to use localized views
-* How to use Action View outside of Rails
+* What Action View is and how to use it with Rails.
+* How best to use templates, partials, and layouts.
+* What helpers are provided by Action View and how to make your own.
+* How to use localized views.
+* How to use Action View outside of Rails.
 
 --------------------------------------------------------------------------------
 
@@ -172,7 +172,7 @@ That code will pull in the partial from `app/views/shared/_menu.html.erb`.
 
 #### Using Partials to simplify Views
 
-One way to use partials is to treat them as the equivalent of subroutines: as a way to move details out of a view so that you can grasp what's going on more easily. For example, you might have a view that looked like this:
+One way to use partials is to treat them as the equivalent of subroutines; a way to move details out of a view so that you can grasp what's going on more easily. For example, you might have a view that looks like this:
 
 ```html+erb
 <%= render "shared/ad_banner" %>
@@ -269,12 +269,7 @@ Rails will render the `_product_ruler` partial (with no data passed to it) betwe
 
 ### Layouts
 
-TODO...
-
-Using Templates, Partials and Layouts "The Rails Way"
---------------------------------------------------------
-
-TODO...
+Layouts can be used to render a common view template around the results of Rails controller actions. Typically, every Rails has a couple of overall layouts that most pages are rendered within. For example, a site might have a layout for a logged in user, and a layout for the marketing or sales side of the site. The logged in user layout might include top-level navigation that should be present across many controller actions. The sales layout for a SaaS app might include top-level navigation for things like "Pricing" and "Contact Us." You would expect each layout to have a different look and feel. You can read more details about Layouts in the [Layouts and Rendering in Rails](layouts_and_rendering.html) guide.
 
 Partial Layouts
 ---------------
@@ -492,7 +487,7 @@ image_path("edit.png") # => /assets/edit-2d1a2db63fc738690021fedb5a65b68e.png
 
 #### image_url
 
-Computes the url to an image asset in the `app/asset/images` directory. This will call `image_path` internally and merge with your current host or your asset host.
+Computes the url to an image asset in the `app/assets/images` directory. This will call `image_path` internally and merge with your current host or your asset host.
 
 ```ruby
 image_url("edit.png") # => http://www.example.com/assets/edit.png
@@ -1263,8 +1258,6 @@ Creates a field set for grouping HTML form elements.
 
 Creates a file upload field.
 
-Prior to Rails 3.1, if you are using file uploads, then you will need to set the multipart option for the form tag. Rails 3.1+ does this automatically.
-
 ```html+erb
 <%= form_tag {action: "post"}, {multipart: true} do %>
   <label for="file">File to Upload</label> <%= file_field_tag "file" %>
@@ -1486,7 +1479,7 @@ You can use the same technique to localize the rescue files in your public direc
 Since Rails doesn't restrict the symbols that you use to set I18n.locale, you can leverage this system to display different content depending on anything you like. For example, suppose you have some "expert" users that should see different pages from "normal" users. You could add the following to `app/controllers/application.rb`:
 
 ```ruby
-before_filter :set_expert_locale
+before_action :set_expert_locale
 
 def set_expert_locale
   I18n.locale = :expert if current_user.expert?

@@ -1,12 +1,14 @@
 Rails on Rack
 =============
 
-This guide covers Rails integration with Rack and interfacing with other Rack components. By referring to this guide, you will be able to:
+This guide covers Rails integration with Rack and interfacing with other Rack components.
 
-* Create Rails Metal applications
-* Use Rack Middlewares in your Rails applications
-* Understand Action Pack's internal Middleware stack
-* Define a custom Middleware stack
+After reading this guide, you will know:
+
+* How to create Rails Metal applications.
+* How to use Rack Middlewares in your Rails applications.
+* Action Pack's internal Middleware stack.
+* How to define a custom Middleware stack.
 
 --------------------------------------------------------------------------------
 
@@ -26,7 +28,10 @@ Rails on Rack
 
 ### Rails Application's Rack Object
 
-`ApplicationName::Application` is the primary Rack application object of a Rails application. Any Rack compliant web server should be using `ApplicationName::Application` object to serve a Rails application.
+`ApplicationName::Application` is the primary Rack application object of a Rails
+application. Any Rack compliant web server should be using
+`ApplicationName::Application` object to serve a Rails
+application. `Rails.application` refers to the same application object.
 
 ### `rails server`
 
@@ -35,11 +40,11 @@ Rails on Rack
 Here's how `rails server` creates an instance of `Rack::Server`
 
 ```ruby
-Rails::Server.new.tap { |server|
+Rails::Server.new.tap do |server|
   require APP_PATH
   Dir.chdir(Rails.application.root)
   server.start
-}
+end
 ```
 
 The `Rails::Server` inherits from `Rack::Server` and calls the `Rack::Server#start` method this way:
@@ -77,11 +82,11 @@ To use `rackup` instead of Rails' `rails server`, you can put the following insi
 
 ```ruby
 # Rails.root/config.ru
-require "config/environment"
+require ::File.expand_path('../config/environment',  __FILE__)
 
 use Rack::Debugger
 use Rack::ContentLength
-run ApplicationName::Application
+run Rails.application
 ```
 
 And start the server:
@@ -99,7 +104,7 @@ $ rackup --help
 Action Dispatcher Middleware Stack
 ----------------------------------
 
-Many of Action Dispatchers's internal components are implemented as Rack middlewares. `Rails::Application` uses `ActionDispatch::MiddlewareStack` to combine various internal and external middlewares to form a complete Rails Rack application.
+Many of Action Dispatcher's internal components are implemented as Rack middlewares. `Rails::Application` uses `ActionDispatch::MiddlewareStack` to combine various internal and external middlewares to form a complete Rails Rack application.
 
 NOTE: `ActionDispatch::MiddlewareStack` is Rails equivalent of `Rack::Builder`, but built for better flexibility and more features to meet Rails' requirements.
 
@@ -135,7 +140,6 @@ use ActionDispatch::ParamsParser
 use Rack::Head
 use Rack::ConditionalGet
 use Rack::ETag
-use ActionDispatch::BestStandardsSupport
 run MyApp::Application.routes
 ```
 
@@ -213,7 +217,6 @@ And to remove browser related middleware,
 
 ```ruby
 # config/application.rb
-config.middleware.delete "ActionDispatch::BestStandardsSupport"
 config.middleware.delete "Rack::MethodOverride"
 ```
 
@@ -227,7 +230,7 @@ Much of Action Controller's functionality is implemented as Middlewares. The fol
 
  **`Rack::Lock`**
 
-* Sets `env["rack.multithread"]` flag to `true` and wraps the application within a Mutex.
+* Sets `env["rack.multithread"]` flag to `false` and wraps the application within a Mutex.
 
  **`ActiveSupport::Cache::Strategy::LocalCache::Middleware`**
 
@@ -305,10 +308,6 @@ Much of Action Controller's functionality is implemented as Middlewares. The fol
 
 * Adds ETag header on all String bodies. ETags are used to validate cache.
 
- **`ActionDispatch::BestStandardsSupport`**
-
-* Enables “best standards support” so that IE8 renders some elements correctly.
-
 TIP: It's possible to use any of the above middlewares in your custom Rack stack.
 
 ### Using Rack Builder
@@ -328,7 +327,7 @@ config.middleware.clear
 ```ruby
 # config.ru
 use MyOwnStackFromScratch
-run ApplicationName::Application
+run Rails.application
 ```
 
 Resources
@@ -336,7 +335,7 @@ Resources
 
 ### Learning Rack
 
-* [Official Rack Website](http://rack.github.com)
+* [Official Rack Website](http://rack.github.io)
 * [Introducing Rack](http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html)
 * [Ruby on Rack #1 - Hello Rack!](http://m.onkey.org/ruby-on-rack-1-hello-rack)
 * [Ruby on Rack #2 - The Builder](http://m.onkey.org/ruby-on-rack-2-the-builder)

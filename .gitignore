@@ -5,10 +5,9 @@
 debug.log
 .Gemfile
 /.bundle
-/.rbenv-version
-/.rvmrc
+/.ruby-version
 /Gemfile.lock
-/pkg
+pkg
 /dist
 /doc/rdoc
 /*/doc
@@ -22,12 +21,4 @@ debug.log
 /railties/doc
 /railties/tmp
 /guides/output
-/RDOC_MAIN.rdoc
 
-guides/pkg/
-guides/.rvmrc
-guides/code/getting_started/Gemfile.lock
-guides/Rakefile
-/.rvmrc.11.20.2012-08:55:36
-/Rakefile.bak
-vendor/bundle

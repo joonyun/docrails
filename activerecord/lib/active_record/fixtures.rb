@@ -5,8 +5,6 @@ require 'active_support/dependencies'
 require 'active_record/fixture_set/file'
 require 'active_record/errors'
 
-require 'active_support/deprecation' # temporary
-
 module ActiveRecord
   class FixtureClassNotFound < ActiveRecord::ActiveRecordError #:nodoc:
   end
@@ -365,11 +363,11 @@ module ActiveRecord
   #
   #   first:
   #     name: Smurf
-  #     *DEFAULTS
+  #     <<: *DEFAULTS
   #
   #   second:
   #     name: Fraggle
-  #     *DEFAULTS
+  #     <<: *DEFAULTS
   #
   # Any fixture labeled "DEFAULTS" is safely ignored.
   class FixtureSet
@@ -380,6 +378,12 @@ module ActiveRecord
     MAX_ID = 2 ** 30 - 1
 
     @@all_cached_fixtures = Hash.new { |h,k| h[k] = {} }
+
+    def self.find_table_name(fixture_set_name) # :nodoc:
+      ActiveSupport::Deprecation.warn(
+        "ActiveRecord::Fixtures.find_table_name is deprecated and shall be removed from future releases.  Use ActiveRecord::Fixtures.default_fixture_model_name instead.")
+      default_fixture_model_name(fixture_set_name)
+    end
 
     def self.default_fixture_model_name(fixture_set_name) # :nodoc:
       ActiveRecord::Base.pluralize_table_names ?
@@ -704,11 +708,18 @@ module ActiveRecord
   module TestFixtures
     extend ActiveSupport::Concern
 
-    included do
-      setup :setup_fixtures
-      teardown :teardown_fixtures
+    def before_setup
+      setup_fixtures
+      super
+    end
 
-      class_attribute :fixture_path
+    def after_teardown
+      super
+      teardown_fixtures
+    end
+
+    included do
+      class_attribute :fixture_path, :instance_writer => false
       class_attribute :fixture_table_names
       class_attribute :fixture_class_names
       class_attribute :use_transactional_fixtures
@@ -747,9 +758,8 @@ module ActiveRecord
 
       def fixtures(*fixture_set_names)
         if fixture_set_names.first == :all
-          fixture_set_names = Dir["#{fixture_path}/**/*.yml"].map { |f|
-            File.basename f, '.yml'
-          }
+          fixture_set_names = Dir["#{fixture_path}/**/*.{yml}"]
+          fixture_set_names.map! { |f| f[(fixture_path.to_s.size + 1)..-5] }
         else
           fixture_set_names = fixture_set_names.flatten.map { |n| n.to_s }
         end
@@ -762,8 +772,7 @@ module ActiveRecord
       def try_to_load_dependency(file_name)
         require_dependency file_name
       rescue LoadError => e
-        # Let's hope the developer has included it himself
-
+        # Let's hope the developer has included it
         # Let's warn in case this is a subdependency, otherwise
         # subdependency error messages are totally cryptic
         if ActiveRecord::Base.logger
@@ -866,11 +875,7 @@ module ActiveRecord
     end
 
     def teardown_fixtures
-      return unless defined?(ActiveRecord) && !ActiveRecord::Base.configurations.blank?
-
-      unless run_in_transaction?
-        ActiveRecord::FixtureSet.reset_cache
-      end
+      return if ActiveRecord::Base.configurations.blank?
 
       # Rollback changes if a transaction is active.
       if run_in_transaction?
@@ -878,7 +883,10 @@ module ActiveRecord
           connection.rollback_transaction if connection.transaction_open?
         end
         @fixture_connections.clear
+      else
+        ActiveRecord::FixtureSet.reset_cache
       end
+
       ActiveRecord::Base.clear_active_connections!
     end
 

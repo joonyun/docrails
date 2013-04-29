@@ -1,8 +1,6 @@
 require 'active_support/core_ext/enumerable'
 require 'active_support/core_ext/string/conversions'
 require 'active_support/core_ext/module/remove_method'
-require 'active_support/dependencies/autoload'
-require 'active_support/concern'
 require 'active_record/errors'
 
 module ActiveRecord
@@ -193,8 +191,8 @@ module ActiveRecord
     # * <tt>Project#portfolio, Project#portfolio=(portfolio), Project#portfolio.nil?</tt>
     # * <tt>Project#project_manager, Project#project_manager=(project_manager), Project#project_manager.nil?,</tt>
     # * <tt>Project#milestones.empty?, Project#milestones.size, Project#milestones, Project#milestones<<(milestone),</tt>
-    #   <tt>Project#milestones.delete(milestone), Project#milestones.destroy(mileston), Project#milestones.find(milestone_id),</tt>
-    #   <tt>Project#milestones.all(options), Project#milestones.build, Project#milestones.create</tt>
+    #   <tt>Project#milestones.delete(milestone), Project#milestones.destroy(milestone), Project#milestones.find(milestone_id),</tt>
+    #   <tt>Project#milestones.build, Project#milestones.create</tt>
     # * <tt>Project#categories.empty?, Project#categories.size, Project#categories, Project#categories<<(category1),</tt>
     #   <tt>Project#categories.delete(category1), Project#categories.destroy(category1)</tt>
     #
@@ -234,7 +232,7 @@ module ActiveRecord
     #   others.size                       |   X   |    X     |    X
     #   others.length                     |   X   |    X     |    X
     #   others.count                      |   X   |    X     |    X
-    #   others.sum(args*,&block)          |   X   |    X     |    X
+    #   others.sum(*args)                 |   X   |    X     |    X
     #   others.empty?                     |   X   |    X     |    X
     #   others.clear                      |   X   |    X     |    X
     #   others.delete(other,other,...)    |   X   |    X     |    X
@@ -243,6 +241,7 @@ module ActiveRecord
     #   others.destroy_all                |   X   |    X     |    X
     #   others.find(*args)                |   X   |    X     |    X
     #   others.exists?                    |   X   |    X     |    X
+    #   others.distinct                   |   X   |    X     |    X
     #   others.uniq                       |   X   |    X     |    X
     #   others.reset                      |   X   |    X     |    X
     #
@@ -459,7 +458,7 @@ module ActiveRecord
     #     has_many :people do
     #       def find_or_create_by_name(name)
     #         first_name, last_name = name.split(" ", 2)
-    #         find_or_create_by_first_name_and_last_name(first_name, last_name)
+    #         find_or_create_by(first_name: first_name, last_name: last_name)
     #       end
     #     end
     #   end
@@ -474,7 +473,7 @@ module ActiveRecord
     #   module FindOrCreateByNameExtension
     #     def find_or_create_by_name(name)
     #       first_name, last_name = name.split(" ", 2)
-    #       find_or_create_by_first_name_and_last_name(first_name, last_name)
+    #       find_or_create_by(first_name: first_name, last_name: last_name)
     #     end
     #   end
     #
@@ -743,7 +742,7 @@ module ActiveRecord
     # other than the main one. If this is the case Active Record falls back to the previously
     # used LEFT OUTER JOIN based strategy. For example
     #
-    #   Post.includes([:author, :comments]).where(['comments.approved = ?', true]).all
+    #   Post.includes([:author, :comments]).where(['comments.approved = ?', true])
     #
     # This will result in a single SQL query with joins along the lines of:
     # <tt>LEFT OUTER JOIN comments ON comments.post_id = posts.id</tt> and
@@ -951,7 +950,7 @@ module ActiveRecord
     #
     # The <tt>:dependent</tt> option can have different values which specify how the deletion
     # is done. For more information, see the documentation for this option on the different
-    # specific association types. When no option is given, the behaviour is to do nothing
+    # specific association types. When no option is given, the behavior is to do nothing
     # with the associated records when destroying a record.
     #
     # Note that <tt>:dependent</tt> is implemented using Rails' callback
@@ -967,8 +966,8 @@ module ActiveRecord
     # For +has_and_belongs_to_many+, <tt>delete</tt> and <tt>destroy</tt> are the same: they
     # cause the records in the join table to be removed.
     #
-    # For +has_many+, <tt>destroy</tt> will always call the <tt>destroy</tt> method of the
-    # record(s) being removed so that callbacks are run. However <tt>delete</tt> will either
+    # For +has_many+, <tt>destroy</tt> and <tt>destroy_all</tt> will always call the <tt>destroy</tt> method of the
+    # record(s) being removed so that callbacks are run. However <tt>delete</tt> and <tt>delete_all</tt> will either
     # do the deletion according to the strategy specified by the <tt>:dependent</tt> option, or
     # if no <tt>:dependent</tt> option is given, then it will follow the default strategy.
     # The default strategy is <tt>:nullify</tt> (set the foreign keys to <tt>nil</tt>), except for
@@ -989,7 +988,7 @@ module ActiveRecord
     # associated objects themselves. So with +has_and_belongs_to_many+ and +has_many+
     # <tt>:through</tt>, the join records will be deleted, but the associated records won't.
     #
-    # This makes sense if you think about it: if you were to call <tt>post.tags.delete(Tag.find_by_name('food'))</tt>
+    # This makes sense if you think about it: if you were to call <tt>post.tags.delete(Tag.find_by(name: 'food'))</tt>
     # you would want the 'food' tag to be unlinked from the post, rather than for the tag itself
     # to be removed from the database.
     #
@@ -1026,7 +1025,7 @@ module ActiveRecord
       # [collection<<(object, ...)]
       #   Adds one or more objects to the collection by setting their foreign keys to the collection's primary key.
       #   Note that this operation instantly fires update sql without waiting for the save or update call on the
-      #   parent object.
+      #   parent object, unless the parent object is a new record.
       # [collection.delete(object, ...)]
       #   Removes one or more objects from the collection by setting their foreign keys to +NULL+.
       #   Objects will be in addition destroyed if they're associated with <tt>dependent: :destroy</tt>,
@@ -1081,7 +1080,7 @@ module ActiveRecord
       # === Example
       #
       # Example: A Firm class declares <tt>has_many :clients</tt>, which will add:
-      # * <tt>Firm#clients</tt> (similar to <tt>Clients.all conditions: ["firm_id = ?", id]</tt>)
+      # * <tt>Firm#clients</tt> (similar to <tt>Client.where(firm_id: id)</tt>)
       # * <tt>Firm#clients<<</tt>
       # * <tt>Firm#clients.delete</tt>
       # * <tt>Firm#clients.destroy</tt>
@@ -1091,7 +1090,7 @@ module ActiveRecord
       # * <tt>Firm#clients.clear</tt>
       # * <tt>Firm#clients.empty?</tt> (similar to <tt>firm.clients.size == 0</tt>)
       # * <tt>Firm#clients.size</tt> (similar to <tt>Client.count "firm_id = #{id}"</tt>)
-      # * <tt>Firm#clients.find</tt> (similar to <tt>Client.find(id, conditions: "firm_id = #{id}")</tt>)
+      # * <tt>Firm#clients.find</tt> (similar to <tt>Client.where(firm_id: id).find(id)</tt>)
       # * <tt>Firm#clients.exists?(name: 'ACME')</tt> (similar to <tt>Client.exists?(name: 'ACME', firm_id: firm.id)</tt>)
       # * <tt>Firm#clients.build</tt> (similar to <tt>Client.new("firm_id" => id)</tt>)
       # * <tt>Firm#clients.create</tt> (similar to <tt>c = Client.new("firm_id" => id); c.save; c</tt>)
@@ -1116,11 +1115,11 @@ module ActiveRecord
       #   similar callbacks may affect the :dependent behavior, and the
       #   :dependent behavior may affect other callbacks.
       #
-      #   * <tt>:destroy</tt> causes all the associated objects to also be destroyed
-      #   * <tt>:delete_all</tt> causes all the asssociated objects to be deleted directly from the database (so callbacks will not execute)
+      #   * <tt>:destroy</tt> causes all the associated objects to also be destroyed.
+      #   * <tt>:delete_all</tt> causes all the associated objects to be deleted directly from the database (so callbacks will not be executed).
       #   * <tt>:nullify</tt> causes the foreign keys to be set to +NULL+. Callbacks are not executed.
-      #   * <tt>:restrict_with_exception</tt> causes an exception to be raised if there are any associated records
-      #   * <tt>:restrict_with_error</tt> causes an error to be added to the owner if there are any associated objects
+      #   * <tt>:restrict_with_exception</tt> causes an exception to be raised if there are any associated records.
+      #   * <tt>:restrict_with_error</tt> causes an error to be added to the owner if there are any associated objects.
       #
       #   If using with the <tt>:through</tt> option, the association on the join model must be
       #   a +belongs_to+, and the records which get deleted are the join records, rather than
@@ -1213,7 +1212,7 @@ module ActiveRecord
       # === Example
       #
       # An Account class declares <tt>has_one :beneficiary</tt>, which will add:
-      # * <tt>Account#beneficiary</tt> (similar to <tt>Beneficiary.first(conditions: "account_id = #{id}")</tt>)
+      # * <tt>Account#beneficiary</tt> (similar to <tt>Beneficiary.where(account_id: id).first</tt>)
       # * <tt>Account#beneficiary=(beneficiary)</tt> (similar to <tt>beneficiary.account_id = account.id; beneficiary.save</tt>)
       # * <tt>Account#build_beneficiary</tt> (similar to <tt>Beneficiary.new("account_id" => id)</tt>)
       # * <tt>Account#create_beneficiary</tt> (similar to <tt>b = Beneficiary.new("account_id" => id); b.save; b</tt>)
@@ -1233,7 +1232,7 @@ module ActiveRecord
       #   its owner is destroyed:
       #
       #   * <tt>:destroy</tt> causes the associated object to also be destroyed
-      #   * <tt>:delete</tt> causes the asssociated object to be deleted directly from the database (so callbacks will not execute)
+      #   * <tt>:delete</tt> causes the associated object to be deleted directly from the database (so callbacks will not execute)
       #   * <tt>:nullify</tt> causes the foreign key to be set to +NULL+. Callbacks are not executed.
       #   * <tt>:restrict_with_exception</tt> causes an exception to be raised if there is an associated record
       #   * <tt>:restrict_with_error</tt> causes an error to be added to the owner if there is an associated object
@@ -1409,6 +1408,8 @@ module ActiveRecord
       # to generate a join table name of "papers_paper_boxes" because of the length of the name "paper_boxes",
       # but it in fact generates a join table name of "paper_boxes_papers". Be aware of this caveat, and use the
       # custom <tt>:join_table</tt> option if you need to.
+      # If your tables share a common prefix, it will only appear once at the beginning. For example,
+      # the tables "catalog_categories" and "catalog_products" generate a join table name of "catalog_categories_products".
       #
       # The join table should not have a primary key or a model associated with it. You must manually generate the
       # join table with a migration such as this:
@@ -1435,7 +1436,7 @@ module ActiveRecord
       #   Adds one or more objects to the collection by creating associations in the join table
       #   (<tt>collection.push</tt> and <tt>collection.concat</tt> are aliases to this method).
       #   Note that this operation instantly fires update sql without waiting for the save or update call on the
-      #   parent object.
+      #   parent object, unless the parent object is a new record.
       # [collection.delete(object, ...)]
       #   Removes one or more objects from the collection by removing their associations from the join table.
       #   This does not destroy the objects.
